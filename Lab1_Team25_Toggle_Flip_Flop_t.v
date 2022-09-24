@@ -22,8 +22,8 @@ end
 
 initial begin
     @(negedge clk) t = 1'b1;
+    rst_n <= 1;
     @(negedge ~clk) t = 1'b0;
-    @(negedge rst_n) t = 1'b0;
     @(negedge clk) $finish;
 end
 

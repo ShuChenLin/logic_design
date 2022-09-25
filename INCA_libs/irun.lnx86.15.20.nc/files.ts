@@ -1,2 +1,0 @@
-1664094298 /users/course/2022F/LDL17700000/u110062205/logic_design/Lab1_Team25_Crossbar_2x2_4bit_t.v
-1664094298 /users/course/2022F/LDL17700000/u110062205/logic_design/Lab1_Team25_Crossbar_2x2_4bit.v

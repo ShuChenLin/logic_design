@@ -1,0 +1,51 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Sep 25, 2022 at 16:57:33 CST
+ncverilog
+	Lab1_Team25_Crossbar_4x4_4bit_t.v
+	Lab1_Team25_Crossbar_4x4_4bit.v
+	+access+r
+file: Lab1_Team25_Crossbar_4x4_4bit_t.v
+	module worklib.Crossbar_4x4_4bit_t:v
+		errors: 0, warnings: 0
+file: Lab1_Team25_Crossbar_4x4_4bit.v
+	module worklib.And_1x4_4bit:v
+		errors: 0, warnings: 0
+	module worklib.Or_4x4_4bit:v
+		errors: 0, warnings: 0
+	module worklib.Mux_2x1_4bit:v
+		errors: 0, warnings: 0
+	module worklib.Dmux_1x2_4bit:v
+		errors: 0, warnings: 0
+	module worklib.Crossbar_2x2_4bit:v
+		errors: 0, warnings: 0
+	module worklib.Crossbar_4x4_4bit:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: 
+    $dumpvars("+all");
+                   |
+ncelab: *W,STRINT (./Lab1_Team25_Crossbar_4x4_4bit_t.v,28|19): String literal argument supplied to integer parameter.
+.................... Done
+	Generating native compiled code:
+		worklib.Crossbar_4x4_4bit_t:v <0x7cbfd88a>
+			streams:   7, words:  4945
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                77       7
+		Primitives:            225       3
+		Registers:               5       5
+		Expanded wires:         21       5
+		Initial blocks:          7       7
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Crossbar_4x4_4bit_t:v
+Loading snapshot worklib.Crossbar_4x4_4bit_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 9 NS + 0
+./Lab1_Team25_Crossbar_4x4_4bit_t.v:39     #1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Sep 25, 2022 at 16:57:37 CST  (total: 00:00:04)

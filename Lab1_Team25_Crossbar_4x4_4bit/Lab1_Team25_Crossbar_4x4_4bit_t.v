@@ -36,6 +36,14 @@ module Crossbar_4x4_4bit_t;
             in3 = in3 + 4'b1;
             in4 = in4 + 4'b1;
         end
+		control = 5'b00000;
+		in1 = 4'b0001;
+		in2 = 4'b0010;
+		in3 = 4'b0011;
+		in4 = 4'b0100;
+		repeat (2 ** 5) begin
+			#1 control = control + 5'b1;
+		end
         #1 $finish;
     end
 

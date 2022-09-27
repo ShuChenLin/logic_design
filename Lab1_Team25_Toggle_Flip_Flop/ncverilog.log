@@ -1,12 +1,12 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Sep 28, 2022 at 04:26:33 CST
+TOOL:	ncverilog	15.20-s039: Started on Sep 28, 2022 at 04:51:30 CST
 ncverilog
 	Lab1_Team25_Toggle_Flip_Flop_t.v
 	Lab1_Team25_Toggle_Flip_Flop.v
 	+access+r
 Recompiling... reason: file './Lab1_Team25_Toggle_Flip_Flop_t.v' is newer than expected.
-	expected: Wed Sep 28 04:23:48 2022
-	actual:   Wed Sep 28 04:25:27 2022
+	expected: Wed Sep 28 04:25:27 2022
+	actual:   Wed Sep 28 04:50:24 2022
 file: Lab1_Team25_Toggle_Flip_Flop_t.v
 	module worklib.Toggle_Flip_Flop_t:v
 		errors: 0, warnings: 0
@@ -18,8 +18,8 @@ file: Lab1_Team25_Toggle_Flip_Flop_t.v
 ncelab: *W,STRINT (./Lab1_Team25_Toggle_Flip_Flop_t.v,20|23): String literal argument supplied to integer parameter.
 ................ Done
 	Generating native compiled code:
-		worklib.Toggle_Flip_Flop_t:v <0x3bb0d2cc>
-			streams:   8, words: 11629
+		worklib.Toggle_Flip_Flop_t:v <0x2380584b>
+			streams:   8, words: 30534
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -37,7 +37,7 @@ Loading snapshot worklib.Toggle_Flip_Flop_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 26 NS + 0
-./Lab1_Team25_Toggle_Flip_Flop_t.v:43         @(negedge clk) $finish;
+Simulation complete via $finish(1) at time 68 NS + 0
+./Lab1_Team25_Toggle_Flip_Flop_t.v:109         @(negedge clk) $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Sep 28, 2022 at 04:26:36 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Sep 28, 2022 at 04:51:36 CST  (total: 00:00:06)

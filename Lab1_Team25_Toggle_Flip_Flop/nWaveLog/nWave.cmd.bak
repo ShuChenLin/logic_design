@@ -20,5 +20,4 @@ wvAddSignal -win $_nWave1 -group {"G2" \
 }
 wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 )} 
 wvSetPosition -win $_nWave1 {("G1" 4)}
-wvSetCursor -win $_nWave1 901.859819 -snap {("G1" 3)}
 wvZoomAll -win $_nWave1

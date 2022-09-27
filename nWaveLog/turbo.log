@@ -1,0 +1,10 @@
+Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/Novas -nWave
+uname(Linux ic21 3.10.0-1160.62.1.el7.x86_64 #1 SMP Tue Apr 5 16:57:59 UTC 2022 x86_64)
+Failure on Verdi 3-tier licensing, Use nWave -licdebug for more information.
+Disabled Info Message: The file you selected is a VCD file.
+ It will be translated to Fast Signal Database(FSDB) file.
+The new waveform file name: /users/course/2022F/LDL17700000/u110062205/logic_design/Lab1_Team25_Toggle_Flip_Flop/Tff.vcd.fsdb
+Converter is running ...
+
+Disabled Info Message: Fast file /users/course/2022F/LDL17700000/u110062205/logic_design/Lab1_Team25_Toggle_Flip_Flop/Tff.vcd.fsdb auto loading!
+au time 78.883592 1.994368 0.891186 delta 444088320 444088320 total 936361984 936361984

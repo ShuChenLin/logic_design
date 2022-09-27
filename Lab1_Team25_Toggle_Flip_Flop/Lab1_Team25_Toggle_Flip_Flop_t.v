@@ -24,6 +24,22 @@ module Toggle_Flip_Flop_t;
         @(negedge clk) t = 1'b1;
         rst_n <= 1;
         @(negedge ~clk) t = 1'b0;
+	@(negedge clk) t = 1'b1;
+	rst_n <= 0;
+	@(negedge clk) t = 1'b1;
+        @(negedge ~clk) t = 1'b0;
+	@(negedge clk) t = 1'b1;
+	rst_n <= 1;
+	@(negedge ~clk) t= 1'b0;
+	@(negedge clk) t = 1'b1;
+	@(negedge ~clk) t = 1'b0;
+	@(negedge clk) t = 1'b0;
+	@(negedge clk) t = 1'b1;
+	@(negedge clk) t = 1'b1;
+	@(negedge clk) t = 1'b1;
+	@(negedge clk) t = 1'b1;
+	@(negedge clk) t = 1'b1;
+	@(negedge clk) t = 1'b1;
         @(negedge clk) $finish;
     end
 

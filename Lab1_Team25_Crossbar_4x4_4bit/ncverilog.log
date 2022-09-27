@@ -1,35 +1,18 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Sep 25, 2022 at 16:57:33 CST
+TOOL:	ncverilog	15.20-s039: Started on Sep 28, 2022 at 01:48:31 CST
 ncverilog
 	Lab1_Team25_Crossbar_4x4_4bit_t.v
 	Lab1_Team25_Crossbar_4x4_4bit.v
 	+access+r
-file: Lab1_Team25_Crossbar_4x4_4bit_t.v
-	module worklib.Crossbar_4x4_4bit_t:v
-		errors: 0, warnings: 0
+Recompiling... reason: file './Lab1_Team25_Crossbar_4x4_4bit.v' is newer than expected.
+	expected: Wed Sep 28 01:38:45 2022
+	actual:   Wed Sep 28 01:47:24 2022
 file: Lab1_Team25_Crossbar_4x4_4bit.v
-	module worklib.And_1x4_4bit:v
-		errors: 0, warnings: 0
-	module worklib.Or_4x4_4bit:v
-		errors: 0, warnings: 0
-	module worklib.Mux_2x1_4bit:v
-		errors: 0, warnings: 0
-	module worklib.Dmux_1x2_4bit:v
-		errors: 0, warnings: 0
 	module worklib.Crossbar_2x2_4bit:v
-		errors: 0, warnings: 0
-	module worklib.Crossbar_4x4_4bit:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: 
-    $dumpvars("+all");
-                   |
-ncelab: *W,STRINT (./Lab1_Team25_Crossbar_4x4_4bit_t.v,28|19): String literal argument supplied to integer parameter.
-.................... Done
-	Generating native compiled code:
-		worklib.Crossbar_4x4_4bit_t:v <0x7cbfd88a>
-			streams:   7, words:  4945
+	Building instance overlay tables: .................... Done
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -45,7 +28,7 @@ Loading snapshot worklib.Crossbar_4x4_4bit_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 9 NS + 0
-./Lab1_Team25_Crossbar_4x4_4bit_t.v:39     #1 $finish;
+Simulation complete via $finish(1) at time 41 NS + 0
+./Lab1_Team25_Crossbar_4x4_4bit_t.v:47         #1 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Sep 25, 2022 at 16:57:37 CST  (total: 00:00:04)
+TOOL:	ncverilog	15.20-s039: Exiting on Sep 28, 2022 at 01:48:32 CST  (total: 00:00:01)

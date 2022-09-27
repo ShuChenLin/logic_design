@@ -62,8 +62,8 @@ module Crossbar_2x2_4bit(in1, in2, control, out1, out2);
     not b0(control_n, control);
     Dmux_1x2_4bit turn1(in1, control, mid1, mid2);
     Dmux_1x2_4bit turn2(in2, control_n, mid3, mid4);
-    Mux_2x1_4bit turn3(mid1, mid2, control, out1);
-    Mux_2x1_4bit turn4(mid3, mid4, control_n, out2);
+    Mux_2x1_4bit turn3(mid1, mid3, control, out1);
+    Mux_2x1_4bit turn4(mid2, mid4, control_n, out2);
 
 endmodule
 

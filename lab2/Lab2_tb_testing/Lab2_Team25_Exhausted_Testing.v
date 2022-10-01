@@ -15,35 +15,42 @@ module Exhausted_Testing(a, b, cin, error, done);
     reg done = 1'b0;
     reg error = 1'b0;
 
-
     // output from the test instance.
     wire [4-1:0] sum;
     wire cout;
 
     // instantiate the test instance.
-    Ripple_Carry_Adder rca(
+    Ripple_Carry_Adder rcs(
         .a (a), 
-        .b (b), 
+        .b (b),
         .cin (cin),
         .cout (cout),
         .sum (sum)
     );
 
     initial begin
-        // design you test pattern here.
-        // Remember to set the input pattern to the test instance every 5 nanasecond
-        // Check the output and set the `error` signal accordingly 1 nanosecond after new input is set.
-        // Also set the done signal to 1'b1 5 nanoseconds after the test is finished.
+        $dumpfile("test.vcd");
+        $dumpvars("+all");
+    end
+
+    initial begin
+        // design your test pattern here.
+        // Remember to set the input pattern to the test instance every
+        // 5 nanosecond.
+        // Check the output and set the `error` signal accordingly
+        // 1 nanosecond after new input is set.
+        // Also set the done signal to 1'b1 5 nanoseconds after the test is
+        // finished.
         // Example:
         // setting the input
         // a = 4'b0000;
         // b = 4'b0000;
         // cin = 1'b0;
-        // check the output
+        // check the output 
         // #1
-        // check_output;
+        // check the output;
         // #4
-        // setting another input
+        // setting another input 
         // a = 4'b0001;
         // b = 4'b0000;
         // cin = 1'b0;
@@ -56,8 +63,19 @@ module Exhausted_Testing(a, b, cin, error, done);
         // #1
         // check_output;
         // #4
-        // setting the done signal
+        // setting the done signal 
         // done = 1'b1;
+        repeat (2 ** 9) begin
+            #1 if ((a + b + cin) === {cout, sum}) begin
+                error = 1'b0;
+            end
+            else begin
+                error = 1'b1;
+            end
+            #4 {a, b, cin} = {a, b, cin} + 1'b1;
+        end
+        done = 1'b1;
+        #5 done = 1'b0;
     end
 
 endmodule

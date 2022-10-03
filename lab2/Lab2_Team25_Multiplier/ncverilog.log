@@ -1,0 +1,41 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 04, 2022 at 00:54:25 CST
+ncverilog
+	Lab2_Team25_Multiplier_4bit.v
+	Multiplier_4bit_t.v
+	+access+r
+Recompiling... reason: file './Multiplier_4bit_t.v' is newer than expected.
+	expected: Tue Oct  4 00:51:57 2022
+	actual:   Tue Oct  4 00:53:19 2022
+file: Multiplier_4bit_t.v
+	module worklib.Multiplier_4bit_t:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: 
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Multiplier_4bit_t.v,16|23): String literal argument supplied to integer parameter.
+.................... Done
+	Generating native compiled code:
+		worklib.Multiplier_4bit_t:v <0x0c8a6635>
+			streams:   4, words:  2670
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                46       5
+		Primitives:            156       1
+		Registers:               2       2
+		Expanded wires:          8       2
+		Initial blocks:          4       4
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Multiplier_4bit_t:v
+Loading snapshot worklib.Multiplier_4bit_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 257 NS + 0
+./Multiplier_4bit_t.v:23         #1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 04, 2022 at 00:54:28 CST  (total: 00:00:03)

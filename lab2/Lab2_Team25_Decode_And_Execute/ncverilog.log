@@ -1,0 +1,43 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 03, 2022 at 20:03:26 CST
+ncverilog
+	Lab2_Team25_Decode_And_Execute.v
+	Decode_And_Execute.v
+	+access+r
+Recompiling... reason: file './Decode_And_Execute.v' is newer than expected.
+	expected: Mon Oct  3 19:57:36 2022
+	actual:   Mon Oct  3 20:02:20 2022
+file: Decode_And_Execute.v
+	module worklib.Decode_And_Execute_t:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: 
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Decode_And_Execute.v,18|23): String literal argument supplied to integer parameter.
+.................... Done
+	Generating native compiled code:
+		worklib.Decode_And_Execute_t:v <0x325ef261>
+			streams:   5, words:  3554
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:               1474      24
+		Primitives:            1366       2
+		Registers:                3       3
+		Scalar wires:           447       -
+		Expanded wires:          15       4
+		Initial blocks:           5       5
+		Pseudo assignments:       1       1
+		Simulation timescale:   1ps
+	Writing initial simulation snapshot: worklib.Decode_And_Execute_t:v
+Loading snapshot worklib.Decode_And_Execute_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 2057 NS + 0
+./Decode_And_Execute.v:28         #1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 03, 2022 at 20:03:29 CST  (total: 00:00:03)

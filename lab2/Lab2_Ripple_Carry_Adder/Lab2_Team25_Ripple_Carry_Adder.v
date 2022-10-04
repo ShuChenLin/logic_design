@@ -1,80 +1,93 @@
 `timescale 1ns/1ps
 
-module My_Or(o, x, y);
-    input x, y;
-    output o;
+module myNot (out, x);
 
-    wire tmp1, tmp2;
+	input x;
+	output out;
 
-    nand O0(tmp1, x, x);
-    nand O1(tmp2, y, y);
-    nand (o, tmp1, tmp2);
+	nand (out, x, x);
 
 endmodule
 
-module My_And(o, x, y);
+module myOr(o, x, y);
     input x, y;
     output o;
 
-    wire tmp1;
+	wire nx, ny;
 
-    nand N0(tmp1, x, y);
-    nand N1(o, tmp1, tmp1);
+	myNot o0(nx, x);
+	myNot o1(ny, y);
+    nand o2(o, nx, ny);
 
 endmodule
 
-module My_Xor(o, x, y);
+module myAnd(o, x, y);
+
     input x, y;
     output o;
 
-    wire nx, ny, tmp1, tmp2;
+    wire w;
 
-    nand N2(nx, x, x);
-    nand N3(ny, y, y);
-    My_And N4(tmp1, x, ny);
-    My_And N5(tmp2, nx, y);
-    My_Or N6(o, tmp1, tmp2);
+	nand n0(w, x, y);
+	myNot n1(o, w);
 
 endmodule
 
-module Half_Adder(x, y, cout, sum);
+module myXor(o, x, y);
+
+    input x, y;
+    output o;
+
+    wire nx, ny, wx, wy;
+
+	myNot x0(nx, x);
+	myNot x1(ny, y);
+	myAnd x2(wx, x, ny);
+	myAnd x3(wy, nx, y);
+	myOr x4(o, wx, wy);
+
+endmodule
+
+module Half_Adder(sum, cout, x, y);
+
     input x, y;
     output cout, sum;
 
-    wire tmp1, tmp2;
-
-    My_And A0(cout, x, y);
-    My_Xor A1(sum, x, y);
+	myAnd a0(cout, x, y);
+	myXor a1(sum, x, y);
 
 endmodule
 
-module Full_Adder(a, b, cin, sum, cout);
+module Full_Adder(sum, cout, a, b, cin);
+
     input a, b, cin;
     output cout, sum;
 
-    wire tmp1, tmp2, tmp3;
+	wire w1, w2, w3;
 
-    Half_Adder h0(a, b, tmp1, tmp2);
-    Half_Adder h1(tmp2, cin, tmp3, sum);
-    My_Or h2(cout, tmp3, tmp1);
+	Half_Adder f0(w1, w2, a, b);
+	Half_Adder f1(sum, w3, cin, w1);
+	myOr f2(cout, w3, w2);
 
 endmodule
 
 module Ripple_Carry_Adder(a, b, cin, cout, sum);
+
     input [8-1:0] a, b;
     input cin;
     output cout;
     output [8-1:0] sum;
 
-    wire [7-1:0] mid;
+    //wire [7-1:0] mid;
+	wire c1, c2, c3, c4, c5, c6, c7;
 
-    Full_Adder r0(a[0], b[0], cin, sum[0], mid[0]);
-    Full_Adder r1(a[1], b[1], mid[0], sum[1], mid[1]);
-    Full_Adder r2(a[2], b[2], mid[1], sum[2], mid[2]);
-    Full_Adder r3(a[3], b[3], mid[2], sum[3], mid[3]);
-    Full_Adder r4(a[4], b[4], mid[3], sum[4], mid[4]);
-    Full_Adder r5(a[5], b[5], mid[4], sum[5], mid[5]);
-    Full_Adder r6(a[6], b[6], mid[5], sum[6], mid[6]);
-    Full_Adder r7(a[7], b[7], mid[6], sum[7], cout);
+	Full_Adder r0(sum[0], c1, a[0], b[0], cin);
+	Full_Adder r1(sum[1], c2, a[1], b[1], c1);
+	Full_Adder r2(sum[2], c3, a[2], b[2], c2);
+	Full_Adder r3(sum[3], c4, a[3], b[3], c3);
+	Full_Adder r4(sum[4], c5, a[4], b[4], c4);
+	Full_Adder r5(sum[5], c6, a[5], b[5], c5);
+	Full_Adder r6(sum[6], c7, a[6], b[6], c6);
+	Full_Adder r7(sum[7], cout, a[7], b[7], c7);
 
 endmodule

@@ -1,0 +1,42 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 05, 2022 at 01:12:04 CST
+ncverilog
+	RCA.v
+	rca.v
+	+access+r
+Recompiling... reason: file './RCA.v' is newer than expected.
+	expected: Wed Oct  5 01:10:37 2022
+	actual:   Wed Oct  5 01:11:00 2022
+file: RCA.v
+	module worklib.myAnd:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: 
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./rca.v,20|23): String literal argument supplied to integer parameter.
+.................... Done
+	Generating native compiled code:
+		worklib.ripple_carry_adder_t:v <0x045993ff>
+			streams:   5, words:  3231
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:               242       8
+		Primitives:            200       1
+		Registers:               3       3
+		Scalar wires:            1       -
+		Expanded wires:         16       2
+		Initial blocks:          5       5
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.ripple_carry_adder_t:v
+Loading snapshot worklib.ripple_carry_adder_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 131073 NS + 0
+./rca.v:27         #1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 05, 2022 at 01:12:10 CST  (total: 00:00:06)

@@ -328,7 +328,7 @@ module COMPARE_EQ(out, a, b);
 
     wire le, eq, ge;
 
-    COMPARATOR(le, eq, ge, a, b);
+    COMPARATOR hello(le, eq, ge, a, b);
 
     myPass g0(out[3], 1'b1);
     myPass g1(out[2], 1'b1);
@@ -362,7 +362,7 @@ module Decode_And_Execute(rs, rt, sel, rd);
     COMPARE_LT g6(r110, rs, rt);
     COMPARE_EQ g7(r111, rs, rt);
 
-    wire L, R, LL, LR, RL, RR;
+    wire [4-1:0] L, R, LL, LR, RL, RR;
 
     MUX g8(rd, sel[2], L, R);
     MUX g9(L, sel[1], LL, LR);

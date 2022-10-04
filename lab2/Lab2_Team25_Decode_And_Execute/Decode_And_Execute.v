@@ -24,11 +24,11 @@ module Decode_And_Exectue_t;
 			repeat (2**4) begin
 				repeat (2**4) begin
 					#1 
-					rt = rt + 4'b0001;
+					assign rt = rt + 4'b0001;
 				end
-				rs = rs + 4'b0001;
+				assign rs = rs + 4'b0001;
 			end
-			sel = sel + 3'b001;
+			assign sel = sel + 3'b001;
 		end
 		#1 $finish;
 	end

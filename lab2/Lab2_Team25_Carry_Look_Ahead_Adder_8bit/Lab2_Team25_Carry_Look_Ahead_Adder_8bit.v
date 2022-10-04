@@ -168,7 +168,7 @@ module myXor3 (out, a, b, c);
 
 	wire w;
 	myXor2 g0(w, a, b);
-	myXOr g1(out, w, c);
+	myXor g1(out, w, c);
 
 endmodule
 
@@ -218,7 +218,7 @@ module CLA_4bit(c4, s, c0, a, b); // TODO Is this correct ???
 	output c4;
 	output [4-1:0] s;
 
-    wire [4-1:0] p, q;
+    wire [4-1:0] p, g;
 
 	sub s0(g[0], p[0], a[0], b[0]);
 	sub s1(g[1], p[1], a[1], b[1]);
@@ -247,9 +247,9 @@ module CLA_4bit(c4, s, c0, a, b); // TODO Is this correct ???
 	myOr5 g13(c4, g[3], ex23, ex123, ex0123, ex00123);
 	// start calculating sum
 	myXor3 x0(s[0], a[0], b[0], c0);
-	myXOr3 x1(s[1], a[1], b[1], c1);
-	myXOr3 x2(s[2], a[2], b[2], c2);
-	myXOr3 x3(s[3], a[3], b[3], c3);
+	myXor3 x1(s[1], a[1], b[1], c1);
+	myXor3 x2(s[2], a[2], b[2], c2);
+	myXor3 x3(s[3], a[3], b[3], c3);
 
 endmodule
 

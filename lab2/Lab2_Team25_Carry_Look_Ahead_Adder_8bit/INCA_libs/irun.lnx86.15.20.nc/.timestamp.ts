@@ -1,0 +1,2 @@
+1664901684 /users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Lab2_Team25_Carry_Look_Ahead_Adder_8bit.v
+1664901554 /users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Lab2_Team25_Carry_Look_Ahead_Adder_8bit_t.v

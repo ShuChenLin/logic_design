@@ -1,0 +1,45 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 05, 2022 at 00:42:29 CST
+ncverilog
+	Lab2_Team25_Carry_Look_Ahead_Adder_8bit.v
+	Lab2_Team25_Carry_Look_Ahead_Adder_8bit_t.v
+	+access+r
+Recompiling... reason: file './Lab2_Team25_Carry_Look_Ahead_Adder_8bit.v' is newer than expected.
+	expected: Wed Oct  5 00:38:54 2022
+	actual:   Wed Oct  5 00:41:24 2022
+file: Lab2_Team25_Carry_Look_Ahead_Adder_8bit.v
+	module worklib.myXor3:v
+		errors: 0, warnings: 0
+	module worklib.CLA_4bit:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .
+		$dumpvars("+all");
+		               |
+ncelab: *W,STRINT (./Lab2_Team25_Carry_Look_Ahead_Adder_8bit_t.v,21|17): String literal argument supplied to integer parameter.
+................... Done
+	Generating native compiled code:
+		worklib.Decode_And_Exectue_t:v <0x6e3ae177>
+			streams:   9, words:  5392
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:               533      21
+		Primitives:            414       1
+		Registers:               3       3
+		Scalar wires:            2       -
+		Expanded wires:         16       2
+		Initial blocks:          5       5
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.myPass:v
+Loading snapshot worklib.myPass:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 131073 NS + 0
+./Lab2_Team25_Carry_Look_Ahead_Adder_8bit_t.v:29 		#1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 05, 2022 at 00:42:32 CST  (total: 00:00:03)

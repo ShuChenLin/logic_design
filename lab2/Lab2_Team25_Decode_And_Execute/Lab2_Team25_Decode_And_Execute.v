@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+`include "Universal_Gate.v"
 
 // MY UNIVERSAL GATE
 module myGate(out, a, b);
@@ -7,9 +8,7 @@ module myGate(out, a, b);
     output out;
 
     wire rb;
-
-    not (rb, b);
-    and (out, a, rb);
+	Universal_Gate (out, a, b);
 
 endmodule
 // END MY UNIVERSAL GATE

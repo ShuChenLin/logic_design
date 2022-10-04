@@ -18,35 +18,35 @@ maxproc			4096
 (Special)Runtime environment variables:
 
 Runtime environment variables:
+LC_IDENTIFICATION=lzh_TW
 LANG=en_US.UTF-8
+LC_MEASUREMENT=lzh_TW
 LC_NUMERIC=lzh_TW
 LC_TIME=lzh_TW
-LC_MONETARY=lzh_TW
 LC_PAPER=lzh_TW
+LC_TELEPHONE=lzh_TW
+LC_MONETARY=lzh_TW
 LC_NAME=lzh_TW
 LC_ADDRESS=lzh_TW
-LC_TELEPHONE=lzh_TW
-LC_MEASUREMENT=lzh_TW
-LC_IDENTIFICATION=lzh_TW
-USER=u110062208
-LOGNAME=u110062208
-HOME=/users/course/2022F/LDL17700000/u110062208
-PATH=/usr/cad/synopsys/spyglass/2020.12/SPYGLASS_HOME/bin:/usr/cad/cadence/INCISIV/cur/tools/bin:/usr/cad/cadence/INCISIV/cur/tools/bin/64bit:/usr/cad/cadence/INCISIV/cur/tools/vtools/vfault/bin:/usr/cad/cadence/INCISIV/cur/tools/vtools/vfault/bin/64bit:/usr/cad/cadence/INCISIV/cur/tools/dfII/bin:/usr/cad/cadence/INCISIV/cur/tools/dfII/bin/64bit:/usr/cad/cadence/INNOVUS/INNOVUS_20.10.000//tools/bin/64bit:/usr/cad/cadence/INNOVUS/INNOVUS_20.10.000//tools/bin:/usr/cad/cadence/INCISIV/INCISIVE_15.20.039//tools/bin/64bit:/usr/cad/cadence/INCISIV/INCISIVE_15.20.039//tools/bin:/usr/cad/cadence/EDI/EDI-ISR4_13.24.000_lnx86/tools/bin/64bit:/usr/cad/cadence/EDI/EDI-ISR4_13.24.000_lnx86/tools/bin:/usr/cad/cadence/CTOS/cur/tools/bin:/usr/cad/cadence/MMSIM/MMSIM_12.10.368/tools/bin/64bit:/usr/cad/cadence/MMSIM/MMSIM_12.10.368/tools/bin:/usr/cad/cadence/EXT/EXT_13.10.102_lnx86/tools/bin/64bit:/usr/cad/cadence/EXT/EXT_13.10.102_lnx86/tools/bin:/usr/cad/cadence/ETS/cur/tools/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/dracula/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/dfII/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/bin/64bit:/usr/cad/cadence/IC/IC_06.18.250/tools/dracula/bin/64bit:/usr/cad/cadence/IC/IC_06.18.250/tools/dfII/bin/64bit:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/pc/bin:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/InnoGUI/Innovator/Bin:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/tools/bin:/usr/cad/synopsys/icc/cur/amd64/syn/bin:/usr/bin/X11:/usr/cad/synopsys/coreconsultant/cur/bin:/usr/cad/synopsys/verdi/cur/bin:/usr/cad/synopsys/verdi/cur/nLint/bin:/usr/cad/synopsys/verdi/2021.09//bin:/usr/cad/synopsys/vcs/2021.09//amd64/bin:/usr/bin/X11:/usr/cad/synopsys/coreConsultant/cur/bin:/usr/cad/synopsys/synthesis/cur/amd64/syn/bin:/usr/cad/synopsys/lc/cur/bin:/usr/bin/X11:/usr/cad/synopsys/primetime/cur/amd64/syn/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
-MAIL=/var/spool/mail/u110062208
+USER=u110062205
+LOGNAME=u110062205
+HOME=/users/course/2022F/LDL17700000/u110062205
+PATH=/usr/cad/synopsys/spyglass/2020.12/SPYGLASS_HOME/bin:/usr/cad/cadence/INCISIV/cur/tools/bin:/usr/cad/cadence/INCISIV/cur/tools/bin/64bit:/usr/cad/cadence/INCISIV/cur/tools/vtools/vfault/bin:/usr/cad/cadence/INCISIV/cur/tools/vtools/vfault/bin/64bit:/usr/cad/cadence/INCISIV/cur/tools/dfII/bin:/usr/cad/cadence/INCISIV/cur/tools/dfII/bin/64bit:/usr/cad/cadence/INNOVUS/INNOVUS_20.10.000//tools/bin/64bit:/usr/cad/cadence/INNOVUS/INNOVUS_20.10.000//tools/bin:/usr/cad/cadence/INCISIV/INCISIVE_15.20.039//tools/bin/64bit:/usr/cad/cadence/INCISIV/INCISIVE_15.20.039//tools/bin:/usr/cad/cadence/EDI/EDI-ISR4_13.24.000_lnx86/tools/bin/64bit:/usr/cad/cadence/EDI/EDI-ISR4_13.24.000_lnx86/tools/bin:/usr/cad/cadence/CTOS/cur/tools/bin:/usr/cad/cadence/MMSIM/MMSIM_12.10.368/tools/bin/64bit:/usr/cad/cadence/MMSIM/MMSIM_12.10.368/tools/bin:/usr/cad/cadence/EXT/EXT_13.10.102_lnx86/tools/bin/64bit:/usr/cad/cadence/EXT/EXT_13.10.102_lnx86/tools/bin:/usr/cad/cadence/ETS/cur/tools/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/dracula/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/dfII/bin:/usr/cad/cadence/IC/IC_06.18.250/tools/bin/64bit:/usr/cad/cadence/IC/IC_06.18.250/tools/dracula/bin/64bit:/usr/cad/cadence/IC/IC_06.18.250/tools/dfII/bin/64bit:/usr/cad/synopsys/spyglass/2018.09-sp2//SPYGLASS_HOME/bin:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/pc/bin:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/InnoGUI/Innovator/Bin:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/tools/bin:/usr/cad/synopsys/icc/cur/amd64/syn/bin:/usr/bin/X11:/usr/cad/synopsys/coreconsultant/cur/bin:/usr/cad/synopsys/verdi/cur/bin:/usr/cad/synopsys/verdi/cur/nLint/bin:/usr/cad/synopsys/verdi/2021.09//bin:/usr/cad/synopsys/vcs/2021.09//amd64/bin:/usr/bin/X11:/usr/cad/synopsys/coreConsultant/cur/bin:/usr/cad/synopsys/synthesis/cur/amd64/syn/bin:/usr/cad/synopsys/lc/cur/bin:/usr/bin/X11:/usr/cad/synopsys/primetime/cur/amd64/syn/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+MAIL=/var/spool/mail/u110062205
 SHELL=/bin/tcsh
-SSH_CLIENT=192.168.75.200 46408 22
-SSH_CONNECTION=192.168.75.200 46408 192.168.75.51 22
+SSH_CLIENT=192.168.75.200 46456 22
+SSH_CONNECTION=192.168.75.200 46456 192.168.75.51 22
 SSH_TTY=/dev/pts/19
 TERM=xterm-256color
-DISPLAY=localhost:24.0
-XDG_SESSION_ID=57248
-XDG_RUNTIME_DIR=/run/user/1770000055
+DISPLAY=localhost:23.0
+XDG_SESSION_ID=60553
+XDG_RUNTIME_DIR=/run/user/1770000054
 HOSTTYPE=x86_64-linux
 VENDOR=unknown
 OSTYPE=linux
 MACHTYPE=x86_64
 SHLVL=1
-PWD=/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Ripple_Carry_Adder
+PWD=/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Ripple_Carry_Adder
 GROUP=LDL17700000
 HOST=ic21
 REMOTEHOST=nthucad
@@ -81,8 +81,8 @@ COWARE_CXX_COMPILER=gcc-4.7.2
 COWARE_JRE=/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../linux/java
 COWAREDOC_INSTALLED_AT=/usr/cad/synopsys/pa_virtualizer/vJ-2014.12/Documentation
 SNPS_VP_DOC=/usr/cad/synopsys/pa_virtualizer/vJ-2014.12/Documentation
-COWARE_MONITORS_PATH=/users/course/2022F/LDL17700000/u110062208/.synopsys/monitors:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP
-SNPS_VIEW_CONFIG_PATH=/users/course/2022F/LDL17700000/u110062208/.synopsys/viewconfig:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/etc/viewconfig
+COWARE_MONITORS_PATH=/users/course/2022F/LDL17700000/u110062205/.synopsys/monitors:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP
+SNPS_VIEW_CONFIG_PATH=/users/course/2022F/LDL17700000/u110062205/.synopsys/viewconfig:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP:/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/etc/viewconfig
 SYNOPSYS_LC_ROOT=/tools/linux/synopsys/lc/cur
 CDSHOME=/usr/cad/cadence/IC/IC_06.18.250
 CDS_Netlisting_Mode=Analog
@@ -101,15 +101,14 @@ Runtime command line arguments:
 argv[0]=ncverilog
 argv[1]=Lab2_Team25_Ripple_Carry_Adder.v
 argv[2]=Ripple_Carry_Adder_t.v
-argv[3]=+access+r
-104 profile - 100
-          CPU/Mem usage: 0.030 sys,  0.010 user,  60.44M sys,  0.00M vm
-105 VC callback profile - scalar:0 vector:0
-106 Sun Oct  2 23:21:11 2022
-107 pliAppInit
-108 FSDB_GATE is disabled.
-109 Enable Parallel Dumping.
-110 pliAppMiscSet: New Sim Round
-111 pliEntryInit
-112 LIBSSCORE=found /usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX/libsscore_ius152.so through $LD_LIBRARY_PATH setting.
-113 Sim process exit
+103 profile - 100
+          CPU/Mem usage: 0.030 sys,  0.010 user,  60.36M sys,  0.00M vm
+104 VC callback profile - scalar:0 vector:0
+105 Wed Oct  5 00:14:29 2022
+106 pliAppInit
+107 FSDB_GATE is disabled.
+108 Enable Parallel Dumping.
+109 pliAppMiscSet: New Sim Round
+110 pliEntryInit
+111 LIBSSCORE=found /usr/cad/synopsys/verdi/cur/share/PLI/IUS/LINUX/libsscore_ius152.so through $LD_LIBRARY_PATH setting.
+112 Sim process exit

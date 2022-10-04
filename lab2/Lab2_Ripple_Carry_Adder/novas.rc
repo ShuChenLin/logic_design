@@ -203,7 +203,7 @@ StickSet-TextColor = ID_BLACK
 Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
-_2-5/test.vcd\""
+_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Ripple_Carry_Adder/Ripple_Carry_Adder.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -321,11 +321,13 @@ FileName = test.ps
 PaperSize = A4 - 210x297 (mm)
 ColorPrint = FALSE
 [QtDialog]
-QwWarnMsgDlg = 2090,363,600,250
-QwUserAskDlg = 274,22,324,134
-openFileDlg = 145,53,602,483
-QwQuestionMsgDlg = 788,431,324,114
-qWaveSignalDialog = 46,53,800,479
+SignalSpacingDialog = 823,529,344,84
+qWaveSignalDialog = 595,331,800,479
+QwWarnMsgDlg = 842,342,600,250
+QwUserAskDlg = 834,498,324,148
+openFileDlg = 694,329,602,483
+QwInfoMsgDlg = 611,388,750,250
+QwQuestionMsgDlg = 833,458,324,114
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -604,8 +606,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 46 53 800 479 245 381 505 183
-viewPort = 0 1 1920 1033 100 65
+getSignalForm = 595 294 800 479 245 381 505 183
+viewPort = 71 26 1848 1016 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK
@@ -771,11 +773,11 @@ printBasic = 1 0 0 FALSE FALSE
 printDest = -printer {}
 printSignature = {%f %h %t} {}
 curveWindow_Drag&Drop_Mode = TRUE
-RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd\""
-RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd.fsdb\""
-RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\""
-RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\""
-RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\""
+RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Ripple_Carry_Adder/Ripple_Carry_Adder.vcd\""
+RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Ripple_Carry_Adder/Ripple_Carry_Adder.vcd.fsdb\""
+RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd\""
+RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd.fsdb\""
+RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\""
 open_file_time_range = FALSE
 legend_window_font = -f COURIER12 -c ID_CYAN5
 value_window_font = -f COURIER12 -c ID_CYAN5

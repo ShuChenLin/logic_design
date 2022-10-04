@@ -24,7 +24,7 @@ module Decode_And_Exectue_t;
 	initial begin 
 		repeat (2**17) begin
 			#1
-			assign {a, b, c0} = {a, b, c0} + 8'b00000001;
+			assign {a, b, c0} = {a, b, c0} + 1'b1;
 		end
 		#1 $finish;
 	end

@@ -18,7 +18,7 @@ module Multiplier_4bit_t;
 
     initial begin
         repeat (2 ** 8) begin
-            #1 {a, b} = {a, b} + 1'b1;
+            #1 assign {a, b} = {a, b} + 1'b1;
         end
         #1 $finish;
     end

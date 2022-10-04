@@ -23,7 +23,8 @@ module Decode_And_Exectue_t;
 		repeat (2**3) begin
 			repeat (2**4) begin
 				repeat (2**4) begin
-					#1 rt = rt + 4'b0001;
+					#1 
+					rt = rt + 4'b0001;
 				end
 				rs = rs + 4'b0001;
 			end

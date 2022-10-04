@@ -378,7 +378,7 @@ endmodule
 
 module MUX_8bit (out, sel, a, b);
 
-    input [8-1:0], a, b;
+    input [8-1:0] a, b;
     input sel;
     output [8-1:0] out;
 

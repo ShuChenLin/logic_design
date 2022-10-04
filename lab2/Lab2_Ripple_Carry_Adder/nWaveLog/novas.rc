@@ -322,12 +322,12 @@ PaperSize = A4 - 210x297 (mm)
 ColorPrint = FALSE
 [QtDialog]
 SignalSpacingDialog = 823,529,344,84
-qWaveSignalDialog = 595,331,800,479
-QwWarnMsgDlg = 842,342,600,250
+QwQuestionMsgDlg = 833,458,324,114
 QwUserAskDlg = 834,498,324,148
 openFileDlg = 694,329,602,483
 QwInfoMsgDlg = 611,388,750,250
-QwQuestionMsgDlg = 833,458,324,114
+QwWarnMsgDlg = 842,342,600,250
+qWaveSignalDialog = 595,331,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)

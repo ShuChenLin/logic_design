@@ -14,7 +14,7 @@ module Decode_And_Exectue_t;
 		.c0(c0), 
 		.s(s),
 		.c8(c8)
-	)
+	);
 
 	initial begin
 		$dumpfile("Decode_And_Execute.vcd");

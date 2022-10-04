@@ -23,7 +23,7 @@ module Ripple_Carry_Adder_t;
     initial begin
         repeat (2 ** 17) begin
             #1 
-            assign {a, b, cin} = {a, b, cin}+1'b1;
+            {a, b, cin} = {a, b, cin}+1'b1;
         end
         #1 $finish;
     end

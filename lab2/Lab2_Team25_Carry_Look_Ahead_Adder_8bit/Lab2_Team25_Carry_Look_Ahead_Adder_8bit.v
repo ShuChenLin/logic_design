@@ -67,7 +67,7 @@ endmodule
 
 module myAnd5 (out, a, b, c, d, e);
 	
-	input a, b, c, d;
+	input a, b, c, d, e;
 	output out;
 
 	wire w;
@@ -216,7 +216,9 @@ module CLA_4bit(c4, s, c0, a, b); // TODO Is this correct ???
 	input c0;
 	input [4-1:0] a, b;
 	output c4;
-	output [4-1:0] s, p, g;
+	output [4-1:0] s;
+
+    wire [4-1:0] p, q;
 
 	sub s0(g[0], p[0], a[0], b[0]);
 	sub s1(g[1], p[1], a[1], b[1]);

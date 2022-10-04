@@ -211,21 +211,19 @@ module sub (g, p, a, b);
 
 endmodule
 
-module CLA_4bit(c4, s, c0, a, b); // TODO Is this correct ???
+module CLA_4bit(p, g, s, c0, a, b); // TODO Is this correct ???
 
 	input c0;
 	input [4-1:0] a, b;
 	output c4;
-	output [4-1:0] s;
-
-    wire [4-1:0] p, g;
+	output [4-1:0] s, p, g;
 
 	sub s0(g[0], p[0], a[0], b[0]);
 	sub s1(g[1], p[1], a[1], b[1]);
 	sub s2(g[2], p[2], a[2], b[2]);
 	sub s3(g[3], p[3], a[3], b[3]);
 	
-	wire ex00, ex01, ex001, ex12, ex012, ex0012, ex23, ex123, ex0123, ex00123;
+	wire ex00, ex01, ex001, ex12, ex012, ex0012;
 	wire c1, c2, c3;
 	// c1
 	myAnd2 g0(ex00, c0, p[0]);
@@ -239,12 +237,6 @@ module CLA_4bit(c4, s, c0, a, b); // TODO Is this correct ???
 	myAnd3 g6(ex012, g[0], p[1], p[2]);
 	myAnd4 g7(ex0012, c0, p[0], p[1], p[2]);
 	myOr4 g8(c3, g[2], ex12, ex012, ex0012);
-	// c4
-	myAnd2 g9(ex23, g[2], p[3]);
-	myAnd3 g10(ex123, g[1], p[2], p[3]);
-	myAnd4 g11(ex0123, g[0], p[1], p[2], p[3]);
-	myAnd5 g12(ex00123, c0, p[0], p[1], p[2], p[3]);
-	myOr5 g13(c4, g[3], ex23, ex123, ex0123, ex00123);
 	// start calculating sum
 	myXor3 x0(s[0], a[0], b[0], c0);
 	myXor3 x1(s[1], a[1], b[1], c1);
@@ -262,8 +254,23 @@ module Carry_Look_Ahead_Adder_8bit(a, b, c0, s, c8);
     output [8-1:0] s;
     output c8;
 
-	wire c4;
-	CLA_4bit cla0(c4, s[4-1:0], c0, a[4-1:0], b[4-1:0]);
-	CLA_4bit cla1(c8, s[8-1:4], c4, a[8-1:4], b[8-1:4]);
+    wire [8-1:0] p, g;
+    CLA_4bit cla0(p[4-1:0], g[4-1:0], s[4-1:0], c0, a[4-1:0], b[4-1:0]);
+    //calculate c4
+    wire c4, ex23, ex123, ex0123, ex00123;
+    myAnd2 g0(ex23, g[2], p[3]);
+	myAnd3 g1(ex123, g[1], p[2], p[3]);
+	myAnd4 g2(ex0123, g[0], p[1], p[2], p[3]);
+	myAnd5 g3(ex00123, c0, p[0], p[1], p[2], p[3]);
+	myOr5 g4(c4, g[3], ex23, ex123, ex0123, ex00123);
+
+	CLA_4bit cla1(p[8-1:4], g[8-1:4], s[8-1:4], c4, a[8-1:4], b[8-1:4]);
+    //calculate c8
+    wire c8, ex67, ex567, ex4567, ex44567;
+    myAnd2 g5(ex67, g[6], p[7]);
+    myAnd3 g6(ex567, g[5], p[6], p[7]);
+    myAnd4 g7(ex4567, g[4], p[5], p[6], p[7]);
+    myAnd4 g8(ex44567, c4, p[4], p[5], p[6], p[7]);
+    myOr5 g9(c8, g[7], ex67, ex567, ex4567, ex44567);
 
 endmodule

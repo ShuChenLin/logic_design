@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`include "Universal_Gate.v"
 
 // MY UNIVERSAL GATE
 module myGate(out, a, b);
@@ -8,7 +7,9 @@ module myGate(out, a, b);
     output out;
 
     wire rb;
-	Universal_Gate (out, a, b);
+
+    not nn(rb, b);
+    and tt(out, a, rb);
 
 endmodule
 // END MY UNIVERSAL GATE
@@ -421,6 +422,7 @@ module Number_Display(out, sw);
     output [8-1:0] out;
 
     wire [4-1:0] rd;
+    wire [8-1:0] L, R, LL, LR, RL, RR, LLL, LLR, LRL, LRR, RLL, RLR, RRL, RRR;
     Decode_And_Execute get(sw[6:3], sw[10:7], sw[2:0], rd);
 
     MUX_8bit m1(out, rd[3], L, R);
@@ -444,4 +446,3 @@ module Number_Display(out, sw);
     MUX_8bit m15(RRR, rd[0], 8'b01100001, 8'b01110001);
 
 endmodule
-

@@ -8,7 +8,7 @@ module myGate(out, a, b);
     output out;
 
     wire rb;
-	Universal_Gate (out, a, b);
+	Universal_Gate aa(out, a, b);
 
 endmodule
 // END MY UNIVERSAL GATE

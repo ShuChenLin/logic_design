@@ -17,7 +17,7 @@ module Decode_And_Exectue_t;
 	);
 
 	initial begin
-		$dumpfile("Decode_And_Execute.vcd");
+		$dumpfile("cla.vcd");
 		$dumpvars("+all");
 	end
 

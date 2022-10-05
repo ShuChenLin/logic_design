@@ -245,6 +245,21 @@ module CLA_4bit(p, g, s, c0, a, b); // TODO Is this correct ???
 
 endmodule
 
+module cla_2_gen(c4, p, g, c0);
+
+	input [4-1:0] p, g;
+	input c0;
+	output c4;
+	
+	wire ex23, ex123, ex0123, ex00123;
+	myAnd2 g0(ex23, g[2], p[3]);
+	myAnd3 g1(ex123, g[1], p[2], p[3]);
+	myAnd4 g2(ex0123, g[0], p[1], p[2], p[3]);
+	myAnd5 g3(ex00123, c0, p[0], p[1], p[2], p[3]);
+	myOr5 g4(c4, g[3], ex23, ex123, ex0123, ex00123);
+	
+endmodule
+
 //=============================
 
 
@@ -257,20 +272,11 @@ module Carry_Look_Ahead_Adder_8bit(a, b, c0, s, c8);
     wire [8-1:0] p, g;
     CLA_4bit cla0(p[4-1:0], g[4-1:0], s[4-1:0], c0, a[4-1:0], b[4-1:0]);
     //calculate c4
-    wire c4, ex23, ex123, ex0123, ex00123;
-    myAnd2 g0(ex23, g[2], p[3]);
-	myAnd3 g1(ex123, g[1], p[2], p[3]);
-	myAnd4 g2(ex0123, g[0], p[1], p[2], p[3]);
-	myAnd5 g3(ex00123, c0, p[0], p[1], p[2], p[3]);
-	myOr5 g4(c4, g[3], ex23, ex123, ex0123, ex00123);
-
+    wire c4;
+    cla_2_gen gen0(c4, p[4-1:0], g[4-1:0], c0);
+    
 	CLA_4bit cla1(p[8-1:4], g[8-1:4], s[8-1:4], c4, a[8-1:4], b[8-1:4]);
     //calculate c8
-    wire c8, ex67, ex567, ex4567, ex44567;
-    myAnd2 g5(ex67, g[6], p[7]);
-    myAnd3 g6(ex567, g[5], p[6], p[7]);
-    myAnd4 g7(ex4567, g[4], p[5], p[6], p[7]);
-    myAnd4 g8(ex44567, c4, p[4], p[5], p[6], p[7]);
-    myOr5 g9(c8, g[7], ex67, ex567, ex4567, ex44567);
+    cla_2_gen gen1(c8, p[8-1:4], g[8-1:4], c4);
 
 endmodule

@@ -215,7 +215,6 @@ module CLA_4bit(p, g, s, c0, a, b); // TODO Is this correct ???
 
 	input c0;
 	input [4-1:0] a, b;
-	output c4;
 	output [4-1:0] s, p, g;
 
 	sub s0(g[0], p[0], a[0], b[0]);
@@ -266,6 +265,7 @@ endmodule
 module Carry_Look_Ahead_Adder_8bit(a, b, c0, s, c8);
     input [8-1:0] a, b;
     input c0;
+
     output [8-1:0] s;
     output c8;
 

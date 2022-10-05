@@ -203,7 +203,8 @@ StickSet-TextColor = ID_BLACK
 Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
-_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Decode_And_Execute.vcd\""
+_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Decode_And_Execute.vcd\"" "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/cla.v\
+cd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -322,11 +323,11 @@ PaperSize = A4 - 210x297 (mm)
 ColorPrint = FALSE
 [QtDialog]
 QwQuestionMsgDlg = 788,453,324,114
-QwWarnMsgDlg = 2090,363,600,250
-QwUserAskDlg = 778,407,324,134
-openFileDlg = 1890,223,602,483
-QwInfoMsgDlg = 2015,363,750,250
-qWaveSignalDialog = 2000,300,800,479
+QwWarnMsgDlg = 1320,363,600,250
+QwUserAskDlg = 835,498,324,148
+openFileDlg = 695,329,602,483
+QwInfoMsgDlg = 1170,363,750,250
+qWaveSignalDialog = 596,331,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -605,8 +606,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 2000 300 800 479 245 381 505 183
-viewPort = 1440 1 1920 1033 100 65
+getSignalForm = 596 294 800 479 245 381 505 183
+viewPort = 73 26 1846 1016 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK
@@ -772,11 +773,11 @@ printBasic = 1 0 0 FALSE FALSE
 printDest = -printer {}
 printSignature = {%f %h %t} {}
 curveWindow_Drag&Drop_Mode = TRUE
-RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Decode_And_Execute.vcd\""
-RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Decode_And_Execute.vcd.fsdb\""
-RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd\""
-RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd.fsdb\""
-RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\""
+RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/cla.vcd\""
+RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/cla.vcd.fsdb\""
+RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Decode_And_Execute.vcd\""
+RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/Decode_And_Execute.vcd.fsdb\""
+RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd\""
 open_file_time_range = FALSE
 legend_window_font = -f COURIER12 -c ID_CYAN5
 value_window_font = -f COURIER12 -c ID_CYAN5

@@ -1,0 +1,23 @@
+verdiSetActWin -win $_nWave1
+wvConvertFile -win $_nWave1 -o \
+           "/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/cla.vcd.fsdb" \
+           "/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/cla.vcd"
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvOpenFile -win $_nWave1 \
+           {/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Carry_Look_Ahead_Adder_8bit/cla.vcd.fsdb}
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/Decode_And_Exectue_t"
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/Decode_And_Exectue_t/a\[7:0\]} \
+{/Decode_And_Exectue_t/b\[7:0\]} \
+{/Decode_And_Exectue_t/c0} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 )} 
+wvSetPosition -win $_nWave1 {("G1" 3)}
+wvSetCursor -win $_nWave1 5535319.707553 -snap {("G1" 2)}
+wvSetCursor -win $_nWave1 4047502.560725 -snap {("G1" 2)}

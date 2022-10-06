@@ -5,8 +5,8 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
-RCA.v
-rca.v
+Lab2_Team25_Ripple_Carry_Adder.v
+Lab2_Team25_Ripple_Carry_Adder_t.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

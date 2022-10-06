@@ -50,22 +50,7 @@ module Majority(a, b, c, out);
 
 endmodule
 
-module Half_Adder (a, b, cout, sum);
-    input a, b;
-    output cout, sum;
-
-    wire tmp1, tmp2, tmp3;
-
-    nand x0(tmp1, a, b);
-    nand x1(tmp2, a, tmp1);
-    nand x3(tmp3, b, tmp1);
-    nand x4(sum, tmp2, tmp3);
-    nand x6(cout, tmp1, tmp1);
-
-
-endmodule
-
-module Full_Adder (a, b, cin, cout, sum);
+module Full_Adder(sum, cout, a, b, cin);
     input a, b, cin;
     output cout, sum;
 

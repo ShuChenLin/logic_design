@@ -1,6 +1,7 @@
 `timescale 1ns/1ps
 
 module ripple_carry_adder_t;
+
     reg [8-1:0] a = 8'b00000000;
     reg [8-1:0] b = 8'b00000000;
     reg cin = 1'b0;

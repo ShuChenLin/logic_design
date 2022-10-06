@@ -1,21 +1,26 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 05, 2022 at 01:12:04 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 06, 2022 at 16:37:51 CST
 ncverilog
-	RCA.v
-	rca.v
+	Lab2_Team25_Ripple_Carry_Adder.v
+	Lab2_Team25_Ripple_Carry_Adder_t.v
 	+access+r
-Recompiling... reason: file './RCA.v' is newer than expected.
-	expected: Wed Oct  5 01:10:37 2022
-	actual:   Wed Oct  5 01:11:00 2022
-file: RCA.v
-	module worklib.myAnd:v
+Recompiling... reason: file './Lab2_Team25_Ripple_Carry_Adder.v' is newer than expected.
+	expected: Thu Oct  6 16:33:08 2022
+	actual:   Thu Oct  6 16:36:14 2022
+file: Lab2_Team25_Ripple_Carry_Adder.v
+	module worklib.Full_Adder:v
+		errors: 0, warnings: 0
+	module worklib.Ripple_Carry_Adder:v
+		errors: 0, warnings: 0
+file: Lab2_Team25_Ripple_Carry_Adder_t.v
+	module worklib.ripple_carry_adder_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: 
         $dumpvars("+all");
                        |
-ncelab: *W,STRINT (./rca.v,20|23): String literal argument supplied to integer parameter.
+ncelab: *W,STRINT (./Lab2_Team25_Ripple_Carry_Adder_t.v,21|23): String literal argument supplied to integer parameter.
 .................... Done
 	Generating native compiled code:
 		worklib.ripple_carry_adder_t:v <0x045993ff>
@@ -24,8 +29,8 @@ ncelab: *W,STRINT (./rca.v,20|23): String literal argument supplied to integer p
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
-		Modules:               242       8
-		Primitives:            200       1
+		Modules:                74       7
+		Primitives:            160       1
 		Registers:               3       3
 		Scalar wires:            1       -
 		Expanded wires:         16       2
@@ -37,6 +42,6 @@ Loading snapshot worklib.ripple_carry_adder_t:v .................... Done
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
 Simulation complete via $finish(1) at time 131073 NS + 0
-./rca.v:27         #1 $finish;
+./Lab2_Team25_Ripple_Carry_Adder_t.v:28         #1 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 05, 2022 at 01:12:10 CST  (total: 00:00:06)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 06, 2022 at 16:37:55 CST  (total: 00:00:04)

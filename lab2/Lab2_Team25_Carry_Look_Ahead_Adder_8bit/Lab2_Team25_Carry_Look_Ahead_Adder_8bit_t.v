@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module Decode_And_Exectue_t;
+module Carry_Look_Ahead_Adder_t;
 	
 	reg [8-1:0] a = 8'b00000000, b = 8'b00000000;
 	reg c0 = 1'b0;

@@ -1,5 +1,5 @@
 $date
-    Oct  6, 2022  15:56:38
+    Oct  6, 2022  16:11:17
 $end
 $version
     TOOL:	ncsim	15.20-s039
@@ -19,282 +19,52 @@ $var wire      1 %    a  $end
 $var wire      1 %    b  $end
 $var wire      1 &    c  $end
 $var wire      1 $    out  $end
-$var wire      1 '    w1  $end
-$var wire      1 (    w2  $end
-$var wire      1 )    w3  $end
-$var wire      1 *    w4  $end
-$var wire      1 +    w5  $end
+$var wire      1 '    tmp1  $end
+$var wire      1 (    tmp2  $end
+$var wire      1 )    tmp3  $end
+$var wire      1 *    tmp4  $end
 
-$scope module g0 $end
-$var wire      1 %    a  $end
-$var wire      1 %    b  $end
-$var wire      1 '    out  $end
-$var wire      1 ,    w1  $end
-
-$scope module g0 $end
-$var wire      1 ,    a  $end
-$var wire      1 '    out  $end
-$upscope $end
-
+$scope module k0 $end
+$var wire      1 %    x  $end
+$var wire      1 %    y  $end
+$var wire      1 '    o  $end
+$var wire      1 +    tmp1  $end
 $upscope $end
 
 
-$scope module g1 $end
-$var wire      1 %    a  $end
-$var wire      1 &    b  $end
-$var wire      1 (    out  $end
-$var wire      1 -    w1  $end
-
-$scope module g0 $end
-$var wire      1 -    a  $end
-$var wire      1 (    out  $end
-$upscope $end
-
+$scope module k1 $end
+$var wire      1 %    x  $end
+$var wire      1 &    y  $end
+$var wire      1 (    o  $end
+$var wire      1 ,    tmp1  $end
 $upscope $end
 
 
-$scope module g2 $end
-$var wire      1 %    a  $end
-$var wire      1 &    b  $end
-$var wire      1 )    out  $end
-$var wire      1 .    w1  $end
-
-$scope module g0 $end
-$var wire      1 .    a  $end
-$var wire      1 )    out  $end
-$upscope $end
-
+$scope module k2 $end
+$var wire      1 %    x  $end
+$var wire      1 &    y  $end
+$var wire      1 )    o  $end
+$var wire      1 -    tmp1  $end
 $upscope $end
 
 
-$scope module g3 $end
-$var wire      1 '    a  $end
-$var wire      1 (    b  $end
-$var wire      1 *    out  $end
-$var wire      1 /    w1  $end
-$var wire      1 0    w2  $end
-
-$scope module g0 $end
-$var wire      1 '    a  $end
-$var wire      1 /    out  $end
+$scope module k3 $end
+$var wire      1 '    x  $end
+$var wire      1 (    y  $end
+$var wire      1 *    o  $end
+$var wire      1 .    tmp1  $end
+$var wire      1 /    tmp2  $end
 $upscope $end
 
 
-$scope module g1 $end
-$var wire      1 (    a  $end
-$var wire      1 0    out  $end
+$scope module k4 $end
+$var wire      1 )    x  $end
+$var wire      1 *    y  $end
+$var wire      1 $    o  $end
+$var wire      1 0    tmp1  $end
+$var wire      1 1    tmp2  $end
 $upscope $end
 
-$upscope $end
-
-
-$scope module g4 $end
-$var wire      1 *    a  $end
-$var wire      1 )    b  $end
-$var wire      1 $    out  $end
-$var wire      1 1    w1  $end
-$var wire      1 2    w2  $end
-
-$scope module g0 $end
-$var wire      1 *    a  $end
-$var wire      1 1    out  $end
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 )    a  $end
-$var wire      1 2    out  $end
-$upscope $end
-
-$upscope $end
-
-$upscope $end
-
-$upscope $end
-
-
-$scope module MUX_2x1 $end
-$var wire      1 +    a  $end
-$var wire      1 +    b  $end
-$var wire      1 +    sel  $end
-$var wire      1 3    out  $end
-$var wire      1 4    w1  $end
-$var wire      1 5    w2  $end
-$var wire      1 6    nsel  $end
-
-$scope module g0 $end
-$var wire      1 +    a  $end
-$var wire      1 6    out  $end
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 +    a  $end
-$var wire      1 6    b  $end
-$var wire      1 4    out  $end
-$var wire      1 7    w1  $end
-
-$scope module g0 $end
-$var wire      1 7    a  $end
-$var wire      1 4    out  $end
-$upscope $end
-
-$upscope $end
-
-
-$scope module g2 $end
-$var wire      1 +    a  $end
-$var wire      1 +    b  $end
-$var wire      1 5    out  $end
-$var wire      1 6    w1  $end
-
-$scope module g0 $end
-$var wire      1 6    a  $end
-$var wire      1 5    out  $end
-$upscope $end
-
-$upscope $end
-
-
-$scope module g3 $end
-$var wire      1 4    a  $end
-$var wire      1 5    b  $end
-$var wire      1 3    out  $end
-$var wire      1 8    w1  $end
-$var wire      1 9    w2  $end
-
-$scope module g0 $end
-$var wire      1 4    a  $end
-$var wire      1 8    out  $end
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 5    a  $end
-$var wire      1 9    out  $end
-$upscope $end
-
-$upscope $end
-
-$upscope $end
-
-
-$scope module myXnor $end
-$var wire      1 +    a  $end
-$var wire      1 +    b  $end
-$var wire      1 :    out  $end
-$var wire      1 ;    w1  $end
-
-$scope module g0 $end
-$var wire      1 +    a  $end
-$var wire      1 +    b  $end
-$var wire      1 ;    out  $end
-$var wire      1 6    na  $end
-$var wire      1 6    nb  $end
-$var wire      1 4    w1  $end
-$var wire      1 <    w2  $end
-
-$scope module g0 $end
-$var wire      1 +    a  $end
-$var wire      1 6    out  $end
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 +    a  $end
-$var wire      1 6    out  $end
-$upscope $end
-
-
-$scope module g2 $end
-$var wire      1 +    a  $end
-$var wire      1 6    b  $end
-$var wire      1 4    out  $end
-$var wire      1 7    w1  $end
-
-$scope module g0 $end
-$var wire      1 7    a  $end
-$var wire      1 4    out  $end
-$upscope $end
-
-$upscope $end
-
-
-$scope module g3 $end
-$var wire      1 6    a  $end
-$var wire      1 +    b  $end
-$var wire      1 <    out  $end
-$var wire      1 =    w1  $end
-
-$scope module g0 $end
-$var wire      1 =    a  $end
-$var wire      1 <    out  $end
-$upscope $end
-
-$upscope $end
-
-
-$scope module g4 $end
-$var wire      1 4    a  $end
-$var wire      1 <    b  $end
-$var wire      1 ;    out  $end
-$var wire      1 8    w1  $end
-$var wire      1 >    w2  $end
-
-$scope module g0 $end
-$var wire      1 4    a  $end
-$var wire      1 8    out  $end
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 <    a  $end
-$var wire      1 >    out  $end
-$upscope $end
-
-$upscope $end
-
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 ;    a  $end
-$var wire      1 :    out  $end
-$upscope $end
-
-$upscope $end
-
-
-$scope module myNor $end
-$var wire      1 +    a  $end
-$var wire      1 +    b  $end
-$var wire      1 9    out  $end
-$var wire      1 5    w1  $end
-
-$scope module g0 $end
-$var wire      1 +    a  $end
-$var wire      1 +    b  $end
-$var wire      1 5    out  $end
-$var wire      1 6    w1  $end
-$var wire      1 6    w2  $end
-
-$scope module g0 $end
-$var wire      1 +    a  $end
-$var wire      1 6    out  $end
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 +    a  $end
-$var wire      1 6    out  $end
-$upscope $end
-
-$upscope $end
-
-
-$scope module g1 $end
-$var wire      1 5    a  $end
-$var wire      1 9    out  $end
 $upscope $end
 
 $upscope $end
@@ -311,26 +81,13 @@ $dumpvars
 0(
 0)
 0*
-z+
+1+
 1,
 1-
 1.
 1/
 10
 11
-12
-x3
-x4
-x5
-x6
-x7
-x8
-x9
-x:
-x;
-x<
-x=
-x>
 $end
 #1000
 1#
@@ -348,55 +105,55 @@ $end
 1!
 1%
 0&
-0,
+0+
 1'
-0/
+0.
 1*
 01
 1$
 #5000
 1#
 1&
-0.
 0-
+0,
 1(
 1)
-02
 00
+0/
 #6000
 0#
 1"
 0&
-1.
 1-
+1,
 0(
 0)
-12
 10
+1/
 #7000
 1#
 1&
-0.
 0-
+0,
 1(
 1)
-02
 00
+0/
 #8000
 0#
 0"
 0!
 0%
 0&
-1.
 1-
 1,
+1+
 0'
 0(
 0)
-12
 10
 1/
+1.
 0*
 11
 0$

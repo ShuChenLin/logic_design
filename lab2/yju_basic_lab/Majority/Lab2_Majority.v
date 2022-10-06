@@ -1,103 +1,38 @@
 `timescale 1ns/1ps
 
-//-----------------
-module myNot(out, a);
-input a;
-output out;
+module my_And(o, x, y);
+    input x, y;
+    output o;
 
-nand (out, a, a);
+    wire tmp1;
 
-endmodule
-
-//-----------------
-module myAnd (out, a, b);
-input a, b;
-output out;
-
-wire w1;
-
-nand (w1, a, b);
-myNot g0(out, w1);
+    nand a0(tmp1, x, y);
+    nand a1(o, tmp1, tmp1);
 
 endmodule
 
-//-----------------
-module myOr (out, a, b);
-input a, b;
-output out;
+module my_Or(o, x, y);
+    input x, y;
+    output o;
 
-wire w1, w2;
+    wire tmp1, tmp2;
 
-myNot g0(w1, a);
-myNot g1(w2, b);
-nand (out, w1, w2);
-
-endmodule
-
-//-----------------
-module myNor(out, a, b);
-input a, b;
-output out;
-
-wire w1;
-myOr g0(w1, a, b);
-myNot g1(out, w1);
+    nand o0(tmp1, x, x);
+    nand o1(tmp2, y, y);
+    nand o2(o, tmp1, tmp2);
 
 endmodule
 
-//-----------------
-module myXor(out, a, b);
-input a, b;
-output out;
-
-wire na, nb, w1, w2;
-
-myNot g0(na, a);
-myNot g1(nb, b);
-myAnd g2(w1, a, nb);
-myAnd g3(w2, na, b);
-myOr g4(out, w1, w2);
-
-endmodule
-
-//-----------------
-module myXnor(out, a, b);
-input a, b;
-output out;
-
-wire w1;
-
-myXor g0(w1, a, b);
-myNot g1(out, w1);
-endmodule
-
-//-----------------
-module MUX_2x1(out, a, b, sel);
-
-input a, b, sel;
-output out;
-
-wire w1, w2, nsel;
-
-myNot g0(nsel, sel);
-myAnd g1(w1, a, nsel);
-myAnd g2(w2, b, sel);
-myOr g3(out, w1, w2);
-
-endmodule
-
-//-----------------
 module Majority(a, b, c, out);
+    input a, b, c;
+    output out;
 
-input a, b, c;
-output out;
+    wire tmp1, tmp2, tmp3, tmp4;
 
-wire w1, w2, w3, w4, w5;
-
-myAnd g0(w1, a, b);
-myAnd g1(w2, a, c);
-myAnd g2(w3, b, c);
-myOr g3(w4, w1, w2);
-myOr g4(out, w4, w3);
+    my_And k0(tmp1, a, b);
+    my_And k1(tmp2, a, c);
+    my_And k2(tmp3, b, c);
+    my_Or k3(tmp4, tmp1, tmp2);
+    my_Or k4(out, tmp3, tmp4);
 
 endmodule

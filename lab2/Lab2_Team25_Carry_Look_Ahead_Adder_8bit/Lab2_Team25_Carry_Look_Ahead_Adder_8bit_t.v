@@ -22,9 +22,9 @@ module Carry_Look_Ahead_Adder_t;
 	end
 
 	initial begin 
-		repeat (2**17) begin
+		repeat (2 ** 17) begin
 			#1
-			assign {a, b, c0} = {a, b, c0} + 17'b1;
+			assign {a, b, c0} = {a, b, c0} + 1'b1;
 		end
 		#1 $finish;
 	end

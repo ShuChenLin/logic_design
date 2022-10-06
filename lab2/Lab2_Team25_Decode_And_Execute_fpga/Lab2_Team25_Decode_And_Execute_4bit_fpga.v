@@ -416,10 +416,11 @@ module MUX_8bit (out, sel, a, b);
 
 endmodule
 
-module Number_Display(out, sw);
+module Number_Display(control, out, sw);
     
     input [11-1:0] sw;
     output [8-1:0] out;
+    output [4-1:0] control;
 
     wire [4-1:0] rd;
     wire [8-1:0] L, R, LL, LR, RL, RR, LLL, LLR, LRL, LRR, RLL, RLR, RRL, RRR;
@@ -439,6 +440,11 @@ module Number_Display(out, sw);
     MUX_8bit m9 (LLR, rd[0], 8'b00100101, 8'b00001101);
     MUX_8bit m10(LRL, rd[0], 8'b10011001, 8'b01001001);
     MUX_8bit m11(LRR, rd[0], 8'b01000001, 8'b00011111);
+
+    myPass p0(control[0], 1'b0);
+    myPass p1(control[1], 1'b1);
+    myPass p2(control[2], 1'b1);
+    myPass p3(control[3], 1'b1);
 
     MUX_8bit m12(RLL, rd[0], 8'b00000001, 8'b00001001);
     MUX_8bit m13(RLR, rd[0], 8'b00010001, 8'b11000001);

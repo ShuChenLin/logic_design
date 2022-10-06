@@ -1,0 +1,56 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 06, 2022 at 15:56:25 CST
+ncverilog
+	Lab2_NAND_Implement.v
+	Lab2_NAND_Implment_t.v
+	+access+r
+file: Lab2_NAND_Implement.v
+	module worklib.myNot:v
+		errors: 0, warnings: 0
+	module worklib.myAnd:v
+		errors: 0, warnings: 0
+	module worklib.myOr:v
+		errors: 0, warnings: 0
+	module worklib.myNor:v
+		errors: 0, warnings: 0
+	module worklib.myXor:v
+		errors: 0, warnings: 0
+	module worklib.myXnor:v
+		errors: 0, warnings: 0
+	module worklib.MUX_2x1:v
+		errors: 0, warnings: 0
+	module worklib.NAND_Implement:v
+		errors: 0, warnings: 0
+file: Lab2_NAND_Implment_t.v
+	module worklib.NADN_Implement_t:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: 
+    $dumpvars("+all");
+                   |
+ncelab: *W,STRINT (./Lab2_NAND_Implment_t.v,18|19): String literal argument supplied to integer parameter.
+.................... Done
+	Generating native compiled code:
+		worklib.NADN_Implement_t:v <0x165211d7>
+			streams:   5, words:  2903
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                99       9
+		Primitives:             87       1
+		Registers:               3       3
+		Scalar wires:            2       -
+		Expanded wires:          3       1
+		Initial blocks:          5       5
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.NADN_Implement_t:v
+Loading snapshot worklib.NADN_Implement_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 33 NS + 0
+./Lab2_NAND_Implment_t.v:25     #1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 06, 2022 at 15:56:28 CST  (total: 00:00:03)

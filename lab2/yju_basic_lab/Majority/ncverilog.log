@@ -1,0 +1,51 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 06, 2022 at 15:56:35 CST
+ncverilog
+	Lab2_Majority.v
+	Majority_t.v
+	+access+r
+file: Lab2_Majority.v
+	module worklib.myNot:v
+		errors: 0, warnings: 0
+	module worklib.myAnd:v
+		errors: 0, warnings: 0
+	module worklib.myOr:v
+		errors: 0, warnings: 0
+	module worklib.myNor:v
+		errors: 0, warnings: 0
+	module worklib.myXor:v
+		errors: 0, warnings: 0
+	module worklib.myXnor:v
+		errors: 0, warnings: 0
+	module worklib.MUX_2x1:v
+		errors: 0, warnings: 0
+	module worklib.Majority:v
+		errors: 0, warnings: 0
+file: Majority_t.v
+	module worklib.Majority_t:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Majority_t:v <0x7a78c0b9>
+			streams:   5, words:  2543
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                40       9
+		Primitives:             34       1
+		Registers:               3       3
+		Scalar wires:            4       -
+		Initial blocks:          5       5
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.myNor:v
+Loading snapshot worklib.myNor:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 9 NS + 0
+./Majority_t.v:25         #1 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 06, 2022 at 15:56:38 CST  (total: 00:00:03)

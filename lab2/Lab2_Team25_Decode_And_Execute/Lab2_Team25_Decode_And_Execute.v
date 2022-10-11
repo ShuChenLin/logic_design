@@ -8,7 +8,7 @@ module myGate(out, a, b);
     output out;
 
     wire rb;
-	Universal_Gate aa(out, a, b);
+	Universal_Gate aa(a, b, out);
 
 endmodule
 // END MY UNIVERSAL GATE
@@ -247,10 +247,10 @@ module ADD(out, a, b); // a+b, 4 bit
 
     wire co0, co1, co2, co3;
 
-    HA g0(out[0], c0, a[0], b[0]);
-    FA g1(out[1], c1, c0, a[1], b[1]);
-    FA g2(out[2], c2, c1, a[2], b[2]);
-    FA g3(out[3], c3, c2, a[3], b[3]);
+    HA g0(out[0], co0, a[0], b[0]);
+    FA g1(out[1], co1, co0, a[1], b[1]);
+    FA g2(out[2], co2, co1, a[2], b[2]);
+    FA g3(out[3], co3, co2, a[3], b[3]);
 
 endmodule
 

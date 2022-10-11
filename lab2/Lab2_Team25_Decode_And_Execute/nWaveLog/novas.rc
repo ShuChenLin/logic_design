@@ -203,9 +203,11 @@ StickSet-TextColor = ID_BLACK
 Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
-_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd\""
+_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd\"" "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd\"\
+"
 [Form]
 version = Verdi_S-2021.09
+wave/wavePrint.fm = 100,137,349,499
 [General]
 autoSaveSession = FALSE
 TclAutoSource = 
@@ -316,17 +318,18 @@ cmd1 = "xterm -font 9x15 -fg black -bg gray -e"
 name = "vi"
 options = "+${CurLine} ${CurFullFileName}"
 [Print]
+PaperSize = A4 - 210x297 (mm)
 PrinterName = lp
 FileName = test.ps
-PaperSize = A4 - 210x297 (mm)
 ColorPrint = FALSE
+BlackBackground = FALSE
 [QtDialog]
 QwQuestionMsgDlg = 788,453,324,114
-QwWarnMsgDlg = 2090,363,600,250
+QwUserAskDlg = 835,491,324,162
+openFileDlg = 695,329,602,483
 QwInfoMsgDlg = 575,363,750,250
-QwUserAskDlg = 274,22,324,162
-openFileDlg = 145,53,602,483
-qWaveSignalDialog = 560,300,800,479
+QwWarnMsgDlg = 957,342,600,250
+qWaveSignalDialog = 596,331,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -605,8 +608,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 560 300 800 479 245 381 505 183
-viewPort = 0 1 1920 1033 100 65
+getSignalForm = 596 294 800 479 245 381 505 183
+viewPort = 73 26 1846 1016 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK
@@ -765,18 +768,18 @@ signal_rc_attribute = 65535
 signal_rc_alias_attribute = 0
 ConvertAttr6 = -mem 24
 confirmExit = TRUE
-printTimeRange = TRUE 0.000000 0.000000 0.000000
+printTimeRange = TRUE 0.000000 128562.500000 128562.500000
 printPageRange = TRUE 1 1
-printOption = 0
-printBasic = 1 0 0 FALSE FALSE
-printDest = -printer {}
+printOption = 256
+printBasic = 1 0 2 FALSE FALSE
+printDest = -printer {lp}
 printSignature = {%f %h %t} {}
 curveWindow_Drag&Drop_Mode = TRUE
-RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd\""
-RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd.fsdb\""
-RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd\""
-RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd.fsdb\""
-RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\""
+RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd\""
+RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd.fsdb\""
+RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd\""
+RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/decode_and_execute.vcd.fsdb\""
+RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/lab_2-5/test.vcd\""
 open_file_time_range = FALSE
 legend_window_font = -f COURIER12 -c ID_CYAN5
 value_window_font = -f COURIER12 -c ID_CYAN5

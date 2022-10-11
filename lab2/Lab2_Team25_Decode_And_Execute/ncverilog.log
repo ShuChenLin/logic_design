@@ -1,17 +1,63 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 11, 2022 at 15:52:10 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 12, 2022 at 00:08:10 CST
 ncverilog
-	Lab2_Team25_Decode_And_Execute.v
 	Lab2_Team25_Decode_And_Execute_t.v
+	Lab2_Team25_Decode_And_Execute.v
+	Universal_Gate.v
 	+access+r
-Recompiling... reason: unable to stat '/./users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/Decode_And_Execute.v'.
+file: Lab2_Team25_Decode_And_Execute.v
+	module worklib.myGate:v
+		errors: 0, warnings: 0
+	module worklib.myNot:v
+		errors: 0, warnings: 0
+	module worklib.myPass:v
+		errors: 0, warnings: 0
+	module worklib.myAnd:v
+		errors: 0, warnings: 0
+	module worklib.myOr:v
+		errors: 0, warnings: 0
+	module worklib.myXor:v
+		errors: 0, warnings: 0
+	module worklib.myXnor:v
+		errors: 0, warnings: 0
+	module worklib.MUX:v
+		errors: 0, warnings: 0
+	module worklib.HA:v
+		errors: 0, warnings: 0
+	module worklib.FA:v
+		errors: 0, warnings: 0
+	module worklib.cmp:v
+		errors: 0, warnings: 0
+	module worklib.COMPARATOR:v
+		errors: 0, warnings: 0
+	module worklib.BITWISE_OR:v
+		errors: 0, warnings: 0
+	module worklib.BITWISE_AND:v
+		errors: 0, warnings: 0
+	module worklib.BITWISE_NOT:v
+		errors: 0, warnings: 0
+	module worklib.ADD:v
+		errors: 0, warnings: 0
+	module worklib.COMPLEMENT:v
+		errors: 0, warnings: 0
+	module worklib.SUB:v
+		errors: 0, warnings: 0
+	module worklib.RIGHT_SHIFT:v
+		errors: 0, warnings: 0
+	module worklib.LEFT_SHIFT:v
+		errors: 0, warnings: 0
+	module worklib.COMPARE_LT:v
+		errors: 0, warnings: 0
+	module worklib.COMPARE_EQ:v
+		errors: 0, warnings: 0
+	module worklib.Decode_And_Execute:v
+		errors: 0, warnings: 0
+file: Universal_Gate.v
+	module worklib.Universal_Gate:v
+		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: 
-		$dumpvars("+all");
-		               |
-ncelab: *W,STRINT (./Lab2_Team25_Decode_And_Execute_t.v,19|17): String literal argument supplied to integer parameter.
-.................... Done
+	Building instance overlay tables: .................... Done
 	Generating native compiled code:
 		worklib.COMPARE_EQ:v <0x6de87e63>
 			streams:   0, words:     0
@@ -19,47 +65,9 @@ ncelab: *W,STRINT (./Lab2_Team25_Decode_And_Execute_t.v,19|17): String literal a
 			streams:   0, words:     0
 		worklib.COMPLEMENT:v <0x18e855a6>
 			streams:   1, words:   208
-		worklib.Decode_And_Exectue_t:v <0x32624f05>
-			streams:  11, words:  7465
 		worklib.myNot:v <0x1230f7ea>
 			streams:   0, words:     0
 	Building instance specific data structures.
-    HA g0(out[0], c0, a[0], b[0]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,250|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g0.g1.c0).
-    FA g1(out[1], c1, c0, a[1], b[1]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,251|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g0.g1.c1).
-    FA g2(out[2], c2, c1, a[2], b[2]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,252|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g0.g1.c2).
-    FA g3(out[3], c3, c2, a[3], b[3]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,253|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g0.g1.c3).
-    HA g0(out[0], c0, a[0], b[0]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,250|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g1.c0).
-    FA g1(out[1], c1, c0, a[1], b[1]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,251|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g1.c1).
-    FA g2(out[2], c2, c1, a[2], b[2]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,252|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g1.c2).
-    FA g3(out[3], c3, c2, a[3], b[3]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,253|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g0.g1.c3).
-    HA g0(out[0], c0, a[0], b[0]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,250|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g1.c0).
-    FA g1(out[1], c1, c0, a[1], b[1]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,251|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g1.c1).
-    FA g2(out[2], c2, c1, a[2], b[2]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,252|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g1.c2).
-    FA g3(out[3], c3, c2, a[3], b[3]);
-                   |
-ncelab: *W,CSINFI (./Lab2_Team25_Decode_And_Execute.v,253|19): implicit wire has no fanin (Decode_And_Exectue_t.m1.g1.c3).
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                  Instances  Unique
@@ -78,4 +86,4 @@ ncsim> run
 Simulation complete via $finish(1) at time 2049 NS + 0
 ./Lab2_Team25_Decode_And_Execute_t.v:33 		#1 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 11, 2022 at 15:52:17 CST  (total: 00:00:07)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 12, 2022 at 00:08:15 CST  (total: 00:00:05)

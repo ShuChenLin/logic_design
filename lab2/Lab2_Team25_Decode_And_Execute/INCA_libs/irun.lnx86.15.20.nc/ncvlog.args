@@ -5,8 +5,9 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
-Lab2_Team25_Decode_And_Execute.v
 Lab2_Team25_Decode_And_Execute_t.v
+Lab2_Team25_Decode_And_Execute.v
+Universal_Gate.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

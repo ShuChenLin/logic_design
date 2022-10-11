@@ -13,3 +13,4 @@ s8::(03Oct2022:19:58:42):( ncverilog Lab2_Team25_Decode_And_Execute.v Decode_And
 s9::(03Oct2022:20:03:26):( ncverilog Lab2_Team25_Decode_And_Execute.v Decode_And_Execute.v +access+r )
 s10::(11Oct2022:15:52:06):( ncverilog Lab2_Team25_Decode_And_Execute.v Lab2_Team25_Decode_And_Execute_t.v +access_r )
 s11::(11Oct2022:15:52:10):( ncverilog Lab2_Team25_Decode_And_Execute.v Lab2_Team25_Decode_And_Execute_t.v +access+r )
+s12::(12Oct2022:00:08:10):( ncverilog Lab2_Team25_Decode_And_Execute_t.v Lab2_Team25_Decode_And_Execute.v Universal_Gate.v +access+r )

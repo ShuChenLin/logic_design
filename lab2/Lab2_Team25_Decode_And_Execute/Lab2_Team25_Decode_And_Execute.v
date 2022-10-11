@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`include "Universal_Gate.v"
 
 // MY UNIVERSAL GATE
 module myGate(out, a, b);

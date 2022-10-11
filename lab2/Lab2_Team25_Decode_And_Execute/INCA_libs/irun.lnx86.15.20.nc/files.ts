@@ -1,2 +1,3 @@
-1665474627 /users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/Lab2_Team25_Decode_And_Execute.v
+1665504397 /users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/Lab2_Team25_Decode_And_Execute.v
 1665042621 /users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/Lab2_Team25_Decode_And_Execute_t.v
+1665474605 /users/course/2022F/LDL17700000/u110062208/logic_design/lab2/Lab2_Team25_Decode_And_Execute/Universal_Gate.v

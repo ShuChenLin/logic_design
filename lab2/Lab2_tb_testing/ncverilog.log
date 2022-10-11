@@ -1,0 +1,45 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 11, 2022 at 16:17:21 CST
+ncverilog
+	RCA.v
+	Lab2_Team25_Exhausted_Testing.v
+	+access+r
+file: RCA.v
+	module worklib.half_adder:v
+		errors: 0, warnings: 0
+	module worklib.Full_Adder:v
+		errors: 0, warnings: 0
+	module worklib.Ripple_Carry_Adder:v
+		errors: 0, warnings: 0
+file: Lab2_Team25_Exhausted_Testing.v
+	module worklib.Exhausted_Testing:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab2_Team25_Exhausted_Testing.v,33|23): String literal argument supplied to integer parameter.
+................... Done
+	Generating native compiled code:
+		worklib.Exhausted_Testing:v <0x0f0149bf>
+			streams:   7, words:  4262
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                14       4
+		Primitives:             20       3
+		Registers:               5       5
+		Scalar wires:            1       -
+		Expanded wires:          8       2
+		Initial blocks:          7       7
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Exhausted_Testing:v
+Loading snapshot worklib.Exhausted_Testing:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+ncsim: *W,RNQUIE: Simulation is complete.
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 11, 2022 at 16:17:25 CST  (total: 00:00:04)

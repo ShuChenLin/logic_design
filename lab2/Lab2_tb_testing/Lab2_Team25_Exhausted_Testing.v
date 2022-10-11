@@ -72,7 +72,8 @@ module Exhausted_Testing(a, b, cin, error, done);
             else begin
                 error = 1'b1;
             end
-            #4 {a, b, cin} = {a, b, cin} + 1'b1;
+            #4;
+            {a, b, cin} = {a, b, cin} + 1'b1;
         end
         done = 1'b1;
         #5 done = 1'b0;

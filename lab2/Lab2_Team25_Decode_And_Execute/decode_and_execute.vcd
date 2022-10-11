@@ -1,5 +1,5 @@
 $date
-    Oct 11, 2022  15:52:17
+    Oct 12, 2022  00:08:15
 $end
 $version
     TOOL:	ncsim	15.20-s039
@@ -235,10 +235,6 @@ $var wire      1 $    co0  $end
 $var wire      1 $    co1  $end
 $var wire      1 $    co2  $end
 $var wire      1 $    co3  $end
-$var wire      1 $    c0  $end
-$var wire      1 $    c1  $end
-$var wire      1 $    c2  $end
-$var wire      1 $    c3  $end
 
 $scope module g0 $end
 $var wire      1 $    a  $end
@@ -2308,10 +2304,6 @@ $var wire      1 $    co0  $end
 $var wire      1 $    co1  $end
 $var wire      1 $    co2  $end
 $var wire      1 $    co3  $end
-$var wire      1 $    c0  $end
-$var wire      1 $    c1  $end
-$var wire      1 $    c2  $end
-$var wire      1 $    c3  $end
 
 $scope module g0 $end
 $var wire      1 (    a  $end
@@ -4381,10 +4373,6 @@ $var wire      1 $    co0  $end
 $var wire      1 $    co1  $end
 $var wire      1 $    co2  $end
 $var wire      1 $    co3  $end
-$var wire      1 $    c0  $end
-$var wire      1 $    c1  $end
-$var wire      1 $    c2  $end
-$var wire      1 $    c3  $end
 
 $scope module g0 $end
 $var wire      1 (    a  $end

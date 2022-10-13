@@ -17,7 +17,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
     wire [3-1:0] next_head, [3-1:0] next_tail;
     wire [3-1:0] prev_tail;
 
-    wire do_car;
+    wire [8-1:0] do_car;
 
     assign next_head = head + 1;
     assign next_tail = tail + 1;
@@ -31,7 +31,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
             dout <= 0;
             error <= 0;
         end else if (ren) begin
-            if (head === tail) begin
+            if ((head === next_tail)) begin
                 head <= head;
                 error <= 1;
                 tail <= tail;

@@ -32,23 +32,23 @@ module Round_Robin_FIFO_Arbiter_t;
         @(negedge clk)
         rst_n = 0;
         wen = 4'b1111;
-        a = 2'd87;
-        b = 2'd56;
-        c = 1'd9;
-        d = 2'd12;
+        a = 8'd87;
+        b = 8'd56;
+        c = 8'd9;
+        d = 8'd12;
         @(negedge clk)
         rst_n = 1;
         wen = 4'b1000;
         a = not_found;
         b = not_found;
         c = not_found;
-        d = 2'd85;
+        d = 8'd85;
         @(negedge clk)
         rst_n = 1;
         wen = 4'b0100;
         a = not_found;
         b = not_found;
-        c = 3'd129;
+        c = 8'd129;
         d = not_found;
         @(negedge clk)
         rst_n = 1;
@@ -74,17 +74,10 @@ module Round_Robin_FIFO_Arbiter_t;
         @(negedge clk)
         rst_n = 1;
         wen = 4'b0001;
-        a = 2'd51;
+        a = 8'd51;
         b = not_found;
         c = not_found;
         c = not_found;
-        @(negedge clk)
-        rst_n = 1;
-        wen = 4'b0000;
-        a = not_found;
-        b = not_fonnd;
-        c = not_found;
-        d = not_found;
         @(negedge clk)
         rst_n = 1;
         wen = 4'b0000;
@@ -93,6 +86,13 @@ module Round_Robin_FIFO_Arbiter_t;
         c = not_found;
         d = not_found;
         @(negedge clk)
-        $finish
+        rst_n = 1;
+        wen = 4'b0000;
+        a = not_found;
+        b = not_found;
+        c = not_found;
+        d = not_found;
+        @(negedge clk)
+        $finish;
     end
 endmodule

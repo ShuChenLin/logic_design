@@ -1,0 +1,189 @@
+$date
+    Oct 14, 2022  05:38:21
+$end
+$version
+    TOOL:	ncsim	15.20-s039
+$end
+$timescale
+    1 ps
+$end
+
+$scope module Round_Robin_FIFO_Arbiter_t $end
+$var reg       1 !    clk  $end
+$var reg       1 "    rst_n  $end
+$var reg       4 #    wen [3:0] $end
+$var reg       8 $    a [7:0] $end
+$var reg       8 %    b [7:0] $end
+$var reg       8 &    c [7:0] $end
+$var reg       8 '    d [7:0] $end
+$var wire      8 (    dout [7:0] $end
+$var wire      1 )    valid  $end
+$var wire      8 *    not_found [7:0] $end
+
+$scope module rrfa $end
+$var wire      1 +    clk  $end
+$var wire      1 ,    rst_n  $end
+$var wire      1 -    wen [3] $end
+$var wire      1 .    wen [2] $end
+$var wire      1 /    wen [1] $end
+$var wire      1 0    wen [0] $end
+$var wire      8 1    a [7:0] $end
+$var wire      8 2    b [7:0] $end
+$var wire      8 3    c [7:0] $end
+$var wire      8 4    d [7:0] $end
+$var reg       8 5    dout [7:0] $end
+$var reg       1 6    valid  $end
+$var wire      1 7    era  $end
+$var wire      1 8    erb  $end
+$var wire      1 9    erc  $end
+$var wire      1 :    erd  $end
+$var wire      2 ;    next_counter [1:0] $end
+$var wire      8 <    Aout [7:0] $end
+$var wire      8 =    Bout [7:0] $end
+$var wire      8 >    Cout [7:0] $end
+$var wire      8 ?    Dout [7:0] $end
+$var reg       1 @    ra  $end
+$var reg       1 A    rb  $end
+$var reg       1 B    rc  $end
+$var reg       1 C    rd  $end
+$var reg       3 D    counter [2:0] $end
+
+$scope module Fa $end
+$var wire      1 +    clk  $end
+$var wire      1 ,    rst_n  $end
+$var wire      1 0    wen  $end
+$var wire      1 E    ren  $end
+$var wire      8 1    din [7:0] $end
+$var reg       8 F    dout [7:0] $end
+$var reg       1 G    error  $end
+$var reg       4 H    head [3:0] $end
+$var reg       4 I    tail [3:0] $end
+$var reg       4 J    next_head [3:0] $end
+$var reg       4 K    next_tail [3:0] $end
+$var reg       8 L    do_car [7:0] $end
+$upscope $end
+
+
+$scope module Fb $end
+$var wire      1 +    clk  $end
+$var wire      1 ,    rst_n  $end
+$var wire      1 /    wen  $end
+$var wire      1 M    ren  $end
+$var wire      8 2    din [7:0] $end
+$var reg       8 N    dout [7:0] $end
+$var reg       1 O    error  $end
+$var reg       4 P    head [3:0] $end
+$var reg       4 Q    tail [3:0] $end
+$var reg       4 R    next_head [3:0] $end
+$var reg       4 S    next_tail [3:0] $end
+$var reg       8 T    do_car [7:0] $end
+$upscope $end
+
+
+$scope module Fc $end
+$var wire      1 +    clk  $end
+$var wire      1 ,    rst_n  $end
+$var wire      1 .    wen  $end
+$var wire      1 U    ren  $end
+$var wire      8 3    din [7:0] $end
+$var reg       8 V    dout [7:0] $end
+$var reg       1 W    error  $end
+$var reg       4 X    head [3:0] $end
+$var reg       4 Y    tail [3:0] $end
+$var reg       4 Z    next_head [3:0] $end
+$var reg       4 [    next_tail [3:0] $end
+$var reg       8 \    do_car [7:0] $end
+$upscope $end
+
+
+$scope module Fd $end
+$var wire      1 +    clk  $end
+$var wire      1 ,    rst_n  $end
+$var wire      1 -    wen  $end
+$var wire      1 ]    ren  $end
+$var wire      8 4    din [7:0] $end
+$var reg       8 ^    dout [7:0] $end
+$var reg       1 _    error  $end
+$var reg       4 `    head [3:0] $end
+$var reg       4 a    tail [3:0] $end
+$var reg       4 b    next_head [3:0] $end
+$var reg       4 c    next_tail [3:0] $end
+$var reg       8 d    do_car [7:0] $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+0!
+0"
+b0 #
+b0 $
+b0 %
+b0 &
+b0 '
+bx (
+x)
+bz *
+0+
+0,
+0-
+0.
+0/
+00
+b0 1
+b0 2
+b0 3
+b0 4
+bx 5
+x6
+x7
+x8
+x9
+x:
+bx ;
+bx <
+bx =
+bx >
+bx ?
+x@
+xA
+xB
+xC
+bx D
+xE
+bx F
+xG
+bx H
+bx I
+bx J
+bx K
+bx L
+xM
+bx N
+xO
+bx P
+bx Q
+bx R
+bx S
+bx T
+xU
+bx V
+xW
+bx X
+bx Y
+bx Z
+bx [
+bx \
+x]
+bx ^
+x_
+bx `
+bx a
+bx b
+bx c
+bx d
+$end
+#0

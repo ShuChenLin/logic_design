@@ -88,6 +88,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
 
     reg ra, rb, rc, rd, valid;
     reg [3-1:0] counter;
+    reg [8-1:0] dout;
 
     assign next_counter = counter + 1;
     
@@ -106,7 +107,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     rb <= 0;
                     rc <= 0;
                     rd <= 0;
-                    if ((era || w[0])) begin
+                    if ((era || wen[0])) begin
                         valid <= 0;
                         dout <= 0;
                     end else begin
@@ -119,7 +120,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     ra <= 0;
                     rc <= 0;
                     rd <= 0;
-                    if ((erb || w[1])) begin
+                    if ((erb || wen[1])) begin
                         valid <= 0;
                         dout <= 0;
                     end else begin
@@ -132,7 +133,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     ra <= 0;
                     rb <= 0;
                     rd <= 0;
-                    if ((erc || w[2])) begin
+                    if ((erc || wen[2])) begin
                         valid <= 0;
                         dout <= 0;
                     end else begin
@@ -145,7 +146,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     ra <= 0;
                     rb <= 0;
                     rc <= 0;
-                    if ((erd || w[3])) begin
+                    if ((erd || wen[3])) begin
                         valid <= 0;
                         dout <= 0;
                     end else begin

@@ -21,66 +21,72 @@ module FIFO_8_t;
         .wen (wen),
         .din (din),
         .dout (dout),
-        .error (error)
+        .error (error),
+        .rst_n (rst_n)
     );
+
+    initial begin
+        $dumpfile("fifo.vcd");
+        $dumpvars("+all");
+    end
         
     initial begin
         @(negedge clk)
-    rst_n = 0;
-    din = 8'd87;
-    ren = 1'b0;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd87;
-    ren = 1'b1;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd87;
-    ren = 1'b1;
-    wen = 1'b0;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd85;
-    ren = 1'b1;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd0;
-    ren = 1'b0;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd77;
-    ren = 1'b1;
-    wen = 1'b0;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd66;
-    ren = 1'b0;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd89;
-    ren = 1'b1;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd89;
-    ren = 1'b0;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd66;
-    ren = 1'b1;
-    wen = 1'b1;
-    @(negedge clk)
-    rst_n = 1;
-    din = 8'd0;
-    ren = 1'b1;
-    wen = 1'b0;
-    @(negedge clk)
-    $finish;
+        rst_n = 0;
+        din = 8'd87;
+        ren = 1'b0;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd87;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd87;
+        ren = 1'b1;
+        wen = 1'b0;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd85;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd0;
+        ren = 1'b0;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd77;
+        ren = 1'b1;
+        wen = 1'b0;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd66;
+        ren = 1'b0;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd89;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd89;
+        ren = 1'b0;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd66;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd0;
+        ren = 1'b1;
+        wen = 1'b0;
+        @(negedge clk)
+        $finish;
     end
 endmodule

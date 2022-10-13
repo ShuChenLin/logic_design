@@ -44,12 +44,12 @@ module FIFO_8_t;
         @(negedge clk)
         rst_n = 1;
         din = 8'd87;
-        ren = 1'b1;
-        wen = 1'b0;
+        ren = 1'b0;
+        wen = 1'b1;
         @(negedge clk)
         rst_n = 1;
         din = 8'd85;
-        ren = 1'b1;
+        ren = 1'b0;
         wen = 1'b1;
         @(negedge clk)
         rst_n = 1;
@@ -59,8 +59,8 @@ module FIFO_8_t;
         @(negedge clk)
         rst_n = 1;
         din = 8'd77;
-        ren = 1'b1;
-        wen = 1'b0;
+        ren = 1'b0;
+        wen = 1'b1;
         @(negedge clk)
         rst_n = 1;
         din = 8'd66;
@@ -69,7 +69,7 @@ module FIFO_8_t;
         @(negedge clk)
         rst_n = 1;
         din = 8'd89;
-        ren = 1'b1;
+        ren = 1'b0;
         wen = 1'b1;
         @(negedge clk)
         rst_n = 1;
@@ -79,14 +79,58 @@ module FIFO_8_t;
         @(negedge clk)
         rst_n = 1;
         din = 8'd66;
-        ren = 1'b1;
+        ren = 1'b0;
         wen = 1'b1;
         @(negedge clk)
         rst_n = 1;
         din = 8'd0;
-        ren = 1'b1;
+        ren = 1'b0;
         wen = 1'b0;
         @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd10;
+        ren = 1'b1;
+        wen = 1'b1;
         $finish;
     end
 endmodule

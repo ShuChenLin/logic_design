@@ -1,5 +1,78 @@
 `timescale 1ns/1ps
 
+module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
+
+    input clk;
+    input rst_n;
+    input wen, ren;
+    input [8-1:0] din;
+    output [8-1:0] dout;
+    output error;
+
+    reg [8-1:0] FIFO [0:128-1];
+    reg [8-1:0] dout;
+    reg error;
+    reg [4-1:0] head, tail;
+
+    reg [4-1:0] next_head, next_tail;
+
+    reg [8-1:0] do_car;
+
+    always @(*) begin
+        next_head = head + 1;
+        next_tail = tail + 1;
+        if (head === 4'b1000) begin
+            next_head = 0;
+        end
+        if (tail === 4'b1000) begin
+            next_tail = 0;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            head <= 0;
+            tail <= 0;
+            dout <= 0;
+            error <= 0;
+        end 
+        else if (ren) begin
+            if ((head === tail)) begin
+                head <= head;
+                error <= 1;
+                tail <= tail;
+                dout <= do_car;
+            end else begin
+                error <= 0;
+                dout <= FIFO[head];
+                head <= next_head;
+                tail <= tail;
+            end
+        end 
+        else if (wen) begin
+            if (head === next_tail) begin
+                head <= head;
+                tail <= tail;
+                error <= 1;
+                dout <= do_car;
+            end else begin
+                error <= 0;
+                dout <= do_car;
+                FIFO[tail] <= din;
+                head <= head;
+                tail <= next_tail;
+            end
+        end 
+        else begin
+            dout <= do_car;
+            error <= error;
+            head <= head;
+            tail <= tail;
+        end
+    end
+
+endmodule
+
 module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
 
     input clk;
@@ -8,5 +81,88 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     input [8-1:0] a, b, c, d;
     output [8-1:0] dout;
     output valid;
+
+    wire era, erb, erc, erd;
+    wire [2-1:0] next_counter;
+    wire [8-1:0] Aout = 0, Bout = 0, Cout = 0, Dout = 0;
+
+    reg ra, rb, rc, rd, valid;
+    reg [3-1:0] counter;
+
+    assign next_counter = counter + 1;
+    
+    always @(posedge clk) begin
+        counter <= next_counter;
+        if (rst_n) begin
+            counter <= 0;
+            ra <= 0;
+            rb <= 0;
+            rc <= 0;
+            rd <= 0;
+        end else begin
+            case (counter)
+                2'b01 : begin
+                    ra <= 1;
+                    rb <= 0;
+                    rc <= 0;
+                    rd <= 0;
+                    if ((era || w[0])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end else begin
+                        valid <= 1;
+                        dout <= Aout;
+                    end
+                end
+                2'b10 : begin
+                    rb <= 1;
+                    ra <= 0;
+                    rc <= 0;
+                    rd <= 0;
+                    if ((erb || w[1])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end else begin
+                        valid <= 1;
+                        dout <= Bout;
+                    end
+                end
+                2'b11 : begin
+                    rc <= 1;
+                    ra <= 0;
+                    rb <= 0;
+                    rd <= 0;
+                    if ((erc || w[2])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end else begin
+                        valid <= 1;
+                        dout <= Cout;
+                    end
+                end
+                2'b00 : begin
+                    rd <= 1;
+                    ra <= 0;
+                    rb <= 0;
+                    rc <= 0;
+                    if ((erd || w[3])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end else begin
+                        valid <= 1;
+                        dout <= Dout;
+                    end
+                end
+            endcase
+        end
+
+    end
+
+    FIFO_8 Fa(clk, rst_n, wen[0], ra, a, Aout, era);
+    FIFO_8 Fb(clk, rst_n, wen[1], rb, b, Bout, erb);
+    FIFO_8 Fc(clk, rst_n, wen[2], rc, c, Cout, erc);
+    FIFO_8 Fd(clk, rst_n, wen[3], rd, d, Dout, erd);
+
+    
 
 endmodule

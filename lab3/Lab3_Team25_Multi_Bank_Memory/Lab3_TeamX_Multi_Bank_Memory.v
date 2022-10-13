@@ -10,4 +10,6 @@ module Multi_Bank_Memory (clk, ren, wen, waddr, raddr, din, dout);
     output [8-1:0] dout;
 
 
+
+
 endmodule

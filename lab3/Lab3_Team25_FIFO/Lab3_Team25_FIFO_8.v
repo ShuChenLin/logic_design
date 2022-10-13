@@ -9,7 +9,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
     output [8-1:0] dout;
     output error;
 
-    reg [9-1:0] FIFO [0:128-1];
+    reg [8-1:0] FIFO [0:128-1];
     reg [8-1:0] dout;
     reg error;
     reg [4-1:0] head, tail;

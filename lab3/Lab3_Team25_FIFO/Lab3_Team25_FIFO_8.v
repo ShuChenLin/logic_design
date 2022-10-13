@@ -9,19 +9,30 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
     output [8-1:0] dout;
     output error;
 
-    reg [8-1:0] FIFO [0:128-1];
+    reg [9-1:0] FIFO [0:128-1];
     reg [8-1:0] dout;
     reg error;
-    reg [3-1:0] head, tail;
+    reg [4-1:0] head, tail;
 
-    wire [3-1:0] next_head, next_tail;
+    reg [4-1:0] next_head, next_tail;
 
     reg [8-1:0] do_car;
 
-    assign next_head = head + 1;
-    assign next_tail = tail + 1;
+    always @(*) begin
+        next_head <= head + 1;
+        next_tail <= tail + 1;
+        if (head === 4'b1000) begin
+            next_head <= 0;
+        end
+        if (tail === 4'b1000) begin
+            next_tail <= 0;
+        end
+    end
 
     always @(posedge clk) begin
+        //$display("head next_head %b %b", head, next_head);
+        $display("tail next_tail %b %b", tail, next_tail);
+        $display("FIFO %b", FIFO [tail-1]);
         if (!rst_n) begin
             head <= 0;
             tail <= 0;

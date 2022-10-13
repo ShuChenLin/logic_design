@@ -1,12 +1,15 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 01:06:54 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 02:28:43 CST
 ncverilog
 	Lab3_Team25_FIFO_8_t.v
 	Lab3_Team25_FIFO_8.v
 	+access+r
 Recompiling... reason: file './Lab3_Team25_FIFO_8_t.v' is newer than expected.
-	expected: Fri Oct 14 00:42:40 2022
-	actual:   Fri Oct 14 01:05:11 2022
+	expected: Fri Oct 14 01:09:40 2022
+	actual:   Fri Oct 14 02:27:11 2022
+file: Lab3_Team25_FIFO_8_t.v
+	module worklib.FIFO_8_t:v
+		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: ..........
@@ -16,18 +19,17 @@ ncelab: *W,STRINT (./Lab3_Team25_FIFO_8_t.v,30|23): String literal argument supp
 .......... Done
 	Generating native compiled code:
 		worklib.FIFO_8_t:v <0x5a34a189>
-			streams:   9, words: 19524
+			streams:   9, words: 21151
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                 2       2
-		Registers:              11      11
+		Registers:              13      13
 		Scalar wires:            5       -
-		Vectored wires:          4       -
-		Always blocks:           2       2
+		Vectored wires:          2       -
+		Always blocks:           3       3
 		Initial blocks:          7       7
-		Cont. assignments:       2       2
 		Pseudo assignments:      1       1
 		Simulation timescale:  1ps
 	Writing initial simulation snapshot: worklib.FIFO_8_t:v
@@ -35,7 +37,51 @@ Loading snapshot worklib.FIFO_8_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 200 NS + 0
-./Lab3_Team25_FIFO_8_t.v:134         $finish;
+tail next_tail xxxx xxxx
+FIFO xxxxxxxxx
+tail next_tail 0000 0001
+FIFO xxxxxxxxx
+tail next_tail 0000 0001
+FIFO xxxxxxxxx
+tail next_tail 0000 0001
+FIFO xxxxxxxxx
+tail next_tail 0001 0010
+FIFO 001010111
+tail next_tail 0010 0011
+FIFO 001010101
+tail next_tail 0011 0100
+FIFO 000000000
+tail next_tail 0100 0101
+FIFO 001001101
+tail next_tail 0101 0110
+FIFO 001001101
+tail next_tail 0110 0111
+FIFO 001000010
+tail next_tail 0111 1000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+tail next_tail 1000 0000
+FIFO 001011001
+Simulation complete via $finish(1) at time 220 NS + 0
+./Lab3_Team25_FIFO_8_t.v:144         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 01:06:57 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 02:28:46 CST  (total: 00:00:03)

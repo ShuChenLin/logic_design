@@ -103,9 +103,9 @@ argv[1]=Lab3_Team25_FIFO_8_t.v
 argv[2]=Lab3_Team25_FIFO_8.v
 argv[3]=+access+r
 104 profile - 100
-          CPU/Mem usage: 0.030 sys,  0.010 user,  60.48M sys,  0.00M vm
+          CPU/Mem usage: 0.030 sys,  0.020 user,  60.47M sys,  0.00M vm
 105 VC callback profile - scalar:0 vector:0
-106 Fri Oct 14 01:06:57 2022
+106 Fri Oct 14 02:28:46 2022
 107 pliAppInit
 108 FSDB_GATE is disabled.
 109 Enable Parallel Dumping.

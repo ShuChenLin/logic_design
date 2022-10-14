@@ -136,7 +136,6 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     end
 
     always @(posedge clk) begin
-        $display("ra, rb, rc, rd %b %b %b %b", era, erb, erc, erd);
         counter <= next_counter;
         if (!rst_n) begin
             counter <= 0;
@@ -179,11 +178,6 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
             endcase
         end
     end
-
-    //assign ra = ((counter === 2'b00)) ? 1 : 0;
-    //assign rb = ((counter === 2'b01)) ? 1 : 0;
-    //assign rc = ((counter === 2'b10)) ? 1 : 0;
-    //assign rd = ((counter === 2'b11)) ? 1 : 0;
 
     FIFO_8 fa(clk, rst_n, wen[0], ra, a, Aout, era);
     FIFO_8 fb(clk, rst_n, wen[1], rb, b, Bout, erb);

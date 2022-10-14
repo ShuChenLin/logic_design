@@ -1,23 +1,25 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 20:55:19 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 22:40:06 CST
 ncverilog
-	Lab3_TeamX_Multi_Bank_Memory_t.v
-	Lab3_TeamX_Multi_Bank_Memory.v
+	Lab3_Team25_Multi_Bank_Memory.v
+	test.v
 	+access+r
-Recompiling... reason: file './Lab3_TeamX_Multi_Bank_Memory.v' is newer than expected.
-	expected: Fri Oct 14 20:42:16 2022
-	actual:   Fri Oct 14 20:53:51 2022
-file: Lab3_TeamX_Multi_Bank_Memory.v
-	module worklib.Memory:v
+Recompiling... reason: file './test.v' is newer than expected.
+	expected: Fri Oct 14 22:35:31 2022
+	actual:   Fri Oct 14 22:38:40 2022
+file: test.v
+	module worklib.Multi_Bank_Memory_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
+	Building instance overlay tables: 
+     $dumpvars("+all");
+                    |
+ncelab: *W,STRINT (./test.v,30|20): String literal argument supplied to integer parameter.
+.................... Done
 	Generating native compiled code:
-		worklib.Bank:v <0x3cbe6f64>
-			streams:   2, words:  1788
-		worklib.Memory:v <0x65cd0cc3>
-			streams:   7, words:  2893
+		worklib.Multi_Bank_Memory_t:v <0x628e624f>
+			streams:  10, words: 11095
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -38,7 +40,7 @@ Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 110 NS + 0
-./Lab3_TeamX_Multi_Bank_Memory_t.v:94         $finish;
+Simulation complete via $finish(1) at time 60 NS + 0
+./test.v:70         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 20:55:21 CST  (total: 00:00:02)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 22:40:12 CST  (total: 00:00:06)

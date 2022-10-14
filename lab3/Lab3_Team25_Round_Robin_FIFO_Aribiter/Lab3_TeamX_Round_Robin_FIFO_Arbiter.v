@@ -84,86 +84,59 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
 
     wire era, erb, erc, erd;
     wire [2-1:0] next_counter;
-    wire [8-1:0] Aout = 0, Bout = 0, Cout = 0, Dout = 0;
+    wire [8-1:0] Aout, Bout, Cout, Dout;
 
-    reg ra, rb, rc, rd, valid;
+    reg ra = 0, rb = 0, rc = 0, rd = 0, valid;
     reg [3-1:0] counter;
     reg [8-1:0] dout;
 
     assign next_counter = counter + 1;
-    
+
     always @(posedge clk) begin
         counter <= next_counter;
-        if (rst_n) begin
+    end
+
+    always @(*) begin
+        ra = rb = rc = rd = 0;
+        if (counter == 2'b00) begin
+            ra = 1;
+        end
+        else if (counter == 2'b01) begin
+            rb = 1;
+        end
+        else if (counter == 2'b10) begin
+            rc = 1;
+        end
+        else if (counter == 2'b11) begin
+            rd = 1;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
             counter <= 0;
-            ra <= 0;
-            rb <= 0;
-            rc <= 0;
-            rd <= 0;
-        end else begin
+            valid <= 0;
+            dout <= 0;
+        end
+        else begin
             case (counter)
                 2'b01 : begin
-                    ra <= 1;
-                    rb <= 0;
-                    rc <= 0;
-                    rd <= 0;
-                    if ((era || wen[0])) begin
-                        valid <= 0;
-                        dout <= 0;
-                    end else begin
-                        valid <= 1;
-                        dout <= Aout;
-                    end
+                    
                 end
                 2'b10 : begin
-                    rb <= 1;
-                    ra <= 0;
-                    rc <= 0;
-                    rd <= 0;
-                    if ((erb || wen[1])) begin
-                        valid <= 0;
-                        dout <= 0;
-                    end else begin
-                        valid <= 1;
-                        dout <= Bout;
-                    end
                 end
                 2'b11 : begin
-                    rc <= 1;
-                    ra <= 0;
-                    rb <= 0;
-                    rd <= 0;
-                    if ((erc || wen[2])) begin
-                        valid <= 0;
-                        dout <= 0;
-                    end else begin
-                        valid <= 1;
-                        dout <= Cout;
-                    end
                 end
                 2'b00 : begin
-                    rd <= 1;
-                    ra <= 0;
-                    rb <= 0;
-                    rc <= 0;
-                    if ((erd || wen[3])) begin
-                        valid <= 0;
-                        dout <= 0;
-                    end else begin
-                        valid <= 1;
-                        dout <= Dout;
-                    end
                 end
             endcase
         end
-
     end
 
-    FIFO_8 Fa(clk, rst_n, wen[0], ra, a, Aout, era);
-    FIFO_8 Fb(clk, rst_n, wen[1], rb, b, Bout, erb);
-    FIFO_8 Fc(clk, rst_n, wen[2], rc, c, Cout, erc);
-    FIFO_8 Fd(clk, rst_n, wen[3], rd, d, Dout, erd);
-
     
+    FIFO_8 fa(clk, rst_n, wen[0], ra, a, Aout, era);
+    FIFO_8 fb(clk, rst_n, wen[1], rb, b, Bout, erb);
+    FIFO_8 fc(clk, rst_n, wen[2], rc, c, Cout, erc);
+    FIFO_8 fd(clk, rst_n, wen[3], rd, d, Dout, erd);
 
 endmodule

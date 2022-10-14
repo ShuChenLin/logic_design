@@ -8,6 +8,7 @@ module Round_Robin_FIFO_Arbiter_t;
     reg [8-1:0] a = 0, b = 0, c = 0, d = 0;
     wire [8-1:0] dout;
     wire valid;
+    wire [3-1:0] counter;
 
     wire [8-1:0] not_found;
 
@@ -25,7 +26,8 @@ module Round_Robin_FIFO_Arbiter_t;
         .c (c),
         .d (d),
         .dout (dout),
-        .valid (valid)
+        .valid (valid),
+        .counter (counter)
     );
 
     initial begin

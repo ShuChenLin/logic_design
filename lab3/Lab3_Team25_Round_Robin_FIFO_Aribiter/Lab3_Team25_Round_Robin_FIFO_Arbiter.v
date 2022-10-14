@@ -45,8 +45,6 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
 
     reg [4-1:0] next_head, next_tail;
 
-    reg [8-1:0] do_car;
-
     always @(*) begin
         next_head = head + 1;
         next_tail = tail + 1;
@@ -70,7 +68,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
                 head <= head;
                 error <= 1;
                 tail <= tail;
-                dout <= do_car;
+                dout <= 0;
             end else begin
                 error <= 0;
                 dout <= FIFO[head];
@@ -83,17 +81,17 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
                 head <= head;
                 tail <= tail;
                 error <= 1;
-                dout <= do_car;
+                dout <= 0;
             end else begin
                 error <= 0;
-                dout <= do_car;
+                dout <= 0;
                 FIFO[tail] <= din;
                 head <= head;
                 tail <= next_tail;
             end
         end 
         else begin
-            dout <= do_car;
+            dout <= 0;
             error <= error;
             head <= head;
             tail <= tail;
@@ -102,7 +100,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
 
 endmodule
 
-module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
+module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counter);
 
     input clk;
     input rst_n;
@@ -110,6 +108,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     input [8-1:0] a, b, c, d;
     output [8-1:0] dout;
     output valid;
+    output counter;
 
     wire era, erb, erc, erd;
     wire [2-1:0] next_counter;
@@ -131,7 +130,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
         else begin
             case (counter) 
                 2'b01 : begin
-                    if (era || w[0]) begin
+                    if (era || wen[0]) begin
                         valid <= 0;
                     end
                     else begin
@@ -139,7 +138,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     end
                 end
                 2'b10 : begin
-                    if (erb || w[1]) begin
+                    if (erb || wen[1]) begin
                         valid <= 0;
                     end
                     else begin
@@ -147,7 +146,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     end
                 end
                 2'b11 : begin
-                    if (erc || w[2]) begin
+                    if (erc || wen[2]) begin
                         valid <= 0;
                     end
                     else begin
@@ -155,7 +154,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
                     end
                 end
                 2'b00 : begin
-                    if (erd || w[3]) begin
+                    if (erd || wen[3]) begin
                         valid <= 0;
                     end
                     else begin
@@ -175,6 +174,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     FIFO_8 fb(clk, rst_n, wen[1], rb, b, Bout, erb);
     FIFO_8 fc(clk, rst_n, wen[2], rc, c, Cout, erc);
     FIFO_8 fd(clk, rst_n, wen[3], rd, d, Dout, erd);
-    or_8bit oo(Aout, Bout, Cout, Dout, dout);
+    //or_8bit oo(Aout, Bout, Cout, Dout, dout);
+    assign dout = Bout;
 
 endmodule

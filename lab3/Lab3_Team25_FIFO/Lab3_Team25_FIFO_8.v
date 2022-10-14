@@ -10,7 +10,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
     output error;
 
     reg [8-1:0] FIFO [0:128-1];
-    reg [8-1:0] dout;
+    reg [8-1:0] dout = 0;
     reg error;
     reg [4-1:0] head, tail;
 
@@ -31,8 +31,8 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
 
     always @(posedge clk) begin
         //$display("head next_head %b %b", head, next_head);
-        $display("tail next_tail %b %b", tail, next_tail);
-        $display("FIFO %b", FIFO [tail-1]);
+        //$display("tail next_tail %b %b", tail, next_tail);
+        //$display("FIFO %b", FIFO [tail-1]);
         if (!rst_n) begin
             head <= 0;
             tail <= 0;

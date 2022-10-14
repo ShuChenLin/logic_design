@@ -5,8 +5,8 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
-Lab3_TeamX_Round_Robin_FIFO_Arbiter_t.v
-Lab3_TeamX_Round_Robin_FIFO_Arbiter.v
+Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v
+Lab3_Team25_Round_Robin_FIFO_Arbiter.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

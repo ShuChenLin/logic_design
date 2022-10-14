@@ -1,5 +1,34 @@
 `timescale 1ns/1ps
 
+module or_4 (a, b, c, d, out);
+    
+    input a, b, c, d;
+    output out;
+
+    wire tmp1, tmp2;
+
+    or o0(tmp1, a, b);
+    or o1(tmp2, c, d);
+    or o2(out, tmp1, tmp2);
+
+endmodule
+
+module or_8bit (a, b, c, d, out);
+    
+    input [8-1:0] a, b, c, d;
+    output [8-1:0] out;
+
+    or_4 a0(a[0], b[0], c[0], d[0], out[0]);
+    or_4 a1(a[1], b[1], c[1], d[1], out[1]);
+    or_4 a2(a[2], b[2], c[2], d[2], out[2]);
+    or_4 a3(a[3], b[3], c[3], d[3], out[3]);
+    or_4 a4(a[4], b[4], c[4], d[4], out[4]);
+    or_4 a5(a[5], b[5], c[5], d[5], out[5]);
+    or_4 a6(a[6], b[6], c[6], d[6], out[6]);
+    or_4 a7(a[7], b[7], c[7], d[7], out[7]);
+
+endmodule
+
 module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
 
     input clk;
@@ -49,7 +78,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
                 tail <= tail;
             end
         end 
-        else if (wen) begin
+        if (wen) begin
             if (head === next_tail) begin
                 head <= head;
                 tail <= tail;
@@ -86,91 +115,66 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     wire [2-1:0] next_counter;
     wire [8-1:0] Aout, Bout, Cout, Dout;
 
-    reg ra = 0, rb = 0, rc = 0, rd = 0, valid;
+    wire ra = 0, rb = 0, rc = 0, rd = 0;
+    reg valid;
     reg [3-1:0] counter;
-    reg [8-1:0] dout;
+    wire [8-1:0] dout;
 
     assign next_counter = counter + 1;
 
     always @(posedge clk) begin
         counter <= next_counter;
-    end
-
-    always @(*) begin
-        ra = 0;
-        rb = 0;
-        rc = 0;
-        rd = 0;
-        if (counter == 2'b00) begin
-            ra = 1;
-        end
-        else if (counter == 2'b01) begin
-            rb = 1;
-        end
-        else if (counter == 2'b10) begin
-            rc = 1;
-        end
-        else if (counter == 2'b11) begin
-            rd = 1;
-        end
-    end
-
-    always @(posedge clk) begin
         if (!rst_n) begin
             counter <= 0;
             valid <= 0;
-            dout <= 0;
         end
         else begin
-            case (counter)
+            case (counter) 
                 2'b01 : begin
-                    if ((era || wen[0])) begin
+                    if (era || w[0]) begin
                         valid <= 0;
-                        dout <= 0;
                     end
                     else begin
                         valid <= 1;
-                        dout <= Aout;
                     end
                 end
                 2'b10 : begin
-                    if ((erb || wen[1])) begin
+                    if (erb || w[1]) begin
                         valid <= 0;
-                        dout <= 0;
                     end
                     else begin
                         valid <= 1;
-                        dout <= Bout;
                     end
                 end
                 2'b11 : begin
-                    if ((erc || wen[2])) begin
+                    if (erc || w[2]) begin
                         valid <= 0;
-                        dout <= 0;
                     end
                     else begin
                         valid <= 1;
-                        dout <= Cout;
                     end
                 end
                 2'b00 : begin
-                    if ((erd || wen[3])) begin
+                    if (erd || w[3]) begin
                         valid <= 0;
-                        dout <= 0;
                     end
                     else begin
                         valid <= 1;
-                        dout <= Dout;
                     end
                 end
             endcase
         end
     end
 
-    
+    assign ra = ((counter === 2'b01)) ? 1 : 0;
+    assign rb = ((counter === 2'b10)) ? 1 : 0;
+    assign rc = ((counter === 2'b11)) ? 1 : 0;
+    assign rd = ((counter === 2'b00)) ? 1 : 0;
+
     FIFO_8 fa(clk, rst_n, wen[0], ra, a, Aout, era);
     FIFO_8 fb(clk, rst_n, wen[1], rb, b, Bout, erb);
     FIFO_8 fc(clk, rst_n, wen[2], rc, c, Cout, erc);
     FIFO_8 fd(clk, rst_n, wen[3], rd, d, Dout, erd);
+    or_8bit oo(Aout, Bout, Cout, Dout, dout);
 
 endmodule

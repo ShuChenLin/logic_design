@@ -103,9 +103,9 @@ argv[1]=Lab3_TeamX_Round_Robin_FIFO_Arbiter_t.v
 argv[2]=Lab3_TeamX_Round_Robin_FIFO_Arbiter.v
 argv[3]=+access+r
 104 profile - 100
-          CPU/Mem usage: 0.030 sys,  0.020 user,  60.52M sys,  0.00M vm
+          CPU/Mem usage: 0.040 sys,  0.010 user,  60.52M sys,  0.00M vm
 105 VC callback profile - scalar:0 vector:0
-106 Fri Oct 14 18:10:20 2022
+106 Fri Oct 14 18:17:41 2022
 107 pliAppInit
 108 FSDB_GATE is disabled.
 109 Enable Parallel Dumping.

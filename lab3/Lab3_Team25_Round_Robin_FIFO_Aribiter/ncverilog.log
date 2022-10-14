@@ -1,33 +1,39 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 18:10:13 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 18:17:38 CST
 ncverilog
 	Lab3_TeamX_Round_Robin_FIFO_Arbiter_t.v
 	Lab3_TeamX_Round_Robin_FIFO_Arbiter.v
 	+access+r
 Recompiling... reason: file './Lab3_TeamX_Round_Robin_FIFO_Arbiter.v' is newer than expected.
-	expected: Fri Oct 14 05:36:30 2022
-	actual:   Fri Oct 14 18:08:42 2022
-file: Lab3_TeamX_Round_Robin_FIFO_Arbiter.v
-	module worklib.Round_Robin_FIFO_Arbiter:v
+	expected: Fri Oct 14 18:08:42 2022
+	actual:   Fri Oct 14 18:15:19 2022
+file: Lab3_TeamX_Round_Robin_FIFO_Arbiter_t.v
+	module worklib.Round_Robin_FIFO_Arbiter_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
+	Building instance overlay tables: ...
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab3_TeamX_Round_Robin_FIFO_Arbiter_t.v,33|23): String literal argument supplied to integer parameter.
+................. Done
 	Generating native compiled code:
-		worklib.FIFO_8:v <0x7a62fd70>
+		worklib.FIFO_8:v <0x715a5da4>
 			streams:  10, words:  4797
-		worklib.Round_Robin_FIFO_Arbiter:v <0x6ef3cc72>
+		worklib.Round_Robin_FIFO_Arbiter:v <0x42aee91d>
 			streams:  18, words:  6249
+		worklib.Round_Robin_FIFO_Arbiter_t:v <0x4885f522>
+			streams:  11, words: 15351
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                 6       3
 		Registers:              46      22
-		Scalar wires:           12       -
+		Scalar wires:           11       -
 		Expanded wires:          4       1
 		Vectored wires:         11       -
-		Always blocks:          11       5
+		Always blocks:          12       6
 		Initial blocks:         13      13
 		Cont. assignments:       1       1
 		Pseudo assignments:      1       1
@@ -37,6 +43,7 @@ Loading snapshot worklib.Round_Robin_FIFO_Arbiter_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-ncsim: *W,RNQUIE: Simulation is complete.
+Simulation complete via $finish(1) at time 100 NS + 0
+./Lab3_TeamX_Round_Robin_FIFO_Arbiter_t.v:101         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 18:10:20 CST  (total: 00:00:07)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 18:17:41 CST  (total: 00:00:03)

@@ -11,6 +11,11 @@ module Round_Robin_FIFO_Arbiter_t;
 
     wire [8-1:0] not_found;
 
+    parameter cyc = 10;
+
+      // generate clock.
+    always#(cyc/2)clk = !clk;
+
     Round_Robin_FIFO_Arbiter rrfa(
         .clk (clk),
         .rst_n (rst_n),
@@ -30,7 +35,7 @@ module Round_Robin_FIFO_Arbiter_t;
 
     initial begin
         @(negedge clk)
-        rst_n = 0;
+        rst_n = 1;
         wen = 4'b1111;
         a = 8'd87;
         b = 8'd56;

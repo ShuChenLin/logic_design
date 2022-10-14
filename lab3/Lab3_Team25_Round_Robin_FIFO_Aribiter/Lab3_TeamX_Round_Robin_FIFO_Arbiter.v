@@ -29,7 +29,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
         end
     end
 
-    always @(clk) begin
+    always @(posedge clk) begin
         if (!rst_n) begin
             head <= 0;
             tail <= 0;

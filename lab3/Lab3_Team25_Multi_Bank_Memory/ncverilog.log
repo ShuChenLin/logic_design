@@ -1,0 +1,44 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 20:55:19 CST
+ncverilog
+	Lab3_TeamX_Multi_Bank_Memory_t.v
+	Lab3_TeamX_Multi_Bank_Memory.v
+	+access+r
+Recompiling... reason: file './Lab3_TeamX_Multi_Bank_Memory.v' is newer than expected.
+	expected: Fri Oct 14 20:42:16 2022
+	actual:   Fri Oct 14 20:53:51 2022
+file: Lab3_TeamX_Multi_Bank_Memory.v
+	module worklib.Memory:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Bank:v <0x3cbe6f64>
+			streams:   2, words:  1788
+		worklib.Memory:v <0x65cd0cc3>
+			streams:   7, words:  2893
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                68       7
+		Primitives:            120       1
+		Registers:              38       8
+		Scalar wires:           43       -
+		Expanded wires:        150      18
+		Vectored wires:          1       -
+		Always blocks:          33       3
+		Initial blocks:         24       9
+		Cont. assignments:      10      16
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Multi_Bank_Memory_t:v
+Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 110 NS + 0
+./Lab3_TeamX_Multi_Bank_Memory_t.v:94         $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 20:55:21 CST  (total: 00:00:02)

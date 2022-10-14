@@ -1,42 +1,34 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 23:06:30 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 15, 2022 at 03:59:32 CST
 ncverilog
 	Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v
 	Lab3_Team25_Round_Robin_FIFO_Arbiter.v
 	+access+r
 Recompiling... reason: file './Lab3_Team25_Round_Robin_FIFO_Arbiter.v' is newer than expected.
-	expected: Fri Oct 14 23:03:10 2022
-	actual:   Fri Oct 14 23:05:00 2022
+	expected: Sat Oct 15 03:55:03 2022
+	actual:   Sat Oct 15 03:58:02 2022
 file: Lab3_Team25_Round_Robin_FIFO_Arbiter.v
 	module worklib.Round_Robin_FIFO_Arbiter:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .
-        $dumpvars("+all");
-                       |
-ncelab: *W,STRINT (./Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v,35|23): String literal argument supplied to integer parameter.
-................... Done
+	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.FIFO_8:v <0x3b137df9>
-			streams:  10, words:  4733
-		worklib.Round_Robin_FIFO_Arbiter:v <0x32d432d7>
-			streams:   6, words:  2582
-		worklib.Round_Robin_FIFO_Arbiter_t:v <0x1b067ec2>
-			streams:  11, words: 15351
+		worklib.Round_Robin_FIFO_Arbiter:v <0x1359f2e4>
+			streams:  12, words:  6424
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                15       5
 		Primitives:             24       1
-		Registers:              37      16
-		Scalar wires:           20       -
-		Expanded wires:          4       1
-		Vectored wires:         12       -
-		Always blocks:          10       4
-		Initial blocks:          9       9
-		Cont. assignments:       3      10
+		Registers:              41      20
+		Scalar wires:           19       -
+		Expanded wires:         44       6
+		Vectored wires:          6       -
+		Always blocks:          11       5
+		Initial blocks:         15      15
+		Cont. assignments:       2       2
 		Pseudo assignments:      1       1
 		Simulation timescale:  1ps
 	Writing initial simulation snapshot: worklib.Round_Robin_FIFO_Arbiter_t:v
@@ -44,7 +36,17 @@ Loading snapshot worklib.Round_Robin_FIFO_Arbiter_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
+ra, rb, rc, rd x x x x
+ra, rb, rc, rd 0 0 0 0
+ra, rb, rc, rd 0 0 0 0
+ra, rb, rc, rd 0 0 0 0
+ra, rb, rc, rd 0 1 0 0
+ra, rb, rc, rd 0 1 0 0
+ra, rb, rc, rd 0 1 0 0
+ra, rb, rc, rd 1 1 0 0
+ra, rb, rc, rd 0 1 0 0
+ra, rb, rc, rd 0 1 0 0
 Simulation complete via $finish(1) at time 100 NS + 0
-./Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v:103         $finish;
+./Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v:101         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 23:06:32 CST  (total: 00:00:02)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 15, 2022 at 03:59:35 CST  (total: 00:00:03)

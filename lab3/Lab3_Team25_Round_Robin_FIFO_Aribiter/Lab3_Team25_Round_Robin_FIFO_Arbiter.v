@@ -76,7 +76,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
                 tail <= tail;
             end
         end 
-        if (wen) begin
+        else if (wen) begin
             if (head === next_tail) begin
                 head <= head;
                 tail <= tail;
@@ -91,8 +91,12 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
             end
         end 
         else begin
+            if (head === tail) begin
+                error <= 1;
+            end else begin
+                error <= error;
+            end
             dout <= 0;
-            error <= error;
             head <= head;
             tail <= tail;
         end
@@ -100,7 +104,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
 
 endmodule
 
-module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counter);
+module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
 
     input clk;
     input rst_n;
@@ -108,20 +112,31 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counte
     input [8-1:0] a, b, c, d;
     output [8-1:0] dout;
     output valid;
-    output counter;
 
     wire era, erb, erc, erd;
     wire [2-1:0] next_counter;
     wire [8-1:0] Aout, Bout, Cout, Dout;
 
-    wire ra = 0, rb = 0, rc = 0, rd = 0;
-    reg valid;
-    reg [3-1:0] counter;
-    wire [8-1:0] dout;
+    reg ra = 0, rb = 0, rc = 0, rd = 0;
+    reg valid = 0;
+    reg [3-1:0] counter = 0;
+    wire [8-1:0] dout = 0;
 
     assign next_counter = counter + 1;
 
+    always @(wen, counter) begin
+        ra = 0; rb = 0; rc = 0; rd = 0;
+        if (!wen[0] && (counter == 2'b00)) ra = 1;
+        else if (!wen[1] && (counter == 2'b01)) rb = 1;
+        else if (!wen[2] && (counter == 2'b10)) rc = 1;
+        else if (!wen[3] && (counter == 2'b11)) rd = 1;
+        else begin
+            ra = 0; rb = 0; rc = 0; rd = 0;
+        end
+    end
+
     always @(posedge clk) begin
+        $display("ra, rb, rc, rd %b %b %b %b", era, erb, erc, erd);
         counter <= next_counter;
         if (!rst_n) begin
             counter <= 0;
@@ -129,7 +144,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counte
         end
         else begin
             case (counter) 
-                2'b01 : begin
+                2'b00 : begin
                     if (era || wen[0]) begin
                         valid <= 0;
                     end
@@ -137,7 +152,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counte
                         valid <= 1;
                     end
                 end
-                2'b10 : begin
+                2'b01 : begin
                     if (erb || wen[1]) begin
                         valid <= 0;
                     end
@@ -145,7 +160,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counte
                         valid <= 1;
                     end
                 end
-                2'b11 : begin
+                2'b10 : begin
                     if (erc || wen[2]) begin
                         valid <= 0;
                     end
@@ -153,7 +168,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counte
                         valid <= 1;
                     end
                 end
-                2'b00 : begin
+                2'b11 : begin
                     if (erd || wen[3]) begin
                         valid <= 0;
                     end
@@ -165,16 +180,15 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid, counte
         end
     end
 
-    assign ra = ((counter === 2'b01)) ? 1 : 0;
-    assign rb = ((counter === 2'b10)) ? 1 : 0;
-    assign rc = ((counter === 2'b11)) ? 1 : 0;
-    assign rd = ((counter === 2'b00)) ? 1 : 0;
+    //assign ra = ((counter === 2'b00)) ? 1 : 0;
+    //assign rb = ((counter === 2'b01)) ? 1 : 0;
+    //assign rc = ((counter === 2'b10)) ? 1 : 0;
+    //assign rd = ((counter === 2'b11)) ? 1 : 0;
 
     FIFO_8 fa(clk, rst_n, wen[0], ra, a, Aout, era);
     FIFO_8 fb(clk, rst_n, wen[1], rb, b, Bout, erb);
     FIFO_8 fc(clk, rst_n, wen[2], rc, c, Cout, erc);
     FIFO_8 fd(clk, rst_n, wen[3], rd, d, Dout, erd);
-    //or_8bit oo(Aout, Bout, Cout, Dout, dout);
-    assign dout = Bout;
+    or_8bit oo(Aout, Bout, Cout, Dout, dout);
 
 endmodule

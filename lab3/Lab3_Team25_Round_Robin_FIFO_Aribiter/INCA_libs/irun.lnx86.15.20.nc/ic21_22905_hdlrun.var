@@ -83,5 +83,3 @@ define VIEW_MAP ( $VIEW_MAP \
 , .svms => svms \
 , .SVMS => SVMS \
 )
-define ELAB_SNAPSHOT
-define SNAPSHOT worklib.Round_Robin_FIFO_Arbiter_t:v

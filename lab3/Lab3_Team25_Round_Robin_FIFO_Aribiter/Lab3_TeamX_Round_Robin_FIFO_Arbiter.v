@@ -29,7 +29,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
         end
     end
 
-    always @(posedge clk) begin
+    always @(clk) begin
         if (!rst_n) begin
             head <= 0;
             tail <= 0;
@@ -97,7 +97,10 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     end
 
     always @(*) begin
-        ra = rb = rc = rd = 0;
+        ra = 0;
+        rb = 0;
+        rc = 0;
+        rd = 0;
         if (counter == 2'b00) begin
             ra = 1;
         end
@@ -121,13 +124,44 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
         else begin
             case (counter)
                 2'b01 : begin
-                    
+                    if ((era || wen[0])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end
+                    else begin
+                        valid <= 1;
+                        dout <= Aout;
+                    end
                 end
                 2'b10 : begin
+                    if ((erb || wen[1])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end
+                    else begin
+                        valid <= 1;
+                        dout <= Bout;
+                    end
                 end
                 2'b11 : begin
+                    if ((erc || wen[2])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end
+                    else begin
+                        valid <= 1;
+                        dout <= Cout;
+                    end
                 end
                 2'b00 : begin
+                    if ((erd || wen[3])) begin
+                        valid <= 0;
+                        dout <= 0;
+                    end
+                    else begin
+                        valid <= 1;
+                        dout <= Dout;
+                    end
                 end
             endcase
         end

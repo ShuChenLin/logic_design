@@ -203,7 +203,8 @@ StickSet-TextColor = ID_BLACK
 Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
-_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\""
+_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\"" "\"/users/course/2022F/L\
+DL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -324,7 +325,8 @@ ColorPrint = FALSE
 QwQuestionMsgDlg = 788,453,324,114
 QwWarnMsgDlg = 2090,363,600,250
 QwUserAskDlg = 548,342,324,134
-openFileDlg = 419,164,602,483
+openFileDlg = 419,208,602,483
+QwInfoMsgDlg = 335,273,750,250
 qWaveSignalDialog = 320,210,800,479
 [Session Cache]
 1 = string (session file name)
@@ -771,11 +773,11 @@ printBasic = 1 0 0 FALSE FALSE
 printDest = -printer {}
 printSignature = {%f %h %t} {}
 curveWindow_Drag&Drop_Mode = TRUE
-RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\""
-RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd.fsdb\""
-RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\""
-RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd.fsdb\""
-RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\""
+RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd\""
+RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd.fsdb\""
+RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\""
+RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd.fsdb\""
+RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\""
 open_file_time_range = FALSE
 legend_window_font = -f COURIER12 -c ID_CYAN5
 value_window_font = -f COURIER12 -c ID_CYAN5

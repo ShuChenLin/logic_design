@@ -1,5 +1,5 @@
 $date
-    Oct 14, 2022  05:38:21
+    Oct 14, 2022  18:10:20
 $end
 $version
     TOOL:	ncsim	15.20-s039
@@ -48,7 +48,7 @@ $var reg       1 B    rc  $end
 $var reg       1 C    rd  $end
 $var reg       3 D    counter [2:0] $end
 
-$scope module Fa $end
+$scope module fa $end
 $var wire      1 +    clk  $end
 $var wire      1 ,    rst_n  $end
 $var wire      1 0    wen  $end
@@ -64,7 +64,7 @@ $var reg       8 L    do_car [7:0] $end
 $upscope $end
 
 
-$scope module Fb $end
+$scope module fb $end
 $var wire      1 +    clk  $end
 $var wire      1 ,    rst_n  $end
 $var wire      1 /    wen  $end
@@ -80,7 +80,7 @@ $var reg       8 T    do_car [7:0] $end
 $upscope $end
 
 
-$scope module Fc $end
+$scope module fc $end
 $var wire      1 +    clk  $end
 $var wire      1 ,    rst_n  $end
 $var wire      1 .    wen  $end
@@ -96,7 +96,7 @@ $var reg       8 \    do_car [7:0] $end
 $upscope $end
 
 
-$scope module Fd $end
+$scope module fd $end
 $var wire      1 +    clk  $end
 $var wire      1 ,    rst_n  $end
 $var wire      1 -    wen  $end
@@ -139,51 +139,51 @@ b0 3
 b0 4
 bx 5
 x6
-x7
-x8
-x9
-x:
+07
+08
+09
+0:
 bx ;
-bx <
-bx =
-bx >
-bx ?
-x@
-xA
-xB
-xC
+b0 <
+b0 =
+b0 >
+b0 ?
+0@
+0A
+0B
+0C
 bx D
-xE
-bx F
-xG
-bx H
-bx I
-bx J
-bx K
+0E
+b0 F
+0G
+b0 H
+b0 I
+b1 J
+b1 K
 bx L
-xM
-bx N
-xO
-bx P
-bx Q
-bx R
-bx S
+0M
+b0 N
+0O
+b0 P
+b0 Q
+b1 R
+b1 S
 bx T
-xU
-bx V
-xW
-bx X
-bx Y
-bx Z
-bx [
+0U
+b0 V
+0W
+b0 X
+b0 Y
+b1 Z
+b1 [
 bx \
-x]
-bx ^
-x_
-bx `
-bx a
-bx b
-bx c
+0]
+b0 ^
+0_
+b0 `
+b0 a
+b1 b
+b1 c
 bx d
 $end
 #0

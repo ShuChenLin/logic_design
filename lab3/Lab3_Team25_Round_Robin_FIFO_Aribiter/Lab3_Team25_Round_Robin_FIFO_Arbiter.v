@@ -94,7 +94,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
             if (head === tail) begin
                 error <= 1;
             end else begin
-                error <= error;
+                error <= 0;
             end
             dout <= 0;
             head <= head;

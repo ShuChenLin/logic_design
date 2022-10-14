@@ -68,7 +68,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
         end 
         else begin
             dout <= do_car;
-            error <= error;
+            error <= 0;
             head <= head;
             tail <= tail;
         end

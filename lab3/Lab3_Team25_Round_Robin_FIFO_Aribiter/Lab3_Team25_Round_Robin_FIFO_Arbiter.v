@@ -68,7 +68,7 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
                 head <= head;
                 error <= 1;
                 tail <= tail;
-                dout <= 0;
+                dout <= 8'bx;
             end else begin
                 error <= 0;
                 dout <= FIFO[head];
@@ -81,22 +81,18 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
                 head <= head;
                 tail <= tail;
                 error <= 1;
-                dout <= 0;
+                dout <= 8'bx;
             end else begin
                 error <= 0;
-                dout <= 0;
+                dout <= 8'bx;
                 FIFO[tail] <= din;
                 head <= head;
                 tail <= next_tail;
             end
         end 
         else begin
-            if (head === tail) begin
-                error <= 1;
-            end else begin
-                error <= 0;
-            end
-            dout <= 0;
+            error <= 0;
+            dout <= 8'bx;
             head <= head;
             tail <= tail;
         end
@@ -118,9 +114,9 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     wire [8-1:0] Aout, Bout, Cout, Dout;
 
     reg ra = 0, rb = 0, rc = 0, rd = 0;
-    reg valid = 0;
+    reg valid = 0, tmp_valid = 0;
     reg [3-1:0] counter = 0;
-    wire [8-1:0] dout = 0;
+    reg [8-1:0] dout = 0;
 
     assign next_counter = counter + 1;
 
@@ -135,47 +131,54 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
         end
     end
 
-    always @(posedge clk) begin
-        counter <= next_counter;
-        if (!rst_n) begin
-            counter <= 0;
-            valid <= 0;
+    always @(*) begin
+        valid = 0;
+        if (rst_n && counter === 2'b01) begin
+            valid = (!era && tmp_valid);
+        end
+        else if (rst_n && counter === 2'b10) begin
+            valid = (!erb && tmp_valid);
+        end
+        else if (rst_n && counter === 2'b11) begin
+            valid = (!erc && tmp_valid);
+        end
+        else if (rst_n && counter === 2'b00) begin
+            valid = (!erd && tmp_valid);
         end
         else begin
-            case (counter) 
-                2'b00 : begin
-                    if (era || wen[0]) begin
-                        valid <= 0;
-                    end
-                    else begin
-                        valid <= 1;
-                    end
-                end
-                2'b01 : begin
-                    if (erb || wen[1]) begin
-                        valid <= 0;
-                    end
-                    else begin
-                        valid <= 1;
-                    end
-                end
-                2'b10 : begin
-                    if (erc || wen[2]) begin
-                        valid <= 0;
-                    end
-                    else begin
-                        valid <= 1;
-                    end
-                end
-                2'b11 : begin
-                    if (erd || wen[3]) begin
-                        valid <= 0;
-                    end
-                    else begin
-                        valid <= 1;
-                    end
-                end
-            endcase
+            valid = 0;
+        end
+    end
+
+    always @(*) begin
+        if (counter === 2'b01 && valid) begin
+            dout = Aout;
+        end
+        else if (counter === 2'b10 && valid) begin
+            dout = Bout;
+        end
+        else if (counter === 2'b11 && valid) begin
+            dout = Cout;
+        end
+        else if (counter === 2'b00 && valid) begin
+            dout = Dout;
+        end
+        else begin
+            dout = 0;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            counter <= 0;
+        end
+        else begin
+            counter <= next_counter;
+            if (counter == 2'b00 && !wen[0]) tmp_valid <= 1;
+            else if (counter == 2'b01 && !wen[1]) tmp_valid <= 1;
+            else if (counter == 2'b10 && !wen[2]) tmp_valid <= 1;
+            else if (counter == 2'b11 && !wen[3]) tmp_valid <= 1;
+            else tmp_valid <= 0;
         end
     end
 
@@ -183,6 +186,6 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     FIFO_8 fb(clk, rst_n, wen[1], rb, b, Bout, erb);
     FIFO_8 fc(clk, rst_n, wen[2], rc, c, Cout, erc);
     FIFO_8 fd(clk, rst_n, wen[3], rd, d, Dout, erd);
-    or_8bit oo(Aout, Bout, Cout, Dout, dout);
+    //or_8bit oo(Aout, Bout, Cout, Dout, dout);
 
 endmodule

@@ -1,38 +1,35 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 14, 2022 at 22:40:06 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 15, 2022 at 17:47:58 CST
 ncverilog
 	Lab3_Team25_Multi_Bank_Memory.v
-	test.v
+	Lab3_Team25_Multi_Bank_Memory_t.v
 	+access+r
-Recompiling... reason: file './test.v' is newer than expected.
-	expected: Fri Oct 14 22:35:31 2022
-	actual:   Fri Oct 14 22:38:40 2022
-file: test.v
-	module worklib.Multi_Bank_Memory_t:v
-		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: 
-     $dumpvars("+all");
-                    |
-ncelab: *W,STRINT (./test.v,30|20): String literal argument supplied to integer parameter.
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab3_Team25_Multi_Bank_Memory_t.v,29|23): String literal argument supplied to integer parameter.
 .................... Done
 	Generating native compiled code:
-		worklib.Multi_Bank_Memory_t:v <0x628e624f>
-			streams:  10, words: 11095
+		worklib.Bank:v <0x3e32ec4e>
+			streams:   2, words:  2046
+		worklib.Bank_4:v <0x4af754a8>
+			streams:   2, words:  1946
+		worklib.Multi_Bank_Memory_t:v <0x441a45d6>
+			streams:  10, words: 16283
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                68       7
 		Primitives:            120       1
-		Registers:              38       8
+		Registers:              78      24
 		Scalar wires:           43       -
 		Expanded wires:        150      18
 		Vectored wires:          1       -
-		Always blocks:          33       3
+		Always blocks:          43       7
 		Initial blocks:         24       9
-		Cont. assignments:      10      16
 		Pseudo assignments:      1       1
 		Simulation timescale:  1ps
 	Writing initial simulation snapshot: worklib.Multi_Bank_Memory_t:v
@@ -40,7 +37,7 @@ Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 60 NS + 0
-./test.v:70         $finish;
+Simulation complete via $finish(1) at time 110 NS + 0
+./Lab3_Team25_Multi_Bank_Memory_t.v:94         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 14, 2022 at 22:40:12 CST  (total: 00:00:06)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 15, 2022 at 17:48:04 CST  (total: 00:00:06)

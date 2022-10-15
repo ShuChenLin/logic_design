@@ -65,18 +65,31 @@ module Bank(clk, ren, wen, waddr, raddr, din, dout);
     output [8-1:0] din;
     output [8-1:0] dout;
 
-    wire aw, bw, cw, dw, ar, br, cr, dr;
+    reg aw, bw, cw, dw, ar, br, cr, dr;
     wire [8-1:0] Aout, Bout, Cout, Dout;
 
-    assign ar = (ren && (raddr[8:7] == 2'b00)) ? 1 : 0;
-    assign br = (ren && (raddr[8:7] == 2'b01)) ? 1 : 0;
-    assign cr = (ren && (raddr[8:7] == 2'b10)) ? 1 : 0;
-    assign dr = (ren && (raddr[8:7] == 2'b11)) ? 1 : 0;
+    always @(ren or raddr) begin
+        ar = (ren && (raddr[8:7] == 2'b00)) ? 1 : 0;
+        br = (ren && (raddr[8:7] == 2'b01)) ? 1 : 0;
+        cr = (ren && (raddr[8:7] == 2'b10)) ? 1 : 0;
+        dr = (ren && (raddr[8:7] == 2'b11)) ? 1 : 0;
+    end
 
-    assign aw = (wen && (waddr[8:7] == 2'b00)) ? 1 : 0;
-    assign bw = (wen && (waddr[8:7] == 2'b01)) ? 1 : 0;
-    assign cw = (wen && (waddr[8:7] == 2'b10)) ? 1 : 0;
-    assign dw = (wen && (waddr[8:7] == 2'b11)) ? 1 : 0;
+    //assign ar = (ren && (raddr[8:7] == 2'b00)) ? 1 : 0;
+    //assign br = (ren && (raddr[8:7] == 2'b01)) ? 1 : 0;
+    //assign cr = (ren && (raddr[8:7] == 2'b10)) ? 1 : 0;
+    //assign dr = (ren && (raddr[8:7] == 2'b11)) ? 1 : 0;
+
+    always @(wen or waddr) begin
+        aw = (wen && (waddr[8:7] == 2'b00)) ? 1 : 0;
+        bw = (wen && (waddr[8:7] == 2'b01)) ? 1 : 0;
+        cw = (wen && (waddr[8:7] == 2'b10)) ? 1 : 0;
+        dw = (wen && (waddr[8:7] == 2'b11)) ? 1 : 0;
+    end
+    //assign aw = (wen && (waddr[8:7] == 2'b00)) ? 1 : 0;
+    //assign bw = (wen && (waddr[8:7] == 2'b01)) ? 1 : 0;
+    //assign cw = (wen && (waddr[8:7] == 2'b10)) ? 1 : 0;
+    //assign dw = (wen && (waddr[8:7] == 2'b11)) ? 1 : 0;
 
     Memory M0(clk, ar, aw, waddr[6:0], raddr[6:0], din, Aout);
     Memory M1(clk, br, bw, waddr[6:0], raddr[6:0], din, Bout);
@@ -94,19 +107,33 @@ module Bank_4(clk, ren, wen, waddr, raddr, din, dout);
     output [8-1:0] din;
     output [8-1:0] dout;
 
-    wire  b0w, b0r, b1w, b1r, b2w, b2r, b3w, b3r;
+    reg  b0w, b0r, b1w, b1r, b2w, b2r, b3w, b3r;
 
     wire [8-1:0] Aout, Bout, Cout, Dout;
 
-    assign b0r = (ren && (raddr[10:9] === 2'b00)) ? 1 : 0;
-    assign b1r = (ren && (raddr[10:9] === 2'b01)) ? 1 : 0;
-    assign b2r = (ren && (raddr[10:9] === 2'b10)) ? 1 : 0;
-    assign b3r = (ren && (raddr[10:9] === 2'b11)) ? 1 : 0;
+    always @(ren or raddr) begin
+        b0r = (ren && (raddr[10:9] === 2'b00)) ? 1 : 0;
+        b1r = (ren && (raddr[10:9] === 2'b01)) ? 1 : 0;
+        b2r = (ren && (raddr[10:9] === 2'b10)) ? 1 : 0;
+        b3r = (ren && (raddr[10:9] === 2'b11)) ? 1 : 0;
+    end
 
-    assign b0w = (wen && (waddr[10:9] === 2'b00)) ? 1 : 0;
-    assign b1w = (wen && (waddr[10:9] === 2'b01)) ? 1 : 0;
-    assign b2w = (wen && (waddr[10:9] === 2'b10)) ? 1 : 0;
-    assign b3w = (wen && (waddr[10:9] === 2'b11)) ? 1 : 0;
+    //assign b0r = (ren && (raddr[10:9] === 2'b00)) ? 1 : 0;
+    //assign b1r = (ren && (raddr[10:9] === 2'b01)) ? 1 : 0;
+    //assign b2r = (ren && (raddr[10:9] === 2'b10)) ? 1 : 0;
+    //assign b3r = (ren && (raddr[10:9] === 2'b11)) ? 1 : 0;
+
+    always @(wen or waddr) begin
+        b0w = (wen && (waddr[10:9] === 2'b00)) ? 1 : 0;
+        b1w = (wen && (waddr[10:9] === 2'b01)) ? 1 : 0;
+        b2w = (wen && (waddr[10:9] === 2'b10)) ? 1 : 0;
+        b3w = (wen && (waddr[10:9] === 2'b11)) ? 1 : 0;
+    end
+
+    //assign b0w = (wen && (waddr[10:9] === 2'b00)) ? 1 : 0;
+    //assign b1w = (wen && (waddr[10:9] === 2'b01)) ? 1 : 0;
+    //assign b2w = (wen && (waddr[10:9] === 2'b10)) ? 1 : 0;
+    //assign b3w = (wen && (waddr[10:9] === 2'b11)) ? 1 : 0;
 
     Bank B0(clk, b0r, b0w, waddr[8:0], raddr[8:0], din, Aout);
     Bank B1(clk, b1r, b1w, waddr[8:0], raddr[8:0], din, Bout);

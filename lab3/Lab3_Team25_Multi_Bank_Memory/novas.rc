@@ -204,7 +204,7 @@ Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
 _2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\"" "\"/users/course/2022F/L\
-DL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/Memory.vcd\""
+DL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -324,10 +324,10 @@ ColorPrint = FALSE
 [QtDialog]
 QwWarnMsgDlg = 2090,363,600,250
 QwQuestionMsgDlg = 788,431,324,114
-openFileDlg = 419,208,602,483
 QwInfoMsgDlg = 575,363,750,250
-qWaveSignalDialog = 320,210,800,479
-QwUserAskDlg = 589,646,324,134
+QwUserAskDlg = 788,387,324,162
+openFileDlg = 659,315,602,483
+qWaveSignalDialog = 560,317,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -606,8 +606,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 320 210 800 479 245 381 505 183
-viewPort = 41 569 1440 854 100 65
+getSignalForm = 560 317 800 479 245 381 505 183
+viewPort = 240 108 1440 854 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK
@@ -773,10 +773,10 @@ printBasic = 1 0 0 FALSE FALSE
 printDest = -printer {}
 printSignature = {%f %h %t} {}
 curveWindow_Drag&Drop_Mode = TRUE
-RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/Memory.vcd\""
-RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/Memory.vcd.fsdb\""
-RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd\""
-RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd.fsdb\""
+RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd\""
+RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd.fsdb\""
+RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/Memory.vcd\""
+RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/Memory.vcd.fsdb\""
 RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\""
 open_file_time_range = FALSE
 legend_window_font = -f COURIER12 -c ID_CYAN5

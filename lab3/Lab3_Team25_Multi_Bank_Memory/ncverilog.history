@@ -21,3 +21,5 @@ s20(14Oct2022:22:36:04):  ncverilog Lab3_Team25_Multi_Bank_Memory.v test.v +acce
 s21(14Oct2022:22:36:37):  ncverilog Lab3_Team25_Multi_Bank_Memory.v test.v +access+r 
 s22(14Oct2022:22:37:05):  ncverilog Lab3_Team25_Multi_Bank_Memory.v test.v +access+r 
 s23(14Oct2022:22:40:06):  ncverilog Lab3_Team25_Multi_Bank_Memory.v test.v +access+r 
+s24(15Oct2022:17:47:31):  ncverilog Lab3_Team25_Multi_Bank_Memory_t.v Lab3_Team25_Multi_Bank_Memory.v test.v +access+r 
+s25(15Oct2022:17:47:58):  ncverilog Lab3_Team25_Multi_Bank_Memory.v Lab3_Team25_Multi_Bank_Memory_t.v +access+r 

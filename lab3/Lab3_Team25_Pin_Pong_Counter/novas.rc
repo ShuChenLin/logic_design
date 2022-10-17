@@ -324,10 +324,10 @@ ColorPrint = FALSE
 [QtDialog]
 QwQuestionMsgDlg = 788,453,324,114
 QwWarnMsgDlg = 2090,363,600,250
-openFileDlg = 419,208,602,483
 QwInfoMsgDlg = 335,273,750,250
+QwUserAskDlg = 548,279,324,162
+openFileDlg = 419,208,602,483
 qWaveSignalDialog = 320,210,800,479
-QwUserAskDlg = 548,314,324,134
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)

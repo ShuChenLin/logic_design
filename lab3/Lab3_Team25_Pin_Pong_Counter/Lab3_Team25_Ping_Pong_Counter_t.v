@@ -114,6 +114,18 @@ module Ping_Pong_Counter_t;
         rst_n = 1;
         enable = 1;
         @(negedge clk)
+        rst_n = 1;
+        enable = 1;
+        @(negedge clk)
+        rst_n = 1;
+        enable = 1;
+        @(negedge clk)
+        rst_n = 1;
+        enable = 1;
+        @(negedge clk)
+        rst_n = 1;
+        enable = 1;
+        @(negedge clk)
         rst_n = 0;
         enable = 1;
         @(negedge clk)

@@ -1,9 +1,12 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 17, 2022 at 11:00:43 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 17, 2022 at 11:15:41 CST
 ncverilog
 	Lab3_Team25_Ping_Pong_Counter_t.v
 	Lab3_TeamX_Ping_Pong_Counter.v
 	+access+r
+Recompiling... reason: file './Lab3_Team25_Ping_Pong_Counter_t.v' is newer than expected.
+	expected: Mon Oct 17 10:59:16 2022
+	actual:   Mon Oct 17 11:14:10 2022
 file: Lab3_Team25_Ping_Pong_Counter_t.v
 	module worklib.Ping_Pong_Counter_t:v
 		errors: 0, warnings: 0
@@ -15,10 +18,8 @@ file: Lab3_Team25_Ping_Pong_Counter_t.v
 ncelab: *W,STRINT (./Lab3_Team25_Ping_Pong_Counter_t.v,25|23): String literal argument supplied to integer parameter.
 .......... Done
 	Generating native compiled code:
-		worklib.Ping_Pong_Counter:v <0x27367ae4>
-			streams:   4, words:  1369
 		worklib.Ping_Pong_Counter_t:v <0x14fe36f8>
-			streams:   7, words: 37796
+			streams:   7, words: 40248
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -37,7 +38,7 @@ Loading snapshot worklib.Ping_Pong_Counter_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 580 NS + 0
-./Lab3_Team25_Ping_Pong_Counter_t.v:201         $finish;
+Simulation complete via $finish(1) at time 620 NS + 0
+./Lab3_Team25_Ping_Pong_Counter_t.v:213         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 17, 2022 at 11:00:48 CST  (total: 00:00:05)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 17, 2022 at 11:15:51 CST  (total: 00:00:10)

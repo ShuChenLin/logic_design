@@ -324,10 +324,10 @@ ColorPrint = FALSE
 [QtDialog]
 QwWarnMsgDlg = 2090,363,600,250
 QwQuestionMsgDlg = 788,431,324,114
-openFileDlg = 419,208,602,483
 QwInfoMsgDlg = 575,363,750,250
-qWaveSignalDialog = 320,210,800,479
-QwUserAskDlg = 589,646,324,134
+QwUserAskDlg = 546,279,324,148
+openFileDlg = 417,207,602,483
+qWaveSignalDialog = 318,209,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -606,8 +606,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 320 210 800 479 245 381 505 183
-viewPort = 41 569 1440 854 100 65
+getSignalForm = 318 209 800 479 245 381 505 183
+viewPort = -2 0 1440 854 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK

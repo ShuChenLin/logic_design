@@ -29,11 +29,11 @@ module or_8bit (a, b, c, d, out);
 
 endmodule
 
-module Memory (clk, ren, wen, waddr, raddr, din, dout);
+module Memory (clk, ren, wen, addr, din, dout);
 
     input clk;
     input ren, wen;
-    input [7-1:0] waddr, raddr;
+    input [7-1:0] addr;
     input [8-1:0] din;
     output [8-1:0] dout;
 
@@ -42,7 +42,7 @@ module Memory (clk, ren, wen, waddr, raddr, din, dout);
 
     always @(posedge clk) begin
         if (ren)begin
-            dout[8-1:0] <= my_memory[raddr];
+            dout[8-1:0] <= my_memory[addr];
         end else begin
             dout <= 0;
         end
@@ -50,9 +50,9 @@ module Memory (clk, ren, wen, waddr, raddr, din, dout);
     
     always @(posedge clk) begin
         if (wen && !ren) begin
-            my_memory[waddr] <= din[8-1:0];
+            my_memory[addr] <= din[8-1:0];
         end else begin
-            my_memory[waddr] <= my_memory[waddr];
+            my_memory[addr] <= my_memory[addr];
         end
     end
 
@@ -66,6 +66,7 @@ module Bank(clk, ren, wen, waddr, raddr, din, dout);
     output [8-1:0] dout;
 
     reg aw, bw, cw, dw, ar, br, cr, dr;
+    reg [7-1:0] Aaddr, Baddr, Caddr, Daddr;
     wire [8-1:0] Aout, Bout, Cout, Dout;
 
     always @(ren or raddr) begin
@@ -91,10 +92,17 @@ module Bank(clk, ren, wen, waddr, raddr, din, dout);
     //assign cw = (wen && (waddr[8:7] == 2'b10)) ? 1 : 0;
     //assign dw = (wen && (waddr[8:7] == 2'b11)) ? 1 : 0;
 
-    Memory M0(clk, ar, aw, waddr[6:0], raddr[6:0], din, Aout);
-    Memory M1(clk, br, bw, waddr[6:0], raddr[6:0], din, Bout);
-    Memory M2(clk, cr, cw, waddr[6:0], raddr[6:0], din, Cout);
-    Memory M3(clk, dr, dw, waddr[6:0], raddr[6:0], din, Dout);
+    always @(*) begin
+        Aaddr = (ar) ? raddr[6:0] : waddr[6:0];
+        Baddr = (br) ? raddr[6:0] : waddr[6:0];
+        Caddr = (cr) ? raddr[6:0] : waddr[6:0];
+        Daddr = (dr) ? raddr[6:0] : waddr[6:0];
+    end
+
+    Memory M0(clk, ar, aw, Aaddr, din, Aout);
+    Memory M1(clk, br, bw, Baddr, din, Bout);
+    Memory M2(clk, cr, cw, Caddr, din, Cout);
+    Memory M3(clk, dr, dw, Daddr, din, Dout);
     or_8bit oo(Aout, Bout, Cout, Dout, dout);
 
 endmodule

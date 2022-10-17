@@ -6,7 +6,7 @@
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
 Lab3_Team25_Multi_Bank_Memory.v
-Lab3_Team25_Multi_Bank_Memory_t.v
+test.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

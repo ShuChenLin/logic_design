@@ -141,6 +141,27 @@ module FIFO_8_t;
         din = 8'd10;
         ren = 1'b1;
         wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd15;
+        ren = 1'b0;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'd19;
+        ren = 1'b0;
+        wen = 1'b1;
+        @(negedge clk)
+        rst_n = 0;
+        din = 8'd0;
+        ren = 1'b1;
+        wen = 1'b0;
+        @(negedge clk)
+        rst_n = 1;
+        din = 8'b11;
+        ren = 1'b1;
+        wen = 1'b1;
+        @(negedge clk)
         $finish;
     end
 endmodule

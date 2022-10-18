@@ -34,63 +34,129 @@ module Multi_Bank_Memory_t;
         ren = 0;
         wen = 1;
         waddr = 11'b00001010100;
+        raddr = 11'b00001010101;
+        din = 8'b00000001;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b00011010100;
+        raddr = 11'b00001010100;
+        din = 8'b00000011;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b00101010100;
+        raddr = 11'b00011010100;
+        din = 8'b00000111;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b00111010100;
         raddr = 11'b00101010100;
-        din = 8'b00101010;
+        din = 8'b00001111;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b01001010100;
+        raddr = 11'b00111010100;
+        din = 8'b00011111;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b01011010100;
+        raddr = 11'b01001010100;
+        din = 8'b00111111;
         @(negedge clk)
         ren = 1;
         wen = 1;
         waddr = 11'b01101010100;
-        raddr = 11'b00001010100;
-        din = 8'b00000011;
-        @(negedge clk)
-        ren = 0;
-        wen = 1;
-        waddr = 11'b10101010100;
-        raddr = 11'b00000000000;
-        din = 8'b00010001;
+        raddr = 11'b01011010100;
+        din = 8'b01111111;
         @(negedge clk)
         ren = 1;
         wen = 1;
-        waddr = 11'b00000000000;
+        waddr = 11'b01111010100;
         raddr = 11'b01101010100;
-        din = 8'b00000000;
-        @(negedge clk)
-        ren = 0;
-        wen = 1;
-        waddr = 11'b00001010100;
-        raddr = 11'b00101010100;
-        din = 8'b00101010;
+        din = 8'b11111111;
         @(negedge clk)
         ren = 1;
         wen = 1;
-        waddr = 11'b01101010100;
-        raddr = 11'b00001010100;
-        din = 8'b00000011;
+        waddr = 11'b10001010100;
+        raddr = 11'b01111010100;
+        din = 8'b10000000;
         @(negedge clk)
-        ren = 0;
+        ren = 1;
+        wen = 1;
+        waddr = 11'b10011010100;
+        raddr = 11'b10001010100;
+        din = 8'b11000000;
+        @(negedge clk)
+        ren = 1;
         wen = 1;
         waddr = 11'b10101010100;
-        raddr = 11'b00000000000;
-        din = 8'b00010001;
+        raddr = 11'b10011010100;
+        din = 8'b11100000;
         @(negedge clk)
         ren = 1;
         wen = 1;
-        waddr = 11'b00000000000;
+        waddr = 11'b10111010100;
         raddr = 11'b10101010100;
-        din = 8'b00000000;
+        din = 8'b11110000;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b11001010100;
+        raddr = 11'b10111010100;
+        din = 8'b11111000;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b11011010100;
+        raddr = 11'b11001010100;
+        din = 8'b11111100;
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b11101010100;
+        raddr = 11'b11011010100;
+        din = 8'b11111110;
         @(negedge clk)
         ren = 1;
         wen = 1;
         waddr = 11'b11111010100;
-        raddr = 11'b00000000000;
-        din = 8'b00111111;
+        raddr = 11'b11101010100;
+        din = 8'b11111111;
         @(negedge clk)
         ren = 1;
         wen = 0;
         waddr = 11'b00000000000;
         raddr = 11'b11111010100;
         din = 8'b00000000;
-        @(negedge clk);
+        @(negedge clk)
+        ren = 1;
+        wen = 1;
+        waddr = 11'b00001010100;
+        raddr = 11'b00001010100;
+        din = 8'b00000000;
+        @(negedge clk)
+        ren = 1;
+        wen = 0;
+        waddr = 11'b0;
+        raddr = 11'b00001010100;
+        din = 8'b0;
+        @(negedge clk)
+        ren = 0;
+        wen = 0;
+        waddr = 11'b00001010100;
+        raddr = 11'b00001010100;
+        din = 8'b0;
+        @(negedge clk)
+        ren = 1;
+        wen = 0;
+        waddr = 11'b0;
+        raddr = 11'b0;
+        din = 8'b0;
+        @(negedge clk)
         $finish;
     end
 

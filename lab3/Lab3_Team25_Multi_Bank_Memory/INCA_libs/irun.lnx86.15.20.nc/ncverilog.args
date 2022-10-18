@@ -3,5 +3,5 @@
 // Do not modify this file
 //
 Lab3_Team25_Multi_Bank_Memory.v
-test.v
+Lab3_Team25_Multi_Bank_Memory_t.v
 +access+r

@@ -204,7 +204,7 @@ Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
 _2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\"" "\"/users/course/2022F/L\
-DL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd\""
+DL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/Memory.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/multi_memory.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -325,8 +325,8 @@ ColorPrint = FALSE
 QwWarnMsgDlg = 2090,363,600,250
 QwQuestionMsgDlg = 788,431,324,114
 QwInfoMsgDlg = 575,363,750,250
-QwUserAskDlg = 546,279,324,162
-openFileDlg = 417,207,602,483
+QwUserAskDlg = 546,328,324,162
+openFileDlg = 417,185,602,483
 qWaveSignalDialog = 318,209,800,479
 [Session Cache]
 1 = string (session file name)

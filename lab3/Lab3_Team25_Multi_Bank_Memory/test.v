@@ -31,6 +31,11 @@ Multi_Bank_Memory mem(
 // end
 
     initial begin
+        $dumpfile("test.vcd");
+        $dumpvars("+all");
+    end
+
+    initial begin
         @(negedge clk) //將20寫入addr[1]
             waddr = 1;
             radder = 0;

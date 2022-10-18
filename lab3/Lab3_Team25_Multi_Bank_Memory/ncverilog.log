@@ -1,25 +1,112 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 18, 2022 at 13:58:33 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 18, 2022 at 14:05:52 CST
 ncverilog
 	Lab3_Team25_Multi_Bank_Memory.v
-	Lab3_Team25_Multi_Bank_Memory_t.v
+	test.v
 	+access+r
-Recompiling... reason: file './Lab3_Team25_Multi_Bank_Memory_t.v' is newer than expected.
-	expected: Tue Oct 18 13:53:11 2022
-	actual:   Tue Oct 18 13:57:06 2022
-file: Lab3_Team25_Multi_Bank_Memory_t.v
+file: test.v
+        @(negedge clk) //將20寫入addr[1]
+                         |
+ncvlog: *W,NONPRT (test.v,39|25): non-printable character (0xe5) ignored.
+        @(negedge clk) //將20寫入addr[1]
+                          |
+ncvlog: *W,NONPRT (test.v,39|26): non-printable character (0xb0) ignored.
+        @(negedge clk) //將20寫入addr[1]
+                           |
+ncvlog: *W,NONPRT (test.v,39|27): non-printable character (0x87) ignored.
+        @(negedge clk) //將200寫入addr[200]，同時讀取 addr[1]
+                         |
+ncvlog: *W,NONPRT (test.v,45|25): non-printable character (0xe5) ignored.
+        @(negedge clk) //將200寫入addr[200]，同時讀取 addr[1]
+                          |
+ncvlog: *W,NONPRT (test.v,45|26): non-printable character (0xb0) ignored.
+        @(negedge clk) //將200寫入addr[200]，同時讀取 addr[1]
+                           |
+ncvlog: *W,NONPRT (test.v,45|27): non-printable character (0x87) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                         |
+ncvlog: *W,NONPRT (test.v,51|25): non-printable character (0xe5) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                          |
+ncvlog: *W,NONPRT (test.v,51|26): non-printable character (0x86) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                           |
+ncvlog: *W,NONPRT (test.v,51|27): non-printable character (0x8d) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                            |
+ncvlog: *W,NONPRT (test.v,51|28): non-printable character (0xe4) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                             |
+ncvlog: *W,NONPRT (test.v,51|29): non-printable character (0xbe) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                              |
+ncvlog: *W,NONPRT (test.v,51|30): non-printable character (0x86) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                               |
+ncvlog: *W,NONPRT (test.v,51|31): non-printable character (0xe8) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                                |
+ncvlog: *W,NONPRT (test.v,51|32): non-printable character (0xae) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                                 |
+ncvlog: *W,NONPRT (test.v,51|33): non-printable character (0x80) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                                  |
+ncvlog: *W,NONPRT (test.v,51|34): non-printable character (0xe5) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                                   |
+ncvlog: *W,NONPRT (test.v,51|35): non-printable character (0x8f) ignored.
+        @(negedge clk) //再來讀取addr[200]
+                                    |
+ncvlog: *W,NONPRT (test.v,51|36): non-printable character (0x96) ignored.
+        @(negedge clk) //將201寫入addr[201]
+                         |
+ncvlog: *W,NONPRT (test.v,57|25): non-printable character (0xe5) ignored.
+        @(negedge clk) //將201寫入addr[201]
+                          |
+ncvlog: *W,NONPRT (test.v,57|26): non-printable character (0xb0) ignored.
+        @(negedge clk) //將201寫入addr[201]
+                           |
+ncvlog: *W,NONPRT (test.v,57|27): non-printable character (0x87) ignored.
+        @(negedge clk) //將202寫入addr[201]，並同時讀取addr[200]
+                         |
+ncvlog: *W,NONPRT (test.v,63|25): non-printable character (0xe5) ignored.
+        @(negedge clk) //將202寫入addr[201]，並同時讀取addr[200]
+                          |
+ncvlog: *W,NONPRT (test.v,63|26): non-printable character (0xb0) ignored.
+        @(negedge clk) //將202寫入addr[201]，並同時讀取addr[200]
+                           |
+ncvlog: *W,NONPRT (test.v,63|27): non-printable character (0x87) ignored.
+        @(negedge clk) //讀取 addr[202]
+                         |
+ncvlog: *W,NONPRT (test.v,69|25): non-printable character (0xe8) ignored.
+        @(negedge clk) //讀取 addr[202]
+                          |
+ncvlog: *W,NONPRT (test.v,69|26): non-printable character (0xae) ignored.
+        @(negedge clk) //讀取 addr[202]
+                           |
+ncvlog: *W,NONPRT (test.v,69|27): non-printable character (0x80) ignored.
+        @(negedge clk) //讀取 addr[202]
+                            |
+ncvlog: *W,NONPRT (test.v,69|28): non-printable character (0xe5) ignored.
+        @(negedge clk) //讀取 addr[202]
+                             |
+ncvlog: *W,NONPRT (test.v,69|29): non-printable character (0x8f) ignored.
+        @(negedge clk) //讀取 addr[202]
+                              |
+ncvlog: *W,NONPRT (test.v,69|30): non-printable character (0x96) ignored.
 	module worklib.Multi_Bank_Memory_t:v
-		errors: 0, warnings: 0
+		errors: 0, warnings: 30
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: 
         $dumpvars("+all");
                        |
-ncelab: *W,STRINT (./Lab3_Team25_Multi_Bank_Memory_t.v,29|23): String literal argument supplied to integer parameter.
+ncelab: *W,STRINT (./test.v,35|23): String literal argument supplied to integer parameter.
 .................... Done
 	Generating native compiled code:
-		worklib.Multi_Bank_Memory_t:v <0x14dd84d2>
-			streams:  10, words: 24256
+		worklib.Multi_Bank_Memory_t:v <0x461d642c>
+			streams:  10, words:  9450
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -39,7 +126,7 @@ Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 220 NS + 0
-./Lab3_Team25_Multi_Bank_Memory_t.v:160         $finish;
+Simulation complete via $finish(1) at time 60 NS + 0
+./test.v:75         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 18, 2022 at 13:58:36 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 18, 2022 at 14:05:57 CST  (total: 00:00:05)

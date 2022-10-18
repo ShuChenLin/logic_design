@@ -100,12 +100,12 @@ TCL_LIBRARY=/usr/cad/cadence/INCISIV/cur/tools/inca/files/tcl/library
 Runtime command line arguments:
 argv[0]=ncverilog
 argv[1]=Lab3_Team25_Multi_Bank_Memory.v
-argv[2]=Lab3_Team25_Multi_Bank_Memory_t.v
+argv[2]=test.v
 argv[3]=+access+r
 104 profile - 100
-          CPU/Mem usage: 0.030 sys,  0.020 user,  60.56M sys,  0.00M vm
+          CPU/Mem usage: 0.030 sys,  0.010 user,  60.53M sys,  0.00M vm
 105 VC callback profile - scalar:0 vector:0
-106 Tue Oct 18 13:58:36 2022
+106 Tue Oct 18 14:05:57 2022
 107 pliAppInit
 108 FSDB_GATE is disabled.
 109 Enable Parallel Dumping.

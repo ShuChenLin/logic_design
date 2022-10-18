@@ -1,4 +1,3 @@
-verdiSetActWin -win $_nWave1
 wvConvertFile -win $_nWave1 -o \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/test.vcd.fsdb" \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Multi_Bank_Memory/test.vcd"
@@ -27,4 +26,6 @@ wvGetSignalClose -win $_nWave1
 wvZoomAll -win $_nWave1
 wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 )} 
 wvSetRadix -win $_nWave1 -format UDec
+wvSetCursor -win $_nWave1 24938.670937 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 34885.028022 -snap {("G1" 3)}
 wvExit

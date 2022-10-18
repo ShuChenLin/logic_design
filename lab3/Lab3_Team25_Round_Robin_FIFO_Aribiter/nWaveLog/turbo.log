@@ -1,4 +1,4 @@
 Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/Novas -nWave
 uname(Linux ic21 3.10.0-1160.62.1.el7.x86_64 #1 SMP Tue Apr 5 16:57:59 UTC 2022 x86_64)
 Failure on Verdi 3-tier licensing, Use nWave -licdebug for more information.
-au time 57.794721 1.728051 0.581830 delta 322859008 322859008 total 815132672 815132672
+au time 263.346654 2.527043 2.589473 delta 322523136 322523136 total 814796800 814796800

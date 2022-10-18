@@ -98,6 +98,34 @@ module Round_Robin_FIFO_Arbiter_t;
         c = not_found;
         d = not_found;
         @(negedge clk)
+        rst_n = 1;
+        wen = 4'b0111;
+        a = not_found;
+        b = 8'd44;
+        c = 8'd22;
+        d = 8'd99;
+        @(negedge clk)
+        rst_n = 0;
+        wen = 4'b1111;
+        a = 8'd11;
+        b = 8'd22;
+        c = 8'd33;
+        d = 8'd88;
+        @(negedge clk)
+        rst_n = 1;
+        wen = 4'b0000;
+        a = not_found;
+        b = not_found;
+        c = not_found;
+        d = not_found;
+        @(negedge clk)
+        rst_n = 1;
+        wen = 4'b0000;
+        a = not_found;
+        b = not_found;
+        c = not_found;
+        d = not_found;
+        @(negedge clk)
         $finish;
     end
 endmodule

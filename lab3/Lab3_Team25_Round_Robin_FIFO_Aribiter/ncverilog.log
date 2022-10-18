@@ -1,21 +1,25 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 15, 2022 at 23:33:52 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 18, 2022 at 14:44:41 CST
 ncverilog
 	Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v
 	Lab3_Team25_Round_Robin_FIFO_Arbiter.v
 	+access+r
 Recompiling... reason: file './Lab3_Team25_Round_Robin_FIFO_Arbiter.v' is newer than expected.
-	expected: Sat Oct 15 23:10:49 2022
-	actual:   Sat Oct 15 23:32:23 2022
-file: Lab3_Team25_Round_Robin_FIFO_Arbiter.v
-	module worklib.Round_Robin_FIFO_Arbiter:v
+	expected: Sat Oct 15 23:32:23 2022
+	actual:   Sat Oct 15 23:33:41 2022
+file: Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v
+	module worklib.Round_Robin_FIFO_Arbiter_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
+	Building instance overlay tables: .
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v,33|23): String literal argument supplied to integer parameter.
+................... Done
 	Generating native compiled code:
-		worklib.Round_Robin_FIFO_Arbiter:v <0x36532f79>
-			streams:  15, words:  7835
+		worklib.Round_Robin_FIFO_Arbiter_t:v <0x4885f522>
+			streams:  11, words: 20112
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -36,7 +40,7 @@ Loading snapshot worklib.Round_Robin_FIFO_Arbiter_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 100 NS + 0
-./Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v:101         $finish;
+Simulation complete via $finish(1) at time 140 NS + 0
+./Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v:129         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 15, 2022 at 23:33:58 CST  (total: 00:00:06)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 18, 2022 at 14:44:44 CST  (total: 00:00:03)

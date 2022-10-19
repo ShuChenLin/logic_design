@@ -109,15 +109,15 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     wire div_16_clk;
     wire flag;
     wire [4-1:0] dout;
-    wire nrst_n;
+    //wire nrst_n;
 
-    not (nrst_n, rst_n);
+    //not (nrst_n, rst_n);
 
-    debounced debounced0(clk, nrst_n, nrst_n_debounced);
+    debounced debounced0(clk, rst_n, rst_n_debounced);
     debounced debounced1(clk, pb, pb_debounced);
 
     one_pulse one_pulse0(clk, pb_debounced, pb_one_pulse);
-    one_pulse one_pulse1(clk, nrst_n_debounced, nrst_n_one_pulse);
+    one_pulse one_pulse1(clk, rst_n_debounced, rst_n_one_pulse);
 
     clk_div first_clk(clk, div_clk);
     clk_div #(.n(16)) second_clk(.clk(clk), .div_clk(div_16_clk));

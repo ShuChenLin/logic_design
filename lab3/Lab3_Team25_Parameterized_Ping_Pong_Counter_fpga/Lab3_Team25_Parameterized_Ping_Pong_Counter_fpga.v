@@ -76,20 +76,17 @@ endmodule
 module clk_div #(parameter n = 24) (clk, div_clk);
     
     input clk;
-    output reg div_clk = 0;
+    output div_clk;
 
-    reg [20-1:0] cnt = 20'b0;
+    reg [n-1:0] cnt;
+    wire[n-1:0] next_cnt;
 
     always @(posedge clk) begin
-        if (cnt === 2**20-1) begin
-            cnt <= 0;
-            div_clk <= 1;
-        end
-        else begin
-            cnt <= cnt+1;
-            div_clk <= 0;
-        end
+        cnt <= next_num;
     end
+
+    assign next_cnt = cnt + 1;
+    assign div_clk = num[n-1];
 
 endmodule
 

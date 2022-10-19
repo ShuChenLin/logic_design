@@ -1,0 +1,45 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 19, 2022 at 16:21:01 CST
+ncverilog
+	+access+r
+	Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v
+	Lab3_TeamX_Parameterized_Ping_Pong_Counter.v
+file: Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v
+	module worklib.Multi_Bank_Memory_t:v
+		errors: 0, warnings: 0
+file: Lab3_TeamX_Parameterized_Ping_Pong_Counter.v
+	module worklib.Parameterized_Ping_Pong_Counter:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: ..........
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v,31|23): String literal argument supplied to integer parameter.
+.......... Done
+	Generating native compiled code:
+		worklib.Multi_Bank_Memory_t:v <0x4f5cf679>
+			streams:  10, words: 82438
+		worklib.Parameterized_Ping_Pong_Counter:v <0x7ef89d9e>
+			streams:   3, words:  1510
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               8       8
+		Scalar wires:            5       -
+		Vectored wires:          3       -
+		Always blocks:           2       2
+		Initial blocks:          8       8
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Multi_Bank_Memory_t:v
+Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 1770 NS + 0
+./Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v:235         $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 19, 2022 at 16:21:05 CST  (total: 00:00:04)

@@ -59,7 +59,7 @@ module debounced(clk, pb, pb_debounced);
 
 endmodule
 
-module one_pause(clk, pb_debounced, pb_one_pulse):
+module one_pulse(clk, pb_debounced, pb_one_pulse):
 
     input clk, pb_debounced;
     output pb_one_pulse;
@@ -103,8 +103,8 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     reg [8-1:0] mem [4-1:0];
     reg [2-1:0] pos;
 
-    wire pb_debounced, pb_one_pause;
-    wire rst_n_debounced, rst_n_one_pause;
+    wire pb_debounced, pb_one_pulse;
+    wire rst_n_debounced, rst_n_one_pulse;
     wire div_clk;
     wire div_16_clk;
     wire flag;
@@ -116,17 +116,17 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     debounced debounced0(clk, nrst_n, nrst_n_debounced);
     debounced debounced1(clk, pb, pb_debounced);
 
-    one_pause one_pause0(clk, pb_debounced, pb_one_pause);
-    one_pause one_pause1(clk, nrst_n_debounced, nrst_n_one_pause);
+    one_pulse one_pulse0(clk, pb_debounced, pb_one_pulse);
+    one_pulse one_pulse1(clk, nrst_n_debounced, nrst_n_one_pulse);
 
     clk_div first_clk(clk, div_clk);
     clk_div #(.n(16)) second_clk(.clk(clk), .div_clk(div_16_clk));
 
     Parameterized_Ping_Pong_Counter P0(
         .clk(div_clk),
-        .rst_n(nrst_n_one_pause),
+        .rst_n(nrst_n_one_pulse),
         .enable(sw[15]),
-        .flip(pb_one_pause),
+        .flip(pb_one_pulse),
         .max(sw[14:11]),
         .min(sw[10:7]),
         .direction(flag),

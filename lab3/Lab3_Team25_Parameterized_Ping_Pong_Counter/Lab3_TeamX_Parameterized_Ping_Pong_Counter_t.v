@@ -60,6 +60,7 @@ module Multi_Bank_Memory_t;
         @(negedge clk)
         @(negedge clk)
         @(negedge clk)
+        flip = 0;
         @(negedge clk)
         rst_n = 0;
         enable = 0;

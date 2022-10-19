@@ -102,9 +102,6 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     output reg [4-1:0] control;
     output reg [8-1:0] out;
 
-    parameter [8-1:0] up = 8'b00111011;
-    parameter [8-1:0] down = 8'b11000111; 
-    
     reg [8-1:0] digit [10-1:0];
     reg [8-1:0] mem [4-1:0];
     reg [2-1:0] pos;
@@ -179,8 +176,8 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
             mem[3] <= digit[1];
             mem[2] <= digit[dout-4'b1010];
         end
-        mem[0] <= direction ? 8'b00111011 : 8'b11000111;
-        mem[1] <= direction ? 8'b00111011 : 8'b11000111;
+        mem[0] <= flag ? 8'b00111011 : 8'b11000111;
+        mem[1] <= flag ? 8'b00111011 : 8'b11000111;
    end
 
 endmodule

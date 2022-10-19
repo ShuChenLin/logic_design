@@ -17,12 +17,13 @@ module Multi_Bank_Memory_t;
 
     Parameterized_Ping_Pong_Counter hello(
         .clk (clk),
-        .ren (ren),
-        .wen (wen),
-        .waddr (waddr),
-        .raddr (raddr),
-        .din (din),
-        .dout (dout)
+        .rst_n(rst_n),
+        .enable(enable),
+        .flip(flip),
+        .max(max),
+        .min(min),
+        .direction(direction),
+        .out(out)
     );
 
     initial begin

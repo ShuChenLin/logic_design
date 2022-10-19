@@ -22,14 +22,14 @@ module FIFO_8(clk, rst_n, wen, ren, din, dout, error);
 //        next_head = head + 1;
 //        next_tail = tail + 1;
         if (head === 4'b1000) begin
-            next_head <= 0;
+            next_head = 0;
         end else begin
-            next_head <= head+1;
+            next_head = head+1;
         end
         if (tail === 4'b1000) begin
-            next_tail <= 0;
+            next_tail = 0;
         end else begin
-            next_tail <= tail+1;
+            next_tail = tail+1;
         end
     end
 

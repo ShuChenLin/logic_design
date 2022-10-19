@@ -124,7 +124,7 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
 
     Parameterized_Ping_Pong_Counter P0(
         .clk(div_clk),
-        .rst_n(nrst_n_one_pulse),
+        .rst_n(rst_n_one_pulse),
         .enable(sw[15]),
         .flip(pb_one_pulse),
         .max(sw[14:11]),

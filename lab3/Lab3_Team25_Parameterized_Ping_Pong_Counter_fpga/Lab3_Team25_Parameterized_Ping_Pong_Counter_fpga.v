@@ -59,7 +59,7 @@ module debounced(clk, pb, pb_debounced);
 
 endmodule
 
-module one_pulse(clk, pb_debounced, pb_one_pulse):
+module one_pulse(clk, pb_debounced, pb_one_pulse);
 
     input clk, pb_debounced;
     output pb_one_pulse;
@@ -82,11 +82,11 @@ module clk_div #(parameter n = 24) (clk, div_clk);
     wire[n-1:0] next_cnt;
 
     always @(posedge clk) begin
-        cnt <= next_num;
+        cnt <= next_cnt;
     end
 
     assign next_cnt = cnt + 1;
-    assign div_clk = num[n-1];
+    assign div_clk = cnt[n-1];
 
 endmodule
 
@@ -161,7 +161,7 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
                 control <= 4'b0000;
                 out <= 8'b00000000;
             end
-        end
+        endcase
     end
 
     always @(*) begin

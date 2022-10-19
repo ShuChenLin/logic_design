@@ -73,7 +73,7 @@ module one_pause(clk, pb_debounced, pb_one_pulse):
 
 endmodule
 
-module clk_div(clk, div_clk);
+module clk_div #(parameter n = 24) (clk, div_clk);
     
     input clk;
     output reg div_clk = 0;
@@ -109,6 +109,7 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     wire pb_debounced, pb_one_pause;
     wire rst_n_debounced, rst_n_one_pause;
     wire div_clk;
+    wire div_16_clk;
     wire flag;
     wire [4-1:0] dout;
     wire nrst_n;
@@ -121,7 +122,8 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     one_pause one_pause0(clk, pb_debounced, pb_one_pause);
     one_pause one_pause1(clk, nrst_n_debounced, nrst_n_one_pause);
 
-    clk_div(clk, div_clk);
+    clk_div first_clk(clk, div_clk);
+    clk_div #(.n(16)) second_clk(.clk(clk), .div_clk(div_16_clk));
 
     Parameterized_Ping_Pong_Counter P0(
         .clk(div_clk),
@@ -134,7 +136,7 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
         .out(dout)
     );
 
-    always @(posedge clk) begin
+    always @(posedge div_16_clk) begin
         pos <= pos+1;
         case (pos)
             2'b00: begin

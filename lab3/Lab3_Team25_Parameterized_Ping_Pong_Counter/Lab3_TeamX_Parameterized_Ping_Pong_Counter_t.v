@@ -15,7 +15,7 @@ module Multi_Bank_Memory_t;
     parameter cyc = 10;
     always#(cyc/2)clk = !clk;
 
-    Multi_Bank_Memory hello(
+    Parameterized_Ping_Pong_Counter hello(
         .clk (clk),
         .ren (ren),
         .wen (wen),

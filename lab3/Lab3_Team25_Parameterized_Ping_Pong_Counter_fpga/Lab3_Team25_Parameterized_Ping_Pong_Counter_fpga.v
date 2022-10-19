@@ -111,18 +111,21 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     wire div_clk;
     wire flag;
     wire [4-1:0] dout;
+    wire nrst_n;
 
-    debounced debounced0(clk, rst_n, rst_n_debounced);
+    not (nrst_n, rst_n);
+
+    debounced debounced0(clk, nrst_n, nrst_n_debounced);
     debounced debounced1(clk, pb, pb_debounced);
 
     one_pause one_pause0(clk, pb_debounced, pb_one_pause);
-    one_pause one_pause1(clk, rst_n_debounced, rst_n_one_pause);
+    one_pause one_pause1(clk, nrst_n_debounced, nrst_n_one_pause);
 
     clk_div(clk, div_clk);
 
     Parameterized_Ping_Pong_Counter P0(
         .clk(div_clk),
-        .rst_n(rst_n_one_pause),
+        .rst_n(nrst_n_one_pause),
         .enable(sw[15]),
         .flip(pb_one_pause),
         .max(sw[14:11]),

@@ -73,25 +73,93 @@ module one_pause(clk, pb_debounced, pb_one_pulse):
 
 endmodule
 
-module FPGA_IMPLEMENTATION(clk, pb, sw, control, out);
+module clk_div(clk, div_clk);
+    
+    input clk;
+    output reg div_clk = 0;
+
+    reg [20-1:0] cnt = 20'b0;
+
+    always @(posedge clk) begin
+        if (cnt === 2**20-1) begin
+            cnt <= 0;
+            div_clk <= 1;
+        end
+        else begin
+            cnt <= cnt+1;
+            div_clk <= 0;
+        end
+    end
+
+endmodule
+
+module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     
     input clk;
     input pb;
+    input rst_n;
     input [15:0] sw;
-    output [4-1:0] control;
-    output reg [8-1:0] out [4-1:0];
+    output reg [4-1:0] control;
+    output reg [8-1:0] out;
 
     parameter [8-1:0] up = 8'b00111011;
     parameter [8-1:0] down = 8'b11000111; 
     
     reg [8-1:0] digit [10-1:0];
+    reg [8-1:0] mem [4-1:0];
+    reg [2-1:0] pos;
 
-    wire pb_debounced;
+    wire pb_debounced, pb_one_pause;
+    wire rst_n_debounced, rst_n_one_pause;
+    wire div_clk;
+    wire flag;
+    wire [4-1:0] dout;
 
-    debounced debounced0(clk, pb, pb_debounced);
+    debounced debounced0(clk, rst_n, rst_n_debounced);
+    debounced debounced1(clk, pb, pb_debounced);
+
     one_pause one_pause0(clk, pb_debounced, pb_one_pause);
+    one_pause one_pause1(clk, rst_n_debounced, rst_n_one_pause);
 
-//    Parameterized_Ping_Pong_Counter(clk, 
+    clk_div(clk, div_clk);
+
+    Parameterized_Ping_Pong_Counter P0(
+        .clk(div_clk),
+        .rst_n(rst_n_one_pause),
+        .enable(sw[15]),
+        .flip(pb_one_pause),
+        .max(sw[14:11]),
+        .min(sw[10:7]),
+        .direction(flag),
+        .out(dout)
+    );
+
+    always @(posedge clk) begin
+        pos <= pos+1;
+        case (pos)
+            2'b00: begin
+                control <= 4'b1011;
+                out <= mem[0];
+            end
+            2'b01: begin
+                control <= 4'b1101;
+                out <= mem[1];
+            end
+            2'b10: begin
+                control <= 4'b1110;
+                out <= mem[2];
+            end
+            2'b11: begin
+                control <= 4'b0111;
+                out <= mem[3];
+            end
+            default: begin
+                control <= 4'b0000;
+                out <= 8'b00000000;
+            end
+        end
+    end
+
     always @(*) begin
         digit[0] <= 8'b00000011;
         digit[1] <= 8'b10011111;
@@ -103,13 +171,17 @@ module FPGA_IMPLEMENTATION(clk, pb, sw, control, out);
         digit[7] <= 8'b00011111;
         digit[8] <= 8'b00000001;
         digit[9] <= 8'b00001001;
-        out[0] <= direction ? up : down;
-        out[1] <= direction ? up : down;
-    end
-
-    always @(pb)
-
-
-
+        if (dout < 4'b1010) begin
+            mem[3] <= digit[0];
+            mem[2] <= digit[dout];
+        end
+        else begin
+            mem[3] <= digit[1];
+            mem[2] <= digit[dout-4'b1010];
+        end
+        mem[0] <= direction ? 8'b00111011 : 8'b11000111;
+        mem[1] <= direction ? 8'b00111011 : 8'b11000111;
+   end
 
 endmodule
+

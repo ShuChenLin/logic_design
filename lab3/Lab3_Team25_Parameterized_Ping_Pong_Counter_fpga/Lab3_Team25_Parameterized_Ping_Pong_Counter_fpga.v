@@ -24,19 +24,19 @@ always @(posedge clk) begin
         else if (max === min) begin
             
         end
-        else if (out === max && direction) begin
+        else if ((out === max) && (direction)) begin
             out <= out-1;
             direction <= ~direction;
         end
-        else if (out === min && ~direction) begin
+        else if ((out === min) && (~direction)) begin
             out <= out+1;
             direction <= ~direction;
         end 
         else begin
-            if (flip && out != min && out != max) begin
+            if (flip && (out != min) && (out != max)) begin
                 direction <= ~direction;
             end
-            out <= direction ? out+1 : out-1;
+            out <= ((direction) ? (out+1) : (out-1));
         end
     end
 end
@@ -102,6 +102,7 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     reg [8-1:0] digit [10-1:0];
     reg [8-1:0] mem [4-1:0];
     reg [2-1:0] pos;
+    reg reset = 0;
 
     wire pb_debounced, pb_one_pulse;
     wire rst_n_debounced, rst_n_one_pulse;
@@ -122,9 +123,13 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     clk_div first_clk(clk, div_clk);
     clk_div #(.n(16)) second_clk(.clk(clk), .div_clk(div_16_clk));
 
+    always @(posedge rst_n_one_pulse) begin
+        reset <= !reset;
+    end
+
     Parameterized_Ping_Pong_Counter P0(
         .clk(div_clk),
-        .rst_n(rst_n_one_pulse),
+        .rst_n(reset),
         .enable(sw[15]),
         .flip(pb_one_pulse),
         .max(sw[14:11]),
@@ -138,19 +143,19 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
         case (pos)
             2'b00: begin
                 control <= 4'b1011;
-                out <= mem[0];
+                out <= mem[3];
             end
             2'b01: begin
                 control <= 4'b1101;
-                out <= mem[1];
+                out <= mem[0];
             end
             2'b10: begin
                 control <= 4'b1110;
-                out <= mem[2];
+                out <= mem[1];
             end
             2'b11: begin
                 control <= 4'b0111;
-                out <= mem[3];
+                out <= mem[2];
             end
             default: begin
                 control <= 4'b0000;

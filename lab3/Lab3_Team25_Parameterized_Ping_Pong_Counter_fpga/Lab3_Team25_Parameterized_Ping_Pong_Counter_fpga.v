@@ -31,16 +31,6 @@ module Parameterized_Ping_Pong_Counter (clk, rst_n, enable, flip, max, min, dire
         end
     end
 
-    always @(*) begin
-        if (enable && max > min && out <= max && out >= min) begin
-            if (rst_co) begin
-                rst_co = 0;
-            end begin
-                rst_co = rst_se;
-            end
-        end
-    end
-
     /*always@(posedge clk) begin
         if (rst_n) begin
             direction <= 1;
@@ -58,40 +48,30 @@ module Parameterized_Ping_Pong_Counter (clk, rst_n, enable, flip, max, min, dire
     end*/
 
     always@(*) begin
-        if(enable && (flip) && (out != min) && (out != max)) begin
-            next_direction = !direction;
-        end else if (enable) begin
-            if (out === max && direction) begin
-                next_direction = !direction;
-            end
-            else if (out === min && !direction) begin
-                next_direction = !direction;
-            end
-            else begin
-                next_direction = direction;
-            end
-        end else begin
-            next_direction = direction;
-        end
-    end
-
-    always@(*) begin
         if (enable && (out <= max) && (out >= min) && (max > min)) begin
-            if (direction) begin
-                if (out === max) begin
-                    next_out = out - 1;
-                end else begin
-                    next_out = out + 1;
-                end
-            end else if (!direction) begin
-                if (out === min) begin
+            if (rst_co) begin
+                next_out = min;
+                next_direction = 1; 
+                rst_co = rst_se;
+            end else if (direction) begin
+                if (!flip && out < max) begin
                     next_out = out + 1;
                 end else begin
                     next_out = out - 1;
                 end
+                next_direction = (flip) ? 0 : (out < max);
+            end else begin
+                if (!flip && out > min) begin
+                    next_out = out - 1;
+                end else begin
+                    next_out = out + 1;
+                end
+                next_direction = (flip) ? 1 : (out <= min);
             end
         end else begin
             next_out = out;
+            next_direction = direction;
+            rst_co = rst_se;
         end
     end
 

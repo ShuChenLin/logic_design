@@ -145,8 +145,8 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     wire op_clk;
     wire flag;
     wire [4-1:0] dout;
-    wire eb;
-    wire flip, flip_n;
+    wire eb, flip_n;
+    reg flip;
 
     //not (nrst_n, rst_n);
 

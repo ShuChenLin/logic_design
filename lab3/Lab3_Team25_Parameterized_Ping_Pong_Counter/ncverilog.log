@@ -1,13 +1,13 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 19, 2022 at 16:21:01 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 20, 2022 at 21:44:54 CST
 ncverilog
+	Lab3_Team25_Parameterized_Ping_Pong_Counter_t.v
+	Lab3_Team25_Parameterized_Ping_Pong_Counter.v
 	+access+r
-	Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v
-	Lab3_TeamX_Parameterized_Ping_Pong_Counter.v
-file: Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v
+file: Lab3_Team25_Parameterized_Ping_Pong_Counter_t.v
 	module worklib.Multi_Bank_Memory_t:v
 		errors: 0, warnings: 0
-file: Lab3_TeamX_Parameterized_Ping_Pong_Counter.v
+file: Lab3_Team25_Parameterized_Ping_Pong_Counter.v
 	module worklib.Parameterized_Ping_Pong_Counter:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
@@ -15,7 +15,7 @@ file: Lab3_TeamX_Parameterized_Ping_Pong_Counter.v
 	Building instance overlay tables: ..........
         $dumpvars("+all");
                        |
-ncelab: *W,STRINT (./Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v,31|23): String literal argument supplied to integer parameter.
+ncelab: *W,STRINT (./Lab3_Team25_Parameterized_Ping_Pong_Counter_t.v,31|23): String literal argument supplied to integer parameter.
 .......... Done
 	Generating native compiled code:
 		worklib.Multi_Bank_Memory_t:v <0x4f5cf679>
@@ -40,6 +40,6 @@ Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
 Simulation complete via $finish(1) at time 1770 NS + 0
-./Lab3_TeamX_Parameterized_Ping_Pong_Counter_t.v:235         $finish;
+./Lab3_Team25_Parameterized_Ping_Pong_Counter_t.v:235         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 19, 2022 at 16:21:05 CST  (total: 00:00:04)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 20, 2022 at 21:44:58 CST  (total: 00:00:04)

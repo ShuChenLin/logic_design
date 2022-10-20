@@ -11,9 +11,37 @@ module Parameterized_Ping_Pong_Counter (clk, rst_n, enable, flip, max, min, dire
     output [4-1:0] out;
 
     reg [4-1:0] out, next_out;
-    reg direction, next_direction;
+    reg rst_se, rst_co;
 
-    always@(posedge clk) begin
+    always @(posedge clk) begin
+        if (rst_n) begin
+            out <= min;
+            rst_se <= 1;
+        end else begin
+            out <= next_out;
+            rst_se <= rst_co;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (rst_n) begin
+            direction <= 1;
+        end else begin
+            direction <= next_direction;
+        end
+    end
+
+    always @(*) begin
+        if (enable && max > min && out <= max && out >= min) begin
+            if (rst_co) begin
+                rst_co = 0;
+            end begin
+                rst_co = rst_se;
+            end
+        end
+    end
+
+    /*always@(posedge clk) begin
         if (rst_n) begin
             direction <= 1;
         end else begin
@@ -27,15 +55,12 @@ module Parameterized_Ping_Pong_Counter (clk, rst_n, enable, flip, max, min, dire
         end else begin
             out <= next_out;
         end
-    end
+    end*/
 
     always@(*) begin
-        if (rst_n) begin
-            next_direction = 1;
-        end
-        else if(!rst_n && enable && (flip) && (out != min) && (out != max)) begin
+        if(enable && (flip) && (out != min) && (out != max)) begin
             next_direction = !direction;
-        end else if (!rst_n && enable) begin
+        end else if (enable) begin
             if (out === max && direction) begin
                 next_direction = !direction;
             end
@@ -51,14 +76,8 @@ module Parameterized_Ping_Pong_Counter (clk, rst_n, enable, flip, max, min, dire
     end
 
     always@(*) begin
-        if (rst_n) begin
-            next_out = min;
-        end
-        else if (enable) begin
-            if ((out > max) || (out < min) || (max === min)) begin
-                next_out = out;
-            end
-            else if (direction) begin
+        if (enable && (out <= max) && (out >= min) && (max > min)) begin
+            if (direction) begin
                 if (out === max) begin
                     next_out = out - 1;
                 end else begin
@@ -146,26 +165,34 @@ module FPGA_IMPLEMENTATION(clk, pb, rst_n, sw, control, out);
     wire op_clk;
     wire flag;
     wire [4-1:0] dout;
-    //wire nrst_n;
+    wire eb;
+    wire flip, flip_n;
 
     //not (nrst_n, rst_n);
 
     debounced debounced0(clk, rst_n, rst_n_debounced);
     debounced debounced1(clk, pb, pb_debounced);
 
-    one_pulse one_pulse0(div_clk, pb_debounced, pb_one_pulse);
-    one_pulse one_pulse1(div_clk, rst_n_debounced, rst_n_one_pulse);
+    one_pulse one_pulse0(clk, pb_debounced, pb_one_pulse);
+    one_pulse one_pulse1(clk, rst_n_debounced, rst_n_one_pulse);
 
     clk_div first_clk(clk, div_clk);
     clk_div #(.n(17)) second_clk(.clk(clk), .div_clk(div_16_clk));
     clk_div #(.n(22)) third_clk(.clk(clk), .div_clk(op_clk));
 
+    assign eb = (sw[15]) ? div_clk : 0;
+    assign flip_n = (div_clk) ? 0: pb_one_pulse;
+
+    always @(posedge clk) begin
+        if (pb_one_pulse) flip <= 1;
+        else flip <= flip_n;
+    end
 
     Parameterized_Ping_Pong_Counter P0(
-        .clk(div_clk),
+        .clk(clk),
         .rst_n(rst_n_one_pulse),
-        .enable(sw[15]),
-        .flip(pb_one_pulse),
+        .enable(eb),
+        .flip(flip),
         .max(sw[14:11]),
         .min(sw[10:7]),
         .direction(flag),

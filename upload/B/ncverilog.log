@@ -1,0 +1,44 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Oct 22, 2022 at 15:19:26 CST
+ncverilog
+	exam1_B_tb.v
+	exam1_B.v
+Recompiling... reason: file './exam1_B.v' is newer than expected.
+	expected: Sat Oct 22 15:17:16 2022
+	actual:   Sat Oct 22 15:18:00 2022
+file: exam1_B.v
+	module worklib.exam1_B:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.exam1_B:v <0x6010fd34>
+			streams:   7, words:  2848
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              16      16
+		Scalar wires:            2       -
+		Vectored wires:          1       -
+		Always blocks:           2       2
+		Initial blocks:          5       5
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.exam1_B_tb:v
+Loading snapshot worklib.exam1_B_tb:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+next_dir : 0, next_cnt :  527
+next_dir : 0, next_cnt :  527
+Count Up    10/10!
+Count Down  10/10!
+Count Again 10/10!
+Your total score:          30/30
+Simulation complete via $finish(1) at time 229400 PS + 0
+./exam1_B_tb.v:91         $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 22, 2022 at 15:19:28 CST  (total: 00:00:02)

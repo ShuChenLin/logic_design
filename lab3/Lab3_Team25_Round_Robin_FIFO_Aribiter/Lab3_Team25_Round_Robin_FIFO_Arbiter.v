@@ -145,7 +145,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
             valid = (!erd && tmp_valid);
         end
         else if (!rst_n) begin
-            valid = 0;
+            valid = tmp_valid;
         end else begin
             valid = valid;
         end
@@ -174,6 +174,7 @@ module Round_Robin_FIFO_Arbiter(clk, rst_n, wen, a, b, c, d, dout, valid);
     always @(posedge clk) begin
         if (!rst_n) begin
             counter <= 0;
+            tmp_valid <= 0;
         end
         else begin
             counter <= next_counter;

@@ -1,11 +1,10 @@
-verdiSetActWin -win $_nWave1
-wvResizeWindow -win $_nWave1 0 1 1440 853
 wvConvertFile -win $_nWave1 -o \
-           "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd.fsdb" \
-           "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd"
+           "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/rrfa.vcd.fsdb" \
+           "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/rrfa.vcd"
 wvSetPosition -win $_nWave1 {("G1" 0)}
 wvOpenFile -win $_nWave1 \
-           {/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd.fsdb}
+           {/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/rrfa.vcd.fsdb}
+wvResizeWindow -win $_nWave1 0 1 1440 853
 wvGetSignalOpen -win $_nWave1
 wvGetSignalSetScope -win $_nWave1 "/Round_Robin_FIFO_Arbiter_t"
 wvSetPosition -win $_nWave1 {("G1" 9)}
@@ -28,6 +27,4 @@ wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 8 9 )}
 wvSetPosition -win $_nWave1 {("G1" 9)}
 wvGetSignalClose -win $_nWave1
 wvZoomAll -win $_nWave1
-wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 8 9 )} 
-wvSetRadix -win $_nWave1 -format UDec
 wvExit

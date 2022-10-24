@@ -12,6 +12,11 @@ parameter cyc = 10;
 always#(cyc/2)clk = !clk;
 
 initial begin
+    $dumpfile("rrfa.vcd");
+    $dumpvars("+all");
+end
+
+initial begin
     @(negedge clk)
     a=8'd87;
     b=8'd56;

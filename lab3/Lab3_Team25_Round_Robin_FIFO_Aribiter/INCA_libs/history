@@ -71,3 +71,7 @@ s66::(15Oct2022:23:33:52):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v L
 s67::(18Oct2022:14:44:23):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v Lab3_Team25_Round_Robin_FIFO_Arbiter.v +access+r )
 s68::(18Oct2022:14:44:41):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v Lab3_Team25_Round_Robin_FIFO_Arbiter.v +access+r )
 s69::(20Oct2022:21:45:28):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v Lab3_Team25_Round_Robin_FIFO_Arbiter.v +access+r )
+s70::(23Oct2022:18:47:12):( ncverilog Team19_Round_Robin_FIFO_Arbiter.v Lab3_Team25_Round_Robin_FIFO_Arbiter_t.v )
+s71::(23Oct2022:21:30:39):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter.v Lab3_Team19_Round_Robin_FIFO_Arbiter_t.v +access+r )
+s72::(23Oct2022:21:30:54):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter.v Lab3_Team19_Round_Robin_FIFO_Arbiter_t.v +access+r )
+s73::(23Oct2022:21:32:10):( ncverilog Lab3_Team25_Round_Robin_FIFO_Arbiter.v Lab3_Team19_Round_Robin_FIFO_Arbiter_t.v +access+r )

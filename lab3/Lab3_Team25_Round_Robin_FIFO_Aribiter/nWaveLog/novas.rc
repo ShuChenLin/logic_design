@@ -203,8 +203,7 @@ StickSet-TextColor = ID_BLACK
 Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
-_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\"" "\"/users/course/2022F/L\
-DL17700000/u110062208/logic_design/lab3/Lab3_Team25_Round_Robin_FIFO_Aribiter/round_robin_fifo_arbiter.vcd\""
+_2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -325,9 +324,9 @@ ColorPrint = FALSE
 QwQuestionMsgDlg = 788,453,324,114
 QwWarnMsgDlg = 2090,363,600,250
 QwInfoMsgDlg = 335,273,750,250
-QwUserAskDlg = 788,362,324,162
-openFileDlg = 659,298,602,483
-qWaveSignalDialog = 560,300,800,479
+QwUserAskDlg = 548,272,324,162
+qWaveSignalDialog = 320,210,800,479
+openFileDlg = 419,208,602,483
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -606,8 +605,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 560 300 800 479 245 381 505 183
-viewPort = 0 1 1920 1033 100 65
+getSignalForm = 320 210 800 479 245 381 505 183
+viewPort = 0 1 1440 853 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK

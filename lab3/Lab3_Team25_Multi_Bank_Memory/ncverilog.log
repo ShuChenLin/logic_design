@@ -1,11 +1,9 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 20, 2022 at 21:44:12 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 26, 2022 at 19:27:37 CST
 ncverilog
 	Lab3_Team25_Multi_Bank_Memory.v
 	Lab3_Team25_Multi_Bank_Memory_t.v
-file: Lab3_Team25_Multi_Bank_Memory_t.v
-	module worklib.Multi_Bank_Memory_t:v
-		errors: 0, warnings: 0
+	+access+r
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: 
@@ -14,14 +12,8 @@ file: Lab3_Team25_Multi_Bank_Memory_t.v
 ncelab: *W,STRINT (./Lab3_Team25_Multi_Bank_Memory_t.v,29|23): String literal argument supplied to integer parameter.
 .................... Done
 	Generating native compiled code:
-		worklib.Bank:v <0x4fd2991d>
-			streams:   0, words:     0
-		worklib.Bank_4:v <0x3feac60a>
-			streams:   0, words:     0
-		worklib.Memory:v <0x7dc7f665>
-			streams:   0, words:     0
-		worklib.Multi_Bank_Memory_t:v <0x11b246a5>
-			streams:   4, words: 11061
+		worklib.Multi_Bank_Memory_t:v <0x14dd84d2>
+			streams:  10, words: 24256
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -30,21 +22,18 @@ ncelab: *W,STRINT (./Lab3_Team25_Multi_Bank_Memory_t.v,29|23): String literal ar
 		Primitives:            120       1
 		Registers:              94      28
 		Scalar wires:           43       -
+		Expanded wires:        128      16
 		Vectored wires:         27       -
 		Always blocks:          47       8
 		Initial blocks:         24       9
+		Pseudo assignments:     19       7
 		Simulation timescale:  1ps
 	Writing initial simulation snapshot: worklib.Multi_Bank_Memory_t:v
 Loading snapshot worklib.Multi_Bank_Memory_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-ncsim: *W,DVEXACC: some objects excluded from $dumpvars due to access restrictions, use +access+r on command line for access to all objects.
-            File: ./Lab3_Team25_Multi_Bank_Memory_t.v, line = 29, pos = 16
-           Scope: Multi_Bank_Memory_t
-            Time: 0 FS + 0
-
 Simulation complete via $finish(1) at time 220 NS + 0
 ./Lab3_Team25_Multi_Bank_Memory_t.v:160         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 20, 2022 at 21:44:15 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 26, 2022 at 19:27:42 CST  (total: 00:00:05)

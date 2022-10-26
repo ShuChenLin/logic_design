@@ -5,3 +5,5 @@ DEFINE RUNMODEDEFAULT 1
 DEFINE LIB_MAP ( + => worklib )
 define ELAB_SNAPSHOT
 define SNAPSHOT worklib.Multi_Bank_Memory_t:v
+define ELAB_SNAPSHOT
+define SNAPSHOT worklib.Multi_Bank_Memory_t:v

@@ -1,9 +1,31 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Oct 25, 2022 at 23:00:56 CST
+TOOL:	ncverilog	15.20-s039: Started on Oct 27, 2022 at 23:04:23 CST
 ncverilog
+	FIFO.v
 	Lab3_Team25_FIFO_8_t.v
-	Lab3_Team25_FIFO_8.v
 	+access+r
+Recompiling... reason: file './Lab3_Team25_FIFO_8_t.v' is newer than expected.
+	expected: Tue Oct 25 22:59:52 2022
+	actual:   Thu Oct 27 23:02:55 2022
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.FIFO_8:v <0x3d97079d>
+			streams:   6, words:  3533
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              19      19
+		Scalar wires:            5       -
+		Vectored wires:          2       -
+		Always blocks:           3       3
+		Initial blocks:          7       7
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.FIFO_8_t:v
 Loading snapshot worklib.FIFO_8_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
@@ -11,4 +33,4 @@ ncsim> run
 Simulation complete via $finish(1) at time 270 NS + 0
 ./Lab3_Team25_FIFO_8_t.v:165         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Oct 25, 2022 at 23:01:02 CST  (total: 00:00:06)
+TOOL:	ncverilog	15.20-s039: Exiting on Oct 27, 2022 at 23:04:26 CST  (total: 00:00:03)

@@ -5,6 +5,7 @@ wvConvertFile -win $_nWave1 -o \
 wvSetPosition -win $_nWave1 {("G1" 0)}
 wvOpenFile -win $_nWave1 \
            {/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_FIFO/fifo.vcd.fsdb}
+wvResizeWindow -win $_nWave1 0 1 1440 853
 wvGetSignalOpen -win $_nWave1
 wvGetSignalSetScope -win $_nWave1 "/FIFO_8_t"
 wvSetPosition -win $_nWave1 {("G1" 7)}
@@ -24,6 +25,5 @@ wvAddSignal -win $_nWave1 -group {"G2" \
 wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 )} 
 wvSetPosition -win $_nWave1 {("G1" 7)}
 wvGetSignalClose -win $_nWave1
-wvResizeWindow -win $_nWave1 0 1 1920 1033
 wvZoomAll -win $_nWave1
 wvExit

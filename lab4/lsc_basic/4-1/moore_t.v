@@ -22,10 +22,10 @@ Moore m (
 );
 
 // uncommment and add "+access+r" to your nverilog command to dump fsdb waveform on NTHUCAD
-// initial begin
-//     $fsdbDumpfile("Moore.fsdb");
-//     $fsdbDumpvars;
-// end
+ initial begin
+     $dumpfile("Moore.vcd");
+     $dumpvars("+all");
+ end
 
 initial begin
     @ (negedge clk) rst_n = 1'b0;

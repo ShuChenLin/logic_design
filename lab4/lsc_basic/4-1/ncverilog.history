@@ -1,0 +1,5 @@
+s1(01Nov2022:17:21:32):  ncverilog Lab4_Moore.v Moore_t.v +access+r 
+s2(01Nov2022:17:26:10):  ncverilog Lab4_Moore.v moore_t.v +access=r 
+s3(01Nov2022:17:26:16):  ncverilog Lab4_Moore.v moore_t.v +acces+r 
+s4(01Nov2022:17:27:35):  ncverilog Lab4_Moore.v moore_t.v +access+r 
+s5(01Nov2022:17:29:50):  ncverilog Lab4_Moore.v moore_t.v +access+r 

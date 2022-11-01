@@ -1,0 +1,8 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(01Nov2022:20:19:31):( ncverilog Lab4_Mealy.v Mealy_t.v +access+r )
+s2::(01Nov2022:20:21:18):( ncverilog Lab4_Mealy.v Mealy_t.v +access+r )
+s3::(01Nov2022:20:21:34):( ncverilog Lab4_Mealy.v Mealy_t.v +access+r )
+s4::(01Nov2022:20:29:35):( ncverilog Lab4_Mealy.v Mealy_t.v +access+r )

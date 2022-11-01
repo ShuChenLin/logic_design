@@ -1,0 +1,3 @@
+verdiSetActWin -win $_nWave1
+wvResizeWindow -win $_nWave1 0 1 1440 854
+wvExit

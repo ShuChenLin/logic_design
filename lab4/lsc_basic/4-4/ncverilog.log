@@ -1,0 +1,43 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 01, 2022 at 20:53:11 CST
+ncverilog
+	Lab4_One_To_Many_LFSR.v
+	One_To_Many_LFSR_t.v
+	+access+r
+file: Lab4_One_To_Many_LFSR.v
+	module worklib.One_TO_Many_LFSR:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: ..........
+     $dumpvars("+all");
+                    |
+ncelab: *W,STRINT (./One_To_Many_LFSR_t.v,23|20): String literal argument supplied to integer parameter.
+.......... Done
+	Generating native compiled code:
+		worklib.One_TO_Many_LFSR:v <0x3d8b3001>
+			streams:  10, words:  6574
+		worklib.One_To_Many_LFSR_t:v <0x4ef18539>
+			streams:   6, words:  3188
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Primitives:              3       1
+		Registers:               3       3
+		Scalar wires:            8       -
+		Vectored wires:          1       -
+		Always blocks:           2       2
+		Initial blocks:          4       4
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.One_To_Many_LFSR_t:v
+Loading snapshot worklib.One_To_Many_LFSR_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 180 NS + 0
+./One_To_Many_LFSR_t.v:32     $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 01, 2022 at 20:53:17 CST  (total: 00:00:06)

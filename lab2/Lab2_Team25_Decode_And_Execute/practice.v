@@ -20,6 +20,18 @@ module myNot(out, a);
 
 endmodule
 
+module myPass(out, a);
+    
+    input a;
+    output out;
+
+    wire w;
+
+    myNot n0(w, a);
+    myNot n1(out, w);
+
+endmodule
+
 module myNand(out, a, b);
     
     input a, b;
@@ -92,6 +104,143 @@ module Full_Adder(out, cout, a, b, cin);
     Half_Adder h0(w, c1, a, b);
     Half_Adder h1(out, c2, w, cin);
     my_or h2(cout, c1, c2);
+
+endmodule
+
+module MUX_3x8(out, sel, a, b);
+
+    input [4-1:0] a, b;
+    input [3-1:0] sel;
+    output [4-1:0] out;
+
+    MUX_1x2
+
+endmodule
+
+module complement(out, a);
+    
+    input [4-1:0] a;
+    output [4-1:0] out;
+
+    wire [4-1:0] tmp;
+
+    myNot n0(tmp[0], a[0]);
+    myNot n1(tmp[1], a[1]);
+    myNot n2(tmp[2], a[2]);
+    myNot n3(tmp[3], a[3]);
+    ADD a0(out, tmp, a);
+
+endmodule
+
+module SUB(out, a, b);
+    
+    input [4-1:0] a, b;
+    output [4-1:0] out;
+
+    wire [4-1:0] tmp;
+
+    complement c0(tmp, b);
+    ADD a1(out, a, tmp);
+
+endmodule
+
+module ADD(out, a, b);
+
+    input [4-1:0] a, b;
+    output [4-1:0] out;
+
+    wire tmp1, tmp2, tmp3, tmp4;
+
+    Half_Adder h0(out[0], tmp1, a[0], b[0]);
+    Full_Adder h1(out[1], tmp2, a[1], b[1], tmp1);
+    Full_Adder h2(out[2], tmp3, a[2], b[2], tmp2);
+    Full_Adder h3(out[3], tmp4, a[3], b[3], tmp3);
+
+endmodule
+
+module BITWISE_OR(out, a, b);
+    
+    input [4-1:0] a, b;
+    output [4-1:0] out;
+
+    myOr o0(out[0], a[0], b[0]);
+    myOr o1(out[1], a[1], b[1]);
+    myOr o2(out[2], a[2], b[2]);
+    myOr o3(out[3], a[3], b[3]);
+
+endmodule
+
+module BITWISE_AND(out, a, b);
+    
+    input [4-1:0] a, b;
+    output [4-1:0] out;
+
+    myAnd a0(out[0], a[0], b[0]);
+    myAnd a1(out[1], a[1], b[1]);
+    myAnd a2(out[2], a[2], b[2]);
+    myAnd a3(out[3], a[3], b[3]);
+
+endmodule
+
+module RS(out, a);
+    
+    input [4-1:0] a;
+    output [4-1;0] out;
+
+    wire tmp1, tmp2, tmp3;
+
+    myPass p0(out[0], a[1]);
+    myPass p1(out[1], a[2]);
+    myPass p2(out[2], a[3]);
+    myPass p3(out[3], a[3]);
+
+endmodule
+
+module RT(out, a);
+    
+    input [4-1:0] a;
+    output [4-1:0] out;
+
+    myPass p0(out[0], a[3]);
+    myPass p1(out[1], a[0]);
+    myPass p2(out[2], a[1]);
+    myPass p3(out[3], a[2]);
+
+endmodule
+
+module COMLT(out, a, b);
+    
+    input [4-1:0] a, b;
+    output [4-1:0] out;
+
+    wire tmp;
+
+    compare c0(tmp, a, b);
+
+    myPass p0(out[0], tmp);
+    myPass p1(out[1], 1'b1);
+    myPass p2(out[2], 1'b0);
+    myPass p3(out[3], 1'b1);
+
+endmodule
+module COMEQ
+
+module Decode_And_Execute(rs, rt, sel, rd);
+
+    input [4-1:0] rs, rt;
+    input [3-1:0] sel;
+    output [4-1:0] rd;
+
+    SUB s0(sub, rs, rt);
+    ADD a0(add, rs, rt);
+    BITWISE_OR b0(bitor, rs, rt);
+    BITWISE_AND b1(bitand, rs, rt);
+    RS r0(rightshift, rt);
+    RT r1(leftshift, rs);
+    COMLT c0(complt, rs, rt);
+    COMEQ c1(complt, rs, rt);
+
+
 
 endmodule
 

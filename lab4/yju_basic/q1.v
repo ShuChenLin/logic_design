@@ -6,6 +6,8 @@ module moore_machine(clk, rst_n, dir, state, out);
     output reg [3-1:0] state;
     output reg [2-1:0] out;
 
+    reg [3-1:0] next_state;
+
     always @(*) begin
         case (state)
             3'b000: next_state = (~dir ? 3'b001 : 3'b010);

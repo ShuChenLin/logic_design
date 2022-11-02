@@ -7,7 +7,7 @@ module moore_machine_t();
     reg dir = 0;
 
     wire [3-1:0] state;
-    wire out;
+    wire [2-1:0] out;
     
     parameter cyc = 10;
     always #(cyc/2) clk = !clk;

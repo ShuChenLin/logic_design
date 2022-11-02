@@ -28,10 +28,10 @@ Clock_Divider cd (
 );
 
 // uncommment and add "+access+r" to your nverilog command to dump fsdb waveform on NTHUCAD
-// initial begin
-//     $fsdbDumpfile("Clock_Divider.fsdb");
-//     $fsdbDumpvars;
-// end
+ initial begin
+     $dumpfile("Clock_Divider.vcd");
+     $dumpvars("+all");
+ end
 
 initial begin
 	@ (negedge clk)

@@ -12,32 +12,44 @@ output [4-1:0] out;
 reg [4-1:0] out;
 reg direction;
 
+reg [4-1:0] next_out;
+reg next_direction;
+
+always @(*) begin
+    if (enable) begin
+        if (out > max || out < min || max <= min) begin
+            next_out = out;
+            next_direction = direction;
+        end else begin
+            if (out === max && direction === 1'b1) begin
+                next_out = out-4'b1;
+                next_directoin = ~direction;
+            end else if (out === min && direction === 1'b0) begin
+                next_out = out+4'b1;
+                next_direction = ~direction;
+            end else begin
+                next_out = direction ? out+4'b1 : out-4'b1;
+                if (flip && out > min && out < max) begin
+                    next_direction = ~direction;
+                end else begin
+                    next_direction = direction;
+                end
+            end
+        end
+    end else begin
+        next_out = out;
+        next_direction = direction;
+    end
+end
+
 always @(posedge clk) begin
     if (~rst_n) begin
         out <= min;
         direction <= 1;
     end 
-    else if (enable) begin
-        if (out > max || out < min) begin
-
-        end
-        else if (max === min) begin
-            
-        end
-        else if (out === max && direction) begin
-            out <= out-1;
-            direction <= ~direction;
-        end
-        else if (out === min && ~direction) begin
-            out <= out+1;
-            direction <= ~direction;
-        end 
-        else begin
-            if (flip && out != min && out != max) begin
-                direction <= ~direction;
-            end
-            out <= direction ? out+1 : out-1;
-        end
+    else begin
+        out <= next_out;
+        direction <= next_direction;
     end
 end
 

@@ -23,7 +23,7 @@ always @(*) begin
         end else begin
             if (out === max && direction === 1'b1) begin
                 next_out = out-4'b1;
-                next_directoin = ~direction;
+                next_direction = ~direction;
             end else if (out === min && direction === 1'b0) begin
                 next_out = out+4'b1;
                 next_direction = ~direction;

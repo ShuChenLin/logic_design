@@ -10,7 +10,7 @@ module Clock_Divider (clk, rst_n, sel, clk1_2, clk1_4, clk1_8, clk1_3, dclk);
     output clk1_3;
     output dclk;
 
-    reg clk1_2, clk1_3, clk1_4, clk1_8, dclk;
+    reg dclk, valid;
     reg cnt2, next_cnt2;
     reg [2-1:0] cnt3, next_cnt3, cnt4, next_cnt4;
     reg [3-1:0] cnt8, next_cnt8;
@@ -19,17 +19,19 @@ module Clock_Divider (clk, rst_n, sel, clk1_2, clk1_4, clk1_8, clk1_3, dclk);
         next_cnt2 = cnt2 + 1'b1;
         next_cnt4 = cnt4 + 1'b1;
         next_cnt8 = cnt8 + 1'b1;
-        if (cnt3 === 2'b10) next_cnt3 = 2'b00;
+        if (cnt3 == 2'b10) next_cnt3 = 2'b00;
         else next_cnt3 = cnt3 + 1;
     end
 
     always @(posedge clk) begin
         if (!rst_n) begin
+            valid <= 1;
             cnt2 <= 0;
             cnt3 <= 0;
             cnt4 <= 0;
             cnt8 <= 0;
         end else begin
+            valid <= 0;
             cnt2 <= next_cnt2;
             cnt3 <= next_cnt3;
             cnt4 <= next_cnt4;
@@ -37,23 +39,10 @@ module Clock_Divider (clk, rst_n, sel, clk1_2, clk1_4, clk1_8, clk1_3, dclk);
         end
     end
 
-    always @(posedge clk) begin
-        if (!rst_n) begin
-            clk1_2 <= 1'b1;
-            clk1_4 <= 1'b1;
-            clk1_8 <= 1'b1;
-            clk1_3 <= 1'b1;
-        end else begin
-            if (cnt2 === 1) clk1_2 <= 1;
-            else clk1_2 <= 0;
-            if (cnt3 === 2'b10) clk1_3 <= 1;
-            else clk1_3 <= 0;
-            if (cnt4 === 2'b11) clk1_4 <= 1;
-            else clk1_4 <= 0;
-            if (cnt8 === 3'b111) clk1_8 <= 1;
-            else clk1_8 <= 0;
-        end
-    end
+    assign clk1_2 = ((!rst_n && valid) || (cnt2 == 0)) ? 1 : 0;
+    assign clk1_3 = ((!rst_n && valid) || (cnt3 == 0)) ? 1 : 0;
+    assign clk1_4 = ((!rst_n && valid) || (cnt4 == 0)) ? 1 : 0;
+    assign clk1_8 = ((!rst_n && valid) || (cnt8 == 0)) ? 1 : 0;
 
     always @(*) begin
         case (sel)

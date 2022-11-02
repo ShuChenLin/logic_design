@@ -1,9 +1,11 @@
+verdiSetActWin -win $_nWave1
 wvConvertFile -win $_nWave1 -o \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/basic/Clock_Divider.vcd.fsdb" \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/basic/Clock_Divider.vcd"
 wvSetPosition -win $_nWave1 {("G1" 0)}
 wvOpenFile -win $_nWave1 \
            {/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/basic/Clock_Divider.vcd.fsdb}
+wvResizeWindow -win $_nWave1 0 1 1440 853
 wvGetSignalOpen -win $_nWave1
 wvGetSignalSetScope -win $_nWave1 "/Clock_Divider_t"
 wvSetPosition -win $_nWave1 {("G1" 8)}
@@ -24,6 +26,5 @@ wvAddSignal -win $_nWave1 -group {"G2" \
 wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 8 )} 
 wvSetPosition -win $_nWave1 {("G1" 8)}
 wvGetSignalClose -win $_nWave1
-wvZoomAll -win $_nWave1
 wvZoomAll -win $_nWave1
 wvExit

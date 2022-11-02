@@ -1,0 +1,39 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 03, 2022 at 01:53:22 CST
+ncverilog
+	q1_t.v
+	q1.v
+	+access+r
+Recompiling... reason: file './q1.v' is newer than expected.
+	expected: Thu Nov  3 01:36:05 2022
+	actual:   Thu Nov  3 01:51:57 2022
+file: q1.v
+	module worklib.moore_machine:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.moore_machine:v <0x60f4e426>
+			streams:   3, words:  1341
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               6       6
+		Scalar wires:            3       -
+		Vectored wires:          2       -
+		Always blocks:           3       3
+		Initial blocks:          5       5
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.moore_machine_t:v
+Loading snapshot worklib.moore_machine_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 250 NS + 0
+./q1_t.v:78 		$finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 03, 2022 at 01:53:26 CST  (total: 00:00:04)

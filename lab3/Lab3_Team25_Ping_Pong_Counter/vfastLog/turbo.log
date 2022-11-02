@@ -1,3 +1,3 @@
-Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/vfast -silent -del . -o /users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Pin_Pong_Counter/ping_pong_counter.vcd.fsdb -ft verilog /users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Pin_Pong_Counter/ping_pong_counter.vcd
+Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/vfast -silent -del . -o /users/course/2022F/LDL17700000/u110062205/logic_design/lab3/Lab3_Team25_Ping_Pong_Counter/ping_pong_counter.vcd.fsdb -ft verilog /users/course/2022F/LDL17700000/u110062205/logic_design/lab3/Lab3_Team25_Ping_Pong_Counter/ping_pong_counter.vcd
 uname(Linux ic21 3.10.0-1160.62.1.el7.x86_64 #1 SMP Tue Apr 5 16:57:59 UTC 2022 x86_64)
-au time 0.027907 0.000278 0.006113 delta 24801280 24801280 total 116785152 116785152
+au time 0.023574 0.001324 0.004934 delta 24801280 24801280 total 116785152 116785152

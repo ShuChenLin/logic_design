@@ -309,6 +309,7 @@ Wave_comment_string_font = -f COURIER12 -c ID_RED5
 HB_designTreeFont = *-adobe-courier-medium-r-*-*-12-*-*-*-*-*-iso8859-*
 Text_font = COURIER12
 nMemory_font = Fixed 14
+Wave_getsignal_form_font = -f COURIER12
 [OtherEditor]
 cmd1 = "xterm -font 9x15 -fg black -bg gray -e"
 name = "vi"
@@ -320,9 +321,10 @@ PaperSize = A4 - 210x297 (mm)
 ColorPrint = FALSE
 [QtDialog]
 QwWarnMsgDlg = 687,388,600,250
-openFileDlg = 695,329,602,483
+QwUserAskDlg = 834,491,324,162
+openFileDlg = 694,329,602,483
 QwInfoMsgDlg = 621,390,750,250
-qWaveSignalDialog = 596,331,800,479
+qWaveSignalDialog = 595,331,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -597,8 +599,11 @@ ShowDeltaTime = TRUE
 WaveExtendLastTick = TRUE
 displayMessageLabelOnly = TRUE
 AutoApplySeverityColor = TRUE
-getSignalForm = 596 294 800 479 164 381 390 89
-viewPort = 73 26 1846 1016 100 65
+scope_to_save_with_macro
+open_file_dir
+open_rc_file_dir
+getSignalForm = 595 294 800 479 164 381 390 89
+viewPort = 71 26 1848 1016 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK
@@ -738,7 +743,6 @@ displayDeltaY = FALSE
 signal_rc_abspath = TRUE
 signal_rc_no_natural_bus_range = FALSE
 save_scope_with_macro = FALSE
-scope_to_save_with_macro
 FitAnaByBusSize = FALSE
 DisplayVerticalZoomTools = FALSE
 DisplayIndicateBar = FALSE
@@ -768,8 +772,6 @@ curveWindow_Drag&Drop_Mode = TRUE
 RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab3/Lab3_Team25_Parameterized_Ping_Pong_Counter/Parameterized_Ping_Pong_Counter.vcd\""
 RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062205/logic_design/lab3/Lab3_Team25_Parameterized_Ping_Pong_Counter/Parameterized_Ping_Pong_Counter.vcd.fsdb\""
 open_file_time_range = FALSE
-open_file_dir
-open_rc_file_dir
 legend_window_font = -f COURIER12 -c ID_CYAN5
 value_window_font = -f COURIER12 -c ID_CYAN5
 curve_window_font = -f COURIER12 -c ID_CYAN5

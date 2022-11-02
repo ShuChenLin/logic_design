@@ -1,7 +1,7 @@
 #######################################################################################
 # fsdb.xxxxx.log : log primitive debug message of FSDB Reader
 # This is for R&D to analyze when there are issues happening when FSDB reading
-# The corresponding FSDB file is /users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_Pin_Pong_Counter/ping_pong_counter.vcd.fsdb
+# The corresponding FSDB file is /users/course/2022F/LDL17700000/u110062205/logic_design/lab3/Lab3_Team25_Ping_Pong_Counter/ping_pong_counter.vcd.fsdb
 #######################################################################################
 [BASIC]Reader version : Leapfrog
 [BASIC]simulator version : Leapfrog

@@ -12,7 +12,7 @@ module moore_machine_t();
     parameter cyc = 10;
     always #(cyc/2) clk = !clk;
 
-    moore_machine(
+    moore_machine M1(
         .clk(clk),
         .rst_n(rst_n),
         .dir(dir),

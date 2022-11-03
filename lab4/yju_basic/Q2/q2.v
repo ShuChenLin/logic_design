@@ -10,7 +10,7 @@
 module mealy_machine(clk, rst_n, in, state, out);
 
     input rst_n, clk, in;
-    output reg [3-1:0] state
+    output reg [3-1:0] state;
     output reg out;
 
     always @(*) begin

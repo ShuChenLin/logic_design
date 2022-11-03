@@ -14,7 +14,7 @@ module mealy_machine(clk, rst_n, in, state, out);
 
 
     always @(*) begin
-        case ({state, in})
+        case ({state, in}) begin
             {S0, 1'b0}: out =  1'b0;
             {S0, 1'b1}: out =  1'b1;
             {S1, 1'b0}: out =  1'b1;

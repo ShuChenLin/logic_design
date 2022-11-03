@@ -28,10 +28,11 @@ always @(*) begin
                 next_out = out+4'b1;
                 next_direction = ~direction;
             end else begin
-                next_out = direction ? out+4'b1 : out-4'b1;
                 if (flip && out > min && out < max) begin
+                    next_out = ~direction ? out + 4'b1 : out-4'b1;
                     next_direction = ~direction;
                 end else begin
+                    next_out = direction ? out + 4'b1 : out - 4'b1;
                     next_direction = direction;
                 end
             end

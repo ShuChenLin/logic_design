@@ -14,7 +14,7 @@ module mealy_machine(clk, rst_n, in, state, out);
 
 
     always @(*) begin
-        case ({state, in}) begin
+        case ({state, in})
             {3'b000, 1'b0}: out =  1'b0;
             {3'b000, 1'b1}: out =  1'b1;
             {3'b001, 1'b0}: out =  1'b1;
@@ -27,21 +27,21 @@ module mealy_machine(clk, rst_n, in, state, out);
             {3'b100, 1'b1}: out =  1'b1;
             {3'b101, 1'b0}: out =  1'b0;
             {3'b101, 1'b1}: out =  1'b0;
-        end
+        endcase
     end
 
     always @(posedge clk) begin
         if (!rst_n) begin
             state <= 3'b000;
         end else begin
-            case (state) begin
+            case (state)
                 3'b000: state <= (~in ? 3'b000 : 3'b010);
                 3'b001: state <= (~in ? 3'b000 : 3'b100);
                 3'b010: state <= (~in ? 3'b101 : 3'b001);
                 3'b011: state <= (~in ? 3'b011 : 3'b010);
                 3'b100: state <= (~in ? 3'b010 : 3'b100);
                 3'b101: state <= (~in ? 3'b011 : 3'b100);
-            end
+            endcase
         end
     end
 

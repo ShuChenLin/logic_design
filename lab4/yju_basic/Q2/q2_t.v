@@ -25,6 +25,7 @@ module mealy_machine_t();
     end
 
     initial begin
+        #1
         @(negedge clk)
         rst_n = 1;
         @(negedge clk)
@@ -77,6 +78,4 @@ module mealy_machine_t();
         in = $random;
         $finish;
     end
-
-
 endmodule

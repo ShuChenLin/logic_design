@@ -45,4 +45,8 @@ module mealy_machine(clk, rst_n, in, state, out);
         end
     end
 
+    always #(5) begin
+        $display("state: %b, out: %b",state, out);
+    end
+
 endmodule

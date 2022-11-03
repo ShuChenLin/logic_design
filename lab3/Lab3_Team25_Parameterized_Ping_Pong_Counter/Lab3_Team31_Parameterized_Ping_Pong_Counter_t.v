@@ -25,6 +25,11 @@ Parameterized_Ping_Pong_Counter ppc(
 );
 
 initial begin
+	$dumpfile("tmp.vcd");
+	$dumpvars("+all");
+end
+
+initial begin
     #10 rst_n = 1'b1;
     #30
     repeat(3)begin

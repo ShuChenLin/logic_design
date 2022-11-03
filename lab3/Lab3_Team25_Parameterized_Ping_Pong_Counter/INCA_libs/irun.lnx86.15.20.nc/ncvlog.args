@@ -5,8 +5,8 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
-Lab3_Team25_Parameterized_Ping_Pong_Counter_t.v
 Lab3_Team25_Parameterized_Ping_Pong_Counter.v
+Lab3_Team31_Parameterized_Ping_Pong_Counter_t.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

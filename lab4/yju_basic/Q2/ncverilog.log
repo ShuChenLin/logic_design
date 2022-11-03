@@ -1,0 +1,95 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 03, 2022 at 09:50:04 CST
+ncverilog
+	q2_t.v
+	q2.v
+	+access+r
+Recompiling... reason: file './q2.v' is newer than expected.
+	expected: Thu Nov  3 09:47:00 2022
+	actual:   Thu Nov  3 09:48:31 2022
+file: q2.v
+	module worklib.mealy_machine:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: ..........
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./q2_t.v,24|23): String literal argument supplied to integer parameter.
+.......... Done
+	Generating native compiled code:
+		worklib.mealy_machine:v <0x25516c17>
+			streams:   4, words:  2600
+		worklib.mealy_machine_t:v <0x537a70e0>
+			streams:   8, words: 19254
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               5       5
+		Scalar wires:            4       -
+		Vectored wires:          1       -
+		Always blocks:           4       4
+		Initial blocks:          5       5
+		Pseudo assignments:      2       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.mealy_machine_t:v
+Loading snapshot worklib.mealy_machine_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+state: xxx, out: x, in: 0
+state: 000, out: 0, in: 0
+state: 000, out: 0, in: 0
+state: 000, out: 0, in: 0
+state: 000, out: 0, in: 0
+state: 000, out: 0, in: 0
+state: 000, out: 1, in: 1
+state: 010, out: 0, in: 1
+state: 010, out: 0, in: 1
+state: 001, out: 1, in: 1
+state: 001, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 0
+state: 010, out: 1, in: 0
+state: 010, out: 0, in: 1
+state: 001, out: 1, in: 1
+state: 001, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 0
+state: 010, out: 1, in: 0
+state: 010, out: 0, in: 1
+state: 001, out: 1, in: 1
+state: 001, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 0
+state: 010, out: 1, in: 0
+state: 010, out: 0, in: 1
+state: 001, out: 1, in: 1
+state: 001, out: 1, in: 0
+state: 000, out: 0, in: 0
+state: 000, out: 1, in: 1
+state: 010, out: 0, in: 1
+state: 010, out: 1, in: 0
+state: 101, out: 0, in: 0
+state: 101, out: 0, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 1
+state: 100, out: 1, in: 0
+state: 010, out: 1, in: 0
+state: 010, out: 0, in: 1
+state: 001, out: 1, in: 1
+state: 001, out: 1, in: 0
+state: 000, out: 0, in: 0
+Simulation complete via $finish(1) at time 250 NS + 0
+./q2_t.v:79         $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 03, 2022 at 09:50:10 CST  (total: 00:00:06)

@@ -9,7 +9,7 @@ module q3_t();
     parameter cyc = 10;
     always #(cyc/2) clk = ~clk;
 
-    q3 M1(
+    Q3 M1(
         .clk(clk),
         .rst_n(rst_n)
         .out(out)

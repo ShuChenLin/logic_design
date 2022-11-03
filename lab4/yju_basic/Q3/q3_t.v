@@ -11,7 +11,7 @@ module q3_t();
 
     Q3 M1(
         .clk(clk),
-        .rst_n(rst_n)
+        .rst_n(rst_n),
         .out(out)
     );
 

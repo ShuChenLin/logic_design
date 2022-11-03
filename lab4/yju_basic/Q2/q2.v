@@ -33,14 +33,15 @@ module mealy_machine(clk, rst_n, in, state, out);
     always @(posedge clk) begin
         if (!rst_n) begin
             state <= S0;
-        end
-        case (state) begin
-            S0: state <= (~in ? S0 : S2);
-            S1: state <= (~in ? S0 : S4);
-            S2: state <= (~in ? S5 : S1);
-            S3: state <= (~in ? S3 : S2);
-            S4: state <= (~in ? S2 : S4);
-            S5: state <= (~in ? S3 : S4);
+        end else begin
+            case (state) begin
+                S0: state <= (~in ? S0 : S2);
+                S1: state <= (~in ? S0 : S4);
+                S2: state <= (~in ? S5 : S1);
+                S3: state <= (~in ? S3 : S2);
+                S4: state <= (~in ? S2 : S4);
+                S5: state <= (~in ? S3 : S4);
+            end
         end
     end
 

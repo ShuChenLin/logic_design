@@ -12,26 +12,25 @@ module mealy_machine(clk, rst_n, in, state, out);
     input rst_n, clk, in;
     output reg state, out;
 
-
     always @(*) begin
         case ({state, in})
-            {3'b000, 1'b0}: out =  1'b0;
-            {3'b000, 1'b1}: out =  1'b1;
-            {3'b001, 1'b0}: out =  1'b1;
-            {3'b001, 1'b1}: out =  1'b1;
-            {3'b010, 1'b0}: out =  1'b1;
-            {3'b010, 1'b1}: out =  1'b0;
-            {3'b011, 1'b0}: out =  1'b1;
-            {3'b011, 1'b1}: out =  1'b0;
-            {3'b100, 1'b0}: out =  1'b1;
-            {3'b100, 1'b1}: out =  1'b1;
-            {3'b101, 1'b0}: out =  1'b0;
-            {3'b101, 1'b1}: out =  1'b0;
+            {3'b000, 1'b0}: out = 1'b0;
+            {3'b000, 1'b1}: out = 1'b1;
+            {3'b001, 1'b0}: out = 1'b1;
+            {3'b001, 1'b1}: out = 1'b1;
+            {3'b010, 1'b0}: out = 1'b1;
+            {3'b010, 1'b1}: out = 1'b0;
+            {3'b011, 1'b0}: out = 1'b1;
+            {3'b011, 1'b1}: out = 1'b0;
+            {3'b100, 1'b0}: out = 1'b1;
+            {3'b100, 1'b1}: out = 1'b1;
+            {3'b101, 1'b0}: out = 1'b0;
+            {3'b101, 1'b1}: out = 1'b0;
         endcase
     end
 
     always @(posedge clk) begin
-        if (!rst_n) begin
+        if (~rst_n) begin
             state <= 3'b000;
         end else begin
             case (state)
@@ -46,7 +45,7 @@ module mealy_machine(clk, rst_n, in, state, out);
     end
 
     always #(5) begin
-        $display("state: %b, out: %b",state, out);
+        $display("state: %b, out: %b, in: %b",state, out, in);
     end
 
 endmodule

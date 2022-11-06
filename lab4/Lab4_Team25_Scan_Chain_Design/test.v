@@ -18,6 +18,11 @@ module Lab4_Team21_Scan_Chain_Design_t();
     reg [3:0] b = 4'b0111;
 
     initial begin
+        $dumpfile("test.vcd");
+        $dumpvars("+all");
+    end
+
+    initial begin
         clk = 0; rst_n = 0; scan_in = 0; scan_en = 0;
         #20 rst_n = 1; scan_en = 1; scan_in = a[0];
         #20 scan_in = a[1];

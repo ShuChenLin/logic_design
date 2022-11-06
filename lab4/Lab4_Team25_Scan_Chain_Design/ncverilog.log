@@ -1,117 +1,94 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 06, 2022 at 19:15:33 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 07, 2022 at 00:14:11 CST
 ncverilog
-	Lab4_Team25_Scan_Chain_Design_t.v
 	Lab4_Team25_Scan_Chain_Design.v
+	test.v
 	+access+r
-Loading snapshot worklib.Scan_Chain_Design_t:v .................... Done
+file: Lab4_Team25_Scan_Chain_Design.v
+	module worklib.Scan_Chain_Design:v
+		errors: 0, warnings: 0
+file: test.v
+	module worklib.Lab4_Team21_Scan_Chain_Design_t:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: ..........
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./test.v,22|23): String literal argument supplied to integer parameter.
+.......... Done
+	Generating native compiled code:
+		worklib.Lab4_Team21_Scan_Chain_Design_t:v <0x3694ea0d>
+			streams:   8, words:  8026
+		worklib.Scan_Chain_Design:v <0x4bbb8800>
+			streams:   4, words:  2354
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               9       9
+		Scalar wires:            5       -
+		Always blocks:           4       4
+		Initial blocks:          4       4
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Lab4_Team21_Scan_Chain_Design_t:v
+Loading snapshot worklib.Lab4_Team21_Scan_Chain_Design_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
 rst_n: 0 | scan_in: 0 | scan_en: 0 | a:  x | b:  x | p:   x | sdff: xxxxxxxx
-rst_n: 1 | scan_in: 0 | scan_en: 0 | a:  0 | b:  0 | p:   0 | sdff: 00000000
-rst_n: 1 | scan_in: 0 | scan_en: 0 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 12 | b:  0 | p:   0 | sdff: 11000000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  6 | b:  0 | p:   0 | sdff: 01100000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b:  0 | p:   0 | sdff: 10110000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 13 | b:  8 | p: 104 | sdff: 11011000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b: 12 | p: 168 | sdff: 11101100
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 15 | b:  6 | p:  90 | sdff: 11110110
+rst_n: 1 | scan_in: 0 | scan_en: 0 | a:  7 | b: 11 | p:  77 | sdff: 01111011
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  4 | b: 13 | p:  52 | sdff: 01001101
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  2 | b:  6 | p:  12 | sdff: 00100110
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  1 | b:  3 | p:   3 | sdff: 00010011
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  9 | p:   0 | sdff: 00001001
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  4 | p:   0 | sdff: 00000100
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  2 | p:   0 | sdff: 00000010
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  1 | p:   0 | sdff: 00000001
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 0 | scan_in: 0 | scan_en: 0 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
 rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
 rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
 rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
 rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 12 | b:  0 | p:   0 | sdff: 11000000
 rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b:  0 | p:   0 | sdff: 11100000
 rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b:  0 | p:   0 | sdff: 11110000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b:  8 | p: 120 | sdff: 11111000
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 15 | b: 12 | p: 180 | sdff: 11111100
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  7 | b: 14 | p:  98 | sdff: 01111110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b: 15 | p: 165 | sdff: 10111111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 13 | b: 15 | p: 195 | sdff: 11011111
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  6 | b: 15 | p:  90 | sdff: 01101111
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b:  7 | p:  77 | sdff: 10110111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 13 | b: 11 | p: 143 | sdff: 11011011
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  6 | b: 13 | p:  78 | sdff: 01101101
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 11 | b:  6 | p:  66 | sdff: 10110110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  5 | b: 11 | p:  55 | sdff: 01011011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 10 | b: 13 | p: 130 | sdff: 10101101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  5 | b:  6 | p:  30 | sdff: 01010110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 10 | b: 11 | p: 110 | sdff: 10101011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 13 | b:  5 | p:  65 | sdff: 11010101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  6 | b: 10 | p:  60 | sdff: 01101010
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 11 | b:  5 | p:  55 | sdff: 10110101
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  5 | b: 10 | p:  50 | sdff: 01011010
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  2 | b: 13 | p:  26 | sdff: 00101101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  1 | b:  6 | p:   6 | sdff: 00010110
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  8 | b: 11 | p:  88 | sdff: 10001011
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  4 | b:  5 | p:  20 | sdff: 01000101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 10 | b:  2 | p:  20 | sdff: 10100010
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 13 | b:  1 | p:  13 | sdff: 11010001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b:  8 | p: 112 | sdff: 11101000
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 15 | b:  4 | p:  60 | sdff: 11110100
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  7 | b: 10 | p:  70 | sdff: 01111010
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  3 | b: 13 | p:  39 | sdff: 00111101
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  1 | b: 14 | p:  14 | sdff: 00011110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  0 | b: 15 | p:   0 | sdff: 00001111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  8 | b:  7 | p:  56 | sdff: 10000111
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  4 | b:  3 | p:  12 | sdff: 01000011
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 10 | b:  1 | p:  10 | sdff: 10100001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 13 | b:  0 | p:   0 | sdff: 11010000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b:  8 | p: 112 | sdff: 11101000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b:  4 | p:  60 | sdff: 11110100
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 15 | b: 10 | p: 150 | sdff: 11111010
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  7 | b: 13 | p:  91 | sdff: 01111101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  3 | b: 14 | p:  42 | sdff: 00111110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  9 | b: 15 | p: 135 | sdff: 10011111
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 12 | b: 15 | p: 180 | sdff: 11001111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 14 | b:  7 | p:  98 | sdff: 11100111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  7 | b:  3 | p:  21 | sdff: 01110011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  3 | b:  9 | p:  27 | sdff: 00111001
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  1 | b: 12 | p:  12 | sdff: 00011100
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b: 14 | p:   0 | sdff: 00001110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  0 | b:  7 | p:   0 | sdff: 00000111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  8 | b:  3 | p:  24 | sdff: 10000011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  4 | b:  1 | p:   4 | sdff: 01000001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  2 | b:  0 | p:   0 | sdff: 00100000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  9 | b:  0 | p:   0 | sdff: 10010000
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 12 | b:  8 | p:  96 | sdff: 11001000
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  6 | b:  4 | p:  24 | sdff: 01100100
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  3 | b:  2 | p:   6 | sdff: 00110010
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  1 | b:  9 | p:   9 | sdff: 00011001
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  0 | b: 12 | p:   0 | sdff: 00001100
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  0 | b:  6 | p:   0 | sdff: 00000110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  8 | b:  3 | p:  24 | sdff: 10000011
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 12 | b:  1 | p:  12 | sdff: 11000001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b:  0 | p:   0 | sdff: 11100000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b:  0 | p:   0 | sdff: 11110000
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 15 | b:  8 | p: 120 | sdff: 11111000
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  7 | b: 12 | p:  84 | sdff: 01111100
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  3 | b: 14 | p:  42 | sdff: 00111110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  9 | b: 15 | p: 135 | sdff: 10011111
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 12 | b: 15 | p: 180 | sdff: 11001111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 14 | b:  7 | p:  98 | sdff: 11100111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  7 | b:  3 | p:  21 | sdff: 01110011
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  3 | b:  9 | p:  27 | sdff: 00111001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  9 | b: 12 | p: 108 | sdff: 10011100
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 12 | b: 14 | p: 168 | sdff: 11001110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  6 | b:  7 | p:  42 | sdff: 01100111
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b:  3 | p:  33 | sdff: 10110011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 13 | b:  9 | p: 117 | sdff: 11011001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  6 | b: 12 | p:  72 | sdff: 01101100
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b:  6 | p:  66 | sdff: 10110110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 13 | b: 11 | p: 143 | sdff: 11011011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 14 | b: 13 | p: 182 | sdff: 11101101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  7 | b:  6 | p:  42 | sdff: 01110110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b: 11 | p: 121 | sdff: 10111011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 13 | b: 13 | p: 169 | sdff: 11011101
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  6 | b: 14 | p:  84 | sdff: 01101110
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  3 | b:  7 | p:  21 | sdff: 00110111
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  1 | b: 11 | p:  11 | sdff: 00011011
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  0 | b: 13 | p:   0 | sdff: 00001101
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  8 | b:  6 | p:  48 | sdff: 10000110
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 12 | b:  3 | p:  36 | sdff: 11000011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a:  6 | b:  1 | p:   6 | sdff: 01100001
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  3 | b:  0 | p:   0 | sdff: 00110000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  9 | b:  8 | p:  72 | sdff: 10011000
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 12 | b: 12 | p: 144 | sdff: 11001100
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b:  6 | p:  84 | sdff: 11100110
-rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b:  3 | p:  45 | sdff: 11110011
-rst_n: 1 | scan_in: 0 | scan_en: 1 | a: 15 | b:  9 | p: 135 | sdff: 11111001
-Simulation complete via $finish(1) at time 1030 NS + 0
-./Lab4_Team25_Scan_Chain_Design_t.v:38         $finish;
+rst_n: 1 | scan_in: 1 | scan_en: 0 | a: 15 | b:  8 | p: 120 | sdff: 11111000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a:  7 | b:  8 | p:  56 | sdff: 01111000
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 11 | b: 12 | p: 132 | sdff: 10111100
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 13 | b: 14 | p: 182 | sdff: 11011110
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 14 | b: 15 | p: 210 | sdff: 11101111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b:  7 | p: 105 | sdff: 11110111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 11 | p: 165 | sdff: 11111011
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 13 | p: 195 | sdff: 11111101
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 14 | p: 210 | sdff: 11111110
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
+Simulation complete via $finish(1) at time 1 US + 0
+./test.v:49         #300 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 06, 2022 at 19:15:36 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 07, 2022 at 00:14:15 CST  (total: 00:00:04)

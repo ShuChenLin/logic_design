@@ -1,3 +1,5 @@
+verdiSetActWin -win $_nWave1
+wvResizeWindow -win $_nWave1 0 1 1440 854
 wvConvertFile -win $_nWave1 -o \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/lsc_basic/4-3/Many_To_One_LFSR.vcd.fsdb" \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/lsc_basic/4-3/Many_To_One_LFSR.vcd"
@@ -20,6 +22,9 @@ wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 )}
 wvSetPosition -win $_nWave1 {("G1" 3)}
 wvGetSignalClose -win $_nWave1
 wvZoomAll -win $_nWave1
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 )} 
+wvSetRadix -win $_nWave1 -format Bin
+wvZoomIn -win $_nWave1
 wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 )} 
 wvSetRadix -win $_nWave1 -format UDec
 wvExit

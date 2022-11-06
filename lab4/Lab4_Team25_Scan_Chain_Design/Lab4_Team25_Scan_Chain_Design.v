@@ -7,7 +7,6 @@ module Scan_Chain_Design(clk, rst_n, scan_in, scan_en, scan_out);
     input scan_en;
     output scan_out;
 
-    reg [3:0] a, b;
     reg [7:0] p;
     reg [7:0] sdff;
 
@@ -26,6 +25,13 @@ module Scan_Chain_Design(clk, rst_n, scan_in, scan_en, scan_out);
                 sdff <= {scan_in, sdff[7:1]};
             end
         end
+    end
+
+    always @(negedge clk) begin
+        $display(
+            "scan_in: %b | scan_en: %b | a: %d | b: %d | p: %d | sdff: %b",
+            scan_in, scan_en, sdff[7:4], sdff[3:0], p, sdff[7:0]
+        );
     end
 
 endmodule

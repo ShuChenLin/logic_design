@@ -46,7 +46,7 @@ VENDOR=unknown
 OSTYPE=linux
 MACHTYPE=x86_64
 SHLVL=1
-PWD=/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/basic
+PWD=/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Mealy_Sequence_Detector
 GROUP=LDL17700000
 HOST=ic21
 REMOTEHOST=nthucad
@@ -99,13 +99,13 @@ IMPERAS_PORT_FILE=.vsp_ovp_gdb_port
 TCL_LIBRARY=/usr/cad/cadence/INCISIV/cur/tools/inca/files/tcl/library
 Runtime command line arguments:
 argv[0]=ncverilog
-argv[1]=Clock_Divider_t.v
-argv[2]=Lab3_Clock_Divider.v
+argv[1]=Lab4_Team25_Mealy_Sequence_Detector_t.v
+argv[2]=Lab4_Team25_Mealy_Sequence_Detector.v
 argv[3]=+access+r
 104 profile - 100
-          CPU/Mem usage: 0.040 sys,  0.010 user,  60.45M sys,  0.00M vm
+          CPU/Mem usage: 0.030 sys,  0.010 user,  60.46M sys,  0.00M vm
 105 VC callback profile - scalar:0 vector:0
-106 Sun Nov  6 18:48:03 2022
+106 Sun Nov  6 19:15:15 2022
 107 pliAppInit
 108 FSDB_GATE is disabled.
 109 Enable Parallel Dumping.

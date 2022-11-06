@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module Scan_Chain_Design_T();
+module Scan_Chain_Design_t();
     
     reg clk = 0;
     reg rst_n = 0;
@@ -16,7 +16,7 @@ module Scan_Chain_Design_T();
         .rst_n(rst_n),
         .scan_in(scan_in),
         .scan_en(scan_en),
-        .scan_out(scan_out),
+        .scan_out(scan_out)
     );
 
     initial begin

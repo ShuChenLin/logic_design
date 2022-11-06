@@ -1,0 +1,39 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 06, 2022 at 19:15:10 CST
+ncverilog
+	Lab4_Team25_Mealy_Sequence_Detector_t.v
+	Lab4_Team25_Mealy_Sequence_Detector.v
+	+access+r
+Recompiling... reason: file './Lab4_Team25_Mealy_Sequence_Detector.v' is newer than expected.
+	expected: Sun Nov  6 19:06:35 2022
+	actual:   Sun Nov  6 19:13:48 2022
+file: Lab4_Team25_Mealy_Sequence_Detector.v
+	module worklib.Mealy_Sequence_Detector:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Mealy_Sequence_Detector:v <0x1a0016d1>
+			streams:   4, words:  2174
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               6       6
+		Scalar wires:            4       -
+		Vectored wires:          1       -
+		Always blocks:           4       4
+		Initial blocks:          5       5
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.mealy_t:v
+Loading snapshot worklib.mealy_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 180 NS + 0
+./Lab4_Team25_Mealy_Sequence_Detector_t.v:53         @(negedge clk) $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 06, 2022 at 19:15:15 CST  (total: 00:00:05)

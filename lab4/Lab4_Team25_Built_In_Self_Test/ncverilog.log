@@ -1,0 +1,148 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 06, 2022 at 19:26:36 CST
+ncverilog
+	Lab4_Team25_Built_In_Self_Test_t.v
+	Lab4_Team25_Built_In_Self_Test.v
+	+access+r
+Recompiling... reason: file './Lab4_Team25_Built_In_Self_Test_t.v' is newer than expected.
+	expected: Sun Nov  6 19:24:00 2022
+	actual:   Sun Nov  6 19:25:03 2022
+file: Lab4_Team25_Built_In_Self_Test_t.v
+	module worklib.Built_in_Self_Test_t:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+        .out(scan_in)
+                   |
+ncelab: *W,CUVMPW (./Lab4_Team25_Built_In_Self_Test.v,14|19): port sizes differ in port connection (1/8).
+	Building instance overlay tables: .....
+		$dumpvars("+all");
+		               |
+ncelab: *W,STRINT (./Lab4_Team25_Built_In_Self_Test_t.v,24|17): String literal argument supplied to integer parameter.
+............... Done
+	Generating native compiled code:
+		worklib.Built_in_Self_Test_t:v <0x35652ab9>
+			streams:   8, words:  4585
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 4       4
+		Registers:               7       7
+		Scalar wires:            4       -
+		Expanded wires:          8       1
+		Always blocks:           5       5
+		Initial blocks:          5       5
+		Pseudo assignments:      2       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Built_in_Self_Test_t:v
+Loading snapshot worklib.Built_in_Self_Test_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+scan_in: x | scan_en: 0 | a:  x | b:  x | p:   x | sdff: xxxxxxxx
+scan_in: 1 | scan_en: 0 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 0 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
+scan_in: 1 | scan_en: 1 | a:  4 | b:  0 | p:   0 | sdff: 01000000
+scan_in: 1 | scan_en: 1 | a: 10 | b:  0 | p:   0 | sdff: 10100000
+scan_in: 1 | scan_en: 1 | a: 13 | b:  0 | p:   0 | sdff: 11010000
+scan_in: 1 | scan_en: 1 | a: 14 | b:  8 | p: 112 | sdff: 11101000
+scan_in: 1 | scan_en: 1 | a: 15 | b:  4 | p:  60 | sdff: 11110100
+scan_in: 0 | scan_en: 1 | a: 15 | b: 10 | p: 150 | sdff: 11111010
+scan_in: 0 | scan_en: 1 | a:  7 | b: 13 | p:  91 | sdff: 01111101
+scan_in: 0 | scan_en: 1 | a:  3 | b: 14 | p:  42 | sdff: 00111110
+scan_in: 0 | scan_en: 1 | a:  1 | b: 15 | p:  15 | sdff: 00011111
+scan_in: 1 | scan_en: 1 | a:  0 | b: 15 | p:   0 | sdff: 00001111
+scan_in: 1 | scan_en: 1 | a:  8 | b:  7 | p:  56 | sdff: 10000111
+scan_in: 0 | scan_en: 1 | a: 12 | b:  3 | p:  36 | sdff: 11000011
+scan_in: 1 | scan_en: 1 | a:  6 | b:  1 | p:   6 | sdff: 01100001
+scan_in: 0 | scan_en: 1 | a: 11 | b:  0 | p:   0 | sdff: 10110000
+scan_in: 0 | scan_en: 1 | a:  5 | b:  8 | p:  40 | sdff: 01011000
+scan_in: 1 | scan_en: 0 | a:  2 | b: 12 | p:  24 | sdff: 00101100
+scan_in: 1 | scan_en: 1 | a:  1 | b:  8 | p:   8 | sdff: 00011000
+scan_in: 0 | scan_en: 1 | a:  8 | b: 12 | p:  96 | sdff: 10001100
+scan_in: 1 | scan_en: 0 | a:  4 | b:  6 | p:  24 | sdff: 01000110
+scan_in: 0 | scan_en: 1 | a:  1 | b:  8 | p:   8 | sdff: 00011000
+scan_in: 1 | scan_en: 1 | a:  0 | b: 12 | p:   0 | sdff: 00001100
+scan_in: 1 | scan_en: 1 | a:  8 | b:  6 | p:  48 | sdff: 10000110
+scan_in: 0 | scan_en: 1 | a: 12 | b:  3 | p:  36 | sdff: 11000011
+scan_in: 1 | scan_en: 1 | a:  6 | b:  1 | p:   6 | sdff: 01100001
+scan_in: 1 | scan_en: 1 | a: 11 | b:  0 | p:   0 | sdff: 10110000
+scan_in: 0 | scan_en: 1 | a: 13 | b:  8 | p: 104 | sdff: 11011000
+scan_in: 1 | scan_en: 1 | a:  6 | b: 12 | p:  72 | sdff: 01101100
+scan_in: 0 | scan_en: 1 | a: 11 | b:  6 | p:  66 | sdff: 10110110
+scan_in: 1 | scan_en: 0 | a:  5 | b: 11 | p:  55 | sdff: 01011011
+scan_in: 0 | scan_en: 1 | a:  3 | b:  7 | p:  21 | sdff: 00110111
+scan_in: 0 | scan_en: 1 | a:  1 | b: 11 | p:  11 | sdff: 00011011
+scan_in: 0 | scan_en: 1 | a:  0 | b: 13 | p:   0 | sdff: 00001101
+scan_in: 0 | scan_en: 1 | a:  0 | b:  6 | p:   0 | sdff: 00000110
+scan_in: 0 | scan_en: 1 | a:  0 | b:  3 | p:   0 | sdff: 00000011
+scan_in: 1 | scan_en: 0 | a:  0 | b:  1 | p:   0 | sdff: 00000001
+scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 0 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 1 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
+scan_in: 1 | scan_en: 1 | a: 12 | b:  0 | p:   0 | sdff: 11000000
+scan_in: 0 | scan_en: 1 | a: 14 | b:  0 | p:   0 | sdff: 11100000
+scan_in: 1 | scan_en: 1 | a:  7 | b:  0 | p:   0 | sdff: 01110000
+scan_in: 1 | scan_en: 1 | a: 11 | b:  8 | p:  88 | sdff: 10111000
+scan_in: 0 | scan_en: 1 | a: 13 | b: 12 | p: 156 | sdff: 11011100
+scan_in: 0 | scan_en: 1 | a:  6 | b: 14 | p:  84 | sdff: 01101110
+scan_in: 1 | scan_en: 1 | a:  3 | b:  7 | p:  21 | sdff: 00110111
+scan_in: 0 | scan_en: 1 | a:  9 | b: 11 | p:  99 | sdff: 10011011
+scan_in: 0 | scan_en: 1 | a:  4 | b: 13 | p:  52 | sdff: 01001101
+scan_in: 1 | scan_en: 1 | a:  2 | b:  6 | p:  12 | sdff: 00100110
+scan_in: 0 | scan_en: 1 | a:  9 | b:  3 | p:  27 | sdff: 10010011
+scan_in: 0 | scan_en: 1 | a:  4 | b:  9 | p:  36 | sdff: 01001001
+scan_in: 1 | scan_en: 1 | a:  2 | b:  4 | p:   8 | sdff: 00100100
+scan_in: 1 | scan_en: 1 | a:  9 | b:  2 | p:  18 | sdff: 10010010
+scan_in: 0 | scan_en: 1 | a: 12 | b:  9 | p: 108 | sdff: 11001001
+scan_in: 0 | scan_en: 0 | a:  6 | b:  4 | p:  24 | sdff: 01100100
+scan_in: 0 | scan_en: 1 | a:  1 | b:  8 | p:   8 | sdff: 00011000
+scan_in: 0 | scan_en: 1 | a:  0 | b: 12 | p:   0 | sdff: 00001100
+scan_in: 0 | scan_en: 1 | a:  0 | b:  6 | p:   0 | sdff: 00000110
+scan_in: 0 | scan_en: 0 | a:  0 | b:  3 | p:   0 | sdff: 00000011
+scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 1 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
+scan_in: 1 | scan_en: 1 | a: 12 | b:  0 | p:   0 | sdff: 11000000
+scan_in: 0 | scan_en: 0 | a: 14 | b:  0 | p:   0 | sdff: 11100000
+scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 0 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
+scan_in: 0 | scan_en: 1 | a:  4 | b:  0 | p:   0 | sdff: 01000000
+scan_in: 1 | scan_en: 1 | a:  2 | b:  0 | p:   0 | sdff: 00100000
+scan_in: 0 | scan_en: 1 | a:  9 | b:  0 | p:   0 | sdff: 10010000
+scan_in: 0 | scan_en: 1 | a:  4 | b:  8 | p:  32 | sdff: 01001000
+scan_in: 0 | scan_en: 0 | a:  2 | b:  4 | p:   8 | sdff: 00100100
+scan_in: 1 | scan_en: 1 | a:  0 | b:  8 | p:   0 | sdff: 00001000
+scan_in: 1 | scan_en: 1 | a:  8 | b:  4 | p:  32 | sdff: 10000100
+scan_in: 1 | scan_en: 1 | a: 12 | b:  2 | p:  24 | sdff: 11000010
+scan_in: 0 | scan_en: 1 | a: 14 | b:  1 | p:  14 | sdff: 11100001
+scan_in: 0 | scan_en: 1 | a:  7 | b:  0 | p:   0 | sdff: 01110000
+scan_in: 0 | scan_en: 1 | a:  3 | b:  8 | p:  24 | sdff: 00111000
+scan_in: 1 | scan_en: 1 | a:  1 | b: 12 | p:  12 | sdff: 00011100
+scan_in: 0 | scan_en: 1 | a:  8 | b: 14 | p: 112 | sdff: 10001110
+scan_in: 0 | scan_en: 0 | a:  4 | b:  7 | p:  28 | sdff: 01000111
+scan_in: 0 | scan_en: 1 | a:  1 | b: 12 | p:  12 | sdff: 00011100
+scan_in: 0 | scan_en: 1 | a:  0 | b: 14 | p:   0 | sdff: 00001110
+scan_in: 0 | scan_en: 1 | a:  0 | b:  7 | p:   0 | sdff: 00000111
+scan_in: 0 | scan_en: 1 | a:  0 | b:  3 | p:   0 | sdff: 00000011
+scan_in: 0 | scan_en: 1 | a:  0 | b:  1 | p:   0 | sdff: 00000001
+scan_in: 1 | scan_en: 1 | a:  0 | b:  0 | p:   0 | sdff: 00000000
+scan_in: 0 | scan_en: 1 | a:  8 | b:  0 | p:   0 | sdff: 10000000
+scan_in: 1 | scan_en: 1 | a:  4 | b:  0 | p:   0 | sdff: 01000000
+scan_in: 1 | scan_en: 1 | a: 10 | b:  0 | p:   0 | sdff: 10100000
+scan_in: 0 | scan_en: 1 | a: 13 | b:  0 | p:   0 | sdff: 11010000
+scan_in: 0 | scan_en: 1 | a:  6 | b:  8 | p:  48 | sdff: 01101000
+scan_in: 0 | scan_en: 1 | a:  3 | b:  4 | p:  12 | sdff: 00110100
+scan_in: 1 | scan_en: 1 | a:  1 | b: 10 | p:  10 | sdff: 00011010
+scan_in: 1 | scan_en: 0 | a:  8 | b: 13 | p: 104 | sdff: 10001101
+scan_in: 1 | scan_en: 1 | a:  6 | b:  8 | p:  48 | sdff: 01101000
+scan_in: 1 | scan_en: 1 | a: 11 | b:  4 | p:  44 | sdff: 10110100
+scan_in: 0 | scan_en: 1 | a: 13 | b: 10 | p: 130 | sdff: 11011010
+scan_in: 1 | scan_en: 0 | a:  6 | b: 13 | p:  78 | sdff: 01101101
+scan_in: 0 | scan_en: 0 | a:  4 | b: 14 | p:  56 | sdff: 01001110
+Simulation complete via $finish(1) at time 1020 NS + 0
+./Lab4_Team25_Built_In_Self_Test_t.v:37 		$finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 06, 2022 at 19:26:40 CST  (total: 00:00:04)

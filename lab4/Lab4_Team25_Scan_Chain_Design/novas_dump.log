@@ -103,9 +103,9 @@ argv[1]=Lab4_Team25_Scan_Chain_Design_t.v
 argv[2]=Lab4_Team25_Scan_Chain_Design.v
 argv[3]=+access+r
 104 profile - 100
-          CPU/Mem usage: 0.030 sys,  0.010 user,  60.47M sys,  0.00M vm
+          CPU/Mem usage: 0.020 sys,  0.010 user,  60.47M sys,  0.00M vm
 105 VC callback profile - scalar:0 vector:0
-106 Sun Nov  6 19:07:14 2022
+106 Sun Nov  6 19:15:36 2022
 107 pliAppInit
 108 FSDB_GATE is disabled.
 109 Enable Parallel Dumping.

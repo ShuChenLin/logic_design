@@ -6,3 +6,5 @@ s5(06Nov2022:19:05:18):  ncverilog Lab4_Team25_Scan_Chain_Design_t.v Lab4_Team25
 s6(06Nov2022:19:07:12):  ncverilog Lab4_Team25_Scan_Chain_Design_t.v Lab4_Team25_Scan_Chain_Design.v +access+r 
 s7(06Nov2022:19:15:33):  ncverilog Lab4_Team25_Scan_Chain_Design_t.v Lab4_Team25_Scan_Chain_Design.v +access+r 
 s8(07Nov2022:00:14:11):  ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r 
+s9(07Nov2022:10:26:23):  ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r 
+s10(07Nov2022:10:33:51):  ncverilog test.v Lab4_Team25_Scan_Chain_Design.v +access+r 

@@ -11,8 +11,7 @@ module Scan_Chain_Design(clk, rst_n, scan_in, scan_en, scan_out);
     reg [7:0] sdff;
 
     always @(*) begin
-        p = sdff[7:4]*sdff[3:0];
-        scan_out = sdff[0];
+        p = sdff[3:0]*sdff[7:4];
     end
 
     always @(posedge clk) begin
@@ -20,9 +19,10 @@ module Scan_Chain_Design(clk, rst_n, scan_in, scan_en, scan_out);
             sdff <= 8'b00000000;
         end else begin
             if (scan_en) begin
-                sdff <= {scan_in, sdff[7:1]};
+                {sdff, scan_out} <= {scan_in, sdff[7:0]};
             end else begin
                 sdff <= p;
+				scan_out <= scan_out;
             end
         end
     end

@@ -7,11 +7,14 @@ module Scan_Chain_Design(clk, rst_n, scan_in, scan_en, scan_out);
     input scan_en;
     output reg scan_out;
 
+    reg [3:0] a, b;
     reg [7:0] p;
     reg [7:0] sdff;
 
     always @(*) begin
-        p = sdff[7:4]*sdff[3:0];
+        p = a*b;
+        a = sdff[7:4];
+        b = sdff[3:0];
         scan_out = sdff[0];
     end
 

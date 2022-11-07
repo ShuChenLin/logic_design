@@ -1,0 +1,10 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(06Nov2022:22:47:48):( ncverilog Lab4_Team25_Content_Addressable_Memory_t.v Lab4_Team25_Content_Addressable_Memory.v +access_r )
+s2::(06Nov2022:22:48:22):( ncverilog Lab4_Team25_Content_Addressable_Memory_t.v Lab4_Team25_Content_Addressable_Memory.v +access_r )
+s3::(06Nov2022:22:48:45):( ncverilog Lab4_Team25_Content_Addressable_Memory_t.v Lab4_Team25_Content_Addressable_Memory.v +access+r )
+s4::(06Nov2022:22:52:25):( ncverilog Lab4_Team25_Content_Addressable_Memory_t.v Lab4_Team25_Content_Addressable_Memory.v +access+r )
+s5::(06Nov2022:22:52:44):( ncverilog Lab4_Team25_Content_Addressable_Memory_t.v Lab4_Team25_Content_Addressable_Memory.v +access+r )
+s6::(06Nov2022:22:52:59):( ncverilog Lab4_Team25_Content_Addressable_Memory_t.v Lab4_Team25_Content_Addressable_Memory.v +access+r )

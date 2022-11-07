@@ -5,8 +5,8 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
-Lab4_Team25_Scan_Chain_Design_t.v
 Lab4_Team25_Scan_Chain_Design.v
+test.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

@@ -1,0 +1,39 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 06, 2022 at 22:52:59 CST
+ncverilog
+	Lab4_Team25_Content_Addressable_Memory_t.v
+	Lab4_Team25_Content_Addressable_Memory.v
+	+access+r
+Recompiling... reason: file './Lab4_Team25_Content_Addressable_Memory.v' is newer than expected.
+	expected: Sun Nov  6 22:46:58 2022
+	actual:   Sun Nov  6 22:51:37 2022
+file: Lab4_Team25_Content_Addressable_Memory.v
+	module worklib.Content_Addressable_Memory:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Content_Addressable_Memory:v <0x7890444d>
+			streams:   6, words:  2073
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              12      12
+		Scalar wires:            4       -
+		Vectored wires:          4       -
+		Always blocks:           4       4
+		Initial blocks:          5       5
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.cam_t:v
+Loading snapshot worklib.cam_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 160 NS + 0
+./Lab4_Team25_Content_Addressable_Memory_t.v:96         @(negedge clk) $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 06, 2022 at 22:53:02 CST  (total: 00:00:03)

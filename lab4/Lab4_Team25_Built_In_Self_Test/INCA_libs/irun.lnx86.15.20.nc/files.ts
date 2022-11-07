@@ -1,0 +1,2 @@
+1667733903 /users/course/2022F/LDL17700000/u110062205/logic_design/lab4/Lab4_Team25_Built_In_Self_Test/Lab4_Team25_Built_In_Self_Test_t.v
+1667733443 /users/course/2022F/LDL17700000/u110062205/logic_design/lab4/Lab4_Team25_Built_In_Self_Test/Lab4_Team25_Built_In_Self_Test.v

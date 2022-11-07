@@ -1,21 +1,15 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 02, 2022 at 17:52:43 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 06, 2022 at 18:47:59 CST
 ncverilog
 	Clock_Divider_t.v
 	Lab3_Clock_Divider.v
 	+access+r
-Recompiling... reason: file './Lab3_Clock_Divider.v' is newer than expected.
-	expected: Wed Nov  2 17:47:51 2022
-	actual:   Wed Nov  2 17:51:19 2022
-file: Lab3_Clock_Divider.v
-	module worklib.Clock_Divider:v
-		errors: 0, warnings: 0
+Recompiling... reason: file './Clock_Divider_t.v' is newer than expected.
+	expected: Wed Nov  2 17:01:45 2022
+	actual:   Sun Nov  6 18:32:19 2022
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.Clock_Divider:v <0x697ff891>
-			streams:   9, words:  3908
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -37,4 +31,4 @@ ncsim> run
 Simulation complete via $finish(1) at time 226 NS + 0
 ./Clock_Divider_t.v:45 	#1 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 02, 2022 at 17:52:46 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 06, 2022 at 18:48:03 CST  (total: 00:00:04)

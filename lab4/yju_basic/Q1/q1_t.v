@@ -28,53 +28,10 @@ module moore_machine_t();
     initial begin
         @(negedge clk)
         rst_n = 1;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;        
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-        @(negedge clk)
-        dir = $random;
-		@(negedge clk)
-		$finish;
+		repeat (2**5) begin
+			@(negedge clk)
+			{rst_n, dir} = $random;
+		end
+        $finish;
     end
 endmodule

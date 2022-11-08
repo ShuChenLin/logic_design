@@ -1,9 +1,12 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 07, 2022 at 10:33:51 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 09, 2022 at 01:26:56 CST
 ncverilog
-	test.v
 	Lab4_Team25_Scan_Chain_Design.v
+	test.v
 	+access+r
+Recompiling... reason: file './Lab4_Team25_Scan_Chain_Design.v' is newer than expected.
+	expected: Wed Nov  9 01:10:18 2022
+	actual:   Wed Nov  9 01:25:33 2022
 file: Lab4_Team25_Scan_Chain_Design.v
 	module worklib.Scan_Chain_Design:v
 		errors: 0, warnings: 0
@@ -11,8 +14,8 @@ file: Lab4_Team25_Scan_Chain_Design.v
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.Scan_Chain_Design:v <0x141007d9>
-			streams:   6, words:  2817
+		worklib.Scan_Chain_Design:v <0x1ab03f18>
+			streams:   4, words:  2354
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -20,7 +23,7 @@ file: Lab4_Team25_Scan_Chain_Design.v
 		Modules:                 2       2
 		Registers:               9       9
 		Scalar wires:            5       -
-		Always blocks:           4       4
+		Always blocks:           5       5
 		Initial blocks:          4       4
 		Pseudo assignments:      3       3
 		Simulation timescale:  1ps
@@ -82,4 +85,4 @@ rst_n: 1 | scan_in: 1 | scan_en: 1 | a: 15 | b: 15 | p: 225 | sdff: 11111111
 Simulation complete via $finish(1) at time 1 US + 0
 ./test.v:49         #300 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 07, 2022 at 10:34:03 CST  (total: 00:00:12)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 09, 2022 at 01:26:59 CST  (total: 00:00:03)

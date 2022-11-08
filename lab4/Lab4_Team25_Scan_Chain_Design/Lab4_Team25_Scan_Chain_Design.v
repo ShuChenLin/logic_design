@@ -21,8 +21,8 @@ module Scan_Chain_Design(clk, rst_n, scan_in, scan_en, scan_out);
             if (scan_en) begin
                 {sdff, scan_out} <= {scan_in, sdff[7:0]};
             end else begin
-                sdff <= p;
-				scan_out <= scan_out;
+                sdff <= {P[6:0], 1'b0};
+				scan_out <= p[7];
             end
         end
     end

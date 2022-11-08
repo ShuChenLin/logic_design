@@ -45,6 +45,12 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
                 light[7:4] ans3;
                 light[3:0] ans4;
             end
+            ANSWER : begin
+                light[15:12] = ans1;
+                light[11:8] ans2;
+                light[7:4] ans3;
+                light[3:0] ans4;
+            end
             default : begin
                 light = 16'b0;
             end

@@ -254,10 +254,10 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
             end
             ANSWER : begin
                 case (display_pos)
-                    2'b00 : seg <= digit[B];
-                    2'b01 : seg <= digit[2];
-                    2'b10 : seg <= digit[A];
-                    2'b11 : seg <= digit[1];
+                    2'b00 : seg <= digit[11]; //B
+                    2'b01 : seg <= digit[B]; //# of B
+                    2'b10 : seg <= digit[10]; //A
+                    2'b11 : seg <= digit[A]; //# of A
                 endcase
             end
         endcase

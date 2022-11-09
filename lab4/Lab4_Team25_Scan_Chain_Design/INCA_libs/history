@@ -16,3 +16,7 @@ s11::(09Nov2022:00:45:26):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +ac
 s12::(09Nov2022:01:11:13):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
 s13::(09Nov2022:01:11:51):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
 s14::(09Nov2022:01:26:56):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
+s15::(09Nov2022:23:08:14):( ncverilog Lab4_Team25_Scan_Chain_Design_t.v Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
+s16::(09Nov2022:23:09:16):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
+s17::(09Nov2022:23:19:26):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
+s18::(09Nov2022:23:29:46):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )

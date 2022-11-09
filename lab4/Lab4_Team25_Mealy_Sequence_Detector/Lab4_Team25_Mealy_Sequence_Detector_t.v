@@ -35,19 +35,79 @@ module mealy_t;
         @(negedge clk) in = 1;
 
         @(negedge clk) in = 0;        
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 0;
         @(negedge clk) in = 1;
+
+        @(negedge clk) in = 0;        
+        @(negedge clk) in = 0;
         @(negedge clk) in = 1;
         @(negedge clk) in = 0;
-            
-        @(negedge clk) in = 1;        
-        @(negedge clk) in = 1;
+
+        @(negedge clk) in = 0;        
         @(negedge clk) in = 0;
+        @(negedge clk) in = 1;
         @(negedge clk) in = 1;
 
         @(negedge clk) in = 0;        
         @(negedge clk) in = 1;
         @(negedge clk) in = 0;
         @(negedge clk) in = 0;
+
+        @(negedge clk) in = 0;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 1;
+
+        @(negedge clk) in = 0;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 0;
+
+        @(negedge clk) in = 0;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 0;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 1;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 0;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 0;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 0;
+        @(negedge clk) in = 1;
+            
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 0;
+
+        @(negedge clk) in = 1;        
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
+        @(negedge clk) in = 1;
         @(negedge clk) $finish;
     end
 endmodule

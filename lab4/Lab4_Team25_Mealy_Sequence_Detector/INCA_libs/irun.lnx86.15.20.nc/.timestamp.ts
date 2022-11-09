@@ -1,2 +1,2 @@
-1667733228 /users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Mealy_Sequence_Detector/Lab4_Team25_Mealy_Sequence_Detector.v
-1667732956 /users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Mealy_Sequence_Detector/Lab4_Team25_Mealy_Sequence_Detector_t.v
+1668008819 /users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Mealy_Sequence_Detector/Lab4_Team25_Mealy_Sequence_Detector.v
+1668008911 /users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Mealy_Sequence_Detector/Lab4_Team25_Mealy_Sequence_Detector_t.v

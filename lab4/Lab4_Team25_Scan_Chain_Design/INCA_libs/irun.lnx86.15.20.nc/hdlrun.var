@@ -84,4 +84,4 @@ define VIEW_MAP ( $VIEW_MAP \
 , .SVMS => SVMS \
 )
 define ELAB_SNAPSHOT
-define SNAPSHOT worklib.Scan_Chain_Design_t:v
+define SNAPSHOT worklib.Lab4_Team21_Scan_Chain_Design_t:v

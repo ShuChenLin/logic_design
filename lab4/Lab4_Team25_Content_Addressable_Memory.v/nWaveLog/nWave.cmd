@@ -1,3 +1,4 @@
+wvResizeWindow -win $_nWave1 0 1 1440 853
 wvConvertFile -win $_nWave1 -o \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Content_Addressable_Memory.v/cam.vcd.fsdb" \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Content_Addressable_Memory.v/cam.vcd"
@@ -24,4 +25,7 @@ wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 )}
 wvSetPosition -win $_nWave1 {("G1" 7)}
 wvGetSignalClose -win $_nWave1
 wvZoomAll -win $_nWave1
+wvZoomAll -win $_nWave1
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 )} 
+wvSetRadix -win $_nWave1 -format UDec
 wvExit

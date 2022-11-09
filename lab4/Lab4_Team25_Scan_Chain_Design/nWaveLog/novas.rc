@@ -204,7 +204,7 @@ Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
 _2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\"" "\"/users/course/2022F/L\
-DL17700000/u110062208/logic_design/lab4/Lab4_Team25_Scan_Chain_Design/test.v\"" "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Scan_Chain_Design/test.vcd\""
+DL17700000/u110062208/logic_design/lab4/Lab4_Team25_Scan_Chain_Design/test.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -322,12 +322,12 @@ FileName = test.ps
 PaperSize = A4 - 210x297 (mm)
 ColorPrint = FALSE
 [QtDialog]
-QwQuestionMsgDlg = 788,453,324,114
 QwWarnMsgDlg = 2090,363,600,250
-QwUserAskDlg = 548,294,324,148
-openFileDlg = 145,53,602,483
 QwInfoMsgDlg = 335,273,750,250
-qWaveSignalDialog = 46,53,800,479
+QwQuestionMsgDlg = 788,431,324,114
+QwUserAskDlg = 788,369,324,148
+openFileDlg = 659,298,602,483
+qWaveSignalDialog = 560,300,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -606,8 +606,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 46 53 800 479 245 381 505 183
-viewPort = 0 1 1440 854 100 65
+getSignalForm = 560 300 800 479 245 381 505 183
+viewPort = 0 1 1920 1033 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK

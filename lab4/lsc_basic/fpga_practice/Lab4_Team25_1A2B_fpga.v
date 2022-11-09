@@ -39,8 +39,9 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
 
     //LFSR lfsr1(clk, rst_n_one_pulse, random_num1);
     //LFSR lfsr2(clk, rst_n_one_pulse, random_num2);
-    wire [16-1:0] random;
-    lfsr ll(clk, rst_n_one_pulse, random);
+    reg[15:0] rand_num;
+    wire[15:0] next_rand_num;
+    lfsr kk(clk, rst_n_one_pulse, next_rand_num);
 
     always @(*) begin
         case (state)
@@ -63,7 +64,17 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
     end
 
 
-
+    always @(posedge clk) begin
+        
+        if(next_rand_num[15:12]%10 != next_rand_num[11:8]%10 && next_rand_num[15:12]%10 != next_rand_num[7:4]%10 && next_rand_num[15:12]%10 != next_rand_num[3:0]%10 && next_rand_num[11:8]%10 != next_rand_num[7:4]%10 && next_rand_num[11:8]%10 != next_rand_num[3:0]%10 && next_rand_num[7:4]%10 != next_rand_num[3:0]%10)begin
+            rand_num[15:12] = next_rand_num[15:12]%10;
+            rand_num[11:8] = next_rand_num[11:8]%10;
+            rand_num[7:4] = next_rand_num[7:4]%10;
+            rand_num[3:0] = next_rand_num[3:0]%10;
+        end
+            
+    end
+     
     always @(posedge clk) begin
         if(rst_n_one_pulse) begin
             ans1 <= 0;
@@ -79,32 +90,13 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
         end
 
     end
+     
     always @(*) begin
         if (state == INITIAL && st_one_pulse) begin
-            //next_ans1 = random_num1[7:4];
-            //next_ans2 = random_num1[3:0];
-            //next_ans3 = random_num2[7:4];
-            //next_ans4 = random_num2[3:0];
-            next_ans1 = random[15:12];
-            next_ans2 = random[11:8];
-            next_ans3 = random[7:4];
-            next_ans4 = random[3:0];
-            if (ans1 > 4'b1001) next_ans1 = ans1 - 4'b1001;
-            if (ans2 > 4'b1001) next_ans2 = ans2 - 4'b1001;
-            if (ans3 > 4'b1001) next_ans3 = ans3 - 4'b1001;
-            if (ans4 > 4'b1001) next_ans4 = ans4 - 4'b1001;
-            //careful about bigger than 9
-            if (ans1 == ans2) next_ans2 = ans2 + 4'b0001;
-            if (ans1 == ans3) next_ans3 = ans3 + 4'b0001;
-            if (ans2 == ans3) next_ans3 = ans3 + 4'b0001;
-            if (ans1 == ans4) next_ans4 = ans4 + 4'b0001;
-            if (ans2 == ans4) next_ans4 = ans4 + 4'b0001;
-            if (ans3 == ans4) next_ans4 = ans4 + 4'b0001;
-        end else begin
-            next_ans1 = ans1;
-            next_ans2 = ans2;
-            next_ans3 = ans3;
-            next_ans4 = ans4;
+            next_ans1 = rand_num[15:12];
+            next_ans2 = rand_num[11:8];
+            next_ans3 = rand_num[7:4];
+            next_ans4 = rand_num[3:0];
         end
     end
     //==================================================

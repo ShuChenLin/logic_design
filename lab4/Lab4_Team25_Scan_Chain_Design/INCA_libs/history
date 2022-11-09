@@ -20,3 +20,5 @@ s15::(09Nov2022:23:08:14):( ncverilog Lab4_Team25_Scan_Chain_Design_t.v Lab4_Tea
 s16::(09Nov2022:23:09:16):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
 s17::(09Nov2022:23:19:26):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
 s18::(09Nov2022:23:29:46):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )
+s19::(09Nov2022:23:44:18):( ncverilog test.v Lab4_Team25_Scan_Chain_Design.v +access+r )
+s20::(10Nov2022:00:18:53):( ncverilog Lab4_Team25_Scan_Chain_Design.v test.v +access+r )

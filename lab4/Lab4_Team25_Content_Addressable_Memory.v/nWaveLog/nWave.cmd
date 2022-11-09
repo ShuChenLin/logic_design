@@ -1,3 +1,4 @@
+verdiSetActWin -win $_nWave1
 wvResizeWindow -win $_nWave1 0 1 1440 853
 wvConvertFile -win $_nWave1 -o \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Content_Addressable_Memory.v/cam.vcd.fsdb" \

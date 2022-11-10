@@ -178,6 +178,7 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
             done <= 4'b0001;
         end else begin
             if (state == GUESSING) done <= next_done;  
+            else done <= 4'b0001;
         end
     end
 
@@ -369,17 +370,29 @@ module debounced(clk, pb, pb_debounced);
 
 endmodule
 
-module one_pulse(clk, pb_debounced, pb_one_pulse);
+module one_pulse #(parameter n = 16) (clk, pb_debounced, pb_one_pulse);
 
     input clk, pb_debounced;
     output pb_one_pulse;
 
+    reg [n-1:0] cnt;
+    wire [n-1:0] next_cnt;
+    wire jump;
     reg pb_one_pulse, pb_debounced_delay;
 
     always @(posedge clk) begin
-        pb_one_pulse <= (pb_debounced & (!pb_debounced_delay));
-        pb_debounced_delay <= pb_debounced;
+        if (jump) begin
+            pb_one_pulse <= (pb_debounced & (!pb_debounced_delay));
+            pb_debounced_delay <= pb_debounced;
+        end
     end
+
+    always @(posedge clk) begin
+        cnt <= next_cnt;
+    end
+
+    assign next_cnt = cnt + 1;
+    assign jump = (cnt[n-1] == 1);
 
 endmodule
 

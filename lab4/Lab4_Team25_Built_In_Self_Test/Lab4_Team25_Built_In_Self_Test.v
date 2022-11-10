@@ -26,7 +26,7 @@ endmodule
 module Q3(clk, rst_n, out);
 
     input clk, rst_n;
-    output out;
+    output wire out;
     reg [8-1:0] mem;
 
     assign out = mem[7];

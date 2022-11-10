@@ -27,14 +27,16 @@ module Scan_Chain_Design_t();
     initial begin
         @(negedge clk)
         rst_n = 1;
-        #10 
-        @(negedge clk)
-        scan_in = $random;
-        @(negedge clk)
         scan_en = 1;
-        repeat (100) begin
-            @(negedge clk)
-            scan_in = $random;
+        repeat (8) begin
+            repeat (8) begin
+                #10
+                scan_in = $random;
+            end
+            #10
+            scan_en = 0;
+            #10
+            scan_en = 1;
         end
         $finish;
     end

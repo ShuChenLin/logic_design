@@ -25,6 +25,8 @@ module Content_Addressable_Memory(clk, wen, ren, din, addr, dout, hit);
         end else if (wen) begin
             memory[addr] <= din;
             dout <= 4'b0;
+        end else begin
+            dout <= 4'b0;
         end
     end
 

@@ -413,7 +413,7 @@ module lfsr(clk, rst, data);
 
 	always @(posedge clk or posedge rst)
 	if(rst)
-		data <= 16'b0000_0000_0000_0001;
+		data <= 16'b0100_1100_0010_1101;
 	else
 		data <= next_data;
 

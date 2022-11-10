@@ -256,56 +256,59 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
     always @(*) begin
         next_dis_cnt = display_cnt + 1;
     end
-    always @(posedge display_clk) begin
+    always @(posedge clk) begin
+        if (display_clk) begin
         display_cnt <= next_dis_cnt;
-        display_pos <= display_pos + 1;  
-        case (display_pos)
-            2'b00 : begin
-                if (state == GUESSING) begin
-                    if (display_cnt[8] == 1) an <= 4'b1110;
-                    else an <= 4'b1111;
-                end else an <= 4'b1110;
-            end
-            2'b01 : begin
-                an <= 4'b1101;
-            end
-            2'b10 : begin
-                an <= 4'b1011;
-            end
-            2'b11 : begin
-                an <= 4'b0111;
-            end
-        endcase
+            display_pos <= display_pos + 1;  
+            case (display_pos)
+                2'b00 : begin
+                    if (state == GUESSING) begin
+                        if (display_cnt[8] == 1) an <= 4'b1110;
+                        else an <= 4'b1111;
+                    end else an <= 4'b1110;
+                end
+                2'b01 : begin
+                    an <= 4'b1101;
+                end
+                2'b10 : begin
+                    an <= 4'b1011;
+                end
+                2'b11 : begin
+                    an <= 4'b0111;
+                end
+            endcase
+        end
     end
 
-    always @(posedge display_clk) begin
-        case (state)
-            INITIAL : begin
-                case (display_pos)
-                    2'b00 : seg <= digit[11];
-                    2'b01 : seg <= digit[2];
-                    2'b10 : seg <= digit[10];
-                    2'b11 : seg <= digit[1];
-                endcase
-            end
-            GUESSING : begin
-                case (display_pos)
-                    2'b00 : seg <= digit[desire_num[3:0]];
-                    2'b01 : seg <= digit[desire_num[7:4]];
-                    2'b10 : seg <= digit[desire_num[11:8]];
-                    2'b11 : seg <= digit[desire_num[15:12]];
-                endcase
-            end
-            ANSWER : begin
-                case (display_pos)
-                    2'b00 : seg <= digit[11]; //B
-                    2'b01 : seg <= digit[B-A]; //# of B
-                    2'b10 : seg <= digit[10]; //A
-                    2'b11 : seg <= digit[A]; //# of A
-                endcase
-            end
-
-        endcase
+    always @(posedge clk) begin
+        if (display_clk) begin
+            case (state)
+                INITIAL : begin
+                    case (display_pos)
+                        2'b00 : seg <= digit[11];
+                        2'b01 : seg <= digit[2];
+                        2'b10 : seg <= digit[10];
+                        2'b11 : seg <= digit[1];
+                    endcase
+                end
+                GUESSING : begin
+                    case (display_pos)
+                        2'b00 : seg <= digit[desire_num[3:0]];
+                        2'b01 : seg <= digit[desire_num[7:4]];
+                        2'b10 : seg <= digit[desire_num[11:8]];
+                        2'b11 : seg <= digit[desire_num[15:12]];
+                    endcase
+                end
+                ANSWER : begin
+                    case (display_pos)
+                        2'b00 : seg <= digit[11]; //B
+                        2'b01 : seg <= digit[B-A]; //# of B
+                        2'b10 : seg <= digit[10]; //A
+                        2'b11 : seg <= digit[A]; //# of A
+                    endcase
+                end
+            endcase
+        end
     end
     //==================================================
 
@@ -374,6 +377,7 @@ module one_pulse #(parameter n = 16) (clk, pb_debounced, pb_one_pulse);
 
     input clk, pb_debounced;
     output pb_one_pulse;
+   
 
     reg [n-1:0] cnt;
     wire [n-1:0] next_cnt;
@@ -409,7 +413,7 @@ module clk_div #(parameter n = 24) (clk, div_clk);
     end
 
     assign next_cnt = cnt + 1;
-    assign div_clk = cnt[n-1];
+    assign div_clk = (cnt == 0);
 
 endmodule
 
@@ -426,7 +430,7 @@ module lfsr(clk, rst, data);
 
 	always @(posedge clk or posedge rst)
 	if(rst)
-		data <= 16'b0100_1100_0010_1101;
+		data <= 16'b0100_0101_1100_1001;
 	else
 		data <= next_data;
 

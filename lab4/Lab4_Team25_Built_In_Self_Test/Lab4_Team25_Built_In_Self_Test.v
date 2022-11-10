@@ -26,20 +26,23 @@ endmodule
 module Q3(clk, rst_n, out);
 
     input clk, rst_n;
-    output reg [8-1:0] out;
+    output out;
+    reg [8-1:0] mem;
+
+    assign out = mem[7];
 
     always @(posedge clk) begin
         if (~rst_n) begin
-            out <= 8'b10111101;
+            mem <= 8'b10111101;
         end else begin
-            out[7] <= out[6];
-            out[6] <= out[5];
-            out[5] <= out[4];
-            out[4] <= out[3];
-            out[3] <= out[2];
-            out[2] <= out[1];
-            out[1] <= out[0];
-            out[0] <= (out[1] ^ out[2] ^ out[3] ^ out[7]);
+            mem[7] <= mem[6];
+            mem[6] <= mem[5];
+            mem[5] <= mem[4];
+            mem[4] <= mem[3];
+            mem[3] <= mem[2];
+            mem[2] <= mem[1];
+            mem[1] <= mem[0];
+            mem[0] <= (mem[1] ^ mem[2] ^ mem[3] ^ mem[7]);
         end
     end
 //    always #(5) begin

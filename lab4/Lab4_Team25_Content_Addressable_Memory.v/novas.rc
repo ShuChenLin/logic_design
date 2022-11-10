@@ -325,9 +325,9 @@ ColorPrint = FALSE
 QwQuestionMsgDlg = 788,453,324,114
 QwWarnMsgDlg = 2090,363,600,250
 QwInfoMsgDlg = 335,273,750,250
-QwUserAskDlg = 548,279,324,162
-openFileDlg = 419,208,602,483
-qWaveSignalDialog = 320,210,800,479
+QwUserAskDlg = 274,22,324,162
+openFileDlg = 145,53,602,483
+qWaveSignalDialog = 46,53,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -606,7 +606,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 320 210 800 479 245 381 505 183
+getSignalForm = 46 53 800 479 245 381 505 183
 viewPort = 0 1 1440 853 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK

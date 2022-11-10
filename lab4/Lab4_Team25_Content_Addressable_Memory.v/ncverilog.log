@@ -1,15 +1,21 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 10, 2022 at 00:05:02 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 10, 2022 at 20:11:17 CST
 ncverilog
 	Lab4_Team25_Content_Addressable_Memory_t.v
 	Lab4_Team25_Content_Addressable_Memory.v
 	+access+r
 Recompiling... reason: file './Lab4_Team25_Content_Addressable_Memory.v' is newer than expected.
-	expected: Mon Nov  7 14:14:18 2022
-	actual:   Thu Nov 10 00:03:26 2022
+	expected: Thu Nov 10 00:03:26 2022
+	actual:   Thu Nov 10 20:09:41 2022
+file: Lab4_Team25_Content_Addressable_Memory.v
+	module worklib.Content_Addressable_Memory:v
+		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Content_Addressable_Memory:v <0x5c225314>
+			streams:   6, words:  5241
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -30,4 +36,4 @@ ncsim> run
 Simulation complete via $finish(1) at time 160 NS + 0
 ./Lab4_Team25_Content_Addressable_Memory_t.v:96         @(negedge clk) $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 10, 2022 at 00:05:07 CST  (total: 00:00:05)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 10, 2022 at 20:11:23 CST  (total: 00:00:06)

@@ -27,6 +27,7 @@ module Scan_Chain_Design_t();
     initial begin
         @(negedge clk)
         rst_n = 1;
+        #10 
         @(negedge clk)
         scan_in = $random;
         @(negedge clk)

@@ -9,7 +9,7 @@ module Built_In_Self_Test(clk, rst_n, scan_en, scan_in, scan_out);
     output scan_out;
 
     Q3 M1(
-        .clk(clk),
+        .clk(~clk),
         .rst_n(rst_n),
         .out(scan_in)
     );    

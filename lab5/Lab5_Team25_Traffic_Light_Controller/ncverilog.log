@@ -1,0 +1,39 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 19, 2022 at 00:31:20 CST
+ncverilog
+	Lab5_Team25_Traffic_Light_Controller_t.v
+	Lab5_Team25_Traffic_Light_Controller.v
+	+access+r
+Recompiling... reason: file './Lab5_Team25_Traffic_Light_Controller.v' is newer than expected.
+	expected: Sat Nov 19 00:28:07 2022
+	actual:   Sat Nov 19 00:29:55 2022
+file: Lab5_Team25_Traffic_Light_Controller.v
+	module worklib.Traffic_Light_Controller:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Traffic_Light_Controller:v <0x566365ec>
+			streams:  10, words:  5661
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              15      15
+		Scalar wires:            3       -
+		Vectored wires:          3       -
+		Always blocks:           5       5
+		Initial blocks:          5       5
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.q2_t:v
+Loading snapshot worklib.q2_t:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+Simulation complete via $finish(1) at time 360 NS + 0
+./Lab5_Team25_Traffic_Light_Controller_t.v:71         $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 19, 2022 at 00:31:23 CST  (total: 00:00:03)

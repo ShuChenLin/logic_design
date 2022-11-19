@@ -7,6 +7,7 @@ module Sliding_Window_Sequence_Detector (clk, rst_n, in, dec);
     output dec;
 
     reg [3:0] state, next_state;
+    reg dec;
 
     parameter S0 = 4'b0000;
     parameter S1 = 4'b0001;

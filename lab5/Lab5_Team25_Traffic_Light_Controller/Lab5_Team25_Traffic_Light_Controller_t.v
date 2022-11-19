@@ -6,7 +6,6 @@ module q2_t;
     reg rst_n = 0;
     reg lr_has_car = 0;
     wire [2:0] hw_light, lr_light;
-    wire [2:0] state;
 
     parameter cyc = 10;
 
@@ -17,7 +16,6 @@ module q2_t;
         .rst_n(rst_n),
         .lr_has_car(lr_has_car),
         .hw_light(hw_light),
-        .state(state),
         .lr_light(lr_light)
     );
 

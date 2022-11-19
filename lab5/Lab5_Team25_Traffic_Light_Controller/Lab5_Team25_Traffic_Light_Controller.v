@@ -1,12 +1,11 @@
 `timescale 1ns/1ps
 
-module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light, state);
+module Traffic_Light_Controller(clk, rst_n, lr_has_car, hw_light, lr_light);
 
     input clk, rst_n;
     input lr_has_car;
     output [2:0] hw_light;
     output [2:0] lr_light;
-    output [2:0] state;
 
     reg [2:0] state, next_state;
     reg [7:0] hg, hg_next, lg, lg_next;
@@ -84,12 +83,12 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light, sta
     always @(*) begin
         case (state)
             HGLR : begin
-                if (lr_has_car && hg >= 8'b00000011) begin
+                if (lr_has_car && hg >= 8'b00000010) begin
                     next_state = HYLR;
                 end else next_state = HGLR;
             end
             HYLR : begin
-                if (hy == 5'b010) begin
+                if (hy == 5'b001) begin
                     next_state = HRLR;
                 end else next_state = HYLR;
             end
@@ -97,12 +96,12 @@ module Traffic_Light_Controller (clk, rst_n, lr_has_car, hw_light, lr_light, sta
                 next_state = HRLG;
             end
             HRLG : begin
-                if (lg == 8'b00000011) begin
+                if (lg == 8'b00000010) begin
                     next_state = HRLY;
                 end else next_state = HRLG;
             end
             HRLY : begin
-                if (ly == 5'b010) begin
+                if (ly == 5'b001) begin
                     next_state = HRLR2;
                 end else next_state = HRLY;
             end

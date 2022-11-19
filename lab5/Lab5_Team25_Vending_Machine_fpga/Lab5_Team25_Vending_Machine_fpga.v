@@ -147,7 +147,7 @@ module Vending_Machine_fpga(clk, rst, pb_left, pb_mid, pb_right, cancel, sw, an,
                 endcase
             end
             money_out : begin
-                if (sec == 0) begin
+                if (sec == 100000000) begin
                     next_money = (money > 4) ? money - 5 : 0;
                 end else begin
                     next_money = money;
@@ -164,7 +164,7 @@ module Vending_Machine_fpga(clk, rst, pb_left, pb_mid, pb_right, cancel, sw, an,
             money <= 0;
         end else begin
             if (state == BUY) begin
-                if (sec == 200) money <= next_money;
+                if (sec == 0) money <= next_money;
             end else money <= next_money;
         end
     end
@@ -188,7 +188,7 @@ module Vending_Machine_fpga(clk, rst, pb_left, pb_mid, pb_right, cancel, sw, an,
                 else next_state = money_in;
             end
             BUY : begin
-                if (sec[26] == 1) begin
+                if (sec == 0) begin
                     next_state = money_out;
                 end else next_state = BUY;
             end

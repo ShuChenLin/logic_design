@@ -1,21 +1,30 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 19, 2022 at 11:30:54 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 20, 2022 at 14:27:46 CST
 ncverilog
 	Lab5_Team25_Traffic_Light_Controller_t.v
 	Lab5_Team25_Traffic_Light_Controller.v
 	+access+r
 Recompiling... reason: file './Lab5_Team25_Traffic_Light_Controller.v' is newer than expected.
-	expected: Sat Nov 19 00:29:55 2022
-	actual:   Sat Nov 19 11:29:06 2022
+	expected: Sat Nov 19 11:29:06 2022
+	actual:   Sun Nov 20 14:25:58 2022
+file: Lab5_Team25_Traffic_Light_Controller_t.v
+	module worklib.q2_t:v
+		errors: 0, warnings: 0
 file: Lab5_Team25_Traffic_Light_Controller.v
 	module worklib.Traffic_Light_Controller:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
+	Building instance overlay tables: ..........
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab5_Team25_Traffic_Light_Controller_t.v,24|23): String literal argument supplied to integer parameter.
+.......... Done
 	Generating native compiled code:
-		worklib.Traffic_Light_Controller:v <0x566365ec>
-			streams:  10, words:  5661
+		worklib.Traffic_Light_Controller:v <0x2df19743>
+			streams:  10, words:  5816
+		worklib.q2_t:v <0x56381bc1>
+			streams:   7, words: 18287
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -23,7 +32,7 @@ file: Lab5_Team25_Traffic_Light_Controller.v
 		Modules:                 2       2
 		Registers:              15      15
 		Scalar wires:            3       -
-		Vectored wires:          3       -
+		Vectored wires:          2       -
 		Always blocks:           5       5
 		Initial blocks:          5       5
 		Pseudo assignments:      1       1
@@ -34,6 +43,6 @@ Loading snapshot worklib.q2_t:v .................... Done
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
 Simulation complete via $finish(1) at time 360 NS + 0
-./Lab5_Team25_Traffic_Light_Controller_t.v:71         $finish;
+./Lab5_Team25_Traffic_Light_Controller_t.v:67         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 19, 2022 at 11:30:59 CST  (total: 00:00:05)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 20, 2022 at 14:27:53 CST  (total: 00:00:07)

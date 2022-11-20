@@ -1,12 +1,12 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 20, 2022 at 14:27:46 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 20, 2022 at 15:00:31 CST
 ncverilog
 	Lab5_Team25_Traffic_Light_Controller_t.v
 	Lab5_Team25_Traffic_Light_Controller.v
 	+access+r
 Recompiling... reason: file './Lab5_Team25_Traffic_Light_Controller.v' is newer than expected.
-	expected: Sat Nov 19 11:29:06 2022
-	actual:   Sun Nov 20 14:25:58 2022
+	expected: Sun Nov 20 14:38:34 2022
+	actual:   Sun Nov 20 14:58:37 2022
 file: Lab5_Team25_Traffic_Light_Controller_t.v
 	module worklib.q2_t:v
 		errors: 0, warnings: 0
@@ -21,10 +21,10 @@ file: Lab5_Team25_Traffic_Light_Controller.v
 ncelab: *W,STRINT (./Lab5_Team25_Traffic_Light_Controller_t.v,24|23): String literal argument supplied to integer parameter.
 .......... Done
 	Generating native compiled code:
-		worklib.Traffic_Light_Controller:v <0x2df19743>
-			streams:  10, words:  5816
+		worklib.Traffic_Light_Controller:v <0x6b56d39b>
+			streams:  10, words:  5818
 		worklib.q2_t:v <0x56381bc1>
-			streams:   7, words: 18287
+			streams:   7, words: 81155
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -42,7 +42,7 @@ Loading snapshot worklib.q2_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 360 NS + 0
-./Lab5_Team25_Traffic_Light_Controller_t.v:67         $finish;
+Simulation complete via $finish(1) at time 1810 NS + 0
+./Lab5_Team25_Traffic_Light_Controller_t.v:213         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 20, 2022 at 14:27:53 CST  (total: 00:00:07)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 20, 2022 at 15:00:35 CST  (total: 00:00:04)

@@ -1,4 +1,3 @@
-verdiSetActWin -win $_nWave1
 wvResizeWindow -win $_nWave1 0 1 1440 853
 wvConvertFile -win $_nWave1 -o \
            "/users/course/2022F/LDL17700000/u110062208/logic_design/lab5/Lab5_Team25_Traffic_Light_Controller/Traffic.vcd.fsdb" \
@@ -24,4 +23,12 @@ wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 )}
 wvSetPosition -win $_nWave1 {("G1" 5)}
 wvGetSignalClose -win $_nWave1
 wvZoomAll -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomIn -win $_nWave1
+wvZoomOut -win $_nWave1
+wvZoomOut -win $_nWave1
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 )} 
+wvSetRadix -win $_nWave1 -format Bin
 wvExit

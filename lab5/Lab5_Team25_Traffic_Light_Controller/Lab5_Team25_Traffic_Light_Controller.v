@@ -58,7 +58,8 @@ module Traffic_Light_Controller(clk, rst_n, lr_has_car, hw_light, lr_light);
     always @(*) begin
         case (state)
             HGLR : begin
-                hg_next = hg + 1; lg_next = 0;
+                hg_next = (hg + 1 > 69) ? 70 : (hg + 1); 
+                lg_next = 0;
                 hy_next = 0; ly_next = 0;
             end
             HYLR : begin
@@ -66,7 +67,8 @@ module Traffic_Light_Controller(clk, rst_n, lr_has_car, hw_light, lr_light);
                 hg_next = 0; lg_next = 0;
             end
             HRLG : begin
-                lg_next = lg + 1; hg_next = 0;
+                lg_next = (lg + 1 > 69) ? 70 : (lg + 1); 
+                hg_next = 0;
                 ly_next = 0; hy_next = 0;
             end
             HRLY : begin

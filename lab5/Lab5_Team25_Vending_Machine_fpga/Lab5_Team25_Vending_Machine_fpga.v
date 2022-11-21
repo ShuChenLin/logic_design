@@ -39,17 +39,17 @@ module Vending_Machine_fpga(clk, rst, pb_left, pb_mid, pb_right, cancel, sw, an,
     parameter BUY = 2'b10;
 
     //LIGHT=====================================
-    assign sw[3] = (money >= 80);
-    assign sw[2] = (money >= 30);
-    assign sw[1] = (money >= 25);
-    assign sw[0] = (money >= 20);
+    assign sw[3] = (state == money_in) ? (money >= 80) : 0;
+    assign sw[2] = (state == money_in) ? (money >= 30) : 0;
+    assign sw[1] = (state == money_in) ? (money >= 25) : 0;
+    assign sw[0] = (state == money_in) ? (money >= 20) : 0;
     //==========================================
 
     //keyboard==================================
-    parameter [8:0] KEY_CODES_A = 28; // 0 => 45
-    parameter [8:0] KEY_CODES_S = 27; // 1 => 16 
-    parameter [8:0] KEY_CODES_D = 35; // 2 => 1E
-    parameter [8:0] KEY_CODES_F = 43; // 3 => 26
+    parameter [8:0] KEY_CODES_A = 28; 
+    parameter [8:0] KEY_CODES_S = 27; 
+    parameter [8:0] KEY_CODES_D = 35; 
+    parameter [8:0] KEY_CODES_F = 43; 
 
     wire [511:0] key_down;
     wire [8:0] last_change;

@@ -52,7 +52,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
         .key_valid(been_ready),
         .PS2_DATA(PS2_DATA),
         .PS2_CLK(PS2_CLK),
-        .rst(rst),
+        .rst(0),
         .clk(clk)
     );
 
@@ -72,7 +72,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     //speed=========================
     always @(*) begin
         if (speed == ONE_SECOND) next_speed = 0;
-        else next_speed = speed + 1;
+        else next_speed = (speed + 1 >= ONE_SECOND) ? ONE_SECOND : (speed + 1);
     end
     always @(posedge clk) begin
         if (rst) begin

@@ -109,7 +109,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
         if (been_ready && key_down[last_change] == 1'd1) begin
             if (last_change == KEY_CODES_W) next_dir = 1;
             else if (last_change == KEY_CODES_S) next_dir = 0;
-            else next_dir = dir
+            else next_dir = dir;
         end
     end
 

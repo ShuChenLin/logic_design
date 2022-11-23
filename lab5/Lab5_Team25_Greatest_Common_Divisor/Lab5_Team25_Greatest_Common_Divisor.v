@@ -17,6 +17,7 @@ module Greatest_Common_Divisor (clk, rst_n, start, a, b, done, gcd);
     reg next_done;
 
     reg [1:0] count, next_count;
+    reg [1:0] state, next_state;
 
     always @(*) begin
         if (state == WAIT) begin

@@ -1,0 +1,32 @@
+ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s039: Started on Nov 23, 2022 at 17:01:13 CST
+ncverilog
+	Lab5_Team25_Greatest_Common_Divisor.v
+	+access+r
+file: Lab5_Team25_Greatest_Common_Divisor.v
+	module worklib.Greatest_Common_Divisor:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Greatest_Common_Divisor:v <0x43f803e8>
+			streams:   4, words:  3610
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 1       1
+		Registers:              12      12
+		Scalar wires:            1       -
+		Vectored wires:          2       -
+		Always blocks:           2       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Greatest_Common_Divisor:v
+Loading snapshot worklib.Greatest_Common_Divisor:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+ncsim: *W,RNQUIE: Simulation is complete.
+ncsim> exit
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 23, 2022 at 17:01:19 CST  (total: 00:00:06)

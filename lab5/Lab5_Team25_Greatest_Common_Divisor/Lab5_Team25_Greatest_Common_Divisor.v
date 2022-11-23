@@ -67,6 +67,7 @@ module Greatest_Common_Divisor (clk, rst_n, start, a, b, done, gcd);
 
     always @(posedge clk) begin
         if (rst_n == 1'b0) begin
+            state <= WAIT;
             A <= 16'b0;
             B <= 16'b0;
             gcd <= 16'b0;

@@ -5,7 +5,7 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
-Lab5_Team25_Greatest_Common_Divisor.v
+Lab5_Team25_Booth_Multiplier_4bit.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib
 -HDLVAR

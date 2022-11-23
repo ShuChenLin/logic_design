@@ -16,6 +16,10 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
     reg [2:0] count, next_count;
     wire [9:0] ps, pa;
 
+    reg [1:0] state, next_state;
+
+    reg [7:0] p;
+
     wire signed [4:0] aaa;
 
     assign ps = P+S;
@@ -28,7 +32,7 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
             p = 8'b0;
             if (start == 1'b1) begin
                 next_state = CAL;
-                next_count = '3'b0;
+                next_count = 3'b0;
                 A = {aaa, 5'b0};
                 S = {-aaa, 5'b0};
                 next_P = {5'b0, b, 1'b0};

@@ -98,12 +98,12 @@ module Traffic_Light_Controller(clk, rst_n, lr_has_car, hw_light, lr_light);
                 next_state = HRLG;
             end
             HRLG : begin
-                if (lg == 24) begin
+                if (lg == 69) begin
                     next_state = HRLY;
                 end else next_state = HRLG;
             end
             HRLY : begin
-                if (ly == 1) begin
+                if (ly == 24) begin
                     next_state = HRLR2;
                 end else next_state = HRLY;
             end

@@ -8,7 +8,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     output pmod_1, pmod_2, pmod_4;
 
     wire rst;
-    wire [31:0] sound [14:0];
+    wire [31:0] sound [28:0];
     wire [31:0] freq;
     wire [30:0] ONE_SECOND;
     wire [511:0] key_down;
@@ -36,21 +36,35 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     //==============================
 
     //sound=========================
-    assign sound[0] = 262;
+    assign sound[0] = 262; //c4
     assign sound[1] = 294;
     assign sound[2] = 330;
     assign sound[3] = 349;
     assign sound[4] = 392;
     assign sound[5] = 440;
     assign sound[6] = 494;
-    assign sound[7] = 262 << 1;
+    assign sound[7] = 262 << 1; //c5
     assign sound[8] = 294 << 1;
     assign sound[9] = 330 << 1;
     assign sound[10] = 349 << 1;
     assign sound[11] = 392 << 1;
     assign sound[12] = 440 << 1;
     assign sound[13] = 494 << 1;
-    assign sound[14] = 262 << 2;
+    assign sound[14] = 262 << 2; //c6
+    assign sound[15] = 294 << 2;
+    assign sound[16] = 330 << 2;
+    assign sound[17] = 349 << 2;
+    assign sound[18] = 392 << 2;
+    assign sound[19] = 440 << 2;
+    assign sound[20] = 494 << 2;
+    assign sound[21] = 262 << 3; //c7
+    assign sound[22] = 294 << 3;
+    assign sound[23] = 330 << 3;
+    assign sound[24] = 349 << 3;
+    assign sound[25] = 392 << 3;
+    assign sound[26] = 440 << 3;
+    assign sound[27] = 494 << 3;
+    assign sound[28] = 262 << 4; //c8
     //==============================
 
     parameter [8:0] KEY_CODES_W = 29; 
@@ -65,7 +79,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
         .key_valid(been_ready),
         .PS2_DATA(PS2_DATA),
         .PS2_CLK(PS2_CLK),
-        .rst(rst),
+        .rst(0),
         .clk(clk)
     );
 
@@ -92,7 +106,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     //counter=======================
     always @(*) begin
         if (speed == ONE_SECOND) begin
-            if (cnt == 14) begin
+            if (cnt == 28) begin
                 if (!dir) next_cnt = cnt;
                 else next_cnt = cnt - 1;
             end else if (cnt == 0) begin
@@ -118,7 +132,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
             if (last_change == KEY_CODES_W) next_dir = 0;
             else if (last_change == KEY_CODES_S) next_dir = 1;
             else next_dir = dir;
-        end
+        end next_dir = dir;
     end
 
     always @(posedge clk) begin

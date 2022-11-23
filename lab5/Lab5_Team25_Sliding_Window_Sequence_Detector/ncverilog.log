@@ -1,11 +1,14 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 19, 2022 at 12:19:09 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 20, 2022 at 15:28:23 CST
 ncverilog
 	Lab5_Team25_Sliding_Window_Sequence_Detector_t.v
 	Lab5_Team25_Sliding_Window_Sequence_Detector.v
 	+access+r
-file: Lab5_Team25_Sliding_Window_Sequence_Detector.v
-	module worklib.Sliding_Window_Sequence_Detector:v
+Recompiling... reason: file './Lab5_Team25_Sliding_Window_Sequence_Detector_t.v' is newer than expected.
+	expected: Sun Nov 20 15:24:29 2022
+	actual:   Sun Nov 20 15:27:01 2022
+file: Lab5_Team25_Sliding_Window_Sequence_Detector_t.v
+	module worklib.q1_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
@@ -15,10 +18,8 @@ file: Lab5_Team25_Sliding_Window_Sequence_Detector.v
 ncelab: *W,STRINT (./Lab5_Team25_Sliding_Window_Sequence_Detector_t.v,22|23): String literal argument supplied to integer parameter.
 .......... Done
 	Generating native compiled code:
-		worklib.Sliding_Window_Sequence_Detector:v <0x5c856919>
-			streams:   3, words:  1926
 		worklib.q1_t:v <0x3f402cf1>
-			streams:   7, words: 20802
+			streams:   7, words: 38074
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -35,7 +36,7 @@ Loading snapshot worklib.q1_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 350 NS + 0
-./Lab5_Team25_Sliding_Window_Sequence_Detector_t.v:67         $finish;
+Simulation complete via $finish(1) at time 680 NS + 0
+./Lab5_Team25_Sliding_Window_Sequence_Detector_t.v:102         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 19, 2022 at 12:19:12 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 20, 2022 at 15:28:27 CST  (total: 00:00:04)

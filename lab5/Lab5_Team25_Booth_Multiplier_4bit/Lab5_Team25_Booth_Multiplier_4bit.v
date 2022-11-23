@@ -47,7 +47,7 @@ module Booth_Multiplier_4bit(clk, rst_n, start, a, b, p);
             end else if (P[1:0] == 2'b01) begin
                 next_P = {pa[9], (pa>>1)};
             end else begin
-                next_P = {P[9], (P>>1)};
+                next_P = {P[9], P[9:1]};
             end
             if (count == 3'b11) begin
                 next_state = FINISH;

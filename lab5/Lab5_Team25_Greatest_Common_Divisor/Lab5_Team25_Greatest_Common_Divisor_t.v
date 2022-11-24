@@ -24,7 +24,7 @@ module q1_t;
     );
 
     initial begin
-        $dumpfile("sliding_window.vcd");
+        $dumpfile("Greatest_Common_Divisor.vcd");
         $dumpvars("+all");
     end
 
@@ -34,8 +34,10 @@ module q1_t;
         @(negedge clk) 
         rst_n = 1;
         start = 1;
-        repeat (2**10) begin
-            @(negedge clk) {start, a, b} = $random;
+        {a, b} = $random;
+        repeat (800) begin
+            #10
+            {a, b} = $random;
         end
         $finish;
     end

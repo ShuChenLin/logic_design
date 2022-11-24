@@ -1,33 +1,44 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 23, 2022 at 22:39:47 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 24, 2022 at 20:04:20 CST
 ncverilog
+	Lab5_Team25_Booth_Multiplier_4bit_t.v
 	Lab5_Team25_Booth_Multiplier_4bit.v
 	+access+r
-file: Lab5_Team25_Booth_Multiplier_4bit.v
-	module worklib.Booth_Multiplier_4bit:v
+Recompiling... reason: file './Lab5_Team25_Booth_Multiplier_4bit_t.v' is newer than expected.
+	expected: Thu Nov 24 20:00:21 2022
+	actual:   Thu Nov 24 20:02:58 2022
+file: Lab5_Team25_Booth_Multiplier_4bit_t.v
+	module worklib.q1_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
+	Building instance overlay tables: ..........
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab5_Team25_Booth_Multiplier_4bit_t.v,27|23): String literal argument supplied to integer parameter.
+.......... Done
 	Generating native compiled code:
-		worklib.Booth_Multiplier_4bit:v <0x2b05e87b>
-			streams:   7, words:  3168
+		worklib.q1_t:v <0x63c19564>
+			streams:   7, words:  4374
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
-		Modules:                 1       1
-		Registers:               9       9
-		Scalar wires:            1       -
-		Vectored wires:          5       -
-		Always blocks:           2       2
+		Modules:                 2       2
+		Registers:              14      14
+		Scalar wires:            4       -
+		Vectored wires:          6       -
+		Always blocks:           3       3
+		Initial blocks:          5       5
 		Cont. assignments:       3       3
+		Pseudo assignments:      1       1
 		Simulation timescale:  1ps
-	Writing initial simulation snapshot: worklib.Booth_Multiplier_4bit:v
-Loading snapshot worklib.Booth_Multiplier_4bit:v .................... Done
+	Writing initial simulation snapshot: worklib.q1_t:v
+Loading snapshot worklib.q1_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-ncsim: *W,RNQUIE: Simulation is complete.
+Simulation complete via $finish(1) at time 720 NS + 0
+./Lab5_Team25_Booth_Multiplier_4bit_t.v:42         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 23, 2022 at 22:39:50 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 24, 2022 at 20:04:23 CST  (total: 00:00:03)

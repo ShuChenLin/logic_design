@@ -5,6 +5,7 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.15.20.nc
 -RUNMODE
+Lab5_Team25_Greatest_Common_Divisor_t.v
 Lab5_Team25_Greatest_Common_Divisor.v
 -CDSLIB
 ./INCA_libs/irun.lnx86.15.20.nc/cdsrun.lib

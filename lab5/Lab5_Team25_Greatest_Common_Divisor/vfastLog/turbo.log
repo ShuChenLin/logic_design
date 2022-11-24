@@ -1,0 +1,3 @@
+Command Line: /usr/cad/synopsys/verdi/cur/platform/LINUXAMD64/bin/vfast -silent -del . -o /users/course/2022F/LDL17700000/u110062205/logic_design/lab5/Lab5_Team25_Greatest_Common_Divisor/Greatest_Common_Divisor.vcd.fsdb -ft verilog /users/course/2022F/LDL17700000/u110062205/logic_design/lab5/Lab5_Team25_Greatest_Common_Divisor/Greatest_Common_Divisor.vcd
+uname(Linux ic21 3.10.0-1160.62.1.el7.x86_64 #1 SMP Tue Apr 5 16:57:59 UTC 2022 x86_64)
+au time 0.028765 0.008444 0.002070 delta 24809472 24809472 total 116793344 116793344

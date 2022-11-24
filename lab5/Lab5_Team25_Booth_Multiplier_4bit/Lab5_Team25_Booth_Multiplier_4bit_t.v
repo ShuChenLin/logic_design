@@ -5,7 +5,7 @@ module q1_t;
     reg clk = 0;
     reg rst_n = 0;
     reg start = 0;
-    reg [3:9] a, b;
+    reg [3:0] a, b;
 
     wire [7:0] p;
     wire done;
@@ -33,8 +33,11 @@ module q1_t;
         @(negedge clk) 
         rst_n = 1;
         start = 1;
-        repeat (2**10) begin
-            @(negedge clk) {start, a, b} = $random;
+        repeat (10) begin
+            {a, b} = $random;
+            repeat (7) begin
+                @(negedge clk);
+            end
         end
         $finish;
     end

@@ -1,0 +1,52 @@
+verdiSetActWin -win $_nWave1
+wvConvertFile -win $_nWave1 -o \
+           "/users/course/2022F/LDL17700000/u110062205/logic_design/lab5/Lab5_Team25_Booth_Multiplier_4bit/Booth_Multiplier.vcd.fsdb" \
+           "/users/course/2022F/LDL17700000/u110062205/logic_design/lab5/Lab5_Team25_Booth_Multiplier_4bit/Booth_Multiplier.vcd"
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvOpenFile -win $_nWave1 \
+           {/users/course/2022F/LDL17700000/u110062205/logic_design/lab5/Lab5_Team25_Booth_Multiplier_4bit/Booth_Multiplier.vcd.fsdb}
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/q1_t"
+wvSetPosition -win $_nWave1 {("G1" 8)}
+wvSetPosition -win $_nWave1 {("G1" 8)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/q1_t/a\[3:0\]} \
+{/q1_t/b\[3:0\]} \
+{/q1_t/clk} \
+{/q1_t/cyc} \
+{/q1_t/done} \
+{/q1_t/p\[7:0\]} \
+{/q1_t/rst_n} \
+{/q1_t/start} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 8 )} 
+wvSetPosition -win $_nWave1 {("G1" 8)}
+wvZoomAll -win $_nWave1
+wvSetCursor -win $_nWave1 80040.601504 -snap {("G1" 2)}
+wvSetCursor -win $_nWave1 85111.046848 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 94527.588201 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 104306.304222 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 114809.369578 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 124225.910931 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 136539.849624 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 24990.052053 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 34044.418739 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 43823.134760 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 55050.549451 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 65553.614806 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 74607.981492 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 24990.052053 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 34406.593407 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 45271.833430 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 55050.549451 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 65553.614806 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 73883.632157 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 84748.872180 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 93803.238866 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 103219.780220 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 116258.068248 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 126036.784268 -snap {("G1" 3)}
+wvSetCursor -win $_nWave1 135453.325622 -snap {("G1" 3)}

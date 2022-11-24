@@ -1,35 +1,43 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 23, 2022 at 21:46:15 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 24, 2022 at 20:14:27 CST
 ncverilog
+	Lab5_Team25_Greatest_Common_Divisor_t.v
 	Lab5_Team25_Greatest_Common_Divisor.v
 	+access+r
-Recompiling... reason: file './Lab5_Team25_Greatest_Common_Divisor.v' is newer than expected.
-	expected: Wed Nov 23 16:59:51 2022
-	actual:   Wed Nov 23 21:44:56 2022
-file: Lab5_Team25_Greatest_Common_Divisor.v
-	module worklib.Greatest_Common_Divisor:v
+Recompiling... reason: file './Lab5_Team25_Greatest_Common_Divisor_t.v' is newer than expected.
+	expected: Thu Nov 24 20:11:26 2022
+	actual:   Thu Nov 24 20:12:49 2022
+file: Lab5_Team25_Greatest_Common_Divisor_t.v
+	module worklib.q1_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
+	Building instance overlay tables: ..........
+        $dumpvars("+all");
+                       |
+ncelab: *W,STRINT (./Lab5_Team25_Greatest_Common_Divisor_t.v,28|23): String literal argument supplied to integer parameter.
+.......... Done
 	Generating native compiled code:
-		worklib.Greatest_Common_Divisor:v <0x3a85a34d>
-			streams:   7, words:  2983
+		worklib.q1_t:v <0x567690a6>
+			streams:   7, words:  4338
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
-		Modules:                 1       1
-		Registers:              11      11
-		Scalar wires:            1       -
-		Vectored wires:          2       -
-		Always blocks:           2       2
+		Modules:                 2       2
+		Registers:              16      16
+		Scalar wires:            4       -
+		Vectored wires:          3       -
+		Always blocks:           3       3
+		Initial blocks:          5       5
+		Pseudo assignments:      1       1
 		Simulation timescale:  1ps
-	Writing initial simulation snapshot: worklib.Greatest_Common_Divisor:v
-Loading snapshot worklib.Greatest_Common_Divisor:v .................... Done
+	Writing initial simulation snapshot: worklib.q1_t:v
+Loading snapshot worklib.q1_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-ncsim: *W,RNQUIE: Simulation is complete.
+Simulation complete via $finish(1) at time 8020 NS + 0
+./Lab5_Team25_Greatest_Common_Divisor_t.v:42         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 23, 2022 at 21:46:18 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 24, 2022 at 20:14:28 CST  (total: 00:00:01)

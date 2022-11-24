@@ -70,8 +70,6 @@ module Greatest_Common_Divisor (clk, rst_n, start, a, b, done, gcd);
             state <= WAIT;
             A <= 16'b0;
             B <= 16'b0;
-            gcd <= 16'b0;
-            done <= 1'b0;
             count <= 2'b0;
         end else begin
             state <= next_state;

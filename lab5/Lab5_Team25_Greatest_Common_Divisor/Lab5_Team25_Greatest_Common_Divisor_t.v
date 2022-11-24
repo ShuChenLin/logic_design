@@ -38,6 +38,10 @@ module q1_t;
         repeat (800) begin
             #10
             {a, b} = $random;
+            #300
+            rst_n = 0;
+            #10
+            rst_n = 1;
         end
         $finish;
     end

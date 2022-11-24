@@ -1,12 +1,12 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 24, 2022 at 20:14:27 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 24, 2022 at 20:54:21 CST
 ncverilog
 	Lab5_Team25_Greatest_Common_Divisor_t.v
 	Lab5_Team25_Greatest_Common_Divisor.v
 	+access+r
 Recompiling... reason: file './Lab5_Team25_Greatest_Common_Divisor_t.v' is newer than expected.
-	expected: Thu Nov 24 20:11:26 2022
-	actual:   Thu Nov 24 20:12:49 2022
+	expected: Thu Nov 24 20:51:36 2022
+	actual:   Thu Nov 24 20:53:02 2022
 file: Lab5_Team25_Greatest_Common_Divisor_t.v
 	module worklib.q1_t:v
 		errors: 0, warnings: 0
@@ -19,7 +19,7 @@ ncelab: *W,STRINT (./Lab5_Team25_Greatest_Common_Divisor_t.v,28|23): String lite
 .......... Done
 	Generating native compiled code:
 		worklib.q1_t:v <0x567690a6>
-			streams:   7, words:  4338
+			streams:   7, words:  4689
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -37,7 +37,7 @@ Loading snapshot worklib.q1_t:v .................... Done
 *Verdi* Loading libsscore_ius152.so
 ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
 ncsim> run
-Simulation complete via $finish(1) at time 8020 NS + 0
-./Lab5_Team25_Greatest_Common_Divisor_t.v:42         $finish;
+Simulation complete via $finish(1) at time 256020 NS + 0
+./Lab5_Team25_Greatest_Common_Divisor_t.v:46         $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 24, 2022 at 20:14:28 CST  (total: 00:00:01)
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 24, 2022 at 20:54:25 CST  (total: 00:00:04)

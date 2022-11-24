@@ -204,7 +204,7 @@ Orientation = Landscape
 [FileBrowser]
 nWaveOpenFsdbDirHistory = "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd.fsdb\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-2/Crossbar.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab_1-1/DMUX.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/lab\
 _2-5/test.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2/NAND_Implement.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic_2_2/Majority.vcd\"" "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\"" "\"/users/course/2022F/L\
-DL17700000/u110062208/logic_design/lab5/Lab5_Team25_Sliding_Window_Sequence_Detector/sliding_window.vcd\""
+DL17700000/u110062208/logic_design/lab5/Lab5_Team25_Greatest_Common_Divisor/Greatest_Common_Divisor.vcd\""
 [Form]
 version = Verdi_S-2021.09
 [General]
@@ -324,9 +324,9 @@ ColorPrint = FALSE
 [QtDialog]
 QwQuestionMsgDlg = 788,453,324,114
 QwWarnMsgDlg = 2090,363,600,250
-QwUserAskDlg = 548,265,324,162
-openFileDlg = 419,208,602,483
-qWaveSignalDialog = 320,210,800,479
+QwUserAskDlg = 274,22,324,162
+openFileDlg = 145,53,602,483
+qWaveSignalDialog = 560,300,800,479
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
@@ -605,8 +605,8 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 320 210 800 479 245 381 505 183
-viewPort = 0 1 1440 853 100 65
+getSignalForm = 560 300 800 479 164 381 390 89
+viewPort = 0 1 1920 1033 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK
 curveBackground = -c ID_BLACK
@@ -772,10 +772,10 @@ printBasic = 1 0 0 FALSE FALSE
 printDest = -printer {}
 printSignature = {%f %h %t} {}
 curveWindow_Drag&Drop_Mode = TRUE
-RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab5/Lab5_Team25_Sliding_Window_Sequence_Detector/sliding_window.vcd\""
-RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab5/Lab5_Team25_Sliding_Window_Sequence_Detector/sliding_window.vcd.fsdb\""
-RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Scan_Chain_Design/test.vcd\""
-RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab4/Lab4_Team25_Scan_Chain_Design/test.vcd.fsdb\""
+RecentFile1 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab5/Lab5_Team25_Greatest_Common_Divisor/Greatest_Common_Divisor.vcd\""
+RecentFile2 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab5/Lab5_Team25_Greatest_Common_Divisor/Greatest_Common_Divisor.vcd.fsdb\""
+RecentFile3 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_FIFO/fifo.vcd\""
+RecentFile4 = "\"/users/course/2022F/LDL17700000/u110062208/logic_design/lab3/Lab3_Team25_FIFO/fifo.vcd.fsdb\""
 RecentFile5 = "\"/users/course/2022F/LDL17700000/u110062208/basic23/Adder.vcd\""
 open_file_time_range = FALSE
 legend_window_font = -f COURIER12 -c ID_CYAN5

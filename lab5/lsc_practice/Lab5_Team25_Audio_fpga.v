@@ -1,56 +1,77 @@
 `timescale 1ns/1ps
 
-module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
+module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4/*, sw, light*/);
     
     input clk;
     inout PS2_DATA;
     inout PS2_CLK;
     output pmod_1, pmod_2, pmod_4;
+//    output reg [14:0] sw;
+//    output light;
+//    reg [14:0] sw = 1;
 
+    parameter [8:0] KEY_CODES_W = 29; 
+    parameter [8:0] KEY_CODES_S = 27; 
+    parameter [8:0] KEY_CODES_R = 45; 
+    parameter [8:0] KEY_CODES_F = 43; 
+    parameter [8:0] ENTER = 90;
+
+    wire [511:0] key_down;
+    wire [8:0] last_change;
+    wire been_ready;
+    reg [6:0] cnt, next_cnt;
+    reg dir = 1, next_dir;
+    reg [30:0] speed, next_speed;
+    reg fast = 0, next_fast;
     wire rst;
     wire [31:0] sound [28:0];
     wire [31:0] freq;
     wire [30:0] ONE_SECOND;
-    wire [511:0] key_down;
-    wire [8:0] last_change;
-    wire been_ready;
-    wire rst_push;
-    wire next_rst;
-
-    reg [4:0] cnt, next_cnt;
-    reg dir, next_dir;
-    reg [30:0] speed, next_speed;
-    reg fast, next_fast;
-    reg rst;
 
     assign pmod_2 = 1'd1;
     assign pmod_4 = 1'd1;
     assign freq = sound[cnt];
-    assign rst_push = (been_ready && key_down[last_change] && last_change == ENTER);
-    assign ONE_SECOND = (!fast) ? 50000000 : 100000000;
-
-    //rst===========================
-    always @(posedge clk) begin
-        
-    end
-    //==============================
+    assign rst = (been_ready && key_down[last_change] && last_change == ENTER);
+    assign ONE_SECOND = (fast) ? 50000000 : 100000000;
+//    assign light = (rst) ? 1 : 0;
+//    always @(*) begin
+//        sw = 15'b0;
+//        case (cnt)
+//            0 : sw[0] = 1;
+//            1 : sw[1] = 1;
+//            2 : sw[2] = 1;
+//            3 : sw[3] = 1;
+//            4 : sw[4] = 1;
+//            5 : sw[5] = 1;
+//            6 : sw[6] = 1;
+//            7 : sw[7] = 1;
+//            8 : sw[8] = 1;
+//            9 : sw[9] = 1;
+//            10 : sw[10] = 1;
+//            11 : sw[11] = 1;
+//            12 : sw[12] = 1;
+//            13 : sw[13] = 1;
+//            14 : sw[14] = 1;
+//            default : sw = 1;
+//        endcase
+//    end
 
     //sound=========================
-    assign sound[0] = 262; //c4
+    assign sound[0] = 262;
     assign sound[1] = 294;
     assign sound[2] = 330;
     assign sound[3] = 349;
     assign sound[4] = 392;
     assign sound[5] = 440;
     assign sound[6] = 494;
-    assign sound[7] = 262 << 1; //c5
+    assign sound[7] = 262 << 1;
     assign sound[8] = 294 << 1;
     assign sound[9] = 330 << 1;
     assign sound[10] = 349 << 1;
     assign sound[11] = 392 << 1;
     assign sound[12] = 440 << 1;
     assign sound[13] = 494 << 1;
-    assign sound[14] = 262 << 2; //c6
+    assign sound[14] = 262 << 2;
     assign sound[15] = 294 << 2;
     assign sound[16] = 330 << 2;
     assign sound[17] = 349 << 2;
@@ -64,14 +85,8 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     assign sound[25] = 392 << 3;
     assign sound[26] = 440 << 3;
     assign sound[27] = 494 << 3;
-    assign sound[28] = 262 << 4; //c8
+    assign sound[28] = 262 << 4;
     //==============================
-
-    parameter [8:0] KEY_CODES_W = 29; 
-    parameter [8:0] KEY_CODES_S = 27; 
-    parameter [8:0] KEY_CODES_R = 45; 
-    parameter [8:0] KEY_CODES_F = 43; 
-    parameter [8:0] ENTER = 90;
 
     KeyboardDecoder key_de(
         .key_down(key_down),
@@ -94,7 +109,8 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     //speed=========================
     always @(*) begin
         if (speed == ONE_SECOND) next_speed = 0;
-        else next_speed = (speed + 1 >= ONE_SECOND) ? ONE_SECOND : (speed + 1);
+        else if (fast) next_speed = (speed + 1 > 50000000) ? 50000000 : speed + 1;
+        else next_speed = (speed + 1 > 100000000) ? 100000000 : speed + 1;
     end
     always @(posedge clk) begin
         if (rst) begin
@@ -107,13 +123,13 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     always @(*) begin
         if (speed == ONE_SECOND) begin
             if (cnt == 28) begin
-                if (!dir) next_cnt = cnt;
+                if (dir) next_cnt = cnt;
                 else next_cnt = cnt - 1;
             end else if (cnt == 0) begin
-                if (!dir) next_cnt = cnt + 1;
+                if (dir) next_cnt = cnt + 1;
                 else next_cnt = cnt;
             end else begin
-                if (!dir) next_cnt = cnt + 1;
+                if (dir) next_cnt = cnt + 1;
                 else next_cnt = cnt - 1;
             end
         end else next_cnt = cnt;
@@ -129,10 +145,10 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     //dir===========================
     always @(*) begin
         if (been_ready && key_down[last_change] == 1'd1) begin
-            if (last_change == KEY_CODES_W) next_dir = 0;
-            else if (last_change == KEY_CODES_S) next_dir = 1;
+            if (last_change == KEY_CODES_W) next_dir = 1;
+            else if (last_change == KEY_CODES_S) next_dir = 0;
             else next_dir = dir;
-        end next_dir = dir;
+        end else next_dir = dir;
     end
 
     always @(posedge clk) begin
@@ -145,8 +161,8 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4);
     //fast==========================
     always @(*) begin
         if (been_ready && key_down[last_change] == 1'd1) begin
-            if (last_change == KEY_CODES_R) next_fast = 0;
-            else if (last_change == KEY_CODES_F) next_fast = 1;
+            if (last_change == KEY_CODES_R) next_fast = 1;
+            else if (last_change == KEY_CODES_F) next_fast = 0;
             else next_fast = fast;
         end else next_fast = fast;
     end

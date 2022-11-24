@@ -55,7 +55,7 @@ module Sliding_Window_Sequence_Detector (clk, rst_n, in, dec);
             end
             S8 : begin
                 if (in) next_state = S3;
-                else next_state = S0;
+                else next_state = S4;
             end
             default : begin
                 next_state = S0;

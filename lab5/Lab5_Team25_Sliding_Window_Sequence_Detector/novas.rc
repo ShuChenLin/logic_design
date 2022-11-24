@@ -606,7 +606,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 interpolateWhenAnalogToDigital = FALSE
-getSignalForm = 320 210 800 479 245 381 505 183
+getSignalForm = 320 210 800 479 164 381 390 89
 viewPort = 0 1 1440 853 100 65
 legendBackground = -c ID_BLACK
 valueBackground = -c ID_BLACK

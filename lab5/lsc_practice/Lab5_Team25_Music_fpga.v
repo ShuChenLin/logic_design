@@ -161,8 +161,7 @@ module fpga1(clk, PS2_DATA, PS2_CLK, pmod_1, pmod_2, pmod_4/*, sw, light*/);
     //fast==========================
     always @(*) begin
         if (been_ready && key_down[last_change] == 1'd1) begin
-            if (last_change == KEY_CODES_R) next_fast = 1;
-            else if (last_change == KEY_CODES_F) next_fast = 0;
+            if (last_change == KEY_CODES_R) next_fast = !fast;
             else next_fast = fast;
         end else next_fast = fast;
     end

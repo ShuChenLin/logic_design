@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+
 module tracker_sensor(clk, reset, left_signal, right_signal, mid_signal/*, state*/);
     input clk;
     input reset;

@@ -30,7 +30,7 @@ module PosCounter(clk, rst, echo, distance_count);
     reg[19:0] count, next_count, distance_register, next_distance;
     wire[19:0] distance_count; 
 
-    always@(posedge clk) begin
+    always @(posedge clk) begin
         if(rst) begin
             echo_reg1 <= 1'b0;
             echo_reg2 <= 1'b0;
@@ -85,6 +85,7 @@ module PosCounter(clk, rst, echo, distance_count);
     assign distance_count = distance_register * 20'd100 / 20'd58; 
     assign start = echo_reg1 & ~echo_reg2;  
     assign finish = ~echo_reg1 & echo_reg2; 
+
 endmodule
 
 module TrigSignal(clk, rst, trig);

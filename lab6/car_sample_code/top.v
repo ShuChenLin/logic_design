@@ -13,27 +13,31 @@ module Top(
 );
 
     wire Rst_n, rst_pb, stop;
+    wire [1:0] pwm;
     debounce d0(rst_pb, rst, clk);
     onepulse d1(rst_pb, clk, Rst_n);
 
+    assign left_motor = pwm[1];
+    assign right_motor = pwm[0];
+
     motor A(
-        .clk(),
-        .rst(),
+        .clk(clk),
+        .rst(Rst_n),
         //.mode(),
-        .pwm()
+        .pwm(pwm)
     );
 
     sonic_top B(
-        .clk(), 
-        .rst(), 
-        .Echo(), 
-        .Trig(),
-        .stop()
+        .clk(clk), 
+        .rst(Rst_n), 
+        .Echo(echo), 
+        .Trig(trig),
+        .stop(stop)
     );
     
     tracker_sensor C(
-        .clk(), 
-        .reset(), 
+        .clk(clk), 
+        .reset(Rst_n), 
         .left_signal(), 
         .right_signal(),
         .mid_signal(), 

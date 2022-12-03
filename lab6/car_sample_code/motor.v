@@ -26,6 +26,7 @@ module motor(
 
 
     assign pwm = {left_pwm, right_pwm};
+
 endmodule
 
 module motor_pwm (

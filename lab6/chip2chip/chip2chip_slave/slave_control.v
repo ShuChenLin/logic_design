@@ -69,22 +69,29 @@ module slave_control(clk, rst_n, request, ack, data_in, notice, valid, data);
             state_wait_rqst: begin
                 next_state = (request == 1)? state_wait_to_send_ack: state_wait_rqst;
                 // next_notice = ???
-                // next_ack = ???
-                // next_data = ???
+                next_ack = ack;
+                next_data = 0;
                 // next_start = (request == 1)? ???: ???;
             end
             state_wait_to_send_ack: begin
-                // next_state = (done == 1)? ??? : ???;
+                next_state = (done == 1)? state_send_ack : state_wait_to_send_ack;
                 // next_notice = ???
-                // next_ack = ???
-                // next_data = ???
+                next_ack = ack;
+                next_data = data;
                 // next_start = ???
             end
+            state_send_ack: begin
+                next_state = state_wait_data;
+                //next_notice = ???
+                next_ack = 1;
+                next_data = data;
+                // next_start = ???
+            enk
             state_wait_data: begin
                 // next_state = (valid == 1)? ??? : ???;
                 // next_notice = ???
-                // next_ack = ???
-                // next_data = ???
+                next_ack = 0;
+                next_data = data_in;
                 // next_start = ???
             end
             default: begin

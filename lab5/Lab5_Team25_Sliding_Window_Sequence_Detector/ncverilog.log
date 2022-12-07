@@ -1,38 +1,20 @@
 ncverilog: 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Nov 24, 2022 at 22:57:05 CST
+TOOL:	ncverilog	15.20-s039: Started on Nov 24, 2022 at 23:18:44 CST
 ncverilog
 	Lab5_Team25_Sliding_Window_Sequence_Detector_t.v
 	Lab5_Team25_Sliding_Window_Sequence_Detector.v
 	+access+r
-Recompiling... reason: file './Lab5_Team25_Sliding_Window_Sequence_Detector.v' is newer than expected.
-	expected: Sun Nov 20 15:19:08 2022
-	actual:   Thu Nov 24 22:55:32 2022
-file: Lab5_Team25_Sliding_Window_Sequence_Detector.v
-	module worklib.Sliding_Window_Sequence_Detector:v
+Recompiling... reason: file './Lab5_Team25_Sliding_Window_Sequence_Detector_t.v' is newer than expected.
+	expected: Sun Nov 20 15:27:01 2022
+	actual:   Thu Nov 24 23:17:12 2022
+file: Lab5_Team25_Sliding_Window_Sequence_Detector_t.v
+	module worklib.mealy_t:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.Sliding_Window_Sequence_Detector:v <0x5c856919>
-			streams:   3, words:  1926
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                 Instances  Unique
-		Modules:                 2       2
-		Registers:               6       6
-		Scalar wires:            4       -
-		Always blocks:           4       4
-		Initial blocks:          5       5
-		Pseudo assignments:      1       1
-		Simulation timescale:  1ps
-	Writing initial simulation snapshot: worklib.q1_t:v
-Loading snapshot worklib.q1_t:v .................... Done
-*Verdi* Loading libsscore_ius152.so
-ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
-ncsim> run
-Simulation complete via $finish(1) at time 680 NS + 0
-./Lab5_Team25_Sliding_Window_Sequence_Detector_t.v:102         $finish;
-ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Nov 24, 2022 at 22:57:10 CST  (total: 00:00:05)
+		Caching library 'worklib' ....... Done
+    Mealy_Sequence_Detector m1(
+                             |
+ncelab: *E,CUVMUR (./Lab5_Team25_Sliding_Window_Sequence_Detector_t.v,13|29): instance 'mealy_t.m1' of design unit 'Mealy_Sequence_Detector' is unresolved in 'worklib.mealy_t:v'.
+ncverilog: *E,ELBERR: Error during elaboration (status 1), exiting.
+TOOL:	ncverilog	15.20-s039: Exiting on Nov 24, 2022 at 23:18:44 CST  (total: 00:00:00)

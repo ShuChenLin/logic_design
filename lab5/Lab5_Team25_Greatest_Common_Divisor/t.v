@@ -44,13 +44,13 @@ module Greatest_Common_Divisor (clk, rst_n, start, a, b, done, gcd);
                     if (B == 0) begin
                         next_state = FINISH;
                         mygcd = A;
-                    end else if (A > b) begin
+                    end else if (A > B) begin
                         next_state = CAL;
                         next_A = A - B;
                         next_B = B;
                     end else begin
                         next_state = CAL;
-                        next_A = A:
+                        next_A = A;
                         next_B = B - A;
                     end
                 end
@@ -70,9 +70,9 @@ module Greatest_Common_Divisor (clk, rst_n, start, a, b, done, gcd);
         if (rst_n == 1'b0) begin
             state <= WAIT;
             A <= 0;
-            b <= 0;
+            B <= 0;
             cnt <= 0;
-        else begin
+        end else begin
             state <= next_state;
             A <= next_A;
             B <= next_B;

@@ -162,7 +162,7 @@ module fpga(clk, rst_n, start, enter, sw, seg, an, light);
                     next_desire[15:4] = desire_num[15:4];        
                 end
             end
-            ANSWER:begin
+            ANSWER : begin
                 next_desire = desire_num;
                 if(enter_one_pulse)
                     next_desire = 0;

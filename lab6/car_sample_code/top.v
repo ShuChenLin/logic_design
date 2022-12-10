@@ -6,25 +6,24 @@ module Top(
     input right_signal,
     input mid_signal,
     output trig,
+    output stop,
     output left_motor,
     output reg [1:0]left,
     output right_motor,
-    output reg [1:0]right
+    output reg [1:0]right,
+    output [1:0] car_state
 );
 
-    wire Rst_n, rst_pb, stop;
-    wire [1:0] pwm;
+    wire Rst_n, rst_pb;
     debounce d0(rst_pb, rst, clk);
     onepulse d1(rst_pb, clk, Rst_n);
-
-    assign left_motor = pwm[1];
-    assign right_motor = pwm[0];
+//    wire [1:0] car_state;
 
     motor A(
         .clk(clk),
         .rst(Rst_n),
-        //.mode(),
-        .pwm(pwm)
+        .mode(car_state),
+        .pwm({left_motor, right_motor})
     );
 
     sonic_top B(
@@ -38,16 +37,20 @@ module Top(
     tracker_sensor C(
         .clk(clk), 
         .reset(Rst_n), 
-        .left_signal(), 
-        .right_signal(),
-        .mid_signal(), 
-        //.state()
+        .left_signal(left_signal), 
+        .right_signal(right_signal),
+        .mid_signal(mid_signal), 
+        .state(car_state)
        );
 
     always @(*) begin
         // [TO-DO] Use left and right to set your pwm
-        //if(stop) {left, right} = ???;
-        //else  {left, right} = ???;
+        if(stop) {left, right} = 4'b0000;
+        else  begin
+            if (car_state == 2'b11) begin
+                {left, right} = 4'b0101;
+            end else {left, right} = 4'b1010;
+        end
     end
 
 endmodule
@@ -72,8 +75,7 @@ module onepulse (PB_debounced, clk, PB_one_pulse);
     reg PB_debounced_delay;
 
     always @(posedge clk) begin
-        PB_one_pulse <= PB_debounced & (! PB_debounced_delay);
+        PB_one_pulse <= PB_debounced & (!PB_debounced_delay);
         PB_debounced_delay <= PB_debounced;
     end 
 endmodule
-

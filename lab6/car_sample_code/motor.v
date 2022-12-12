@@ -35,12 +35,12 @@ module motor(
                 next_right_motor = 1000;
             end
             turn_left : begin
-                next_left_motor = 0;
+                next_left_motor = 1000;
                 next_right_motor = 1000;
             end  
             turn_right : begin
                 next_left_motor = 1000;
-                next_right_motor = 0;
+                next_right_motor = 1000;
             end 
             backward : begin
                 next_left_motor = 1000;

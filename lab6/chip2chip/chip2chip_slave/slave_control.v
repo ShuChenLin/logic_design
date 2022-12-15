@@ -71,17 +71,17 @@ module slave_control(clk, rst_n, request, ack, data_in, notice, valid, data);
                 next_notice = 0;
                 next_ack = 0;
                 next_data = data;
-                next_start = (request == 1)? 1'b1: 1'b0;
+                next_start = (request == 1) ? 1'b1: 1'b0;
             end
             state_wait_to_send_ack: begin
-                next_state = (done == 1)? state_wait_data : state_wait_to_send_ack;
+                next_state = (done == 1) ? state_wait_data : state_wait_to_send_ack;
                 next_notice = (done == 1) ? 1'b0 : 1'b1;
                 next_ack = (done == 1) ? 1'b1 : 1'b0;
-                next_data = 0;
-                next_start = (done == 1) ? 1'b1 : 1'b0;
+                next_data = data;
+                next_start = (done == 1) ? 1'b0 : 1'b1;
             end
             state_wait_data: begin
-                next_state = (valid == 1)? state_wait_rqst : state_wait_data;
+                next_state = (valid == 1) ? state_wait_rqst : state_wait_data;
                 next_notice = 1'b0;
                 next_ack = 1'b0;
                 next_data = (valid == 1) ? data_in : 0;

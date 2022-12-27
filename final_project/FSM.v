@@ -23,7 +23,7 @@ module FSM(clk, rst, key_down, last_change, been_ready, state, wpm, stcnt);
     reg [28:0] stcnt; // wait three secs to start;
     wire next_stcnt;
 
-    always @(*) beign
+    always @(*) begin
         case (state)
             WAIT : begin
                 if (been_ready && key_down[last_change] && last_change == KEY_CODE_ENTER) begin
@@ -58,9 +58,9 @@ module FSM(clk, rst, key_down, last_change, been_ready, state, wpm, stcnt);
     end
 
 
-    assign next_stcnt = (state == WAIT_TO_START) ? stcnt + 1 : 0;
+    assign next_stcnt = (state == WAIT_TO_START) ? (stcnt + 1) : 0;
 
-    always @(*) begin
+    always @(posedge clk) begin
         if (rst) begin
             stcnt <= 0;
         end else begin

@@ -15,8 +15,8 @@ int main () {
         else if (a[i] == '!') cout << 30 << "\n";
         else if (a[i] == '\'') cout << 31 << "\n";
         else if (a[i] == '\"') cout << 32 << "\n";
-        else if (a[i] >= 'a' && a[i] <= 'z') cout << a[i] - 'a' << "\n";
-        else cout << a[i] - 'A' + 33 << "\n";
+        else if (a[i] >= 'a' && a[i] <= 'z') cout << a[i] - 'a' << ";\n";
+        else cout << a[i] - 'A' + 33 << ";\n";
     }
     return 0;
 }

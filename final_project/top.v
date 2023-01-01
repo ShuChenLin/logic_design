@@ -13,7 +13,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     wire clk_d2; //25MHz
     wire clk_d22;
     wire rst_debounce, rst_op;
-    wire [5:0] adr [511:0];
+    wire [5:0] adr [300:0];
     wire [16:0] pixel_addr; //picture address;
     wire [11:0] pixel;
     wire [11:0] data;
@@ -30,6 +30,10 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     wire [2:0] statee;
     wire [6:0] wpm;
     wire [28:0] stcnt; //count down three seconds.
+    wire correct_n;
+    wire [5:0] wrong_cnt;
+    wire [10:0] word_cnt;
+    reg [5:0] buffer [30:0];
 
     assign h_cnt_re = h_cnt>>1;
     assign v_cnt_re = v_cnt>>1;
@@ -64,9 +68,25 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
         .key_down(key_down),
         .last_change(last_change),
         .been_ready(been_ready),
+        .correct_n(correct_n),
         .state(statee),
         .wpm(wpm),
         .stcnt(stcnt)
+    );
+    //==========================================
+
+    //INPUT=====================================
+    CHECK ck(
+        .clk(clk),
+        .rst(rst_op),
+        .key_down(key_down),
+        .last_change(last_change),
+        .been_ready(been_ready),
+        .state(statee),
+        .correct_n(correct_n),
+        .word_place(word_cnt),
+        .wrong_cnt(wrong_cnt),
+        .word(adr[word_cnt])
     );
     //==========================================
 
@@ -403,27 +423,3 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
 
 endmodule
 
-module mem_addr_gen(
-   input clk,
-   input rst,
-   input [9:0] h_cnt,
-   input [9:0] v_cnt,
-   output [16:0] pixel_addr
-   );
-    
-   reg [7:0] position;
-  
-   assign pixel_addr = (v_cnt < 75 || v_cnt > 150) ? 76000 : (((h_cnt))+(320*((v_cnt%76))))% 76800;
-//   assign pixel_addr = (((h_cnt))+(320*((v_cnt%76)+74)))% 76800;  //a
-//   assign pixel_addr = (((h_cnt))+(320*((v_cnt%76)+144)))% 76800;
-   
-   always @ (posedge clk or posedge rst) begin
-      if(rst)
-          position <= 0;
-       else if(position < 239)
-           position <= position + 1;
-       else
-           position <= 0;
-   end
-    
-endmodule

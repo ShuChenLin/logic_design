@@ -6,7 +6,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     inout PS2_DATA, PS2_CLK;
     output [3:0] vgaRed, vgaBlue, vgaGreen;
     output [3:0] an;
-    output [7:0] seg;
+    output [6:0] seg;
     output [2:0] state;
     output hsync, vsync;
 
@@ -27,24 +27,24 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     wire [8:0] last_change;
     wire been_ready;
 
-    //wire [2:0] state;
+    wire [2:0] statee;
     wire [6:0] wpm;
     wire [28:0] stcnt; //count down three seconds.
-    reg [511:0] word_idx, next_word_idx;
-    wire [5:0] cur_word;
-    wire [5:0] next_word;
 
     assign h_cnt_re = h_cnt>>1;
     assign v_cnt_re = v_cnt>>1;
+    
+    assign state[0] = !statee[0];
+    assign state[1] = !statee[1];
+    assign state[2] = !statee[2];
 
     assign {vgaRed, vgaGreen, vgaBlue} = (valid == 1'b1) ? pixel : 12'h0;
 
     clk_div #(2) CD0(.clk(clk), .clk_d(clk_d2));
-    clk_div #(22) CD22(.clk(clk), .clk_d(clk_d22));
+    clk_div #(22) CD1(.clk(clk), .clk_d(clk_d22));
     debounce d0(clk, rst, rst_debounce);
     one_pulse o0(clk, rst_debounce, rst_op);
-
-
+    
     //keyboard==================================
     KeyboardDecoder key_de (
         .key_down(key_down),
@@ -64,18 +64,20 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
         .key_down(key_down),
         .last_change(last_change),
         .been_ready(been_ready),
-        .state(state),
+        .state(statee),
         .wpm(wpm),
         .stcnt(stcnt)
     );
     //==========================================
 
     //VGA=======================================
-    /*mem_addr_gen MAG(
+    
+    mem_addr_gen MAG(
         .clk(clk_d22),
         .rst(rst_op),
         .h_cnt(h_cnt_re),
         .v_cnt(v_cnt_re),
+//        .words(word_mem),
         .pixel_addr(pixel_addr)
     );
     blk_mem_gen_0 BMG0(
@@ -84,7 +86,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
         .addra(pixel_addr),
         .dina(data[11:0]),
         .douta(pixel)
-    );*/
+    );
 
     vga_controller VC0(
         .pclk(clk_d2),
@@ -97,7 +99,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     );
     //==========================================
 
-    //input the article=========================
+    //input the article=============================
     assign adr[0] = 33;
     assign adr[1] = 13;
     assign adr[2] = 3;
@@ -280,7 +282,31 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     assign adr[179] = 6;
     assign adr[180] = 4;
     assign adr[181] = 28;
-    //==========================================
+    //========================================
 
 endmodule
 
+module mem_addr_gen(
+   input clk,
+   input rst,
+   input [9:0] h_cnt,
+   input [9:0] v_cnt,
+   output [16:0] pixel_addr
+   );
+    
+   reg [7:0] position;
+  
+   assign pixel_addr = (v_cnt < 75 || v_cnt > 150) ? 76000 : (((h_cnt))+(320*((v_cnt%76))))% 76800;
+//   assign pixel_addr = (((h_cnt))+(320*((v_cnt%76)+74)))% 76800;  //a
+//   assign pixel_addr = (((h_cnt))+(320*((v_cnt%76)+144)))% 76800;
+   
+   always @ (posedge clk or posedge rst) begin
+      if(rst)
+          position <= 0;
+       else if(position < 239)
+           position <= position + 1;
+       else
+           position <= 0;
+   end
+    
+endmodule

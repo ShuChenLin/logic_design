@@ -8,15 +8,12 @@ int main () {
     getline(cin, a);
     for (ll i = 0; i < a.size(); ++i) {
         cout << "assign adr[" << i << "] = ";
-        if (a[i] == ' ') cout << 26 << "\n";
-        else if (a[i] == ',') cout << 27 << "\n";
-        else if (a[i] == '.') cout << 28 << "\n";
-        else if (a[i] == '?') cout << 29 << "\n";
-        else if (a[i] == '!') cout << 30 << "\n";
-        else if (a[i] == '\'') cout << 31 << "\n";
-        else if (a[i] == '\"') cout << 32 << "\n";
+        if (a[i] == ' ') cout << 26 << ";\n";
+        else if (a[i] == ',') cout << 27 << ";\n";
+        else if (a[i] == '.') cout << 28 << ";\n";
+        else if (a[i] == '\'') cout << 29 << ";\n";
         else if (a[i] >= 'a' && a[i] <= 'z') cout << a[i] - 'a' << ";\n";
-        else cout << a[i] - 'A' + 33 << ";\n";
+        else cout << a[i] - 'A' + 30 << ";\n";
     }
     return 0;
 }

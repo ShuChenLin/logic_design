@@ -18,7 +18,8 @@ module FSM(clk, rst, key_down, last_change, been_ready, state, wpm, stcnt);
     parameter WAIT_TO_START = 3'b001;
     parameter WORD = 3'b010;
     parameter BLANK = 3'b011;
-    parameter FINISH = 3'b100;
+    parameter WRONG = 3'b100;
+    parameter FINISH = 3'b101;
 
     reg [28:0] stcnt; // wait three secs to start;
     wire next_stcnt;
@@ -38,6 +39,9 @@ module FSM(clk, rst, key_down, last_change, been_ready, state, wpm, stcnt);
                 
             end
             BLANK : begin
+                
+            end
+            WRONG : begin
                 
             end
             FINISH : begin

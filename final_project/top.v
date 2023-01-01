@@ -11,6 +11,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     output hsync, vsync;
 
     wire clk_d2; //25MHz
+    wire clk_d22;
     wire rst_debounce, rst_op;
     wire [5:0] adr [511:0];
     wire [16:0] pixel_addr; //picture address;
@@ -29,6 +30,9 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     //wire [2:0] state;
     wire [6:0] wpm;
     wire [28:0] stcnt; //count down three seconds.
+    reg [511:0] word_idx, next_word_idx;
+    wire [5:0] cur_word;
+    wire [5:0] next_word;
 
     assign h_cnt_re = h_cnt>>1;
     assign v_cnt_re = v_cnt>>1;
@@ -36,6 +40,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     assign {vgaRed, vgaGreen, vgaBlue} = (valid == 1'b1) ? pixel : 12'h0;
 
     clk_div #(2) CD0(.clk(clk), .clk_d(clk_d2));
+    clk_div #(22) CD22(.clk(clk), .clk_d(clk_d22));
     debounce d0(clk, rst, rst_debounce);
     one_pulse o0(clk, rst_debounce, rst_op);
 
@@ -47,7 +52,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
         .key_valid(been_ready),
         .PS2_DATA(PS2_DATA),
         .PS2_CLK(PS2_CLK),
-        .rst(rst),
+        .rst(rst_op),
         .clk(clk)
     );
     //==========================================
@@ -55,7 +60,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     //FSM=======================================
     FSM F0(
         .clk(clk),
-        .rst(rst),
+        .rst(rst_op),
         .key_down(key_down),
         .last_change(last_change),
         .been_ready(been_ready),
@@ -67,6 +72,8 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
 
     //VGA=======================================
     /*mem_addr_gen MAG(
+        .clk(clk_d22),
+        .rst(rst_op),
         .h_cnt(h_cnt_re),
         .v_cnt(v_cnt_re),
         .pixel_addr(pixel_addr)

@@ -243,6 +243,7 @@ module state_control(clk, rst, start, down, A_v_count, B_v_count, C_v_count);
 endmodule
 
 module mem_addr_gen(h_cnt, v_cnt, A_v_count, B_v_count, C_v_count, pixel_addr);
+
     input [9:0] h_cnt, v_cnt;
     input [9:0] A_v_count, B_v_count, C_v_count;
     output[16:0] pixel_addr;
@@ -255,9 +256,11 @@ module mem_addr_gen(h_cnt, v_cnt, A_v_count, B_v_count, C_v_count, pixel_addr);
 	assign v_cnt_new = (v_cnt_total >= 16'd239)? v_cnt_total - 16'd239 : v_cnt_total;
 	
 	assign pixel_addr = v_cnt_new*320 + h_cnt;	
+
 endmodule
 
 module vga_controller(pclk, reset, hsync, vsync, valid, h_cnt, v_cnt);
+
     input pclk, reset;
     output hsync, vsync;
 	output valid;

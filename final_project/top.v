@@ -1,9 +1,13 @@
 `timescale 1ns/1ps
 
-module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync);
+module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync, cc, www, f, goo);
     
     input clk, rst;
     inout PS2_DATA, PS2_CLK;
+    output cc;
+    output [5:0] www;
+    output [2:0] f;
+    output goo;
     output [3:0] vgaRed, vgaBlue, vgaGreen;
     output [3:0] an;
     output [6:0] seg;
@@ -35,6 +39,12 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     wire [10:0] word_cnt;
     reg [5:0] buffer [30:0];
 
+    assign goo = wrong_cnt[0];
+    assign f[0] = word_cnt[0];
+    assign f[1] = word_cnt[1];
+    assign f[2] = word_cnt[2];
+    assign cc = correct_n;
+    assign www = wrong_cnt;
     assign h_cnt_re = h_cnt>>1;
     assign v_cnt_re = v_cnt>>1;
     
@@ -69,6 +79,7 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
         .last_change(last_change),
         .been_ready(been_ready),
         .correct_n(correct_n),
+        .wrong_cnt(wrong_cnt),
         .state(statee),
         .wpm(wpm),
         .stcnt(stcnt)
@@ -84,8 +95,8 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
         .been_ready(been_ready),
         .state(statee),
         .correct_n(correct_n),
-        .word_place(word_cnt),
-        .wrong_cnt(wrong_cnt),
+        .word_cnt(word_cnt),
+        .wrong_words(wrong_cnt),
         .word(adr[word_cnt])
     );
     //==========================================
@@ -422,4 +433,3 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     //========================================
 
 endmodule
-

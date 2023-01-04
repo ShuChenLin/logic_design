@@ -1,9 +1,10 @@
 `timescale 1ns/1ps
 
-module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync, cc, www, f, goo);
+module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync, cc, www, f, goo);
     
     input clk, rst;
     inout PS2_DATA, PS2_CLK;
+    output IR_out;
     output cc;
     output [5:0] www;
     output [2:0] f;
@@ -58,6 +59,14 @@ module top(clk, rst, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, stat
     clk_div #(22) CD1(.clk(clk), .clk_d(clk_d22));
     debounce d0(clk, rst, rst_debounce);
     one_pulse o0(clk, rst_debounce, rst_op);
+
+    //IR========================================
+    IR_send IR(
+        .clk(clk),
+        .rst(rst_op),
+        .out(IR_out)
+    );
+    //==========================================
     
     //keyboard==================================
     KeyboardDecoder key_de (

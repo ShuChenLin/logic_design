@@ -1,16 +1,18 @@
 `timescale 1ns/1ps
 
-module FSM(clk, rst, key_down, last_change, been_ready, correct_n, done, state, wpm, stcnt);
+module FSM(clk, rst, key_down, last_change, been_ready, correct_n, wrong_cnt, done, state, wpm, stcnt);
     
     input clk, rst;
     input [511:0] key_down;
     input [8:0] last_change;
+    input [5:0] wrong_cnt;
     input been_ready, correct_n, done;
     output [2:0] state;
     output [6:0] wpm;
     output [28:0] stcnt;
 
     reg [2:0] state, next_state;
+    wire done;
 
     parameter [8:0] KEY_CODE_ENTER = 90;
 
@@ -20,7 +22,7 @@ module FSM(clk, rst, key_down, last_change, been_ready, correct_n, done, state, 
     parameter WRONG = 3'b011;
     parameter FINISH = 3'b100;
 
-    reg [28:0] stcnt; // wait three secs to start;
+    reg [31:0] stcnt; // wait three secs to start;
     wire next_stcnt;
 
     always @(*) begin
@@ -32,12 +34,12 @@ module FSM(clk, rst, key_down, last_change, been_ready, correct_n, done, state, 
             end
             WAIT_TO_START : begin
                 if (stcnt >= 300000000) next_state = WORD;
-                else next_state = state;
+                else next_state = WORD;
             end
             WORD : begin
                 if (done) next_state = FINISH;
-                else if (correct_n) next_state = WORD;
-                else if (!correct_n) next_state = WRONG;
+                else if (!correct_n) next_state = WORD;
+                else if (correct_n) next_state = WRONG;
             end
             WRONG : begin
                 if (wrong_cnt == 0) next_state = WORD;
@@ -63,7 +65,7 @@ module FSM(clk, rst, key_down, last_change, been_ready, correct_n, done, state, 
     end
 
 
-    assign next_stcnt = (state == WAIT_TO_START) ? (stcnt + 1) : 0;
+    assign next_stcnt = (state == WAIT_TO_START) ? ((stcnt >= 300000000) ? stcnt : stcnt + 1) : 0;
 
     always @(posedge clk) begin
         if (rst) begin

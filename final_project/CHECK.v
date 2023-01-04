@@ -47,13 +47,15 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
     parameter KEY_APO = 82; //52
     parameter KEY_BACK = 102; //66
     parameter KEY_LEFT_SHIFT = 18; //12
-    parameter KEY_RIGHT_SHIFT = 99; //59
+    parameter KEY_RIGHT_SHIFT = 89; //59
+    parameter KEY_ENTER = 90;
 
     reg [8:0] cur_word;
     reg correct_n, next_cor;
-    reg [30:0] cnt_wrong, next_wrong;
+    reg [5:0] cnt_wrong, next_wrong;
     reg [10:0] word_cnt, next_word_cnt;
-
+    reg record, next_record;
+    
     assign wrong_words = cnt_wrong;
 
     /*
@@ -65,6 +67,21 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
     A - Z 30 - 55
     */
 
+    //RECORD================================
+    always @(posedge clk) begin
+        if (rst) record <= 0;
+        else record <= next_record;
+    end
+    
+    always @(*) begin
+        if (state == WORD) begin
+            if (been_ready && next_word_cnt == word_cnt) next_record = 1;
+            else if (next_word_cnt == word_cnt + 1) next_record = 0;
+            else next_record = record;
+        end else next_record = 0;
+    end
+    //=======================================
+    
     //WORD PLACE============================
     always @(*) begin
         case (state)
@@ -73,9 +90,10 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
                     if (last_change != cur_word) next_word_cnt = word_cnt;
                     else begin
                         if (word >= 30 && !key_down[KEY_LEFT_SHIFT] && !key_down[KEY_RIGHT_SHIFT]) next_word_cnt = word_cnt;
+                        else if (word < 30 && (key_down[KEY_LEFT_SHIFT] || key_down[KEY_RIGHT_SHIFT])) next_word_cnt = word_cnt;
                         else next_word_cnt = word_cnt + 1;
                     end
-                end
+                end else next_word_cnt = word_cnt;
             end
             WRONG : begin
                 next_word_cnt = word_cnt;
@@ -105,7 +123,7 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
                 else next_cor = 1;
             end
             default : begin
-                next_cot = 0;
+                next_cor = 0;
             end
         endcase
     end
@@ -123,25 +141,25 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
     always @(*) begin
         case (state)
             WORD : begin
-                if (last_change == KEY_LEFT_SHIFT || last_change ==KEY_RIGHT_SHIFT || last_change == KEY_BACK) begin
-                    next_wrong = cnt_wrong;
-                end
-                else if (been_ready && key_down[last_change] && last_change != cur_word) next_wrong = cnt_wrong + 1;
-                else begin
-                    if (word >= 30 && !key_down[KEY_LEFT_SHIFT] && !key_down[KEY_RIGHT_SHIFT]) next_wrong = cnt_wrong + 1;
-                    else next_wrong = cnt_wrong + 1;
-                end
+                if (record && key_down[last_change]) begin
+                    if (last_change == KEY_LEFT_SHIFT || last_change == KEY_RIGHT_SHIFT || last_change == KEY_BACK || last_change == KEY_ENTER) begin
+                         next_wrong = 0;
+                    end else if (last_change != cur_word) begin
+                        next_wrong = 1;
+                    end else begin
+                        if (word >= 30 && !key_down[KEY_LEFT_SHIFT] && !key_down[KEY_RIGHT_SHIFT]) next_wrong = 1;
+                        else if (word < 30 && (key_down[KEY_LEFT_SHIFT] || key_down[KEY_RIGHT_SHIFT])) next_wrong = 1;
+                        else next_wrong = 0;
+                    end
+                end else next_wrong = 0;
             end
             WRONG : begin
                 if (last_change == KEY_LEFT_SHIFT || last_change == KEY_RIGHT_SHIFT) begin
                     next_wrong = cnt_wrong;
-                else if (been_ready && key_down[last_change]) begin
+                end else if (been_ready && key_down[last_change]) begin
                     if (last_change == KEY_BACK) next_wrong = cnt_wrong - 1;
-                    else if (last_change != cur_word) next_wrong = cnt_wrong + 1;
-                    else begin
-                        if (word >= 30 && !key_down[KEY_LEFT_SHIFT] && !key_down[KEY_RIGHT_SHIFT]) next_wrong = cnt_wrong + 1;
-                        else next_wrong = cnt_wrong + 1;  
-                    end
+                    else if (last_change == KEY_ENTER) next_wrong = cnt_wrong;
+                    else next_wrong = cnt_wrong + 1;
                 end
                 else next_wrong = cnt_wrong;
             end
@@ -165,20 +183,20 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
             0 : cur_word = KEY_A;
             1 : cur_word = KEY_B;
             2 : cur_word = KEY_C;
-            3 : cur_word = KEY_D:
-            4 : cur_word = KEY_E:
-            5 : cur_word = KEY_F:
-            6 : cur_word = KEY_G:
-            7 : cur_word = KEY_H:
-            8 : cur_word = KEY_I:
-            9 : cur_word = KEY_J:
-            10 : cur_word = KEY_K:
-            11 : cur_word = KEY_L:
-            12 : cur_word = KEY_M:
-            13 : cur_word = KEY_N:
-            14 : cur_word = KEY_O:
-            15 : cur_word = KEY_P:
-            16 : cur_word = KEY_Q:
+            3 : cur_word = KEY_D;
+            4 : cur_word = KEY_E;
+            5 : cur_word = KEY_F;
+            6 : cur_word = KEY_G;
+            7 : cur_word = KEY_H;
+            8 : cur_word = KEY_I;
+            9 : cur_word = KEY_J;
+            10 : cur_word = KEY_K;
+            11 : cur_word = KEY_L;
+            12 : cur_word = KEY_M;
+            13 : cur_word = KEY_N;
+            14 : cur_word = KEY_O;
+            15 : cur_word = KEY_P;
+            16 : cur_word = KEY_Q;
             17 : cur_word = KEY_R;
             18 : cur_word = KEY_S;
             19 : cur_word = KEY_T;

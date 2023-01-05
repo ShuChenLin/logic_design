@@ -7,7 +7,8 @@ module IR_send(clk, rst, out);
 
     wire [12:0] tk38;
     wire [12:0] tk38_half;
-    reg [12:0] 
+    wire [12:0] cnt_next;
+    reg [12:0] cnt;
 
     assign tk38 = 2631;
     assign tk38_half = 1315;

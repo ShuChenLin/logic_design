@@ -4,7 +4,7 @@ using namespace std;
 signed main () {
     ifstream In;
     ofstream Out;
-    In.open("ohters.bin");
+    In.open("others.bin");
     Out.open("others.txt");
     string a;
     int cnt = 0;

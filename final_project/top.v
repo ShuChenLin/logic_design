@@ -117,16 +117,16 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
         .rst(rst_op),
         .h_cnt(h_cnt_re),
         .v_cnt(v_cnt_re),
-//        .words(word_mem),
         .pixel_addr(pixel_addr)
     );
-    blk_mem_gen_0 BMG0(
+
+    /*blk_mem_gen_0 BMG0(
         .clka(clk_d2),
         .wea(0),
         .addra(pixel_addr),
         .dina(data[11:0]),
         .douta(pixel)
-    );
+    );*/
 
     vga_controller VC0(
         .pclk(clk_d2),
@@ -137,6 +137,7 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
         .h_cnt(h_cnt),
         .v_cnt(v_cnt)
     );
+
     //==========================================
 
     //input the article=============================
@@ -201,6 +202,7 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[58] = 26;
     assign adr[59] = 49;
     assign adr[60] = 7;
+
     assign adr[61] = 4;
     assign adr[62] = 26;
     assign adr[63] = 22;
@@ -261,6 +263,7 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[118] = 0;
     assign adr[119] = 3;
     assign adr[120] = 24;
+
     assign adr[121] = 26;
     assign adr[122] = 3;
     assign adr[123] = 4;
@@ -321,6 +324,7 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[178] = 19;
     assign adr[179] = 26;
     assign adr[180] = 13;
+
     assign adr[181] = 14;
     assign adr[182] = 22;
     assign adr[183] = 26;
@@ -381,6 +385,7 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[238] = 13;
     assign adr[239] = 6;
     assign adr[240] = 26;
+
     assign adr[241] = 14;
     assign adr[242] = 13;
     assign adr[243] = 26;

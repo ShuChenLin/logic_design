@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 
 # Open the image file
-im = Image.open('numbers.png')
+im = Image.open('Lower_red.png')
 
 # Get the width and height of the image
 width, height = im.size
@@ -33,12 +33,12 @@ for y in range(height):
         rg = rg[:4]
         rb = rb[:4]
         arr.append(rr + rg + rb);
-        print(rr + rg + rb);
+        # print(rr + rg + rb);
 
 
 tmp = np.array(arr).reshape(1, -1);
-print(tmp);
+# print(tmp);
 
 # Save the array to a binary file
-arr = np.savetxt('numbers.bin', tmp, delimiter='\n', fmt = '%s')
+arr = np.savetxt('Lower_red.bin', tmp, delimiter='\n', fmt = '%s')
 

@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 
 # Open the image file
-im = Image.open('Lower_red.png')
+im = Image.open('others.png')
 
 # Get the width and height of the image
 width, height = im.size
@@ -40,5 +40,5 @@ tmp = np.array(arr).reshape(1, -1);
 # print(tmp);
 
 # Save the array to a binary file
-arr = np.savetxt('Lower_red.bin', tmp, delimiter='\n', fmt = '%s')
+arr = np.savetxt('others.bin', tmp, delimiter='\n', fmt = '%s')
 

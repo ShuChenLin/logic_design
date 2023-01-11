@@ -1,10 +1,10 @@
 `timescale 1ns/1ps
 
-module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync, cc, www, f, goo);
+module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync, cc, www, f, goo);
     
     input clk, rst;
     inout PS2_DATA, PS2_CLK;
-    output IR_out;
+    output ir_send;
     output cc;
     output [5:0] www;
     output [2:0] f;
@@ -25,7 +25,6 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     wire valid;
     //640*480
     wire [9:0] h_cnt, v_cnt;
-    wire [9:0] h_cnt_re, v_cnt_re;
     wire run;
 
     wire [511:0] key_down;
@@ -38,7 +37,9 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     wire correct_n;
     wire [5:0] wrong_cnt;
     wire [10:0] word_cnt;
-    reg [5:0] buffer [30:0];
+    wire [8:0] output_word; //used for vga
+    wire [3:0] Red, Green, Blue;
+    wire finish_ten_char;
 
     assign goo = wrong_cnt[0];
     assign f[0] = word_cnt[0];
@@ -46,27 +47,18 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign f[2] = word_cnt[2];
     assign cc = correct_n;
     assign www = wrong_cnt;
-    assign h_cnt_re = h_cnt>>1;
-    assign v_cnt_re = v_cnt>>1;
     
     assign state[0] = !statee[0];
     assign state[1] = !statee[1];
     assign state[2] = !statee[2];
 
-    assign {vgaRed, vgaGreen, vgaBlue} = (valid == 1'b1) ? pixel : 12'h0;
+    assign finish_ten_char = (word_cnt % 10 == 0) ? 1 : 0;
+    assign {vgaRed, vgaGreen, vgaBlue} = (valid == 1'b1) ? {Red, Green, Blue} : 12'h0;
 
     clk_div #(2) CD0(.clk(clk), .clk_d(clk_d2));
     clk_div #(22) CD1(.clk(clk), .clk_d(clk_d22));
     debounce d0(clk, rst, rst_debounce);
     one_pulse o0(clk, rst_debounce, rst_op);
-
-    //IR========================================
-    IR_send IR(
-        .clk(clk),
-        .rst(rst_op),
-        .out(IR_out)
-    );
-    //==========================================
     
     //keyboard==================================
     KeyboardDecoder key_de (
@@ -112,21 +104,22 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
 
     //VGA=======================================
     
+    assign output_word = (h_cnt >= 80 && v_cnt >= 208) ? ( ((h_cnt - 80) / 8) + (60 * ((v_cnt-208) / 16))) : 0;
+    
     mem_addr_gen MAG(
-        .clk(clk_d22),
+        .clk(clk_d2),
         .rst(rst_op),
-        .h_cnt(h_cnt_re),
-        .v_cnt(v_cnt_re),
-        .pixel_addr(pixel_addr)
+        .h_cnt(h_cnt),
+        .v_cnt(v_cnt),
+        .word_num(output_word),
+        .letter(adr[output_word]),
+        .red(Red),
+        .green(Green),
+        .blue(Blue),
+        .correct(correct_n),
+        .word_cnt(word_cnt)
     );
 
-    /*blk_mem_gen_0 BMG0(
-        .clka(clk_d2),
-        .wea(0),
-        .addra(pixel_addr),
-        .dina(data[11:0]),
-        .douta(pixel)
-    );*/
 
     vga_controller VC0(
         .pclk(clk_d2),
@@ -137,7 +130,10 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
         .h_cnt(h_cnt),
         .v_cnt(v_cnt)
     );
-
+    //==========================================
+    
+    //IR========================================
+    IR_send irr(.clk(clk), .rst(rst_op), .ready(finish_ten_word), .out(ir_send));
     //==========================================
 
     //input the article=============================
@@ -202,7 +198,6 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[58] = 26;
     assign adr[59] = 49;
     assign adr[60] = 7;
-
     assign adr[61] = 4;
     assign adr[62] = 26;
     assign adr[63] = 22;
@@ -263,7 +258,6 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[118] = 0;
     assign adr[119] = 3;
     assign adr[120] = 24;
-
     assign adr[121] = 26;
     assign adr[122] = 3;
     assign adr[123] = 4;
@@ -324,7 +318,6 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[178] = 19;
     assign adr[179] = 26;
     assign adr[180] = 13;
-
     assign adr[181] = 14;
     assign adr[182] = 22;
     assign adr[183] = 26;
@@ -385,7 +378,6 @@ module top(clk, rst, IR_out, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, s
     assign adr[238] = 13;
     assign adr[239] = 6;
     assign adr[240] = 26;
-
     assign adr[241] = 14;
     assign adr[242] = 13;
     assign adr[243] = 26;

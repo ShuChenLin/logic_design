@@ -1,8 +1,8 @@
 `timescale 1ns/1ps
 
-module IR_send(clk, rst, out);
+module IR_send(clk, rst, ready, out);
     
-    input clk, rst;
+    input clk, rst, ready;
     output out;
 
     wire [12:0] tk38;
@@ -17,11 +17,11 @@ module IR_send(clk, rst, out);
     always @(posedge clk) begin
         if (rst) cnt <= 0;
         else begin
-            if (cnt >= tk38) next_cnt = 0;
-            else next_cnt = cnt + 1;
+            if (cnt >= tk38) cnt <= 0;
+            else cnt <= cnt_next;
         end
     end
 
-    assign out = (cnt <= tk38_half) ? 1 : 0;
+    assign out = ready ? ((cnt <= tk38_half) ? 1 : 0) : 0;
 
 endmodule

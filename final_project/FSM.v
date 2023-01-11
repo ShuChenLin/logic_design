@@ -1,18 +1,17 @@
 `timescale 1ns/1ps
 
-module FSM(clk, rst, key_down, last_change, been_ready, correct_n, wrong_cnt, done, state, wpm, stcnt);
+module FSM(clk, rst, key_down, last_change, been_ready, correct_n, wrong_cnt, state, stcnt, word_cnt);
     
     input clk, rst;
     input [511:0] key_down;
     input [8:0] last_change;
     input [5:0] wrong_cnt;
-    input been_ready, correct_n, done;
+    input been_ready, correct_n;
+    input [10:0] word_cnt;
     output [2:0] state;
-    output [6:0] wpm;
     output [28:0] stcnt;
 
     reg [2:0] state, next_state;
-    wire done;
 
     parameter [8:0] KEY_CODE_ENTER = 90;
 
@@ -37,7 +36,7 @@ module FSM(clk, rst, key_down, last_change, been_ready, correct_n, wrong_cnt, do
                 else next_state = WORD;
             end
             WORD : begin
-                if (done) next_state = FINISH;
+                if (word_cnt == 298) next_state = FINISH;
                 else if (!correct_n) next_state = WORD;
                 else if (correct_n) next_state = WRONG;
             end

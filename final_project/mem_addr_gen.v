@@ -27,9 +27,9 @@ module mem_addr_gen(
             if (word_num > 298 || (v_cnt / 8) == 27 || (v_cnt) / 8 == 29 || (v_cnt) / 8 == 31 || (v_cnt) / 8 == 33 || (v_cnt) / 8 == 35) {red, green, blue} = 12'b111111111111;
             else begin
                 if (correct && word_num == word_cnt) begin
-                    if (letter <= 25) {red, green, blue} = (Lowerletter[place] == 12'b111111111111) ? 12'b111111111111 : 12'b111100000000;
-                    else if (letter >= 26 && letter <= 29) {red, green, blue} = (otherletter[place2] == 12'b111111111111) ? 12'b111111111111 : 12'b111100000000;
-                    else {red, green, blue} = (Upperletter[place3] == 12'b111111111111) ? 12'b111111111111 : 12'b111100000000;
+                    if (letter <= 25) {red, green, blue} = (Lowerletter[place] == 12'b0) ? 12'b0 : 12'b111101110000;
+                    else if (letter >= 26 && letter <= 29) {red, green, blue} = (otherletter[place2] == 12'b0) ? 12'b0 : 12'b111101110000;
+                    else {red, green, blue} = (Upperletter[place3] == 12'b0) ? 12'b0 : 12'b111101110000;
                 end else if (word_num < word_cnt) begin
                     if (letter <= 25) {red, green, blue} = (Lowerletter[place] == 12'b111111111111) ? 12'b111111111111 : 12'b000011110000;
                     else if (letter >= 26 && letter <= 29) {red, green, blue} = (otherletter[place2] == 12'b111111111111) ? 12'b111111111111 : 12'b000011110000;
@@ -44,6 +44,7 @@ module mem_addr_gen(
         end
     end
     
+// input the rgb representation of the pictures I want    
 assign otherletter[0] = 12'b111111111111;
 assign otherletter[1] = 12'b111111111111;
 assign otherletter[2] = 12'b111111111111;

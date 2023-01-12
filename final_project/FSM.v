@@ -28,12 +28,11 @@ module FSM(clk, rst, key_down, last_change, been_ready, correct_n, wrong_cnt, st
         case (state)
             WAIT : begin
                 if (been_ready && key_down[last_change] && last_change == KEY_CODE_ENTER) begin
-                    next_state = WAIT_TO_START;
+                    next_state = WORD;
                 end else next_state = state;
             end
             WAIT_TO_START : begin
-                if (stcnt >= 300000000) next_state = WORD;
-                else next_state = WORD;
+                next_state = WORD;
             end
             WORD : begin
                 if (word_cnt == 298) next_state = FINISH;

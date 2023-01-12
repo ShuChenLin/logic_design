@@ -17,6 +17,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
 
     wire clk_d2; //25MHz
     wire clk_d22;
+    wire clk_d25;
     wire rst_debounce, rst_op;
     wire [5:0] adr [300:0];
     wire [16:0] pixel_addr; //picture address;
@@ -34,7 +35,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
 
     // variables
     wire [2:0] statee; // output of state, for debugging
-    wire [8:0] cpm; // char per minutes
+    wire [3:0] cpm1, cpm2, cpm3; // char per minutes, each is a single digit
     wire [28:0] stcnt; //count down three seconds.
     wire correct_n; // to know which state are you in (word or wrong)
     wire [5:0] wrong_cnt; // how many wrong words you type
@@ -42,13 +43,14 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     wire [8:0] output_word; //used for vga
     wire [3:0] Red, Green, Blue; // store the rgb and wait valid to output
     wire finish_ten_char; // output a IR signal every ten char
+    wire cursor; // to let the cursor wink
 
     assign goo = wrong_cnt[0];
     assign f[0] = word_cnt[0];
     assign f[1] = word_cnt[1];
     assign f[2] = word_cnt[2];
     assign cc = correct_n;
-    assign www = wrong_cnt;
+    assign www = {cpm1, cpm2[1:0]};
     
     assign state[0] = !statee[0];
     assign state[1] = !statee[1];
@@ -57,6 +59,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     assign finish_ten_char = (word_cnt && ((word_cnt % 10 == 0) || word_cnt == 297)) ? 1 : 0;
     assign {vgaRed, vgaGreen, vgaBlue} = (valid == 1'b1) ? {Red, Green, Blue} : 12'h0;
 
+    clk_div #(25) CD2(.clk(clk), .clk_d(clk_d25));
     clk_div #(2) CD0(.clk(clk), .clk_d(clk_d2));
     clk_div #(22) CD1(.clk(clk), .clk_d(clk_d22));
     debounce d0(clk, rst, rst_debounce);
@@ -105,22 +108,28 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     //==========================================
 
     //VGA=======================================
-    
     // count which word to output now
     assign output_word = (h_cnt >= 80 && v_cnt >= 208) ? ( ((h_cnt - 80) / 8) + (60 * ((v_cnt-208) / 16))) : 0;
+    assign cursor = (output_word == word_cnt && clk_d25);
     
     mem_addr_gen MAG(
         .clk(clk_d2),
         .rst(rst_op),
+        .state(statee),
         .h_cnt(h_cnt),
         .v_cnt(v_cnt),
         .word_num(output_word),
+        .wrong_cnt(wrong_cnt),
         .letter(adr[output_word]),
         .red(Red),
         .green(Green),
         .blue(Blue),
+        .cpm1(cpm1),
+        .cpm2(cpm2),
+        .cpm3(cpm3),
         .correct(correct_n),
-        .word_cnt(word_cnt)
+        .word_cnt(word_cnt),
+        .cursor(cursor)
     );
 
 
@@ -135,8 +144,25 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     );
     //==========================================
     
+    //cpm_counter=================================
+    char_per_min CCCC(
+        .clk(clk), 
+        .rst(rst_op), 
+        .word_cnt(word_cnt), 
+        .cpm1(cpm1),
+        .cpm2(cpm2),
+        .cpm3(cpm3), 
+        .state(statee)
+    );
+    //==========================================
+    
     //IR========================================
-    IR_send irr(.clk(clk), .rst(rst_op), .ready(finish_ten_char), .out(ir_send));
+    IR_send irr(
+        .clk(clk), 
+        .rst(rst_op), 
+        .ready(finish_ten_char), 
+        .out(ir_send)
+    );
     //==========================================
 
     //input the article=============================

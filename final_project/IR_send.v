@@ -1,5 +1,6 @@
 `timescale 1ns/1ps
 
+// used for counting the freq of IR transmiter
 module IR_send(clk, rst, ready, out);
     
     input clk, rst, ready;

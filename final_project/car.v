@@ -11,6 +11,7 @@ module top(clk, rst, ir_signal, run, gogo, see);
     assign see = ir_signal;
     
     always @(*) begin
+        // ir_signal == 0 means finsih ten char
         if (!ir_signal) begin
             next_cnt = 10000000;
         end else if (cnt == 0) next_cnt = 0;

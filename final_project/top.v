@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, state, hsync, vsync, cc, www, f, goo);
+module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, seg, statee, hsync, vsync, cc, www, f, goo);
     
     input clk, rst;
     inout PS2_DATA, PS2_CLK;
@@ -12,7 +12,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     output [3:0] vgaRed, vgaBlue, vgaGreen;
     output [3:0] an;
     output [6:0] seg;
-    output [2:0] state;
+    output [2:0] statee; // output of state, for debugging
     output hsync, vsync;
 
     wire clk_d2; //25MHz
@@ -34,9 +34,8 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     wire been_ready;
 
     // variables
-    wire [2:0] statee; // output of state, for debugging
+    wire [2:0] state; 
     wire [3:0] cpm1, cpm2, cpm3; // char per minutes, each is a single digit
-    wire [28:0] stcnt; //count down three seconds.
     wire correct_n; // to know which state are you in (word or wrong)
     wire [5:0] wrong_cnt; // how many wrong words you type
     wire [10:0] word_cnt; // which word in the article are you at
@@ -45,6 +44,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     wire finish_ten_char; // output a IR signal every ten char
     wire cursor; // to let the cursor wink
 
+    // output for debug=============
     assign goo = wrong_cnt[0];
     assign f[0] = word_cnt[0];
     assign f[1] = word_cnt[1];
@@ -52,9 +52,10 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     assign cc = correct_n;
     assign www = {cpm1, cpm2[1:0]};
     
-    assign state[0] = !statee[0];
-    assign state[1] = !statee[1];
-    assign state[2] = !statee[2];
+    assign statee[0] = !state[0];
+    assign statee[1] = !state[1];
+    assign statee[2] = !state[2];
+    //=============================
 
     assign finish_ten_char = (word_cnt && ((word_cnt % 10 == 0) || word_cnt == 297)) ? 1 : 0;
     assign {vgaRed, vgaGreen, vgaBlue} = (valid == 1'b1) ? {Red, Green, Blue} : 12'h0;
@@ -86,9 +87,8 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
         .been_ready(been_ready),
         .correct_n(correct_n),
         .wrong_cnt(wrong_cnt),
-        .state(statee),
-        .word_cnt(word_cnt),
-        .stcnt(stcnt)
+        .state(state),
+        .word_cnt(word_cnt)
     );
     //==========================================
 
@@ -99,7 +99,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
         .key_down(key_down),
         .last_change(last_change),
         .been_ready(been_ready),
-        .state(statee),
+        .state(state),
         .correct_n(correct_n),
         .word_cnt(word_cnt),
         .wrong_words(wrong_cnt),
@@ -115,7 +115,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
     mem_addr_gen MAG(
         .clk(clk_d2),
         .rst(rst_op),
-        .state(statee),
+        .state(state),
         .h_cnt(h_cnt),
         .v_cnt(v_cnt),
         .word_num(output_word),
@@ -152,7 +152,7 @@ module top(clk, rst, ir_send, vgaRed, vgaBlue, vgaGreen, PS2_DATA, PS2_CLK, an, 
         .cpm1(cpm1),
         .cpm2(cpm2),
         .cpm3(cpm3), 
-        .state(statee)
+        .state(state)
     );
     //==========================================
     

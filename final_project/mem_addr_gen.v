@@ -26,9 +26,11 @@ module mem_addr_gen(
    wire [11:0] Lowerletter [1663:0];
    wire [11:0] otherletter [255:0];
    wire [11:0] CPM [13311:0];
-   wire [16:0] cpm_digit1, cpm_digit2, cpm_digit3, count_for_cpm, CCPPMM; //cpm_digits are for finding the rgb of the number, count_for_cpm is for what to output on the display
+   //cpm_digits are for finding the rgb of the number, count_for_cpm is for what to output on the display
+   wire [16:0] cpm_digit1, cpm_digit2, cpm_digit3, count_for_cpm, CCPPMM;
    wire [15:0] place, place2, place3;
    
+   // variables for find the character in memories====================================================
    assign place = (h_cnt % 8) + 8*(v_cnt % 8) + (64 * letter);
    assign place2 = (h_cnt % 8) + 8*(v_cnt % 8) + (64 * (letter - 26));
    assign place3 = (h_cnt % 8) + 8*(v_cnt % 8) + (64 * (letter - 30));
@@ -37,10 +39,12 @@ module mem_addr_gen(
    assign cpm_digit3 = (h_cnt % 32) + 32 * (v_cnt % 32) + (1024 * (3 + cpm3));
    assign count_for_cpm = (h_cnt - 224) / 32;
    assign CCPPMM = (count_for_cpm < 3) ? (h_cnt % 32) + 32 * (v_cnt % 32) + (1024 * count_for_cpm) : 0;
+   //==================================================================================================
    
    always @(*) begin
         {red, green, blue} = 12'b111111111111;
         if (state == FINISH) begin
+            // only CPM in the middle of monitor
             if (v_cnt >= 224 && v_cnt <= 256 && h_cnt >= 224 && h_cnt <= 416) begin
                 if (count_for_cpm < 3) begin
                     {red, green, blue} = CPM[CCPPMM];
@@ -57,20 +61,27 @@ module mem_addr_gen(
                 if (word_num > 298 || (v_cnt / 8) == 27 || (v_cnt) / 8 == 29 || (v_cnt) / 8 == 31 || (v_cnt) / 8 == 33 || (v_cnt) / 8 == 35) {red, green, blue} = 12'b111111111111;
                 else begin
                     if (correct && (word_num >= word_cnt) && (word_num < word_cnt + wrong_cnt)) begin
+                        //wrong words
                         if (letter <= 25) {red, green, blue} = (Lowerletter[place] == 12'b0) ? 12'b0 : 12'b111100110000;
                         else if (letter >= 26 && letter <= 29) {red, green, blue} = (otherletter[place2] == 12'b0) ? 12'b0 : 12'b111100110000;
                         else {red, green, blue} = (Upperletter[place3] == 12'b0) ? 12'b0 : 12'b111100110000;
+
                     end else if (word_num < word_cnt) begin
+                        //already finished words
                         if (letter <= 25) {red, green, blue} = (Lowerletter[place] == 12'b111111111111) ? 12'b111111111111 : 12'b000011110000;
                         else if (letter >= 26 && letter <= 29) {red, green, blue} = (otherletter[place2] == 12'b111111111111) ? 12'b111111111111 : 12'b000011110000;
                         else {red, green, blue} = (Upperletter[place3] == 12'b111111111111) ? 12'b111111111111 : 12'b000011110000;
+
                     end else begin
+                        //word typing, place of cursor
                         if (letter <= 25) {red, green, blue} = (cursor) ? ~Lowerletter[place] : Lowerletter[place];
                         else if (letter >= 26 && letter <= 29) {red, green, blue} = (cursor) ? ~otherletter[place2] : otherletter[place2];
                         else {red, green, blue} = (cursor) ? ~Upperletter[place3] : Upperletter[place3];
+
                     end
                 end
             end else begin
+                // output for CPM
                 if (v_cnt >= 64 && v_cnt <= 96 && h_cnt >= 224 && h_cnt <= 416) begin
                     if (count_for_cpm < 3) begin
                         {red, green, blue} = CPM[CCPPMM];

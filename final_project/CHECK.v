@@ -54,7 +54,7 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
     reg correct_n, next_cor;
     reg [5:0] cnt_wrong, next_wrong;
     reg [10:0] word_cnt, next_word_cnt;
-    reg record, next_record;
+    reg record, next_record; // a new been_ready for wrong_cnt
     
     assign wrong_words = cnt_wrong;
 
@@ -68,6 +68,7 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
     */
 
     //RECORD================================
+    // record the been_ready until the next word but one clk
     always @(posedge clk) begin
         if (rst) record <= 0;
         else record <= next_record;
@@ -154,7 +155,7 @@ module CHECK(clk, rst, state, correct_n, word_cnt, wrong_words, word, key_down, 
                 end else next_wrong = 0;
             end
             WRONG : begin
-                if (last_change == KEY_LEFT_SHIFT || last_change == KEY_RIGHT_SHIFT) begin
+                if (last_change == KEY_LEFT_SHIFT || last_change == KEY_RIGHT_SHIFT || last_change == KEY_ENTER) begin
                     next_wrong = cnt_wrong;
                 end else if (been_ready && key_down[last_change]) begin
                     if (last_change == KEY_BACK) next_wrong = cnt_wrong - 1;

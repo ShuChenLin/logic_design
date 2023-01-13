@@ -1,5 +1,6 @@
 `timescale 1ns/1ps
 
+// useful modules
 module onepulse(clk, s, s_op);
 
 	input s, clk;

@@ -134,12 +134,8 @@ int sendFile(FILE *fd)
 	 * 
 	 ************************************************/
 
-    fseek(fd, 0, SEEK_SET);
+    rewind(fd);
     int seq_num = 0, sent_size = 0;
-    struct timeval TIME;
-    TIME.tv_sec = 0;
-    TIME.tv_usec = TIMEOUT * 1000;
-    setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &TIME, sizeof(TIME));
 
     while (1) {
         sent_size = fread(snd_pkt.data, sizeof(char), 1024, fd);
@@ -156,21 +152,27 @@ int sendFile(FILE *fd)
             size = sendto(sockfd, &snd_pkt, sizeof(snd_pkt), 0, (struct sockaddr *)&client_info, len);
             printf("\tSend %d bytes\n", size);
 
-            size = recvfrom(sockfd, &rcv_pkt, sizeof(rcv_pkt), 0, (struct sockaddr *)&client_info, (socklen_t *)&len);
-            if (size > 0 && snd_pkt.header.seq_num == rcv_pkt.header.ack_num) {
-                printf("\tReceived a packet ack_num %d\n", rcv_pkt.header.ack_num);
+            clock_t ex_time = clock()*1000/CLOCKS_PER_SEC + TIMEOUT;
+            int FLAG = 0;
 
-                seq_num++;
-
-                break;
-            } else {
-                printf("Time out! Resend packet!\n");
+            while (size = recvfrom(sockfd, &rcv_pkt, sizeof(rcv_pkt), 0, (struct sockaddr *)&client_info, (socklen_t *)&len)) {
+                if (clock()*1000/CLOCKS_PER_SEC > ex_time) {
+                    printf("\tTimeout! Resend packet!\n");
+                    break;
+                }
+                if (size != -1) {
+                    printf("\tReceive a packet ack_num %d\n", rcv_pkt.header.ack_num);
+                    seq_num++;
+                    FLAG = 1;
+                    break;
+                }
             }
+            if (FLAG) break;
 
         }
 
     }
-    setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &TIME, sizeof(TIME));
+
 
 	printf("send file successfully\n");
 	fclose(fd);

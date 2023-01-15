@@ -129,7 +129,8 @@ int recvFile(FILE *fd)
 		    // Write buffer into file if is_last flag is set
 		    //==============================================
             if (rcv_pkt.header.is_last) {
-                fwrite(buffer, 1, 123431, fd), fclose(fd);
+                fwrite(buffer, 1, receive_packet, fd);
+                fclose(fd);
                 break;
             }
         }
